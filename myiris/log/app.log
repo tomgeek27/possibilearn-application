@@ -1,0 +1,436 @@
+root - INFO - 2019-11-07 15:54:26,506: start
+root - INFO - 2019-11-07 15:54:40,664: cs: 0.1, 10, 100, 
+root - INFO - 2019-11-07 15:54:40,664: cs: ks: 0.5, 0.225, 0.1, 
+gurobipy.gurobipy - INFO - 2019-11-07 15:55:23,215: Academic license - for non-commercial use only
+root - INFO - 2019-11-07 15:55:36,528: performance test: 0.8947368421052632
+root - INFO - 2019-11-07 15:55:36,528: performance train: 0.9375
+root - INFO - 2019-11-07 15:55:36,529: C: 0.1
+root - INFO - 2019-11-07 15:55:36,529: K: 0.5
+root - INFO - 2019-11-07 15:55:50,437: performance test: 0.8947368421052632
+root - INFO - 2019-11-07 15:55:50,437: performance train: 0.9285714285714286
+root - INFO - 2019-11-07 15:55:50,437: C: 0.1
+root - INFO - 2019-11-07 15:55:50,437: K: 0.5
+root - INFO - 2019-11-07 15:56:04,497: performance test: 0.9459459459459459
+root - INFO - 2019-11-07 15:56:04,497: performance train: 0.9292035398230089
+root - INFO - 2019-11-07 15:56:04,497: C: 0.1
+root - INFO - 2019-11-07 15:56:04,497: K: 0.5
+root - INFO - 2019-11-07 15:56:17,812: performance test: 0.8918918918918919
+root - INFO - 2019-11-07 15:56:17,813: performance train: 0.9380530973451328
+root - INFO - 2019-11-07 15:56:17,813: C: 0.1
+root - INFO - 2019-11-07 15:56:17,813: K: 0.5
+root - INFO - 2019-11-07 15:56:31,732: performance test: 0.8421052631578947
+root - INFO - 2019-11-07 15:56:31,732: performance train: 0.9910714285714286
+root - INFO - 2019-11-07 15:56:31,732: C: 0.1
+root - INFO - 2019-11-07 15:56:31,733: K: 0.225
+root - INFO - 2019-11-07 15:56:45,380: performance test: 0.8947368421052632
+root - INFO - 2019-11-07 15:56:45,381: performance train: 0.9910714285714286
+root - INFO - 2019-11-07 15:56:45,381: C: 0.1
+root - INFO - 2019-11-07 15:56:45,381: K: 0.225
+root - INFO - 2019-11-07 15:56:58,831: performance test: 0.9459459459459459
+root - INFO - 2019-11-07 15:56:58,832: performance train: 0.9823008849557522
+root - INFO - 2019-11-07 15:56:58,832: C: 0.1
+root - INFO - 2019-11-07 15:56:58,832: K: 0.225
+root - INFO - 2019-11-07 15:57:14,067: performance test: 0.8648648648648649
+root - INFO - 2019-11-07 15:57:14,068: performance train: 0.9557522123893806
+root - INFO - 2019-11-07 15:57:14,068: C: 0.1
+root - INFO - 2019-11-07 15:57:14,068: K: 0.225
+root - INFO - 2019-11-07 15:57:27,899: performance test: 0.868421052631579
+root - INFO - 2019-11-07 15:57:27,899: performance train: 1.0
+root - INFO - 2019-11-07 15:57:27,900: C: 0.1
+root - INFO - 2019-11-07 15:57:27,900: K: 0.1
+root - INFO - 2019-11-07 15:57:41,356: performance test: 0.8947368421052632
+root - INFO - 2019-11-07 15:57:41,356: performance train: 1.0
+root - INFO - 2019-11-07 15:57:41,357: C: 0.1
+root - INFO - 2019-11-07 15:57:41,357: K: 0.1
+root - INFO - 2019-11-07 15:57:54,948: performance test: 0.9459459459459459
+root - INFO - 2019-11-07 15:57:54,949: performance train: 0.9911504424778761
+root - INFO - 2019-11-07 15:57:54,949: C: 0.1
+root - INFO - 2019-11-07 15:57:54,949: K: 0.1
+root - INFO - 2019-11-07 15:58:08,534: performance test: 0.7837837837837838
+root - INFO - 2019-11-07 15:58:08,534: performance train: 1.0
+root - INFO - 2019-11-07 15:58:08,534: C: 0.1
+root - INFO - 2019-11-07 15:58:08,534: K: 0.1
+root - INFO - 2019-11-07 15:58:22,087: performance test: 0.9210526315789473
+root - INFO - 2019-11-07 15:58:22,087: performance train: 0.9732142857142857
+root - INFO - 2019-11-07 15:58:22,087: C: 10
+root - INFO - 2019-11-07 15:58:22,087: K: 0.5
+root - INFO - 2019-11-07 15:58:35,401: performance test: 0.9473684210526315
+root - INFO - 2019-11-07 15:58:35,401: performance train: 0.9642857142857143
+root - INFO - 2019-11-07 15:58:35,401: C: 10
+root - INFO - 2019-11-07 15:58:35,402: K: 0.5
+root - INFO - 2019-11-07 15:58:48,696: performance test: 0.972972972972973
+root - INFO - 2019-11-07 15:58:48,697: performance train: 0.9646017699115044
+root - INFO - 2019-11-07 15:58:48,697: C: 10
+root - INFO - 2019-11-07 15:58:48,697: K: 0.5
+root - INFO - 2019-11-07 15:59:01,914: performance test: 0.8918918918918919
+root - INFO - 2019-11-07 15:59:01,914: performance train: 0.9823008849557522
+root - INFO - 2019-11-07 15:59:01,914: C: 10
+root - INFO - 2019-11-07 15:59:01,914: K: 0.5
+root - INFO - 2019-11-07 15:59:15,226: performance test: 0.8421052631578947
+root - INFO - 2019-11-07 15:59:15,227: performance train: 0.9821428571428571
+root - INFO - 2019-11-07 15:59:15,227: C: 10
+root - INFO - 2019-11-07 15:59:15,227: K: 0.225
+root - INFO - 2019-11-07 15:59:29,645: performance test: 0.8947368421052632
+root - INFO - 2019-11-07 15:59:29,645: performance train: 0.9910714285714286
+root - INFO - 2019-11-07 15:59:29,645: C: 10
+root - INFO - 2019-11-07 15:59:29,645: K: 0.225
+root - INFO - 2019-11-07 15:59:43,063: performance test: 0.9459459459459459
+root - INFO - 2019-11-07 15:59:43,064: performance train: 0.9911504424778761
+root - INFO - 2019-11-07 15:59:43,064: C: 10
+root - INFO - 2019-11-07 15:59:43,064: K: 0.225
+root - INFO - 2019-11-07 15:59:56,432: performance test: 0.8648648648648649
+root - INFO - 2019-11-07 15:59:56,432: performance train: 0.9646017699115044
+root - INFO - 2019-11-07 15:59:56,432: C: 10
+root - INFO - 2019-11-07 15:59:56,433: K: 0.225
+root - INFO - 2019-11-07 16:00:11,531: performance test: 0.868421052631579
+root - INFO - 2019-11-07 16:00:11,532: performance train: 1.0
+root - INFO - 2019-11-07 16:00:11,532: C: 10
+root - INFO - 2019-11-07 16:00:11,532: K: 0.1
+root - INFO - 2019-11-07 16:00:26,357: performance test: 0.8947368421052632
+root - INFO - 2019-11-07 16:00:26,357: performance train: 1.0
+root - INFO - 2019-11-07 16:00:26,357: C: 10
+root - INFO - 2019-11-07 16:00:26,357: K: 0.1
+root - INFO - 2019-11-07 16:00:43,127: performance test: 0.9459459459459459
+root - INFO - 2019-11-07 16:00:43,127: performance train: 1.0
+root - INFO - 2019-11-07 16:00:43,127: C: 10
+root - INFO - 2019-11-07 16:00:43,127: K: 0.1
+root - INFO - 2019-11-07 16:01:00,921: performance test: 0.7837837837837838
+root - INFO - 2019-11-07 16:01:00,921: performance train: 1.0
+root - INFO - 2019-11-07 16:01:00,921: C: 10
+root - INFO - 2019-11-07 16:01:00,922: K: 0.1
+root - INFO - 2019-11-07 16:01:17,752: performance test: 0.9210526315789473
+root - INFO - 2019-11-07 16:01:17,752: performance train: 0.9732142857142857
+root - INFO - 2019-11-07 16:01:17,752: C: 100
+root - INFO - 2019-11-07 16:01:17,752: K: 0.5
+root - INFO - 2019-11-07 16:01:34,216: performance test: 0.9473684210526315
+root - INFO - 2019-11-07 16:01:34,216: performance train: 0.9553571428571429
+root - INFO - 2019-11-07 16:01:34,216: C: 100
+root - INFO - 2019-11-07 16:01:34,216: K: 0.5
+root - INFO - 2019-11-07 16:01:49,086: performance test: 0.972972972972973
+root - INFO - 2019-11-07 16:01:49,086: performance train: 0.9646017699115044
+root - INFO - 2019-11-07 16:01:49,086: C: 100
+root - INFO - 2019-11-07 16:01:49,086: K: 0.5
+root - INFO - 2019-11-07 16:02:04,407: performance test: 0.8918918918918919
+root - INFO - 2019-11-07 16:02:04,407: performance train: 0.9823008849557522
+root - INFO - 2019-11-07 16:02:04,407: C: 100
+root - INFO - 2019-11-07 16:02:04,407: K: 0.5
+root - INFO - 2019-11-07 16:02:20,902: performance test: 0.8421052631578947
+root - INFO - 2019-11-07 16:02:20,902: performance train: 0.9821428571428571
+root - INFO - 2019-11-07 16:02:20,902: C: 100
+root - INFO - 2019-11-07 16:02:20,902: K: 0.225
+root - INFO - 2019-11-07 16:02:36,402: performance test: 0.8947368421052632
+root - INFO - 2019-11-07 16:02:36,402: performance train: 1.0
+root - INFO - 2019-11-07 16:02:36,402: C: 100
+root - INFO - 2019-11-07 16:02:36,402: K: 0.225
+root - INFO - 2019-11-07 16:02:50,595: performance test: 0.9459459459459459
+root - INFO - 2019-11-07 16:02:50,595: performance train: 0.9911504424778761
+root - INFO - 2019-11-07 16:02:50,595: C: 100
+root - INFO - 2019-11-07 16:02:50,595: K: 0.225
+root - INFO - 2019-11-07 16:03:05,925: performance test: 0.8648648648648649
+root - INFO - 2019-11-07 16:03:05,925: performance train: 0.9646017699115044
+root - INFO - 2019-11-07 16:03:05,925: C: 100
+root - INFO - 2019-11-07 16:03:05,926: K: 0.225
+root - INFO - 2019-11-07 16:03:20,760: performance test: 0.868421052631579
+root - INFO - 2019-11-07 16:03:20,760: performance train: 1.0
+root - INFO - 2019-11-07 16:03:20,760: C: 100
+root - INFO - 2019-11-07 16:03:20,760: K: 0.1
+root - INFO - 2019-11-07 16:03:36,774: performance test: 0.8947368421052632
+root - INFO - 2019-11-07 16:03:36,775: performance train: 1.0
+root - INFO - 2019-11-07 16:03:36,775: C: 100
+root - INFO - 2019-11-07 16:03:36,775: K: 0.1
+root - INFO - 2019-11-07 16:03:51,598: performance test: 0.9459459459459459
+root - INFO - 2019-11-07 16:03:51,598: performance train: 1.0
+root - INFO - 2019-11-07 16:03:51,599: C: 100
+root - INFO - 2019-11-07 16:03:51,599: K: 0.1
+root - INFO - 2019-11-07 16:04:06,902: performance test: 0.7837837837837838
+root - INFO - 2019-11-07 16:04:06,902: performance train: 1.0
+root - INFO - 2019-11-07 16:04:06,903: C: 100
+root - INFO - 2019-11-07 16:04:06,903: K: 0.1
+root - INFO - 2019-11-07 16:04:21,617: performance test: 0.9473684210526315
+root - INFO - 2019-11-07 16:04:21,617: performance train: 1.0
+root - INFO - 2019-11-07 16:04:21,617: C: 0.1
+root - INFO - 2019-11-07 16:04:21,617: K: 0.5
+root - INFO - 2019-11-07 16:04:37,868: performance test: 0.9473684210526315
+root - INFO - 2019-11-07 16:04:37,868: performance train: 1.0
+root - INFO - 2019-11-07 16:04:37,868: C: 0.1
+root - INFO - 2019-11-07 16:04:37,868: K: 0.5
+root - INFO - 2019-11-07 16:04:52,657: performance test: 0.972972972972973
+root - INFO - 2019-11-07 16:04:52,658: performance train: 0.9734513274336283
+root - INFO - 2019-11-07 16:04:52,658: C: 0.1
+root - INFO - 2019-11-07 16:04:52,658: K: 0.5
+root - INFO - 2019-11-07 16:05:08,209: performance test: 0.9459459459459459
+root - INFO - 2019-11-07 16:05:08,210: performance train: 0.9823008849557522
+root - INFO - 2019-11-07 16:05:08,210: C: 0.1
+root - INFO - 2019-11-07 16:05:08,210: K: 0.5
+root - INFO - 2019-11-07 16:05:23,183: performance test: 0.9210526315789473
+root - INFO - 2019-11-07 16:05:23,183: performance train: 1.0
+root - INFO - 2019-11-07 16:05:23,183: C: 0.1
+root - INFO - 2019-11-07 16:05:23,183: K: 0.225
+root - INFO - 2019-11-07 16:05:37,639: performance test: 0.9210526315789473
+root - INFO - 2019-11-07 16:05:37,639: performance train: 1.0
+root - INFO - 2019-11-07 16:05:37,639: C: 0.1
+root - INFO - 2019-11-07 16:05:37,639: K: 0.225
+root - INFO - 2019-11-07 16:05:53,109: performance test: 0.972972972972973
+root - INFO - 2019-11-07 16:05:53,110: performance train: 1.0
+root - INFO - 2019-11-07 16:05:53,110: C: 0.1
+root - INFO - 2019-11-07 16:05:53,110: K: 0.225
+root - INFO - 2019-11-07 16:06:09,278: performance test: 0.9459459459459459
+root - INFO - 2019-11-07 16:06:09,278: performance train: 1.0
+root - INFO - 2019-11-07 16:06:09,278: C: 0.1
+root - INFO - 2019-11-07 16:06:09,278: K: 0.225
+root - INFO - 2019-11-07 16:06:25,242: performance test: 0.8947368421052632
+root - INFO - 2019-11-07 16:06:25,242: performance train: 1.0
+root - INFO - 2019-11-07 16:06:25,243: C: 0.1
+root - INFO - 2019-11-07 16:06:25,243: K: 0.1
+root - INFO - 2019-11-07 16:06:41,675: performance test: 0.9210526315789473
+root - INFO - 2019-11-07 16:06:41,675: performance train: 1.0
+root - INFO - 2019-11-07 16:06:41,676: C: 0.1
+root - INFO - 2019-11-07 16:06:41,676: K: 0.1
+root - INFO - 2019-11-07 16:06:57,167: performance test: 0.972972972972973
+root - INFO - 2019-11-07 16:06:57,167: performance train: 1.0
+root - INFO - 2019-11-07 16:06:57,168: C: 0.1
+root - INFO - 2019-11-07 16:06:57,168: K: 0.1
+root - INFO - 2019-11-07 16:07:14,596: performance test: 0.8918918918918919
+root - INFO - 2019-11-07 16:07:14,596: performance train: 1.0
+root - INFO - 2019-11-07 16:07:14,596: C: 0.1
+root - INFO - 2019-11-07 16:07:14,597: K: 0.1
+root - INFO - 2019-11-07 16:07:30,437: performance test: 0.9736842105263158
+root - INFO - 2019-11-07 16:07:30,437: performance train: 0.9910714285714286
+root - INFO - 2019-11-07 16:07:30,437: C: 10
+root - INFO - 2019-11-07 16:07:30,437: K: 0.5
+root - INFO - 2019-11-07 16:07:47,413: performance test: 0.9473684210526315
+root - INFO - 2019-11-07 16:07:47,413: performance train: 1.0
+root - INFO - 2019-11-07 16:07:47,413: C: 10
+root - INFO - 2019-11-07 16:07:47,413: K: 0.5
+root - INFO - 2019-11-07 16:08:02,489: performance test: 0.972972972972973
+root - INFO - 2019-11-07 16:08:02,490: performance train: 0.9823008849557522
+root - INFO - 2019-11-07 16:08:02,490: C: 10
+root - INFO - 2019-11-07 16:08:02,490: K: 0.5
+root - INFO - 2019-11-07 16:08:18,206: performance test: 0.9459459459459459
+root - INFO - 2019-11-07 16:08:18,206: performance train: 0.9823008849557522
+root - INFO - 2019-11-07 16:08:18,206: C: 10
+root - INFO - 2019-11-07 16:08:18,206: K: 0.5
+root - INFO - 2019-11-07 16:08:36,597: performance test: 0.9210526315789473
+root - INFO - 2019-11-07 16:08:36,597: performance train: 1.0
+root - INFO - 2019-11-07 16:08:36,597: C: 10
+root - INFO - 2019-11-07 16:08:36,597: K: 0.225
+root - INFO - 2019-11-07 16:08:53,133: performance test: 0.9210526315789473
+root - INFO - 2019-11-07 16:08:53,133: performance train: 1.0
+root - INFO - 2019-11-07 16:08:53,133: C: 10
+root - INFO - 2019-11-07 16:08:53,134: K: 0.225
+root - INFO - 2019-11-07 16:09:09,529: performance test: 0.972972972972973
+root - INFO - 2019-11-07 16:09:09,529: performance train: 1.0
+root - INFO - 2019-11-07 16:09:09,530: C: 10
+root - INFO - 2019-11-07 16:09:09,530: K: 0.225
+root - INFO - 2019-11-07 16:09:25,450: performance test: 0.9459459459459459
+root - INFO - 2019-11-07 16:09:25,450: performance train: 1.0
+root - INFO - 2019-11-07 16:09:25,450: C: 10
+root - INFO - 2019-11-07 16:09:25,451: K: 0.225
+root - INFO - 2019-11-07 16:09:41,046: performance test: 0.8947368421052632
+root - INFO - 2019-11-07 16:09:41,046: performance train: 1.0
+root - INFO - 2019-11-07 16:09:41,046: C: 10
+root - INFO - 2019-11-07 16:09:41,046: K: 0.1
+root - INFO - 2019-11-07 16:09:56,610: performance test: 0.9210526315789473
+root - INFO - 2019-11-07 16:09:56,610: performance train: 1.0
+root - INFO - 2019-11-07 16:09:56,610: C: 10
+root - INFO - 2019-11-07 16:09:56,611: K: 0.1
+root - INFO - 2019-11-07 16:10:12,694: performance test: 0.972972972972973
+root - INFO - 2019-11-07 16:10:12,694: performance train: 1.0
+root - INFO - 2019-11-07 16:10:12,695: C: 10
+root - INFO - 2019-11-07 16:10:12,695: K: 0.1
+root - INFO - 2019-11-07 16:10:29,152: performance test: 0.8918918918918919
+root - INFO - 2019-11-07 16:10:29,152: performance train: 1.0
+root - INFO - 2019-11-07 16:10:29,152: C: 10
+root - INFO - 2019-11-07 16:10:29,152: K: 0.1
+root - INFO - 2019-11-07 16:10:48,018: performance test: 0.9736842105263158
+root - INFO - 2019-11-07 16:10:48,018: performance train: 0.9910714285714286
+root - INFO - 2019-11-07 16:10:48,019: C: 100
+root - INFO - 2019-11-07 16:10:48,019: K: 0.5
+root - INFO - 2019-11-07 16:11:03,834: performance test: 0.9473684210526315
+root - INFO - 2019-11-07 16:11:03,835: performance train: 1.0
+root - INFO - 2019-11-07 16:11:03,835: C: 100
+root - INFO - 2019-11-07 16:11:03,835: K: 0.5
+root - INFO - 2019-11-07 16:11:19,612: performance test: 0.972972972972973
+root - INFO - 2019-11-07 16:11:19,612: performance train: 0.9823008849557522
+root - INFO - 2019-11-07 16:11:19,612: C: 100
+root - INFO - 2019-11-07 16:11:19,612: K: 0.5
+root - INFO - 2019-11-07 16:11:35,929: performance test: 0.9459459459459459
+root - INFO - 2019-11-07 16:11:35,929: performance train: 0.9911504424778761
+root - INFO - 2019-11-07 16:11:35,929: C: 100
+root - INFO - 2019-11-07 16:11:35,929: K: 0.5
+root - INFO - 2019-11-07 16:11:52,160: performance test: 0.9210526315789473
+root - INFO - 2019-11-07 16:11:52,160: performance train: 1.0
+root - INFO - 2019-11-07 16:11:52,160: C: 100
+root - INFO - 2019-11-07 16:11:52,160: K: 0.225
+root - INFO - 2019-11-07 16:12:08,508: performance test: 0.9210526315789473
+root - INFO - 2019-11-07 16:12:08,508: performance train: 1.0
+root - INFO - 2019-11-07 16:12:08,508: C: 100
+root - INFO - 2019-11-07 16:12:08,509: K: 0.225
+root - INFO - 2019-11-07 16:12:26,274: performance test: 0.972972972972973
+root - INFO - 2019-11-07 16:12:26,274: performance train: 1.0
+root - INFO - 2019-11-07 16:12:26,275: C: 100
+root - INFO - 2019-11-07 16:12:26,275: K: 0.225
+root - INFO - 2019-11-07 16:12:39,894: performance test: 0.9459459459459459
+root - INFO - 2019-11-07 16:12:39,894: performance train: 1.0
+root - INFO - 2019-11-07 16:12:39,894: C: 100
+root - INFO - 2019-11-07 16:12:39,894: K: 0.225
+root - INFO - 2019-11-07 16:12:55,461: performance test: 0.8947368421052632
+root - INFO - 2019-11-07 16:12:55,461: performance train: 1.0
+root - INFO - 2019-11-07 16:12:55,461: C: 100
+root - INFO - 2019-11-07 16:12:55,461: K: 0.1
+root - INFO - 2019-11-07 16:13:10,342: performance test: 0.9210526315789473
+root - INFO - 2019-11-07 16:13:10,342: performance train: 1.0
+root - INFO - 2019-11-07 16:13:10,342: C: 100
+root - INFO - 2019-11-07 16:13:10,342: K: 0.1
+root - INFO - 2019-11-07 16:13:25,058: performance test: 0.972972972972973
+root - INFO - 2019-11-07 16:13:25,058: performance train: 1.0
+root - INFO - 2019-11-07 16:13:25,058: C: 100
+root - INFO - 2019-11-07 16:13:25,058: K: 0.1
+root - INFO - 2019-11-07 16:13:39,682: performance test: 0.8918918918918919
+root - INFO - 2019-11-07 16:13:39,683: performance train: 1.0
+root - INFO - 2019-11-07 16:13:39,683: C: 100
+root - INFO - 2019-11-07 16:13:39,683: K: 0.1
+root - INFO - 2019-11-07 16:13:53,317: performance test: 0.9210526315789473
+root - INFO - 2019-11-07 16:13:53,317: performance train: 1.0
+root - INFO - 2019-11-07 16:13:53,317: C: 0.1
+root - INFO - 2019-11-07 16:13:53,317: K: 0.5
+root - INFO - 2019-11-07 16:14:07,296: performance test: 0.9473684210526315
+root - INFO - 2019-11-07 16:14:07,296: performance train: 1.0
+root - INFO - 2019-11-07 16:14:07,296: C: 0.1
+root - INFO - 2019-11-07 16:14:07,296: K: 0.5
+root - INFO - 2019-11-07 16:14:21,440: performance test: 0.972972972972973
+root - INFO - 2019-11-07 16:14:21,440: performance train: 1.0
+root - INFO - 2019-11-07 16:14:21,440: C: 0.1
+root - INFO - 2019-11-07 16:14:21,440: K: 0.5
+root - INFO - 2019-11-07 16:14:35,068: performance test: 0.9459459459459459
+root - INFO - 2019-11-07 16:14:35,068: performance train: 0.9911504424778761
+root - INFO - 2019-11-07 16:14:35,068: C: 0.1
+root - INFO - 2019-11-07 16:14:35,068: K: 0.5
+root - INFO - 2019-11-07 16:14:48,476: performance test: 0.8947368421052632
+root - INFO - 2019-11-07 16:14:48,476: performance train: 1.0
+root - INFO - 2019-11-07 16:14:48,477: C: 0.1
+root - INFO - 2019-11-07 16:14:48,477: K: 0.225
+root - INFO - 2019-11-07 16:15:01,880: performance test: 0.9210526315789473
+root - INFO - 2019-11-07 16:15:01,880: performance train: 1.0
+root - INFO - 2019-11-07 16:15:01,880: C: 0.1
+root - INFO - 2019-11-07 16:15:01,880: K: 0.225
+root - INFO - 2019-11-07 16:15:16,450: performance test: 0.972972972972973
+root - INFO - 2019-11-07 16:15:16,450: performance train: 1.0
+root - INFO - 2019-11-07 16:15:16,450: C: 0.1
+root - INFO - 2019-11-07 16:15:16,450: K: 0.225
+root - INFO - 2019-11-07 16:15:31,444: performance test: 0.9459459459459459
+root - INFO - 2019-11-07 16:15:31,445: performance train: 1.0
+root - INFO - 2019-11-07 16:15:31,445: C: 0.1
+root - INFO - 2019-11-07 16:15:31,445: K: 0.225
+root - INFO - 2019-11-07 16:15:46,563: performance test: 0.8947368421052632
+root - INFO - 2019-11-07 16:15:46,563: performance train: 1.0
+root - INFO - 2019-11-07 16:15:46,563: C: 0.1
+root - INFO - 2019-11-07 16:15:46,563: K: 0.1
+root - INFO - 2019-11-07 16:16:00,875: performance test: 0.9210526315789473
+root - INFO - 2019-11-07 16:16:00,875: performance train: 1.0
+root - INFO - 2019-11-07 16:16:00,876: C: 0.1
+root - INFO - 2019-11-07 16:16:00,876: K: 0.1
+root - INFO - 2019-11-07 16:16:14,892: performance test: 0.972972972972973
+root - INFO - 2019-11-07 16:16:14,892: performance train: 1.0
+root - INFO - 2019-11-07 16:16:14,893: C: 0.1
+root - INFO - 2019-11-07 16:16:14,893: K: 0.1
+root - INFO - 2019-11-07 16:16:29,865: performance test: 0.918918918918919
+root - INFO - 2019-11-07 16:16:29,865: performance train: 1.0
+root - INFO - 2019-11-07 16:16:29,865: C: 0.1
+root - INFO - 2019-11-07 16:16:29,866: K: 0.1
+root - INFO - 2019-11-07 16:16:44,609: performance test: 0.9210526315789473
+root - INFO - 2019-11-07 16:16:44,609: performance train: 1.0
+root - INFO - 2019-11-07 16:16:44,609: C: 10
+root - INFO - 2019-11-07 16:16:44,610: K: 0.5
+root - INFO - 2019-11-07 16:16:59,266: performance test: 0.9473684210526315
+root - INFO - 2019-11-07 16:16:59,267: performance train: 1.0
+root - INFO - 2019-11-07 16:16:59,267: C: 10
+root - INFO - 2019-11-07 16:16:59,267: K: 0.5
+root - INFO - 2019-11-07 16:17:14,159: performance test: 0.972972972972973
+root - INFO - 2019-11-07 16:17:14,160: performance train: 1.0
+root - INFO - 2019-11-07 16:17:14,160: C: 10
+root - INFO - 2019-11-07 16:17:14,160: K: 0.5
+root - INFO - 2019-11-07 16:17:27,662: performance test: 0.9459459459459459
+root - INFO - 2019-11-07 16:17:27,663: performance train: 0.9911504424778761
+root - INFO - 2019-11-07 16:17:27,663: C: 10
+root - INFO - 2019-11-07 16:17:27,663: K: 0.5
+root - INFO - 2019-11-07 16:17:41,118: performance test: 0.8947368421052632
+root - INFO - 2019-11-07 16:17:41,118: performance train: 1.0
+root - INFO - 2019-11-07 16:17:41,119: C: 10
+root - INFO - 2019-11-07 16:17:41,119: K: 0.225
+root - INFO - 2019-11-07 16:17:54,657: performance test: 0.9210526315789473
+root - INFO - 2019-11-07 16:17:54,657: performance train: 1.0
+root - INFO - 2019-11-07 16:17:54,657: C: 10
+root - INFO - 2019-11-07 16:17:54,657: K: 0.225
+root - INFO - 2019-11-07 16:18:08,130: performance test: 0.972972972972973
+root - INFO - 2019-11-07 16:18:08,130: performance train: 1.0
+root - INFO - 2019-11-07 16:18:08,131: C: 10
+root - INFO - 2019-11-07 16:18:08,131: K: 0.225
+root - INFO - 2019-11-07 16:18:21,759: performance test: 0.9459459459459459
+root - INFO - 2019-11-07 16:18:21,761: performance train: 1.0
+root - INFO - 2019-11-07 16:18:21,761: C: 10
+root - INFO - 2019-11-07 16:18:21,761: K: 0.225
+root - INFO - 2019-11-07 16:18:35,259: performance test: 0.8947368421052632
+root - INFO - 2019-11-07 16:18:35,259: performance train: 1.0
+root - INFO - 2019-11-07 16:18:35,259: C: 10
+root - INFO - 2019-11-07 16:18:35,259: K: 0.1
+root - INFO - 2019-11-07 16:18:51,724: performance test: 0.9210526315789473
+root - INFO - 2019-11-07 16:18:51,724: performance train: 1.0
+root - INFO - 2019-11-07 16:18:51,725: C: 10
+root - INFO - 2019-11-07 16:18:51,725: K: 0.1
+root - INFO - 2019-11-07 16:19:07,358: performance test: 0.972972972972973
+root - INFO - 2019-11-07 16:19:07,358: performance train: 1.0
+root - INFO - 2019-11-07 16:19:07,358: C: 10
+root - INFO - 2019-11-07 16:19:07,358: K: 0.1
+root - INFO - 2019-11-07 16:19:22,573: performance test: 0.918918918918919
+root - INFO - 2019-11-07 16:19:22,573: performance train: 1.0
+root - INFO - 2019-11-07 16:19:22,573: C: 10
+root - INFO - 2019-11-07 16:19:22,573: K: 0.1
+root - INFO - 2019-11-07 16:19:37,557: performance test: 0.9210526315789473
+root - INFO - 2019-11-07 16:19:37,557: performance train: 1.0
+root - INFO - 2019-11-07 16:19:37,557: C: 100
+root - INFO - 2019-11-07 16:19:37,557: K: 0.5
+root - INFO - 2019-11-07 16:19:51,005: performance test: 0.9473684210526315
+root - INFO - 2019-11-07 16:19:51,005: performance train: 1.0
+root - INFO - 2019-11-07 16:19:51,005: C: 100
+root - INFO - 2019-11-07 16:19:51,005: K: 0.5
+root - INFO - 2019-11-07 16:20:04,591: performance test: 0.972972972972973
+root - INFO - 2019-11-07 16:20:04,592: performance train: 1.0
+root - INFO - 2019-11-07 16:20:04,592: C: 100
+root - INFO - 2019-11-07 16:20:04,592: K: 0.5
+root - INFO - 2019-11-07 16:20:18,304: performance test: 0.9459459459459459
+root - INFO - 2019-11-07 16:20:18,304: performance train: 0.9911504424778761
+root - INFO - 2019-11-07 16:20:18,304: C: 100
+root - INFO - 2019-11-07 16:20:18,305: K: 0.5
+root - INFO - 2019-11-07 16:20:31,769: performance test: 0.8947368421052632
+root - INFO - 2019-11-07 16:20:31,769: performance train: 1.0
+root - INFO - 2019-11-07 16:20:31,769: C: 100
+root - INFO - 2019-11-07 16:20:31,769: K: 0.225
+root - INFO - 2019-11-07 16:20:45,198: performance test: 0.9210526315789473
+root - INFO - 2019-11-07 16:20:45,198: performance train: 1.0
+root - INFO - 2019-11-07 16:20:45,198: C: 100
+root - INFO - 2019-11-07 16:20:45,198: K: 0.225
+root - INFO - 2019-11-07 16:20:58,809: performance test: 0.972972972972973
+root - INFO - 2019-11-07 16:20:58,810: performance train: 1.0
+root - INFO - 2019-11-07 16:20:58,810: C: 100
+root - INFO - 2019-11-07 16:20:58,810: K: 0.225
+root - INFO - 2019-11-07 16:21:12,423: performance test: 0.9459459459459459
+root - INFO - 2019-11-07 16:21:12,424: performance train: 1.0
+root - INFO - 2019-11-07 16:21:12,424: C: 100
+root - INFO - 2019-11-07 16:21:12,424: K: 0.225
+root - INFO - 2019-11-07 16:21:26,312: performance test: 0.8947368421052632
+root - INFO - 2019-11-07 16:21:26,312: performance train: 1.0
+root - INFO - 2019-11-07 16:21:26,312: C: 100
+root - INFO - 2019-11-07 16:21:26,312: K: 0.1
+root - INFO - 2019-11-07 16:21:39,788: performance test: 0.9210526315789473
+root - INFO - 2019-11-07 16:21:39,788: performance train: 1.0
+root - INFO - 2019-11-07 16:21:39,788: C: 100
+root - INFO - 2019-11-07 16:21:39,788: K: 0.1
+root - INFO - 2019-11-07 16:21:53,448: performance test: 0.972972972972973
+root - INFO - 2019-11-07 16:21:53,449: performance train: 1.0
+root - INFO - 2019-11-07 16:21:53,449: C: 100
+root - INFO - 2019-11-07 16:21:53,449: K: 0.1
+root - INFO - 2019-11-07 16:22:07,021: performance test: 0.918918918918919
+root - INFO - 2019-11-07 16:22:07,022: performance train: 1.0
+root - INFO - 2019-11-07 16:22:07,022: C: 100
+root - INFO - 2019-11-07 16:22:07,022: K: 0.1
