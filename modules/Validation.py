@@ -21,7 +21,7 @@ def get_best_performance(performances):
 def __get_indices(dataset_values, dataset_labels, indices):
     return ([dataset_values[i] for i in indices], [dataset_labels[i] for i in indices])
 
-def split_dataset(dataset_values, dataset_labels, random_state=None, size_train=0.6, size_validation=0.2):
+def split_train_validation_test_dataset(dataset_values, dataset_labels, random_state=None, size_train=0.6, size_validation=0.2):
     assert(len(dataset_values) == len(dataset_labels))
     assert(0 < size_train + size_validation < 1)
 
@@ -41,9 +41,6 @@ def split_dataset(dataset_values, dataset_labels, random_state=None, size_train=
     test_values, test_labels = __get_indices(dataset_values, dataset_labels, test_indices)
 
     return (train_values, train_labels, validation_values, validation_labels, test_values, test_labels, train_indices, validation_indices, test_indices)
-
-def cross_validation(k, dataset): 
-    return KFold(n_splits=k, shuffle=True).split(dataset)
 
 def split_train_test_dataset(dataset_values, dataset_labels, random_state=None, size_train=0.6):
     assert(len(dataset_values) == len(dataset_labels))

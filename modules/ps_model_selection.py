@@ -1,7 +1,6 @@
 from sklearn.model_selection import KFold
 from sklearn.model_selection import train_test_split
 from possibilearn import *
-import functools
 
 class Validation:
 
