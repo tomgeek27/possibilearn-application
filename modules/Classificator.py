@@ -1,5 +1,4 @@
 from possibilearn import *
-from tesimodules import Validation
 from sklearn.base import BaseEstimator, ClassifierMixin
 import numpy as np
 
@@ -36,12 +35,28 @@ def Gen_models(cs, sigmas, classes):
     
     return models
 
+def Get_mu(dataset_labels):
+    mu = {}
+    classes = np.unique(dataset_labels)
+
+    for clas in classes:
+        mu[clas] = [1 if label == clas else 0 for label in dataset_labels]
+    
+    return mu
+
 class Model_PL(BaseEstimator):
+    """
+    Definisce il l'istanza del modello basato su una fissata 'c' e un fissato 'sigma'
+    """
     def __init__(self, c=1, sigma=1):
         self.c = c
         self.sigma = sigma
 
     def fit(self, train_values, train_labels, mu):
+        """
+        Genero il modello (allenato su train_values e le rispettive train_labels)
+        con le varie membership_functions per ogni classe che deffiniscono il grado di appartenenza ad esse
+        """
         mu_train={}
         indices = []
         labels = []
@@ -94,18 +109,30 @@ class Model_PL(BaseEstimator):
         classes = self.membership_functions.keys()
         return sorted([(l, self.get_membership_function(l)(item)) for l in classes], key=lambda i:i[1], reverse=True)[0][0]
     
-    def score(self, values, y_true):
+    def score(self, values, labels, labels_indexed=True):
         """
         Valuta le prestazioni del modello sul set di 'values' avendo come valori prefissati 'labels'
         """
-        assert(len(values) == len(y_true))
+        assert(len(values) == len(labels))
         assert(self.membership_functions != None)
+        
+        """
+        'labels_indexed' indica se 'labels' è una lista di tuple con la struttura <index, label>
+        oppure se è una lista di <label>
+        """
+        if(labels_indexed):
+            _labels = []
+            for _, label in labels:
+                _labels.append(label)
+            
+            return self.__score(values, _labels)
+        else:
+            return self.__score(values, labels)
 
-        labels = []
-        for _, label in y_true:
-            labels.append(label)
-        print(labels)
+    def __score(self, values, labels):
         results = list(zip(map(lambda item: self.__classify(item), values), labels))
         validation_result = len([r for r in results if r[0] == r[1]])/len(values)
 
-        return validation_result 
+        return validation_result
+
+

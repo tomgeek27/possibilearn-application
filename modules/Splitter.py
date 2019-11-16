@@ -1,22 +1,4 @@
-from sklearn.model_selection import train_test_split, KFold
 import numpy as np
-
-def get_best_performance(performances):
-    if(len(performances) == 0):
-        raise Exception("Performances can't have zero elements") 
-
-    if (type(performances) != dict):
-        raise Exception("Performances must be a dict with hyperparamters as key")
-
-    max = -1
-    best_index = list(performances.keys())[0]
-
-    for p in performances.keys():
-        if performances[p] > max:
-            best_index = p
-            max = performances[best_index]
-    
-    return best_index
 
 def __get_indices(dataset_values, dataset_labels, indices):
     return ([dataset_values[i] for i in indices], [dataset_labels[i] for i in indices])
