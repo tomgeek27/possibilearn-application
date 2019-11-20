@@ -1,5 +1,7 @@
 from possibilearn import *
 from sklearn.base import BaseEstimator, ClassifierMixin
+import time
+import logging
 import numpy as np
 
 def Find_best_model(models, comparison_values, comparison_labels, validation_values=None, validation_labels=None):
@@ -48,15 +50,40 @@ class Model_PL(BaseEstimator):
     """
     Definisce il l'istanza del modello basato su una fissata 'c' e un fissato 'sigma'
     """
-    def __init__(self, c=1, sigma=1):
+    def __init__(self, c=1, sigma=1, path="", model_name=""):
+
+        assert(model_name != "" or model_name != None)
+        assert(path != "" or path != None)
+
+        logger = logging.getLogger()
+        if(logger.hasHandlers()):
+            for i in logger.handlers:
+                logger.removeHandler(i)
+        
+        logger.setLevel(logging.INFO)
+        
+        #handlers
+        file_handler = logging.FileHandler(path + ".log", 'a')
+
+        #formatters
+        file_formatter = file_handler.setFormatter(logging.Formatter('PID(%(process)d) - {}: %(message)s'.format(model_name)))
+
+        logger.addHandler(file_handler)
+
         self.c = c
         self.sigma = sigma
+        self.path = path
+        self.model_name = model_name
 
-    def fit(self, train_values, train_labels, mu):
+        logging.info("INIT %s", model_name)
+        logging.info("PARAMS: [c: %s, sigma: %s]", str(c), str(sigma))
+
+    def fit(self, train_values, train_labels, mu, adjustment=0):
         """
         Genero il modello (allenato su train_values e le rispettive train_labels)
         con le varie membership_functions per ogni classe che deffiniscono il grado di appartenenza ad esse
         """
+        logging.info("START FITTING")
         mu_train={}
         indices = []
         labels = []
@@ -78,12 +105,15 @@ class Model_PL(BaseEstimator):
         dimension = len(train_values[0])
 
         for clas in classes:
+            start = time.time()
             membership_functions[clas], _ = possibility_learn(train_values, 
                                                                 mu_train[clas], 
                                                                 c=self.c, 
                                                                 k=GaussianKernel(self.sigma), 
-                                                                sample_generator=get_generator(dimension))
-
+                                                                sample_generator=get_generator(dimension),
+                                                                adjustment=adjustment)
+            logging.info("MEMBERSHIP FUNCTION FOR CLASS '%s':\n * Function: %s \n * Secondi: %.2f\n * Minuti: %.2f", str(clas), str(membership_functions[clas]), (time.time() - start), ((time.time() - start) / 60))
+            print("FUNCTION {}:\n - MEMBERSHIP FUNCTION: {} \n - SECONDS: {:.2f}\n - MINUTES: {:.2f}".format(clas, membership_functions[clas], (time.time() - start), (time.time() - start) / 60))
         self.membership_functions = membership_functions
         return self  
 
@@ -104,7 +134,6 @@ class Model_PL(BaseEstimator):
         Viene effettuata una predizione di 'item' usando tutte le membership_function e prelevando quella con una probabilità maggiore
         """
         assert(self.membership_functions != None)
-
 
         classes = self.membership_functions.keys()
         return sorted([(l, self.get_membership_function(l)(item)) for l in classes], key=lambda i:i[1], reverse=True)[0][0]
@@ -132,7 +161,7 @@ class Model_PL(BaseEstimator):
     def __score(self, values, labels):
         results = list(zip(map(lambda item: self.__classify(item), values), labels))
         validation_result = len([r for r in results if r[0] == r[1]])/len(values)
-
+        logging.info("RESULT OF[c: %s, sigma: %s]: %s", str(self.get_c()), str(self.get_sigma()), str(validation_result))
         return validation_result
 
 

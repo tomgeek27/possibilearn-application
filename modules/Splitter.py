@@ -24,7 +24,7 @@ def split_train_validation_test_dataset(dataset_values, dataset_labels, random_s
 
     return (train_values, train_labels, validation_values, validation_labels, test_values, test_labels, train_indices, validation_indices, test_indices)
 
-def split_train_test_dataset(dataset_values, dataset_labels, random_state=None, size_train=0.6):
+def split_train_test_dataset(dataset_values, dataset_labels, merged_data=False, random_state=None, size_train=0.6):
     assert(len(dataset_values) == len(dataset_labels))
     assert(0 < size_train < 1)
 
@@ -37,7 +37,20 @@ def split_train_test_dataset(dataset_values, dataset_labels, random_state=None, 
     train_indices = permutation_indices[:train_length]
     test_indices = permutation_indices[train_length:]
 
+    print(train_indices)
+
+    print(test_indices)
+
     train_values, train_labels = __get_indices(dataset_values, dataset_labels, train_indices)
     test_values, test_labels = __get_indices(dataset_values, dataset_labels, test_indices)
 
-    return (train_values, train_labels, test_values, test_labels, train_indices, test_indices)
+    if(not merged_data):
+        return (train_values, train_labels, test_values, test_labels, train_indices, test_indices)
+    
+    merged_train_values = list(zip(train_indices, train_values))
+    merged_test_values = list(zip(test_indices, test_values))
+
+    merged_train_labels = list(zip(train_indices, train_labels))
+    merged_test_labels = list(zip(test_indices, test_labels))
+
+    return (merged_train_values, merged_train_labels, merged_test_values, merged_test_labels)
