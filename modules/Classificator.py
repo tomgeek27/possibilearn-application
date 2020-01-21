@@ -106,13 +106,21 @@ class Model_PL(BaseEstimator):
 
         for clas in classes:
             start = time.time()
-            membership_functions[clas], _ = possibility_learn(train_values, 
-                                                                mu_train[clas], 
-                                                                c=self.c, 
-                                                                k=GaussianKernel(self.sigma), 
-                                                                sample_generator=get_generator(dimension),
-                                                                adjustment=adjustment)
+            if(sum(mu_train[clas]) > 1):
+                membership_functions[clas], _ = possibility_learn(train_values, 
+                                                                    mu_train[clas], 
+                                                                    c=self.c, 
+                                                                    k=GaussianKernel(self.sigma), 
+                                                                    sample_generator=get_generator(dimension),
+                                                                    adjustment=adjustment)
+            else:
+                membership_functions[clas] = lambda x: 0
+
             logging.info("MEMBERSHIP FUNCTION FOR CLASS '%s':\n * Function: %s \n * Secondi: %.2f\n * Minuti: %.2f", str(clas), str(membership_functions[clas]), (time.time() - start), ((time.time() - start) / 60))
+            print("len(train): ", len(train_values))
+            print("len(mu_train[", clas, "]): ", len(mu_train[clas]))
+            print(mu_train[clas])
+            print(sum(mu_train[clas]))
             print("FUNCTION {}:\n - MEMBERSHIP FUNCTION: {} \n - SECONDS: {:.2f}\n - MINUTES: {:.2f}".format(clas, membership_functions[clas], (time.time() - start), (time.time() - start) / 60))
         self.membership_functions = membership_functions
         return self  
