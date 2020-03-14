@@ -1,5 +1,5 @@
-/mytest
-/.vscode
+.vscode/
+.ionide/
 .DS_Store
 **/.DS_Store
 **/gurobi.log
