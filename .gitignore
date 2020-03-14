@@ -1,1 +1,6 @@
 /mytest
+/.vscode
+.DS_Store
+**/.DS_Store
+**/gurobi.log
+**/.ipynb_checkpoints
