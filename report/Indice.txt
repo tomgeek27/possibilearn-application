@@ -1,0 +1,20 @@
+Titolo: Riconoscimento di volti tramite insiemi fuzzy
+
+Introduzione
+
+Capitolo 1: Apprendimento automatico
+
+Capitolo 2: Induzione di insiemi fuzzy
+
+    Sezione 2.1: La logica fuzzy
+    Sezione 2.2: Possibilearn
+
+Capitolo 3: Esperimenti
+
+    Sezione 3.1: Dati utilizzati
+        Sezione 3.1.1: Olivetti faces
+        Sezione 3.1.2: AT&T faces
+    
+    Sezione 3.2: I risultati
+
+Conclusione
