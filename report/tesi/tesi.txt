@@ -243,7 +243,7 @@ Capitolo 1: L'apprendimento automatico
 
     Sezione 1.2: Ridimensionamento delle feature
 
-    Nel machine learning, come abbiamo visto, i dati che vengono elaborati, giocano un ruolo davvero fondamentale nello sviluppo di un modello che riesca a predire nel modo corretto i nuovi dati che verrano esaminati da quest'ultimo.
+    Nel machine learning, come abbiamo visto, l'input, gioca un ruolo fondamentale nello sviluppo di un modello, che riesca a predire nel modo corretto i nuovi dati che verrano esaminati da quest'ultimo.
     In questo testo ci concentreremo proprio sul riconoscimento dei volti all'interno delle immagini, quindi per per parlare dell'importanza del ridimensionamento delle feature, faremo riferimento proprio all'analisi di immagini che raffigurano persone, animali o oggetti.
 
     Spesso, ci troviamo davanti a dei dati di dimensioni eccessive, i quali comportano in primis dei problemi a livello tempistico e anche a problemi a livello computativo.
@@ -256,8 +256,9 @@ Capitolo 1: L'apprendimento automatico
 
     *** Sezione 1.2.1: PCA (Principal Component Analysis)
 
-    PCA (Principale Component Analysis)
-    
+    PCA (Principale Component Analysis) è un metodo di riduzione delle dimensionalità di un oggetto. Lo scopo di PCA è quindi quello di diminuire il numero di variabili, limitando il più possibile la perdita di informazioni. 
+    In primo luogo, viene calcolata la media per ogni feature. Una volta calcolata, il vettore risultante lo faremo coincidere con l'origine degli assi, in questo modo ogni punto verrà traslato di conseguenza. A questo punto viene calcolata la retta che meglio si adatta a tutti i punti, ovvero la retta R che minimizza la somma delle distanze dei punti da R. Questa viene chiamata principal component 1. Si ripete questo passaggio per ogni dimensione, mantendo la perpendicolarità della nuova retta (o principal component_{n}) rispetto all'ultima retta calcolata (o principal component_{n-1}). 
+    Una volta calcolate tutte le principal component dello spazio PCA si va a calcolare, per ognuna di esse, l'autovettore, il quale sarò utilizzato per determinare la nuova posizione di ogni punto sul rispettivo asse. Una volta scalati tutti i punti si può calcolare la varianza per ogni asse. Il valore della varianza x, calcolata in percentuale, ci dice quanto pesa l'inforamzione contenuta sull'asse x, questo ci permetterà quindi, di eliminare gli assi meno interessanti, ovvero gli assi con la varianza più bassa. 
 
 
     Sezione 1.2: Utilizzi
