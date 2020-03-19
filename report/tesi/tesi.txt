@@ -256,10 +256,23 @@ Capitolo 1: L'apprendimento automatico
 
     *** Sezione 1.2.1: PCA (Principal Component Analysis)
 
-    PCA (Principale Component Analysis) è un metodo di riduzione delle dimensionalità di un oggetto. Lo scopo di PCA è quindi quello di diminuire il numero di variabili, limitando il più possibile la perdita di informazioni. 
+    PCA (Principale Component Analysis) è un metodo di riduzione delle dimensionalità. Lo scopo di PCA è quindi quello di diminuire il numero di variabili, limitando il più possibile la perdita di informazioni. 
     In primo luogo, viene calcolata la media per ogni feature. Una volta calcolata, il vettore risultante lo faremo coincidere con l'origine degli assi, in questo modo ogni punto verrà traslato di conseguenza. A questo punto viene calcolata la retta che meglio si adatta a tutti i punti, ovvero la retta R che minimizza la somma delle distanze dei punti da R. Questa viene chiamata principal component 1. Si ripete questo passaggio per ogni dimensione, mantendo la perpendicolarità della nuova retta (o principal component_{n}) rispetto all'ultima retta calcolata (o principal component_{n-1}). 
     Una volta calcolate tutte le principal component dello spazio PCA si va a calcolare, per ognuna di esse, l'autovettore, il quale sarò utilizzato per determinare la nuova posizione di ogni punto sul rispettivo asse. Una volta scalati tutti i punti si può calcolare la varianza per ogni asse. Il valore della varianza x, calcolata in percentuale, ci dice quanto pesa l'inforamzione contenuta sull'asse x, questo ci permetterà quindi, di eliminare gli assi meno interessanti, ovvero gli assi con la varianza più bassa. 
 
+    Questa tecnica, oltre a semplificare il lavoro di manipolazione delle caratteristiche, aiuta a migliorare i risultati dell'algoritmo di machine learning. PCA aiuta gli algoritmi di machine learning perchè estrpola le informazioni realmente utili per predire la classe o il valore da attrivuire ad un oggetto. Tutte le informazioni di contorno, come ad esempio, i pixel situati sul bordo di un'immagine posso essere fuorvianti per l'algoritmo di apprendimento. Questo è il motivo per il quale esso semplifica e ottimizza i valori risultanti.
+
+    PCA vede un vasto utilizzo nell'ambito di:
+    \begin{itemize}
+        \item riconoscimento facciale
+        \item image compression
+        \item rilevamento di pattern in campi ad alta dimensionalità
+        \item data mining
+    \end{itemize}
+
+    *** Sezione 1.2.2: t-SNE (t-distributed stochastic neighbor embedding)
+
+    È una tecnica di riduzione della dimensionalità non lineare che si presta particolarmente alla mappatura di spazi ad alta dimensionalità in uno spazio a due o tre dimensioni, nel quale possono essere visualizzati tramite un grafico di dispersione. L'algoritmo modella i punti in modo che oggetti vicini nello spazio originale risultino vicini nello spazio a dimensionalità ridotta, e oggetti lontani risultino lontani.
 
     Sezione 1.2: Utilizzi
 
