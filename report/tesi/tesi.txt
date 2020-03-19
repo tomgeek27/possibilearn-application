@@ -232,7 +232,7 @@ Capitolo 1: L'apprendimento automatico
 
         Il quarto ed ultimo approccio chiamato Reinforcement learning, è un approccio che si differenzia da quelli visti fino ad ora. Questo paradigma si occupa di problemi di decisioni sequenziali, in cui l'azione da compiere dipende dallo stato attuale del sistema e ne determina quello futuro. In altre parole, questo è un sistema dinamico che può apprendere in seguito ad ogni decisione presa, a prescindere che questa sia giusta o sbagliata.
 
-        [IMMAGINE DELLO SCENARIO DI RL] (https://www.aitrends.com/education/udacitys-school-of-ai-opens-the-new-deep-reinforcement-learning-nanodegree-program-for-enrollment/)
+        [IMMAGINE DELLO SCENARIO DI RL] (https://www.aitrends.com/education/udacitys-school-of-ai-opens-the-new-deep-reinforcement-learning-nanodegree-program-for-enrollment/) (https://www.guru99.com/reinforcement-learning-tutorial.html)
 
         Quando il sistema prende una decisione, esso otterrà una "ricompensa" che può essere un punteggio, che sarà alto o basso a seconda se la decisione presa è giusta o sbagliata. Con questa logica, la macchina cercherà di fare sempre meglio per arrivare a ottenere il punteggio più alto possibile, prendendo così solo le decisioni corrette. 
 
@@ -240,7 +240,25 @@ Capitolo 1: L'apprendimento automatico
 
         * Imparare a giocare a scacchi
         * Imparare a guidare un veicolo
-        * 
+
+    Sezione 1.2: Ridimensionamento delle feature
+
+    Nel machine learning, come abbiamo visto, i dati che vengono elaborati, giocano un ruolo davvero fondamentale nello sviluppo di un modello che riesca a predire nel modo corretto i nuovi dati che verrano esaminati da quest'ultimo.
+    In questo testo ci concentreremo proprio sul riconoscimento dei volti all'interno delle immagini, quindi per per parlare dell'importanza del ridimensionamento delle feature, faremo riferimento proprio all'analisi di immagini che raffigurano persone, animali o oggetti.
+
+    Spesso, ci troviamo davanti a dei dati di dimensioni eccessive, i quali comportano in primis dei problemi a livello tempistico e anche a problemi a livello computativo.
+    
+    Ci basti pensare che quando si cerca di analizzare un'immagine per estrapolarne delle informazioni (riconoscimento di oggetti, persone, animali) dobbiamo prendere passare in rassegna tutti i pixel! Supponiamo di prendere anche un'immagine, a bassa risoluzione, ad esempio 500x500, significherebbe trovarsi davanti a 500**2 pixel, ovvero 250.000 elementi per una singola immagine! Questo comporterebbe quindi, di analizzare uno spazio sovra dimensionato, con, appunto 250.000 dimensioni.
+
+    Pensare ad uno spazio di quelle dimensioni è impensabile, proprio per questo ci vengono in soccorso delle tecniche che si occupano di ridurre il numero di elementi che definsicono l'oggetto, senza perdere, o meglio, estrapolando, solamente le informazioni più utili che permettono di differenziare un oggetto da un'altro.
+
+    Pensiamo ad esempio a un'immagine in cui è raffigurato il volto di una persona. E' normale pensare che non tutti i pixel siano di fondamentale importanza per riconoscere il soggetto raffigurato. Ad esempio, tutti i pixel presenti nei bordi dell'immagine saranno sicuramente da scartare in quanto non ci diranno niente sulla persona raffigurata, così come molti altri pixel che raffigurano parti poco interessanti, ad esempio lo sfondo dell'immagine. Vediamo nel dettaglio quali sono gli strumenti più utilizzati per risolvere questo tipo di problemi.
+
+    *** Sezione 1.2.1: PCA (Principal Component Analysis)
+
+    PCA (Principale Component Analysis)
+    
+
 
     Sezione 1.2: Utilizzi
 
