@@ -1,47 +1,14 @@
-\BOOKMARK [0][-]{chapter*.1}{Ringraziamenti}{}% 1
-\BOOKMARK [0][-]{chapter*.1}{Indice}{}% 2
-\BOOKMARK [0][-]{chapter.1}{Apprendimento automatico}{}% 3
-\BOOKMARK [1][-]{section.1.1}{Approcci}{chapter.1}% 4
-\BOOKMARK [2][-]{subsection.1.1.1}{Supervisionato}{section.1.1}% 5
-\BOOKMARK [3][-]{subsubsection.1.1.1.1}{k-Nearest Neighbour}{subsection.1.1.1}% 6
-\BOOKMARK [3][-]{subsubsection.1.1.1.2}{Linear models}{subsection.1.1.1}% 7
-\BOOKMARK [3][-]{subsubsection.1.1.1.3}{Support Vector Classifier}{subsection.1.1.1}% 8
-\BOOKMARK [3][-]{subsubsection.1.1.1.4}{Alberi di decisione}{subsection.1.1.1}% 9
-\BOOKMARK [2][-]{subsection.1.1.2}{Unsupervised}{section.1.1}% 10
-\BOOKMARK [2][-]{subsection.1.1.3}{Semi-supervised}{section.1.1}% 11
-\BOOKMARK [2][-]{subsection.1.1.4}{Reinforcement learning}{section.1.1}% 12
-\BOOKMARK [0][-]{chapter.2}{Stato dell'arte}{}% 13
-\BOOKMARK [1][-]{section.2.1}{Risorse}{chapter.2}% 14
-\BOOKMARK [1][-]{section.2.2}{Buone pratiche}{chapter.2}% 15
-\BOOKMARK [1][-]{section.2.3}{Bibliografia e sitografia}{chapter.2}% 16
-\BOOKMARK [0][-]{chapter.3}{Tecnologie utilizzate}{}% 17
-\BOOKMARK [1][-]{section.3.1}{Generalit\340}{chapter.3}% 18
-\BOOKMARK [2][-]{subsection.3.1.1}{La scrittura WYSIWYG vs. WYSIWYM}{section.3.1}% 19
-\BOOKMARK [2][-]{subsection.3.1.2}{Risorse e strumenti}{section.3.1}% 20
-\BOOKMARK [1][-]{section.3.2}{Suggerimenti sull'uso di LaTeX}{chapter.3}% 21
-\BOOKMARK [2][-]{subsection.3.2.1}{Riferimenti incrociati}{section.3.2}% 22
-\BOOKMARK [2][-]{subsection.3.2.2}{Ritorni a capo}{section.3.2}% 23
-\BOOKMARK [2][-]{subsection.3.2.3}{Accenti}{section.3.2}% 24
-\BOOKMARK [2][-]{subsection.3.2.4}{Spazi tra parole}{section.3.2}% 25
-\BOOKMARK [2][-]{subsection.3.2.5}{Interlinea}{section.3.2}% 26
-\BOOKMARK [2][-]{subsection.3.2.6}{Doppie virgolette}{section.3.2}% 27
-\BOOKMARK [2][-]{subsection.3.2.7}{Ambienti per scrivere codice}{section.3.2}% 28
-\BOOKMARK [2][-]{subsection.3.2.8}{Figure}{section.3.2}% 29
-\BOOKMARK [1][-]{section.3.3}{BibTeX}{chapter.3}% 30
-\BOOKMARK [2][-]{subsection.3.3.1}{Generalit\340}{section.3.3}% 31
-\BOOKMARK [2][-]{subsection.3.3.2}{Strumenti}{section.3.3}% 32
-\BOOKMARK [0][-]{chapter.4}{Nome del Progetto}{}% 33
-\BOOKMARK [1][-]{section.4.1}{Panoramica del progetto}{chapter.4}% 34
-\BOOKMARK [1][-]{section.4.2}{Implementazione}{chapter.4}% 35
-\BOOKMARK [0][-]{chapter.5}{Test}{}% 36
-\BOOKMARK [1][-]{section.5.1}{Protocollo}{chapter.5}% 37
-\BOOKMARK [1][-]{section.5.2}{Risultati}{chapter.5}% 38
-\BOOKMARK [1][-]{section.5.3}{Osservazioni}{chapter.5}% 39
-\BOOKMARK [0][-]{chapter.6}{Conclusioni}{}% 40
-\BOOKMARK [1][-]{section.6.1}{Conclusioni}{chapter.6}% 41
-\BOOKMARK [1][-]{section.6.2}{Sviluppi futuri}{chapter.6}% 42
-\BOOKMARK [0][-]{appendix.Alph1}{Il tirocinio e la correzione}{}% 43
-\BOOKMARK [0][-]{appendix.Alph2}{Il riassunto}{}% 44
-\BOOKMARK [0][-]{appendix.Alph3}{La consegna}{}% 45
-\BOOKMARK [0][-]{appendix.Alph4}{La presentazione}{}% 46
-\BOOKMARK [0][-]{appendix.Alph4}{Bibliografia}{}% 47
+\BOOKMARK [0][-]{Doc-Start}{Indice}{}% 1
+\BOOKMARK [0][-]{chapter.1}{Apprendimento automatico}{}% 2
+\BOOKMARK [1][-]{section.1.1}{Approcci}{chapter.1}% 3
+\BOOKMARK [2][-]{subsection.1.1.1}{Supervisionato}{section.1.1}% 4
+\BOOKMARK [3][-]{subsubsection.1.1.1.1}{k-Nearest Neighbor}{subsection.1.1.1}% 5
+\BOOKMARK [3][-]{subsubsection.1.1.1.2}{Linear models}{subsection.1.1.1}% 6
+\BOOKMARK [3][-]{subsubsection.1.1.1.3}{Support Vector Machine}{subsection.1.1.1}% 7
+\BOOKMARK [3][-]{subsubsection.1.1.1.4}{Alberi di decisione}{subsection.1.1.1}% 8
+\BOOKMARK [2][-]{subsection.1.1.2}{Unsupervised}{section.1.1}% 9
+\BOOKMARK [2][-]{subsection.1.1.3}{Semi-supervised}{section.1.1}% 10
+\BOOKMARK [2][-]{subsection.1.1.4}{Reinforcement learning}{section.1.1}% 11
+\BOOKMARK [1][-]{section.1.2}{Ridimensionamento delle funzionalit\340}{chapter.1}% 12
+\BOOKMARK [2][-]{subsection.1.2.1}{PCA \(Principal Component Analysis\)}{section.1.2}% 13
+\BOOKMARK [2][-]{subsection.1.2.2}{t-SNE \(t-distributed stochastic neighbor embedding\)}{section.1.2}% 14

@@ -1,6 +1,6 @@
 Capitolo 1: L'apprendimento automatico
 
-    TODO: Cos'è l'apprendimento automatico?
+    Il Machine Learning insegna ai computer a compiere attività in modo naturale come gli esseri umani o gli animali: imparando dall’esperienza. In sostanza, gli algoritmi di Machine Learning usano metodi matematico-computazionali per apprendere informazioni direttamente dai dati, senza modelli matematici ed equazioni predeterminate. Gli algoritmi di Machine Learning migliorano le loro prestazioni in modo “adattivo” mano a mano che gli “esempi” da cui apprendere aumentano. Cerchiamo allora di capire cos’è il Machine Learning, come funziona e quali sono le sue applicazioni.
 
     Sezione 1.1: Approcci
 
@@ -271,8 +271,18 @@ Capitolo 1: L'apprendimento automatico
     \end{itemize}
 
     *** Sezione 1.2.2: t-SNE (t-distributed stochastic neighbor embedding)
-
+    %Documenta con delle immagini prendedole dal video https://www.youtube.com/watch?v=NEaUSP4YerM
     È una tecnica di riduzione della dimensionalità non lineare che si presta particolarmente alla mappatura di spazi ad alta dimensionalità in uno spazio a due o tre dimensioni, nel quale possono essere visualizzati tramite un grafico di dispersione. L'algoritmo modella i punti in modo che oggetti vicini nello spazio originale risultino vicini nello spazio a dimensionalità ridotta, e oggetti lontani risultino lontani.
+
+    Per spiegare il funzionamento di questo algoritmo, basiamoci su un caso semplice: un grafico 2D. Con questo esempio spiegheremo quindi il funzionamento di t-SNE e come è possibile passare da due dimensioni, ad una sola, mantenendo le corrette distanze. Per farlo ci baseremo sulle probabilità che un elemento sia vicino ad un'altro. Quindi per ogni punto x, andiamo a centrare su di esso una curva gaussiana. Per ogni altro punto y app INSIEME / x, andiamo a inserirlo sotto la distribuzione gaussiana, per poi calcolarne la probabilità di densità.
+    //la quale verrà utilizzata per calcolare la probabilità che ogni altro elemento, sia vicino a x. 
+    Si usa la curva gaussiana perchè lavora bene su casi come questo: restituisce un'alta probabilità se un elemento è molto vicino e una molto bassa probabilità se questo è lontano. A questo punto normalizziamo la curva per tutti i punti in modo che essi abbiano una misura proporzionata e non indipendente. La distribuzione può in realtà essere manipolata tramite una variabile chiamata perplessità, la quale va a modificare la varianza e quindi l'ampiezza della curva.
+    A questo punto avremo ottenuto una matrice M1 quadrata con tutti gli score per ogni coppia. Ora andiamo a inserire tutti i punti, in maniera randomica su un'unico asse. Analogamente a quanto appena fatto, calcoliamo la probabilità di vicinanza tra i punti, con la differenza che questa volta useremo la distribuzione di Student (in inglese t-distribution, da cui deriva la t di t-SNE). Analogamente, otteremo una seconda matrice M2 quadrata, la quale sarà, probabilmente, molto diversa da M1. L'obiettivo adesso, sarà quello di adattare la matrice M2 a M1. Così facendo riusciremo a mantenere i cluster visualizzabili nel grafico bidimensionale.
+
+    Nella seconda parte dell'algoritmo, viene usata una t-distribution perchè distacca meglio i cluster nel piano generato. Se avessimo usato una distribuzione gaussiana, come nella prima parte, il risultato ottenuto sarebbe stato meno visibile, in quanto tutti i cluster si sarebbero ammassati al centro.
+    
+    L'ampiezza della curva gaussiana per un elemento x si basa sulla densità degli elementi vicini, questo implica che lo score che A sia vicino a B, può essere diversa dallo score che B sia vicino ad A. Per gestire questo problema viene calcolata la media tra i due. 
+    
 
     Sezione 1.2: Utilizzi
 
