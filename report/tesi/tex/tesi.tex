@@ -237,7 +237,7 @@ Nel grafico in Figura \ref{fig:linear_regression} è rappresentato il dataset de
 \begin{figure}[h!]
 	\center
 	\includegraphics[scale=0.6]{../img/linear_regression}
-	\caption{Linear regression}
+	\caption{Regressione lineare. I punti rappresentano i pazienti e la retta nera rappresenta la retta di regressione che approssima meglio all'andamento di tutti i punti}
 	\label{fig:linear_regression}
 \end{figure}
 
@@ -294,6 +294,8 @@ Quindi quando ci si trova davanti a problemi di suddivisione dell'iperspazio bis
 	\label{fig:svc_on_z_axis}
 \end{figure}
 
+\pagebreak
+
 %SVMQuesto trucco prevede anche dei parametri $ C $ e $ \gamma $, detti iperparametri (o parametri di tuning).
 %Essi influiscono sulla selezione dell'iperpiano che si va ad ottenere nello spazio inziale:
 %\begin{itemize}
@@ -305,13 +307,20 @@ Quindi quando ci si trova davanti a problemi di suddivisione dell'iperspazio bis
 \subsubsection{Alberi di decisione}
 
 Gli alberi di decisione (o \emph{decision trees}) sono un algoritmo di classificazione o di regressione la cui logica si basa su una struttura ad albero. I nodi dell'albero rappresentano delle domande (o \emph{test}) la cui risposta è di tipo binario (vero o falso) mentre le foglie rappresentano le classi che vogliamo predire.
-
+\begin{figure}[h!]
+	\center
+	\includegraphics[scale=0.35]{../img/example_decision_tree} %https://medium.com/@george.drakos62/support-vector-Machine-vs-logistic-regression-94cc2975433f
+	\caption{Esempio di albero di decisione per la classificazione di un animale}
+	\label{fig:example_decision_tree}
+\end{figure}
 %L'algoritmo predispone delle domande sulla base dei dati contenuti nell'input. 
-Supponiamo, ad esempio, di voler distinguere un animale tra: falco, pinguino, delfino e orso. Nell'esempio in Figura xxx l'algoritmo parte dalla domanda D: "Ha le piume?". In questo modo abbiamo definito il primo nodo N dell'albero rappresentato da D. Sapendo che i \emph{test} previsti dall'algoritmo restituiscono un output binario, da N si diramano due sotto-alberi, rappresentati dalle categorie: $ \mathrm{C_0} $(``ha le piume"); $ \mathrm{C_1} $(``non ha le piume"). Considerando gli elementi appartenenti a $ \mathrm{C_1} $ (orso e delfino) mediante un'ulteriore domanda si possono distinguere i due animali e quindi determinarne la classe di appartenenza di ciascuno di essi. Seguendo quindi la domanda, ``Ha le pinne?" se la risposta è si, si sta parlando del delfino, ovvero l'unico animale tra i quattro che non ha le piume e ha le pinne, altrimenti è l'orso. Seguendo questa logica è possibile arrivare -- con le giuste domande -- a fare delle predizioni.
+
+\noindent{Supponiamo, ad esempio, di voler distinguere un animale tra: falco, pinguino, delfino e orso. Nell'esempio in Figura \ref{fig:example_decision_tree} l'algoritmo parte dalla domanda D: "Ha le piume?". In questo modo abbiamo definito il primo nodo N dell'albero rappresentato da D. Sapendo che i \emph{test} previsti dall'algoritmo restituiscono un output binario, da N si diramano due sotto-alberi, rappresentati dalle categorie: $ \mathrm{C_0} $(``ha le piume"); $ \mathrm{C_1} $(``non ha le piume"). Considerando gli elementi appartenenti a $ \mathrm{C_1} $ (orso e delfino) mediante un'ulteriore domanda si possono distinguere i due animali e quindi determinarne la classe di appartenenza di ciascuno di essi. Seguendo quindi la domanda, ``Ha le pinne?" se la risposta è si, si sta parlando del delfino, ovvero l'unico animale tra i quattro che non ha le piume e ha le pinne, altrimenti è l'orso. Seguendo questa logica è possibile arrivare -- con le giuste domande -- a fare delle predizioni.}
 
 Questo è un esempio eccessivamente semplificato. Nella realtà i dati che vengono analizzati hanno spesso valori di tipo continuo, quindi il \emph{test} a cui rispondono è del tipo: ``$ x $ è maggiore di $ k $?", dove $x$  rappresenta una \emph{feature} del dataset e $k$ rappresenta una costante.
 
 Una volta definiti i \emph{test} è possibile suddividere il piano su cui rappresentiamo i dati in diverse aree, ognuna delle quali è rappresentata da una foglia (e quindi da una classe).
+
 
 \begin{figure}[h!]
 	\center
@@ -341,40 +350,39 @@ Per risolvere questo problema, esistono due strategie:
 \end{itemize}
 
 \subsection{Non supervisionato}
-La tecnica non supervisionata (o \emph{Unsupervised Learning}) è il secondo importante approccio all'applicazione del ML. Cosa si intende dire con non supervisionata? Come può una macchina imparare se nessuno la guida nella scelta di decisioni?
-Questa è proprio la sfida che si vuole superare con questa tecnica, ovvero far estrapolare al calcolatore, delle informazioni "nascoste" all'interno dei dati che gli vengono forniti. Queste informazioni solitamente sono dei legami, schemi o regole che i dati tendono a seguire.
+La tecnica non supervisionata (o \emph{Unsupervised Learning}) è il secondo importante approccio all'applicazione del ML. Cosa si intende dire con non supervisionata? Come può una macchina imparare se nessuno la guida nella scelta delle decisioni?
+Questa è proprio la sfida che si vuole superare con questa tecnica, ovvero far estrapolare al calcolatore delle informazioni ``nascoste" all'interno dei dati che gli vengono forniti. Queste informazioni solitamente sono legami, schemi o regole che i dati tendono a seguire.
 
-Ci sono diversi utilizzi di ML non supervisionato, in questa sezione ci limiteremo a elencarne alcuni. Il principale algoritmo di \emph{Unsupervised Learning} è il clustering, ossia un algoritmo in grado di suddividere in gruppi distinti, degli elementi che hanno dati e caratteristiche in comune.
+Ci sono diversi utilizzi di ML non supervisionato, in questa sezione ci limiteremo a elencarne alcuni. Il principale algoritmo di \emph{Unsupervised Learning} è il clustering, ossia un algoritmo in grado di suddividere in gruppi distinti elementi che hanno dati e caratteristiche in comune.
 
-Supponiamo di aver scattato una serie di foto in cui sono raffigurate delle persone e decidiamo di caricarle su un social network. Durante il caricamento, il social su cui le stiamo caricando, visiona le foto e applica proprio un algoritmo di clustering. In che modo? L'algoritmo non sa nè chi siano le persone raffigurate nè quante esse siano. L'algoritmo andrà a cercare tutti i volti nelle foto che abbiamo caricato e, successivamente, dopo aver definito una lista di tutti i volti presenti in ogni foto, tramite un algoritmo di clustering va a cercare delle somiglianze in questi volti. Alla fine della sua esecuzione l'algoritmo avrà raggruppato le foto dove è presente lo stesso soggetto.
+Supponiamo di aver scattato una serie di fotografie in cui sono raffigurate delle persone e decidiamo di caricarle su un social network. Supponiamo inoltre che durante il caricamento il social network su cui le stiamo caricando visiona le foto e applica proprio un algoritmo di clustering. In che modo? L'algoritmo non sa nè chi siano le persone raffigurate nè quante siano. Andrà, però, a cercare tutti i volti nelle fotografie che abbiamo caricato e, successivamente, dopo aver definito una lista di tutti i volti presenti in ogni foto, tramite un algoritmo di clustering cercherà delle somiglianze in questi volti. Alla fine della sua esecuzione l'algoritmo avrà raggruppato le foto dove è presente lo stesso soggetto.
 
-Un altro esempio di utilizzo ricade nella sicurezza informatica. Al giorno d'oggi i tipi di attacchi conosciuti sono probabilmente solo la punta dell'iceberg. Ricorrendo però a tecniche come questa possiamo riuscire ad individuare e bloccare attacchi tuttora sconosciuti. 
-Supponiamo di essere loggati nel sito della nostra banca. Tramite il ML non supervisionato il sistema memorizzerà tutte le operazioni che faremo. Supponiamo di effettuare quotidianamente delle specifiche operazioni ad un fissato orario, in una specifica località geografica. Bene, queste informazioni vengono salvate dal calcolatore il quale le utilizzerà per creare dei cluster, ossia riconoscere quali sono le nostre operazioni comuni, riconoscendole tramite orario, località geografica e altre possibili informazioni. Supponiamo ora che un malintenzionato dall'altra parte del mondo, ad un orario differente dal nostro orario abituale, riesca ad accedere al nostro profilo bancario. L'algoritmo sarebbe in grado di notare che è in atto qualcosa di strano. Questo perché tramite il clustering nessuno gli deve dire quali sono le operazioni comuni fatte dall'utente, bensì, il computer stesso, è in grado di riconoscerle e mandare un messaggio di allarme se individua dei possibili casi anomali. 
+Un altro esempio di utilizzo ricade nell'ambito della sicurezza informatica. Al giorno d'oggi i tipi di attacco conosciuti sono probabilmente solo la punta dell'iceberg. Ricorrendo, però, a tecniche come questa possiamo riuscire ad individuare e bloccare attacchi tuttora sconosciuti. 
+Supponiamo di essere loggati nel sito della nostra banca. Tramite il ML non supervisionato il sistema memorizzerà tutte le operazioni che faremo. Supponiamo di effettuare quotidianamente delle specifiche operazioni ad un fissato orario, in una determinata località geografica. Bene, queste informazioni vengono salvate dal calcolatore il quale le utilizzerà per creare dei cluster, ossia per riconoscerci sulla base delle nostre operazioni ricorrenti tramite orario, località geografica e altre possibili informazioni. Supponiamo ora che un malintenzionato, dall'altra parte del mondo, ad un orario differente da quello a noi abituale, riesca ad accedere al nostro profilo bancario. L'algoritmo sarebbe in grado di notare che è in atto qualcosa di anomalo. Nonostante nessuno abbia specificato al calcolatore quali sono le operazioni abituali effettuate dell'utente, il calcolatore, mediante tecniche di clustering, è in grado di riconoscere le operazioni abituali e mandare un messaggio di allarme se individua possibili casi anomali. 
 
 \subsection{Semi-supervisionato}
 
-L'approccio semi supervisionato (o \emph{semi-supervised}), non è un vero e proprio approccio, bensì una tecnica che sta a metà tra le due appena viste (supervisionato e non supervisionato). Questa tecnica consiste nel combinare le due tecniche e fornire un risultato basandosi su un input eterogeneo: classificato e non classificato.
+L'approccio semi-supervisionato (o \emph{semi-supervised}), non è un vero e proprio approccio, bensì una tecnica che sta a metà tra le due appena viste: supervisionato e non supervisionato. Questo approccio consiste nel combinare le due tecniche e fornire un risultato basandosi su un input eterogeneo costituito da dati etichettati e dati non etichettati.
 
-Questo approccio risulta utile quando si ha una grande mole di dati, e gli utenti che sono in grado di classificare i dati sono utenti specializzati. Nella situazione reale, non sempre questo è possibile, proprio perché possono mancare risorse umane competenti o tempistiche adeguate per classificare tutti i dati. Esistono differenti algoritmi per l'apprendimento automatico mediante un sistema semi-supervisionato:
+Questo metodo risulta utile quando si ha una grande mole di dati e gli utenti che sono in grado di etichettarli i dati sono utenti specializzati. Nella situazione reale non sempre questo è possibile, proprio perché possono mancare risorse umane competenti o tempistiche adeguate per etichettare tutti i dati. Esistono differenti algoritmi per l'apprendimento automatico mediante un sistema semi-supervisionato:
 \begin{itemize}
 	\item \emph{Self training},
 	\item \emph{Multi-view training},
 	\item \emph{Self-ensembling}.
 \end{itemize}
 
-Per quanto riguarda il \emph{Multi-view training}, esso mira a formare diversi modelli con diverse visualizzazioni dei dati. Idealmente, queste viste sono complementari e i modelli possono collaborare per migliorare il risultato finale. Queste viste possono differire in diversi modi, ad esempio nelle funzionalità che utilizzano, nelle architetture dei modelli o nei dati su cui i modelli vengono formati.
+Per quanto riguarda il \emph{Multi-view training}, possiamo dire che esso mira a formare diversi modelli con diverse visualizzazioni dei dati. Idealmente queste viste sono complementari e i modelli possono collaborare per migliorare il risultato finale. Queste viste possono differire in diversi modi, ad esempio possono differire nelle funzionalità che utilizzano, nelle architetture dei modelli o nei dati su cui i modelli vengono formati.
 
-Il \emph{Self-ensembling}, come il \emph{Multi-view training}, punta a combinare diverse varianti dei modelli. A differenza di quest'ultimo, la diversità nei modelli non è un punto chiave perché il \emph{Self-ensembling} utilizza principalmente un singolo modello in diverse configurazioni al fine di rendere più affidabili le previsioni del modello. 
+Il \emph{Self-ensembling}, come il \emph{Multi-view training}, punta a combinare diverse varianti dei modelli. A differenza di quest'ultimo, però, la diversità nei modelli non è un punto chiave perché il \emph{Self-ensembling} utilizza principalmente un singolo modello in diverse configurazioni al fine di rendere più affidabili le previsioni del modello finale. 
 
-A titolo di esempio vediamo più in dettaglio l'algoritmo di \emph{Self training} che è stato uno dei primi ad essere sviluppato ed è l'esempio più diretto di come le previsioni di un modello possono essere incorporate nel training del modello.
+Vediamo ora più in dettaglio l'algoritmo di \emph{Self training} che è stato uno dei primi algoritmi ad essere sviluppato ed è l'esempio più diretto di come le previsioni di un modello possono essere incorporate nel training del modello.
 
-L'algoritmo di \emph{Self training} prevede quindi di basarsi per quanto può su dei dati che sono stati preventivamente definiti secondo un particolare modo e altri che sono solamente dei dati da analizzare. Questi ultimi vengono comunque utilizzati, ma in maniera più cauta. Prima di allenare il modello, esso si concentrerà ad etichettare gli input non ancora etichettati.
+L'algoritmo di \emph{Self training} prevede, quindi, di basarsi per quanto possibile su dati che sono stati preventivamente definiti secondo un particolare modo e altri che sono privi di definizione. Questi ultimi vengono comunque utilizzati, ma in maniera più cauta. Prima di allenare il modello l'algoritmo si concentrerà ad etichettare gli input non ancora etichettati.
 
 Come viene spiegato nell'articolo \cite{ruder} %[https://ruder.io/semi-supervised/], 
-la logica di classificazione dei dati non ancora classificati segue quanto scritto:		\\
-``Formalmente, l'auto etichettamento avviene su un modello $ M $ avente un insieme $ L $ di dati di allenamento etichettato con delle etichette contenute in $ C $ e un insieme non etichettato $ U $. A ogni iterazione, per ogni $x \in U$, il modello fornisce delle predizioni su $ x $ sottoforma di probabilità $ p(x, c) $ ovvero la probabilità che $ x $ appartenga alla classe $ c $ per ogni $ c \in C $. Tra le probabilità appena calcolate, definiamo $ P(x, c) $ come la probabilità avente il valore maggiore, allora se $ P $ è più grande di una soglia $ T $, $ x $ verrà aggiunto a $ L $ con l'etichetta $ c $. Questo processo viene ripetuto per un numero fisso di iterazioni o fino a quando non ci sono più dati da etichettare.".[nota: traduzione libera del testo: nell'originale è presente una formula ceh io rendo a parole]
+la logica di classificazione dei dati non ancora classificati segue quanto scritto: ``Formalmente, l'auto-etichettamento avviene su un modello $ M $ avente un insieme $ L $ di dati di allenamento etichettati con delle etichette contenute in $ C $ e un insieme non etichettato $ U $. A ogni iterazione, per ogni $x \in U$, il modello fornisce delle predizioni su $ x $ sotto forma di probabilità $ p(x, c) $ ovvero la probabilità che $ x $ appartenga alla classe $ c $ per ogni $ c \in C $. Tra le probabilità appena calcolate, definiamo $ P(x, c) $ come la probabilità avente il valore maggiore, allora se $ P $ è più grande di una soglia $ T $, $ x $ verrà aggiunto a $ L $ con l'etichetta $ c $. Questo processo viene ripetuto per un numero fisso di iterazioni o fino a quando non ci sono più dati da etichettare." %TODO: \footnote{traduzione libera del testo}
 
-Di seguito vediamo uno pseduo-codice che segue quanto detto sopra:
+Di seguito vediamo uno pseduo-codice che esplicita quanto detto sopra:
 
 \begin{algorithmic}[1]
 	\Repeat
@@ -388,42 +396,39 @@ Di seguito vediamo uno pseduo-codice che segue quanto detto sopra:
 \end{algorithmic}
 
 \subsection{Apprendimento con rinforzo}
-Il quarto ed ultimo approccio chiamato Apprendimento con rinforzo, o \emph{Reinforcement Learning} (RL), è un approccio che si differenzia da quelli visti fino ad ora. Questo paradigma si occupa di problemi di decisioni sequenziali, in cui l'azione da compiere dipende dallo stato attuale del sistema e ne determina quello futuro. In altre parole, questo è un sistema dinamico che può apprendere in seguito ad ogni decisione presa, a prescindere che questa sia giusta o sbagliata.
+Il quarto ed ultimo approccio chiamato Apprendimento con rinforzo, o \emph{Reinforcement Learning} (RL), è un approccio che si differenzia da quelli visti fino ad ora. Questo paradigma si occupa di problemi di decisione sequenziali, in cui l'azione da compiere dipende dallo stato attuale del sistema e ne determina quello futuro. In altre parole, questo è un sistema dinamico che può apprendere in seguito ad ogni decisione presa, a prescindere che questa sia giusta o sbagliata.
 
 \begin{figure}[h!]
 	\noindent
 	\center
 	\label{fig:rl_scenario}
-	\includegraphics[scale=0.5]{../img/rl_scenario}
+	\includegraphics[scale=0.35]{../img/rl_scenario}
 	\caption{Scenario RL}
 \end{figure}
+
 % (https://www.aitrends.com/education/udacitys-school-of-ai-opens-the-new-deep-reinforcement-Learning-nanodegree-program-for-enrollment/) (https://www.guru99.com/reinforcement-Learning-tutorial.html)
 
-Quando il sistema prende una decisione, successivamente otterrà una ``ricompensa" sotto forma di punteggio, che sarà alto o basso a seconda se la decisione presa è giusta o sbagliata. Con questa logica, la macchina cercherà di fare sempre meglio per arrivare a ottenere il punteggio più alto possibile, prendendo così solo le decisioni corrette. 
+Quando il sistema prende una decisione otterrà successivamente una ``ricompensa" sotto forma di punteggio che sarà alto o basso a seconda che la decisione presa sia giusta o sbagliata. Con questa logica la macchina cercherà di fare sempre meglio per arrivare a ottenere il punteggio più alto possibile prendendo, così, solo le decisioni corrette. 
 
 \section{Ridimensionamento delle funzionalità}
 
-Nel ML, come abbiamo visto, l'input, gioca un ruolo fondamentale nello sviluppo di un modello che riesca a predire nel modo corretto i nuovi dati che verrano esaminati da quest'ultimo.
-In questo testo ci concentreremo proprio sul riconoscimento dei volti all'interno delle immagini, quindi per per parlare dell'importanza del ridimensionamento delle feature, faremo riferimento proprio all'analisi di immagini che raffigurano persone, animali o oggetti.
+Nel ML, come abbiamo visto, l'input gioca un ruolo fondamentale nello sviluppo di un modello che riesca a predire nel modo corretto i nuovi dati che verranno esaminati da quest'ultimo.
+In questo lavoro ci concentreremo proprio sul riconoscimento dei volti all'interno delle immagini, quindi, per parlare dell'importanza del ridimensionamento delle \emph{feature}, faremo riferimento proprio all'analisi di immagini che raffigurano persone, animali o oggetti.
 
-Spesso, ci troviamo davanti a dei dati di dimensioni eccessive, i quali comportano in primis dei problemi a livello tempistico e anche a problemi a livello computativo.
+Spesso ci troviamo di fronte a dati di dimensioni eccessive che comportano, \emph{in primis}, dei problemi a livello tempistico e poi anche a livello computazionale. Ci basti pensare che quando cerchiamo di analizzare un'immagine per estrapolarne delle informazioni (riconoscimento di oggetti, persone, animali) dobbiamo passare in rassegna tutti i pixel! Supponiamo di prendere un'immagine a bassa risoluzione, ad esempio 500x500, ciò significherebbe trovarsi davanti a $ 500^2 $ pixel, ovvero 250.000 elementi per una singola immagine! Questo comporterebbe, quindi, analizzare uno spazio sovra dimensionato, con appunto 250.000 dimensioni.
 
-Ci basti pensare che quando si cerca di analizzare un'immagine per estrapolarne delle informazioni (riconoscimento di oggetti, persone, animali) dobbiamo prendere passare in rassegna tutti i pixel! Supponiamo di prendere anche un'immagine, a bassa risoluzione, ad esempio 500x500, significherebbe trovarsi davanti a $ 500^2 $ pixel, ovvero 250.000 elementi per una singola immagine! Questo comporterebbe quindi, di analizzare uno spazio sovra dimensionato, con, appunto 250.000 dimensioni.
+Considerare uno spazio di quelle dimensioni è impensabile, proprio per questo ci vengono in soccorso delle tecniche che si occupano di ridurre il numero di elementi che definiscono l'oggetto estrapolandone solamente le informazioni più utili, informazioni che permettono di differenziare un oggetto da un'altro.
 
-Pensare ad uno spazio di quelle dimensioni è impensabile, proprio per questo ci vengono in soccorso delle tecniche che si occupano di ridurre il numero di elementi che definsicono l'oggetto, senza perdere, o meglio, estrapolando, solamente le informazioni più utili che permettono di differenziare un oggetto da un'altro.
-
-Pensiamo ad esempio a un'immagine in cui è raffigurato il volto di una persona. E' normale pensare che non tutti i pixel siano di fondamentale importanza per riconoscere il soggetto raffigurato. Ad esempio, tutti i pixel presenti nei bordi dell'immagine saranno sicuramente da scartare in quanto non ci diranno niente sulla persona raffigurata, così come molti altri pixel che raffigurano parti poco interessanti, ad esempio lo sfondo dell'immagine. Vediamo nel dettaglio quali sono gli strumenti più utilizzati per risolvere questo tipo di problemi.
+Pensiamo ad esempio a un'immagine in cui è raffigurato il volto di una persona. E' normale pensare che non tutti i pixel siano di fondamentale importanza per riconoscere il soggetto raffigurato. Ad esempio, tutti i pixel presenti nei bordi dell'immagine saranno sicuramente da scartare in quanto non ci diranno niente sulla persona raffigurata, così come molti altri pixel che raffigurano parti poco interessanti, come lo sfondo dell'immagine. Vediamo nei due paragrafi seguenti quali sono gli strumenti più utilizzati per risolvere questo tipo di problemi.
 
 
-\subsection{PCA (Principal Component Analysis)}
-PCA (Principal Component Analysis) è un metodo di riduzione delle dimensionalità. Lo scopo di PCA è quindi quello di diminuire il numero di variabili, limitando il più possibile la perdita di informazioni. 
+\subsection{Principal Component Analysis}
+\emph{Principal Component Analysis} (PCA) è un metodo di riduzione della dimensionalità. Lo scopo di PCA è quello di diminuire il numero di variabili limitando il più possibile la perdita di informazioni. 
 
-In primo luogo, viene calcolata la media per ogni feature. Una volta calcolata, il vettore risultante lo faremo coincidere con l'origine degli assi, in questo modo ogni punto verrà traslato di conseguenza. A questo punto viene calcolata la retta che meglio si adatta a tutti i punti, ovvero la retta R che minimizza la somma delle distanze dei punti da R. Questa viene chiamata $ PC_{1} $. Si ripete questo passaggio per ogni dimensione, mantenendo la perpendicolarità della nuova retta (o $ PC_{n} $) rispetto all'ultima retta calcolata (o $ PC_{n-1} $). 
-Una volta calcolate tutte i principal component dello spazio PCA si va a calcolare, per ognuna di esse, l'autovettore, il quale sarà utilizzato per determinare la nuova posizione di ogni punto scalandolo sul rispettivo asse. Una volta scalati tutti i punti si può calcolare la varianza per ogni asse. Il valore della varianza $\sigma$ rispetto al $ PC $ x, calcolata in percentuale, ci dice quanto pesa l'informazione contenuta su quell'asse. Questo ci permetterà quindi, di eliminare gli assi meno interessanti, ovvero gli assi con la varianza più bassa. 
+In primo luogo, viene calcolata la media per ogni \emph{feature}. Una volta calcolato il vettore risultante (la media) lo faremo coincidere con l'origine degli assi, in questo modo ogni punto verrà traslato di conseguenza. A questo punto viene calcolata la retta che meglio si adatta a tutti i punti, ovvero la retta R che minimizza la somma delle distanze dei punti da R. Questa viene chiamata $ PC_{1} $. Si ripete questo passaggio per ogni dimensione, mantenendo la perpendicolarità della nuova retta (o $ PC_{n} $) rispetto all'ultima retta calcolata (o $ PC_{n-1} $). 
+Una volta calcolate tutte le \emph{principal component} dello spazio PCA si calcola, per ognuna di esse, l'autovettore, il quale sarà utilizzato per determinare la nuova posizione di ogni punto scalandolo sul rispettivo asse. Una volta scalati tutti i punti si calcola la varianza per ogni asse. Il valore della varianza $\sigma$ rispetto al $i$-esimo $ PC_i $, calcolata in percentuale, ci dice quanto pesa l'informazione contenuta sulla dimensione $i$. Questo ci permetterà quindi, di eliminare gli assi meno interessanti, ovvero gli assi con la varianza in percentuale più bassa. 
 
-Questa tecnica, oltre a semplificare il lavoro di manipolazione delle caratteristiche, aiuta a migliorare i risultati dell'algoritmo di ML. PCA aiuta gli algoritmi di ML perché estrapola le informazioni realmente utili per predire la classe o il valore da attribuire ad un oggetto. Tutte le informazioni di contorno, come ad esempio, i pixel situati sul bordo di un'immagine possono essere fuorvianti per l'algoritmo di apprendimento. Questo è il motivo per cui esso semplifica e ottimizza i valori risultanti.
-
-PCA vede un vasto utilizzo nell'ambito di:
+Questa tecnica, oltre a semplificare il lavoro di manipolazione delle \emph{feature}, aiuta a migliorare i risultati degli algoritmo di ML poiché estrapola le informazioni realmente utili per predire la classe o il valore da attribuire ad un oggetto. Tutte le informazioni di contorno, come ad esempio i pixel situati sul bordo di un'immagine, possono essere fuorvianti per l'algoritmo di apprendimento. Questo è il motivo per cui la tecnica PCA semplifica e ottimizza i valori risultanti ed è ampiamente utilizzato nell'ambito di:
 \begin{itemize}
 	\item riconoscimento facciale
 	\item image compression
@@ -431,23 +436,21 @@ PCA vede un vasto utilizzo nell'ambito di:
 	\item data mining
 \end{itemize}
 
-\pagebreak
-
-\subsection{t-SNE (t-distributed stochastic neighbor embedding)}
+\subsection{t-Distributed stochastic neighbor embedding}
 %Documenta con delle immagini prendedole dal video https://www.youtube.com/watch?v=NEaUSP4YerM
-t-SNE è una tecnica di riduzione della dimensionalità non lineare che si presta particolarmente alla mappatura di spazi ad alta dimensionalità in uno spazio a due o tre dimensioni, nel quale possono essere visualizzati tramite un grafico di dispersione. L'algoritmo modella i punti in modo che oggetti vicini nello spazio originale risultino vicini nello spazio a dimensionalità ridotta, e oggetti lontani risultino lontani.
+\emph{t-Distributed stochastic neighbor embedding} (t-SNE) è una tecnica di riduzione della dimensionalità non lineare che si presta particolarmente alla mappatura di spazi ad alta dimensionalità riducendoli in uno spazio a minori dimensioni. L'algoritmo modella i punti in modo che oggetti vicini nello spazio originale risultino vicini nello spazio a dimensionalità ridotta e analogamente oggetti lontani nello spazio originale risultino lontani nello spazio a dimensionalità ridotta.
 
-Per spiegare il funzionamento di questo algoritmo, basiamoci su un caso semplice: un set $S$ di dati bidimensionale. Con questo esempio spiegheremo quindi il funzionamento di t-SNE e come è possibile passare da due dimensioni, ad una sola, mantenendo le corrette distanze. Per farlo ci baseremo sulle probabilità che un elemento sia vicino ad un'altro. Quindi per ogni punto x, andiamo a centrare su di esso una curva gaussiana. Per ogni altro punto $ y $  tale che:
-\[ y \in S / x \]
-andiamo a inserirlo sotto la distribuzione gaussiana, per poi calcolarne la probabilità di densità (o score).
+Per spiegare il funzionamento di questo algoritmo basiamoci su un caso semplice: un set bidimensionale $S$ di dati. Con questo esempio spieghiamo quindi il funzionamento di t-SNE e come è possibile passare da due dimensioni ad una sola, mantenendo le corrette distanze. Per farlo ci basiamo, inoltre, sulle probabilità che un elemento sia vicino ad un'altro. Per ogni punto $ x $ centriamo su di esso una curva gaussiana e inseriamo ogni altro punto $ y $  tale che:
+\[ y \in S \setminus \{x\}, \]
+sotto la distribuzione gaussiana centrata in $ x $, per poi calcolarne la probabilità di densità (o \emph{score}).
 %la quale verrà utilizzata per calcolare la probabilità che ogni altro elemento, sia vicino a x. 
 
-Viene utilizzata la curva gaussiana perché lavora bene su casi come questo: restituisce un'alta probabilità se un elemento è molto vicino e una molto bassa probabilità se questo è lontano. A questo punto normalizziamo la curva per tutti i punti in modo che essi abbiano una misura proporzionata e non indipendente. La distribuzione può in realtà essere manipolata tramite una variabile chiamata perplessità, la quale va a modificare la varianza e quindi l'ampiezza della curva.
-A questo punto avremo ottenuto la matrice $ M_{1} $ quadrata con tutti gli score per ogni coppia. Ora andiamo a inserire tutti i punti, in maniera casuale su un'unico asse. Analogamente a quanto appena fatto, calcoliamo la probabilità di vicinanza tra i punti, con la differenza che questa volta useremo la distribuzione di Student (in inglese t-distribution, da cui deriva la t di t-SNE). Analogamente, otterremo una seconda matrice $ M_{2} $ quadrata, la quale sarà, probabilmente, molto diversa da $ M_{1} $. L'obiettivo adesso, sarà quello di adattare la matrice $ M_{2} $ a $ M_{1} $. Così facendo riusciremo a mantenere i cluster visualizzabili nel grafico bidimensionale.
+Viene utilizzata la curva gaussiana perché lavora bene su casi come questo: restituisce un'alta probabilità se un elemento è molto vicino e una probabilità molto bassa se questo è lontano. A questo punto normalizziamo la curva per tutti i punti in modo che essi abbiano una misura proporzionata e non indipendente. La distribuzione può in realtà essere manipolata tramite una variabile denominata `perplessità' (o \emph{perplexity}), la quale modifica la varianza e quindi l'ampiezza della curva.
+A questo punto otteniamo la matrice quadrata $ M_{1} $ con tutti gli \emph{score} per ogni coppia. Ora inseriamo tutti i punti in maniera casuale su un'unico asse. Analogamente all'utilizzo che abbiamo fatto della curva gaussiana calcoliamo la probabilità di vicinanza tra i punti, con la differenza che questa volta useremo la distribuzione di Student (in inglese t-distribution, da cui deriva la t di t-SNE). Otteniamo così una seconda matrice quadrata $ M_{2} $, la quale sarà, probabilmente, molto diversa da $ M_{1} $. L'obiettivo adesso è quello di adattare la matrice $ M_{2} $ a $ M_{1} $. In questo modo siamo riusciti ad ottenere i cluster, visualizzabili nel grafico bidimensionale, in uno spazio monodimensionale.
 
-Nella seconda parte dell'algoritmo, viene usata una t-distribution perché distacca meglio i cluster nel piano generato. Se avessimo usato una distribuzione gaussiana, come nella prima parte, il risultato ottenuto sarebbe stato meno visibile, in quanto tutti i cluster si sarebbero ammassati al centro.
+Nella seconda parte dell'algoritmo, viene usata una t-distribution perché separa meglio i cluster nel piano generato. Se avessimo usato una distribuzione gaussiana, come nella prima parte, il risultato ottenuto sarebbe stato meno visibile, in quanto tutti i cluster si sarebbero ammassati al centro.
 
-Questo è un esempio piuttosto semplice, ma nella realtà si possono adattare spazi a $n$ dimensioni con $ n \gg 2 $. Nel Capitolo 3 lo utilizzeremo per ridurre le dimensioni da uno spazio molto vasto, ad uno spazio bidimensionale o al più a 5 dimensioni. Vedremo quindi, utilizzando questo algoritmo, quali sono le prestazioni che riesce a fornire nel caso del riconoscimento facciale e di classificazione dei soggetti.
+Questo è un esempio piuttosto semplice, ma nella realtà si possono adattare spazi a $n$ dimensioni con $ n \gg 2 $ a spazi molto inferiori a $n$. Nel Capitolo 3 utilizzeremo t-SNE per passare da uno spazio di dimensioni elevate, ad uno spazio bidimensionale o al più a 5 dimensioni. Vedremo quindi, utilizzando questo algoritmo, quali sono le prestazioni che riesce a fornire nel caso del riconoscimento facciale e di classificazione dei soggetti.
 % 
 %			CAPITOLO 2: Induzione di insiemi fuzzy
 % 
@@ -568,14 +571,33 @@ Alla funzione obiettivo descritta sopra aggiungiamo i seguenti vincoli:
 dove possiamo notare che se il grado di appartenenza, vale a dire $  \mu_{i} $ è pari a 1, otteniamo che in (\ref{eq:1}) si ha:
 
 \[\quad \lVert \phi(x_{i}) - a \rVert ^2 \leq R^2 + \xi_{i} \]
-ossia che la distanza di $ x_{i} $ da $\alpha$ ( $\lVert \phi(x_{i}) - \alpha \rVert ^2$ ) è minore o uguale al raggio dell'ipersfera ( $R^2 + \xi_{i}$ ) e quindi è posizionato interamente ad essa.
+ossia che la distanza di $ x_{i} $ da $a$ ( $\lVert \phi(x_{i}) - a \rVert ^2$ ) è minore o uguale al raggio dell'ipersfera ( $R^2 + \xi_{i}$ ) e quindi è posizionato interamente ad essa.
 
 Al contrario, se $ \mu_{i} $ è pari a $ 0 $ otteniamo che in (\ref{eq:2}) si ha:
 
 \[ \quad \lVert \phi(x_{i}) - a \rVert ^2 \geq R^2 - \tau_{i} \]
-ovvero che la distanza di $ x_{i} $ da $\alpha$  è maggiore al raggio dell'ipersfera (a meno della $i$-esima variabile di scarto $\tau_{i}$)
+ovvero che la distanza di $ x_{i} $ da $a$  è maggiore al raggio dell'ipersfera (a meno della $i$-esima variabile di scarto $\tau_{i}$).
 
-Passando per il duale e risolvendo i calcoli matematici, si può dimostrare che, preso qualunque punto $x \in X$ ed una funzione kernel $k$, vale:
+Più conveniente è risolvere il problema sopra citato tramite il suo duale. Formalmente otteniamo:
+
+\begin{equation}
+\begin{split}
+\begin{aligned}
+\max \sum_{i=1}^{n} (\alpha_{i} \mu_{i} - \beta_{i}(1-\mu_{i}))k(x_{i}, x_{i}) -\\ \sum_{i,j = 1}^{n}(\alpha_{i} \mu_{i} - \beta_{i}(1-\mu_{i}))(\alpha_{j} \mu_{j} - \beta_{j}(1-\mu_{j}))k(x_{i}, x_{j}), 
+\end{aligned}
+\end{split}
+\end{equation}
+\begin{equation}
+\begin{aligned}
+\sum_{i=1}^{n} (\alpha_{i} \mu_{i} - \beta_{i}(1-\mu_{i})) = 1 \\
+\end{aligned}
+\end{equation}
+\begin{equation}
+\begin{aligned}
+0 \leq \alpha_{i}, \beta_{i} \leq C
+\end{aligned}
+\end{equation}
+Risolvendo il duale, si può dimostrare che, preso qualunque punto $x \in X$ ed una funzione kernel $k$, vale:
 
 \begin{equation}
 \begin{split}
@@ -585,38 +607,37 @@ R^2(x) = k(x, x) - 2\sum_{i=1}^{n} (\alpha_{i}^* \mu_{i} - \beta_{i}^*(1-\mu_{i}
 il che ci permette di calcolare la distanza tra il centro $a$ dell'ipersfera nell'iperspazio generato da $k$ nella soluzione ottimale e $\phi(x)$.
 
 Analogamente al Support Vector Clustering in $possibilearn$ si individuano i \emph{support vector}, ossia i punti che delimitano la zona del cluster che in questo caso sono le immagini di $x $ che giacciono sulla superficie dell'ipersfera. Inoltre per tutti i punti $x$ aventi $ \mu(x) $ pari a 1 vale che la distanza di $x$ da $a$ (nella soluzione ottimale) è minore o uguale alla distanza di $x_{i}$ da $a$ per tutti i \emph{support vector} $x_{i}$.
-Formalmente, definendo $ R^{*^2}(x) $ come la distanza di $x$ dal centro della sfera nella soluzione ottimale, possiamo riscrivere quanto appena detto :
+Formalmente, definendo $ R^{*^2}(x) $ come la distanza di $x$ dal centro dell'ipersfera nella soluzione ottimale, possiamo riscrivere quanto appena detto come:
 
 \[ R^{*^2}(x) \leq R^{*^2}(s) \quad \forall x \mid \mu(x) = 1 \wedge \forall s \in S, \]
 dove $S$ definisce l'insieme di tutti i support vector dell'ipersfera.
-A questo punto bisogna definire il comportamento dell'insieme fuzzy per tutti i punti la cui distanza è maggiore del raggio dell'ipersfera. Per farlo dobbiamo prima definire dove questa distanza diventa sufficiente per dire che $x$ è certamente escluso dall'insieme fuzzy. In altre parole, bisogna trovare il confine oltre il quale il grado di appartenenza è pari a $0$. Possiamo definire questo confine come $\max_{x} R^{*^2}(x)$.
+%A questo punto bisogna definire il comportamento dell'insieme fuzzy per tutti i punti la cui distanza è maggiore del raggio dell'ipersfera. Per farlo dobbiamo prima definire dove questa distanza diventa sufficiente per dire che $x$ è certamente escluso dall'insieme fuzzy. In altre parole, bisogna trovare il confine oltre il quale il grado di appartenenza è pari a $0$. Possiamo definire questo confine come $\max_{x} R^{*^2}(x)$.
 %Sapendo che $ R^{*^2} $ varia tra un minimo e un massimo (dipendenti da $x$), prendiamo il massimo, ossia: $\max_{x} R^{*^2}(x)$. 
 %TODO: motiva perché predni il massimo
-Esso verrà utilizzato per definire la distanza oltre la quale l'elemento sarà certamente escluso.
+%Esso verrà utilizzato per definire la distanza oltre la quale l'elemento sarà certamente escluso.
 
-Tutto quello che succede tra questi due confini dipende da funzioni chiamate \emph{fuzzifier}. Le funzioni \emph{fuzzifier} possono assumere qualunque forma e descrivono come si comporta $ \mu(x) $ al crescere della distanza di $x$ dall'ipersfera nell'iperspazio generato dal kernel $k$. Queste funzioni, come la costante $C$ ed il kernel $k$ definiti precedentemente, vengono definiti iperparametri. 
+Tutto quello che succede per i punti esterni all'ipersfera dipende da funzioni chiamate \emph{fuzzifier}. Le funzioni \emph{fuzzifier} possono assumere qualunque forma e descrivono come si comporta $ \mu(x) $ al crescere della distanza di $x$ dall'ipersfera nell'iperspazio generato dal kernel $k$. Queste funzioni, come la costante $C$ ed il kernel $k$ definiti precedentemente, vengono definiti iperparametri. 
 
 %Nella prossima sezione parleremo dell'hyper-parameter tuning (in italiano, ottimizzazione dei parametri), quella parte del ML che consiste nell'ottimizzazione degli iperparametri che influiscono sul modello di apprendimento automatico e quindi sulla relativa predizione.
 
 \subsection{Configurazione degli iperparametri}
 
-%TODO: definire all'inziio del testo Machine learaning come ML
 Iperparametro è un termine ricorrente quando si parla di ML. Si definisce iperparametro un dato fornito dall'esterno all'algoritmo di ML (ML). In altre parole, tutti i dati forniti dall'utente che influiscono sul design del modello sono considerati iperparametri. Questi si differenziano dai cosiddetti parametri perché questi ultimi sono semplici valori generati automaticamente dall'algoritmo stesso.
 
 %Questo si definisce iperparametro e non semplicemente parametro per differenziare i dati che sono automaticamente generati all'interno dell'algoritmo di ML (ML) rispetto ai dati che gli vengono forniti dall'esterno (quindi dall'utente). Questi iperparametri costituiscono i dettagli del modello, i quali influiscono sulle performance di questo.
 Abbiamo concluso il paragrafo precedente parlando di \emph{fuzzifier}. Il \emph{fuzzifier} è proprio un iperparametro. Fissato un insieme fuzzy $A$, esso definisce come si comporta la funzione di appartenenza per tutte le $x$ che hanno $ \mu_{A}(x) < 1 $. Tramite questa funzione, quindi, siamo in grado di dire come decresce il grado di appartenenza di $x$ ad $A$. Di seguito riportiamo degli esempi di \emph{fuzzifier}:
 
 \begin{itemize}
-	\item Linear fuzzifier ($\hat\mu_{\text{lin}}$)
-	\item Crisp fuzzifier ($\hat\mu_{\text{crisp}}$)
-	\item Quantile constant piecewise fuzzifier ($\hat\mu_{\text{qconst}}$)
-	\item Quantile linear piecewise fuzzifier ($\hat \mu_{\text{qlin}}$)
+	\item Linear fuzzifier ($\hat\mu_{\text{lin}}$),
+	\item Crisp fuzzifier ($\hat\mu_{\text{crisp}}$),
+	\item Quantile constant piecewise fuzzifier ($\hat\mu_{\text{qconst}}$),
+	\item Quantile linear piecewise fuzzifier ($\hat \mu_{\text{qlin}}$).
 \end{itemize}
 
 \begin{figure}[h!]
 	\center
 	\includegraphics[scale=0.1]{../img/lin}
-	\caption{Esempio di Linear fuzzifier ($\hat\mu_{\text{lin}}$)}
+	\caption{Esempio di Linear fuzzifier ($\hat\mu_{\text{lin}}$) per un insieme I. L'asse delle ordinate rappresenta il grado di appartenenza e l'asse delle ascisse rappresenta il valore della \emph{feature}. Al crescere della \emph{feature} diminuisce il grado di appartenenza all'insieme I in modo lineare.}
 	\label{fig:fuzzifier}
 \end{figure}
 
@@ -627,18 +648,25 @@ Un secondo iperparametro che troviamo in \emph{possibilearn} è la costante $C$ 
 
 Questa costante rappresenta un iperparametro che definisce il costo dell'errore nella classificazione degli elementi durante la costruzione dell'ipersfera. Quesa $ C$ funziona in maniera analoga alla $C$ nelle SVM (Support Vector Machine). Tanto più è grande $C$, tanto più sarà elevato il costo dell'errore nella classificazione della variabile $i$-esima. Al contrario, tanto più è piccola $C$, tanto più piccolo sarà il costo dell'errore. 
 
-In Figura xxx%TODO: aggiiungi figura
-, possiamo osservare il ruolo di questo iperparametro al variare del suo valore. In ciascun grafico della Figura al variare di $C$ osserviamo come si modifica una stessa funzione di appartenenza $\hat \mu$. 
+In Figura \ref{fig:possibilearn_c}, possiamo osservare il ruolo di questo iperparametro al variare del suo valore. In ciascun grafico della Figura al variare di $C$ osserviamo come si modifica una stessa funzione di appartenenza $\hat \mu$. 
 Sapendo che la funzione obiettivo che vogliamo risolvere è una funzione di minimo, bisogna mantenere il costo più basso possibile. Questo si traduce visivamente in una funzione ``rigida" avente un cambiamento molto brusco. È facile notare che maggiore è $C$ e maggiore sarà la somiglianza di $\hat \mu$ ad una ``funzione di appartenenza" in un insieme standard.
 %Non mi convince funzione di appartenenza di un insieme
 
-[FIGURA DI FUZZIFIER DI MALCHIODI]
-[FIGURA DI FUNZIONE DI APPARTENENZA DI UN INSIEME]
+\begin{figure}[h!]
+	\center
+	\includegraphics[scale=0.2]{../img/possibilearn_c}
+	\caption{Nelle figure è mostrato come incrementando $C$ aumenti la sua ``rigidità" aumenta la sua larghezza assomigliando sempre più ad una ``funzione di appartenenza" di un insieme standard}
+	\label{fig:possibilearn_c}
+\end{figure}
 
+Esiste un ulteriore parametro che modifica la forma del \emph{fuzzifier}, questo è il kernel. Il kernel, come abbiamo visto nelle SVM è una funzione che viene utilizzata per mappare uno spazio N-dimensionale, in uno spazio M-dimensionale (dove M è spesso molto più grande di N). Esso compare nella ridefinizione della distanza di $ R^2(x) $. Questo iperparametro permette di modificare la forma di $\hat \mu$. Prendendo l'esempio in Figura \ref{fig:possibilearn_sigma} e una funzione kernel gaussiana, vediamo come modificando $\sigma$ (parametro della funzione kernel gaussiana) viene modificata la forma della funzione di appartenenza.
 
-Esiste un ulteriore parametro che modifica la forma del \emph{fuzzifier}, questo è il kernel. Il kernel, come abbiamo visto nelle SVM è una funzione che viene utilizzata per mappare uno spazio N-dimensionale, in uno spazio M-dimensionale (dove M è spesso molto più grande di N). Esso compare nella ridefinizione della distanza di $ R^2(x) $. Questo iperparametro permette di modificare la forma di $\hat \mu$. Prendendo l'esempio in Figura xxx e una funzione kernel gaussiana, vediamo come modificando $\sigma$ (parametro della funzione kernel gaussiana) viene modificata la forma della funzione di appartenenza.
-
-[FIGURA DI FUZZIFIER CON SIGMA MODIFICATO]
+\begin{figure}[h!]
+	\center
+	\includegraphics[scale=0.2]{../img/possibilearn_sigma}
+	\caption{Nelle figure è mostrato come incrementando $\sigma$ si modifica la forma della funzione di appartenenza}
+	\label{fig:possibilearn_sigma}
+\end{figure}
 
 Ricapitolando in \emph{possibilearn} osserviamo tre diversi iperparametri:
 \begin{itemize}
@@ -654,8 +682,13 @@ Ricapitolando in \emph{possibilearn} osserviamo tre diversi iperparametri:
 	``O'Reilly Media, Inc.", 26 Settembre 2016
 	
  	\bibitem{towards_data_science}
- 	Rushikesh Pupale. \textit{Support Vector Machines(SVM) — An Overview}, \\\texttt{https://towardsdatascience.com/https-medium-com-pupalerushikesh-svm-f4b42800e989}
+ 	Rushikesh Pupale. \textit{Support Vector Machines(SVM) — An Overview}, \\\texttt{https://towardsdatascience.com/https-medium-com-pupalerushikesh-svm}
  	
+	\bibitem{python_data_science} 
+ 	Jake VanderPlas. 
+ 	\textit{Python Data Science Handbook: Essential Tools for Working with Data}. 
+ 	``O'Reilly Media, Inc.", 6 dicembre 2016
+
  	\bibitem{ruder}
  	Sebastian Ruder. \textit{An overview of proxy-label approaches for semi-supervised learning}
  	\\\texttt{https://ruder.io/semi-supervised/}
