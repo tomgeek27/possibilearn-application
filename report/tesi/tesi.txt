@@ -302,3 +302,269 @@ Capitolo 1: L'apprendimento automatico
     Anche i cosiddetti sistemi di raccomandazione sfruttano il Machine Learning imparando dal comportamento e dalle preferenze degli utenti che navigano su siti web, piattaforme o applicazioni mobile; ne sono un esempio quelli che comunemente ci siamo abituati a vedere ed utilizzare sulle piattaforme di eCommerce come Amazon o di intrattenimento e accesso a contenuti come Netflix o Spotify.
 
 /*******************************************************************************************************************************************************************************************************/
+Capitolo 2: Induzione di insiemi fuzzy
+
+    Sezione 2.1: La logica fuzzy
+
+        La logica fuzzy (in italiano, logica sfocata), è un'estensione della logica booleana. Nella matematica booleana sono presenti solo due valori attribuili alle variabili: vero e falso. 
+        La logica fuzzy, si definisce "estensione" della logica di Boole in quanto, al posto di prevedere solamente due possibili valori, viene previsto un insieme di valori continui compresi nell'intervallo [0, 1]. In questo intervallo, lo 0 corrisponde di fatto, al valore "falso" e 1 a "vero" della logica booleana. Con questa estensione oltre a poter dire "vero" o "falso", è possibile dire, tramite il valore di appartenenza (o grado di verità), quanto è vera una proprietà.
+
+        Quindi, data una proprietà P, e un elemento x, si può dire:
+            x rispetta P con valore y
+
+        dove y è compreso nell'intervallo [0,1].
+
+        Per fare un esempio più concreto, si può pensare a tutte quelle cose che sono relativamente soggettive, in cui non esiste solo bianco o nero, bensì ci sono delle vie di mezzo, più o meno vere.
+        Supponiamo di prendere un oggetto di cui predichiamo "essere freddo", si può dire che:
+        * un gelato "è freddo" con valore (o grado di verità) uguale a 0.9
+        * un bicchiere d'acqua a temperatura ambiente "è freddo" con valore uguale a 0.4
+        * la resistenza di una lampadina accesa "è fredda" con valore uguale a 0.1
+
+        La logica fuzzy è strettamente legata anche alla matematica degli insiemi. Approfondiamo questo argomento nella prossima sezione.
+
+    Sezione 2.2: Gli insiemi fuzzy
+
+        Gli insiemi fuzzy sono un'estensione della classica teoria degli insiemi, dove si ha che un elemento può appartenere o meno ad un insieme. Con questa estensione, analogamente al grado di verità per la logica booleana, si definisce un valore x di appartenenza ad un insieme, compreso nell'intervallo [0, 1]. Per x pari a 1 si ha che l'elemento è certamente incluso nell'insieme, per x pari a 0 si ha che l'elemento è sicuramente escluso dell'insieme, per tutti i valori compresi si ha una appartenenza che può essere più o meno forte.
+
+        Per fare un esempio, definiamo lo spazio U come uno spazio dove gli elementi che ne fanno parte sono delle persone ed un'insieme A che racchiude tutti le persone giovani.
+        Prendendo le seguenti persone di U:
+        * neonato
+        * ventenne
+        * ottantenne
+        si può definire per ognuna di essere un grado di appartenenza all'insieme A. Ad esempio:
+        * neonato appartiene ad A con un valore pari a 1
+        * ventenne appartiene ad A con un valore pari a 0.8
+        * ottantenne apparteiene ad A con un valore pari a 0.1
+
+        Formalizzando quanto appena detto, definiamo:
+        % si può definire una funzione del grado di appartenenza nu basata su un predicato p in uno spazio U tale che:
+
+            nu_A: U -> [0,1]
+
+
+        Dove nu_A rappresenta la funzione di appartenenza ad A ed U rappresenta lo spazio considerato. Un insieme fuzzy è definito dalle coppie (x, nu_A(x)), quindi dall'elemento x e il relativo grado di appartenenza ad A. Formalmente:
+            A = { (x, nu_p(x)) | x appartiene ad U}
+
+    Sezione 2.3: Possibilearn
+
+        Nel capitolo precedente abbiamo visto le diverse tecniche utilizzate nel machine learning. L'algoritmo che andremo a descrivere ricade nell'approccio supervisionato, ovvero la tecnica che necessita dati preventivamente classificati per effettuare predizioni. 
+
+        Questo algoritmo si basa sulla logica di induzione di insiemi fuzzy. In questo caso per classificazioni si intendono i gradi di appartenenza ad un certo insieme (fuzzy). 
+        %TODO fai un esempio
+        %OTOD definisci prima possibilearn
+        %TODO citazione del testo del professore
+        Dato un insieme X = {} e il relativo insieme di gradi di appartenenza NU = {}, l'obiettivo di possibilearn, consiste nel determinare la forma dell'insieme fuzzy tramite l'utilizzo di X e NU. Questo richiede di risolvere due problemi:
+        * calcolare l'insieme fuzzy
+        * definire i parametri per la funzione di appartenenza all'insieme fuzzy
+
+        Sezione 2.3.1: Calcolare l'insieme fuzzy
+            Partendo dalle ipotesi che:
+            * A è l'insieme fuzzy che contiene tutti gli elementi con grado di appartenenza pari a 1. 
+            Formalmente A viene definito come segue:
+                A = {x appartente X | nu_A(x) = 1}
+            dove X è l'insieme di tutte le immagini dei punti dello spazio originale che sono mappate tramite una funzione phi, i quali appartengono ad una ipersfera di centra alfa e raggio R.
+
+            * Il grado di appartenenza nu_A(x) dipenderà solo dalla distanza di phi(x) da alfa.
+
+            Prese queste due ipotesi è possibile definire il problema come:
+
+            "Trovare la più piccola ipersfera avente centro alfa e raggio R, la quale racchiude tutte le x in X per cui vale che nu_A(x) = 1"
+
+            Tradotto in un modello matematico, questo diventa un problema di ottimizzazione, la cui funzione obiettivo è:
+
+            [FORMULA DI MINIMIZZAZIONE]
+
+            dove C è una costante di cui parleremo successivamente, mentre epsilon e tau sono le variabili di scarto utilizzate nel problema di ottimizzazione.
+
+            Epsilon è la variabile legata al posizionamento dei punti, all'interno dell'ipersfera.
+
+            Tau, è come epsilon una variabile di scarto ma con la differenza che essa riferisce al posizionamento dei punti all'esterno della sfera.
+
+            Alla funzione obiettivo descritta sopra, aggiungiamo i vincoli:
+
+            [vincolo 1]
+            [vincolo 2]
+            [vincolo 3]
+
+            dove possiamo notare che se il grado di appartenenza, vale a dire nu_{i} è pari a 1, otteniamo che nel vincolo 1 si ha:
+
+            [vincolo 1 avente nu_{i} pari a 1]
+
+            ossia che la distanza da alfa per x_{i} ([formual che descrive la distanza dal centro]) è minore o uguale al raggio della sfera ([formula del raggio]).
+
+            Al contrario, se nu_{i} è pari a 0, otteniamo che nel vincolo 2 si ha:
+
+            [vincolo 2 avente nu_{i} pari a 0]
+
+            ovvero che la distanza dal centro della sfera(alfa) per x_{i} è maggiore al raggio dell'ipersfera ([formula del raggio])
+
+            Passando per il duale e risolvendo i calcoli matematici, si può dimostrare che, preso qualunque punto x appartenente a X, una funzione kernel k, vale:
+                [RISCRITTURA DI R^2 IN BASE A X]
+
+            il che ci permette di calcolare la distanza tra il centro della sfera - nella soluzione ottimale - e phi(x).
+            Analogamente al Support Vector Clustering, in possibilearn si individuano i support vector, ossia i punti che delimitano la zona del cluster. In questo caso i phi(x) che giaciono sulla superificie dell'ipersfera. Inoltre per tutti i punti x aventi nu_{A}(x) pari a 1 vale che la distanza di x da alfa (nella soluzione ottimale) è minore o uguale alla distanza di xi da alfa per tutti i support vector xi.
+            Formalmente, definendo R*^2(x) la distanza di x dal centro della sfera (nella soluzine ottimale), possiamo riscrivere quanto appena detto come:
+                
+                R*^2(x) <= R*^2(xi) per ogni x | nu_{A}(x) = 1 e per ogni support vector xi .
+            
+            A questo punto bisogna definire come si comporta l'insieme fuzzy per tutti i punti, la cui distanza è maggiore del raggio dell'ipersfera. Per farlo dobbiamo prima definire dove questa distanza diventa sufficiente a dire che x è certamente escluso dall'insieme (fuzzy). In altre parole, bisogna trovare il confine oltre cui il grado di appartenenza è pari a 0. Sapendo che R*^2 varia tra un minimo e un massimo, prendiamo il massimo, ossia: max_{x} R*^2(x). Esso verrà utilizzato per definire la distanza, oltre il quale l'elemento sarà certamente escluso.
+
+            Tutto quello che succede nel mezzo tra questi due confini dipende da una funzione chiamata fuzzifier. Le fuzzifier sono funzioni che possono assumere qualunque forma, le quali descrivono come si comporta il nu_{A}(x) al crescere della distanza di x dalla sfera. Questa, come la C definita precedentemente viene definita iperparametro. 
+            
+            Nella prossima sezione parleremo dell'hyper-parameter tuning (in italiano, ottimizzazione dei parametri), quella parte del machine learning che consiste nell'ottimizzazione degli iperparametri che influiscono sul modello di apprendimento automatico e quindi sulla relativa predizione.
+
+            Configurazione degli iperparametri
+
+            Iperparametro è una termine ricorrente quando si parla di machine learning. Questo si definisce iperparametro e non semplicemente parametro per differenziare i dati che sono autmoaticamente generati all'itnerno dell'algoritmo di ML rispetto ai dati che gli vengono forniti dall'esterno (quindi dall'utente). Questi iperparametri costituiscono i dettagli del modello, i quali influiscono sulle performance di questo.
+            Abbiamo concluso il paragrafo precedente parlando di fuzzifier. Il fuzzifier è proprio un iperparametro. Fissato un insieme fuzzy A, 
+            esso definisce come si comporta la funzione di appartenenza per tutte le x che hanno nu_{A}(x) < 1. Tramite questa funzione, quindi, siamo in grado di dire come descresce il grado di appartenenza ad A. Negli esperimenti fatti all'interno della tesi abbiamo usato delle classiche funzioni, come:
+
+            * Linear
+            * Quantile Linear Piecewise Fuzzifier
+
+            riportate in figura.
+            
+            Un secondo iperparametro che vediamo in possibilearn è la costante C che vediamo nella funzione da ottimizzare:
+            
+            [FUNZIONE DA OTTIMIZZARE].
+
+            Questa costante rappresenta un iperparametro il quale definisce il costo dell'errore nella classificazione degli elementi durante la costruzione dell'ipersfera. Questa C funziona in maniera analoga alla C nelle SVM (Support Vector Machine). Tanto più è grande la C, tanto più sarà grande il costo dell'errore nella classificazione della variabile i-esima. Al contrario, tanto più è piccola la C, tanto più piccola sarà il costo dell'errore. Come mostrato in figura, vediamo meglio il ruolo di questo iperparametro. Nella figura prendiamo una funzione di appartenenza f (o fuzzifier) fissata, e vediamo come al cambiare di C, la f si modifica. 
+            Facendo crescere la C si aumenta il costo dell'errore, sapendo che la FO che vogliamo risolvere è una FO di minimo, bisogna mantenere il costo più basso possibile. Questo si traduce visivamente in una funzione "rigida" avente un cambiamento molto brusco. È facile notare che maggiore è la C e maggiore sarà la somiglianza di nu ad una funzione di appartenenza in un classico insieme.
+
+            [FIGURA DI FUZZIFIER DI MALCHIODI]
+            [FIGURA DI FUNZIONE DI APPARTENENZA DI UN INSIEME]
+
+            Esiste un ulteriore parametro che modifica la forma del fuzzifier, questo è il kernel. Il kernel, come abbiamo visto nelle SVM è una funzione che viene utilizzata per mappare uno spazio N-dimensionale, in uno spazio M-dimensionale (dove M è spesso molto più grande di N). Esso entra in gioco nella ridefinizione della ditanza di R^2(x) per ogni punto x appartenente a X:
+                [RISCRITTURA DI R^2 IN BASE A X]
+
+            Questo parametro permette di modificare la forma della funzione di appartenenza. Prendendo lo stesso esempio e una funzione kernel gaussiana, vediamo in figura xxx come modificando sigma (parametro della funzione kernel gaussiana), viene modificata la forma della funzione di appartenenza.
+
+                [FIGURA DI FUZZIFIER CON SIGMA MODIFICATO]
+
+            Ricapitolando quindi, in possibilearn vediamo fondamentalmente 3 diversi iperparametri:
+            
+            * C: per determinare il peso degli errori di classificazione in fase di definizione del fuzzy set
+            * fuzzifier: funzione che determina il grado di appartenenza all'insieme fuzzy
+            * kernel: funzione utile a mappare gli elementi dallo spazio originale ad uno sovra-dimensionato
+
+
+
+/*****************************************************************************************************************************************************************************************************
+
+Capitolo 3: Esperimenti
+
+In questo capitolo ci concentremo maggiormente sui risultati ottenuti tramite l'utilizzo di \emph{possibilearn} su due diversi dataset di volti: Olivetti faces e AT&T faces. Descriveremo inoltre tutti i risultati commentandoli e traendo infine delle conclusioni sull'algoritmo.
+
+This dataset contains a set of face images taken between April 1992 and April 1994 at AT&T Laboratories Cambridge. The sklearn.datasets.fetch_olivetti_faces function is the data fetching / caching function that downloads the data archive from AT&T.
+
+As described on the original website:
+
+There are ten different images of each of 40 distinct subjects. For some subjects, the images were taken at different times, varying the lighting, facial expressions (open / closed eyes, smiling / not smiling) and facial details (glasses / no glasses). All the images were taken against a dark homogeneous background with the subjects in an upright, frontal position (with tolerance for some side movement).
+The image is quantized to 256 grey levels and stored as unsigned 8-bit integers; the loader will convert these to floating point values on the interval [0, 1], which are easier to work with for many algorithms.
+
+The “target” for this database is an integer from 0 to 39 indicating the identity of the person pictured; however, with only 10 examples per class, this relatively small dataset is more interesting from an unsupervised or semi-supervised perspective.
+
+The original dataset consisted of 92 x 112, while the version available here consists of 64x64 images.
+
+When using these images, please give credit to AT&T Laboratories Cambridge.
+
+    Sezione 3.1: I dataset
+        Sezione 3.1.1: Olivetti dataset
+            Olivetti dataset è un dataset di immagini di volti umani. Le immagini sono foto scattate presso AT&T Laboratories Cambridge tra il 1992 e 1994. Questo dataset è stato messo a disposizione proprio da AT&T Laboratories Cambridge.
+            Nel dataset sono presenti 10 immagini per 40 soggetti distinti, ognuna delle quali raffigura quest'ultimo in diverse condizioni di luce, con differenti espressioni facciali (occhi chiusi/aperti, sorriso, ecc.) per un totale di 400 immagini. Ogni immagine è stata quantizzata a 256 livelli di grigio e ha una risoluzione pari a 64 x 64. L'immagine è rappresentata da una lista di valori float (compresi tra 0 e 1) di 4096 elementi.
+
+            [FIGURA DI HEAD DEL DATASET]
+
+            Inoltre ogni soggetto è rappresentato tramite un numero che va da 0 a 39 che rappresenta l'etichetta di ogni record.
+
+        Sezione 3.1.2: AT&T faces dataset
+            Il dataset AT&T faces, come quello Olivetti, contiene anch'esso immagini raffiguranti 40 soggetti con 10 immagini distinte per ciascuno. Questo dataset, a differenza di Olivetti contiene immagini che sono grandi più del doppio di quelle raffigurate all'iterno del dataset di Olivetti. Ogni immagine a una risoluzione pari a 92 x 112, quindi con 10304 pixel. Ogni immagine ha 256 livelli di grigio e ritrae soggetti in diverse condizioni, esattamente come Olivetti. Ogni immagine è etichettata da un numero compreso tra 0 e 39 il quale rappresenta il soggetto.[nota: si ringrazia AT&T Laboratories per i dati messi a disposzione] 
+
+            [FIGURA DI HEAD DEL DATASET?]
+    
+    Sezione 3.2: Valutazione del modello
+        Fino ad ora ci siamo abbiamo visti come si costruiscono i modelli di ML e come possono essere configurati. In questo capitolo ci soffermeremo sulla valutazione di un modello e i relativi iperparametri configurati.
+
+        Sezione 3.2.1: Training, Validation e Test set
+        Per costruire un modello abbiamo visto che è necessario un dataset su cui basare l'apprendimento. Il dataset che viene usato per la costruzione viene spesso diviso in due sotto-set: \emph{training set} e \emph{test set}.
+
+        Il \emph{training set} è il sotto-set di dati utilizzata per allenare il modello. Quindi il modello vede e impara da questo set.
+
+        Il \emph{test set} consiste nel set di dati del dataset escluso dal \emph{training set}. Questo set, è utilizzato per valutare l'effettiva accuratezza del modello. 
+        Il \emph{test set} quindi, viene usato per determinare lo \emph{score} del modello nella generalità dei casi.
+        % avente la migliore configurazione di iperparametri individuata mediante il \emph{validation set}. Lo score viene determinato analogamente a quanto viene fatto con il \emph{validation set}.
+
+        A volte si definisce un terzo sotto-set denominato \emph{validation set}. È un set utilizzato valutare le prestazioni con una specifica configurazione di iperparametri. Viene utilizzato quindi per una ricerca approfondita della migliore configurazione di questi. Una volta determinata la migliore configurazione del modello, questo viene nuovamente testato nel \emph{test set} per vedere come si comporta effettivamente dopo una più approfondita ricerca dei migliori iperparametri.
+    
+    Sezione 3.2.1: Cross-validation
+        La \emph{cross-validation} è un metodo statistico di valutazione delle performance. Con la \emph{cross-validation} viene i dati dell'intero dataset vengono partizionati in un $k$ gruppi denominato \emph{fold}, dove $k$ è un numero specificato dall'utente. Quando viene utilizzata questa strategia con un $k$ pari a 5, significa che il dataset sarà diviso in 5 combinazioni differenti in 5 \emph{fold}. Per ogni combinazione possibile un \emph{fold} viene utilizzato come \emph{test set} e gli altri come \emph{training set}. Quindi il modello viene allenato per ogni combinazione data da questa strategia, utilizzando i $k-1$ fold per come \emph{training set} e il restante \emph{fold} come \emph{test set}. In Figura è mostrato uno schema di una \emph{cross-validation} a 5 fold.
+
+        L'utilizzo di questa strategia porta diversi vantaggi. Un primo importante vantaggio è rappresentato dal fatto che l'accuratezza del modello è calcolata sulla media di tutti i valori restituiti da ogni \emph{test set} nelle varie combinazioni dei \emph{fold}. Per capire meglio questo vantaggio, vediamo l'esempio seguente. Supponiamo di essere ``fortunati" e quindi di allenare il modello su un \emph{training set} che contiene solo dati di difficile classificazione. Questo significa che il \emph{test set} probabilmente avrà solamente dei dati molto facili da classificare il che permette al modello di avere prestazioni (non veritiere) molto alte. Al contrario se siamo ``sfortunati" avremo che tutti i dati di difficile classificazione sono all'interno del \emph{test set} e quelli semplici nel \emph{training set}. In questo modo avremo risultati piuttosto bassi.
+        Con l'utilizzo di \emph{cross-validation} però, la possibilità di avere casi come questi sarà molto bassa proprio perchè verranno usati dati di allenamento sempre diversi per uno stesso modello. Il risultato finale sarà quindi composto dalla media di tutti i risultati delle varie combinazioni.
+
+        Un'altro vantaggio corrisponde al fatto che oltre a variare l'utilizzo dei dati di allenamento, varia anche la dimensione di questi. Se utilizziamo 10 \emph{fold} ad esempio, significa che il \emph{test set} sarà definito da un decimo della dimensione totale del dataset. Analogamente se ne utilizziamo 5, il \emph{test set} sarò costituito da un quinto del totale.
+
+        La \emph{cross-validation} presenta però un grosso svantaggio nelle performance. Questo perchè maggiore sarà il numero di \emph{fold} e maggiore sarà il tempo richiesto per ottenre un risultato. In altre parole con $k$ \emph{fold} avremo un tempo pari a $k$ volte del tempo necessario ad allenarlo.
+
+
+/*****************************************************************************************************************************************************************************************************
+            This is an “unsolved” problem in statistics: there are no
+magic procedures to get you the “best model.”
+■ In some sense, model selection is “data mining.”
+■ Data miners / machine learners often work with very many
+predictors.
+
+To “implement” this, we need:
+◆ a criterion or benchmark to compare two models.
+◆ a search strategy.
+■ With a limited number of predictors, it is possible to search
+all possible models.
+            tra una serie di parametri (anche chiamati iperparametri), la migliore combinazione per costruire un modello di Machine Learning 
+
+            Una volta definito il confine che delimita la sfera, bisogna definrie il confine oltre il quale il grado di appartenenza sarò pari a 0. Per farlo dobbi
+
+
+
+        In particolare tutti i punti x aventi membership pari a 1, soddisfano la regola:
+            la distanza di x da alfa (nella soluzione ottimale) <= R^2(xi) dove gli xi rappresetano i support vector.
+        
+        
+        
+        
+        
+        Thus the corresponding x i has an
+image through Φ lying on the border of the learnt sphere S and will be called
+support vector.
+        In particular, all points x with membership μ A (x) = 1 satisfy R 2 (x) ≤ R 1 2 ,
+where R 1 2 = R 2 (x i ) for any support vector x i .
+In particolare tutti i punti x aventi membership pari a 1, soddisfano al regola:
+    la distanza di x da alfa (nella soluzione ottimale) <= R^2(xi) dove gli xi rappresetano i support vector.
+         risolviamo il problema ottenendo le variabili con i risultati ottimali.
+
+/*********************************************************************/
+            Sezione 2.3.2: Hyper-paramter tuning 
+
+             
+
+            Nella maggior parte dei modelli di Machine Learning, oltre a fornire i dati su cui allenarsi, bisogna definire una serie di _iperparametri_[nota: differenza tra iperparametro e parametro. Si chiamano iperparametri e non parametri perchè questi indicano due cose differenti. Gli iperparametri sono dei parametri configurati dall'utente, mentre i parametri sono valori generati automaticamente dalla macchina] che influenzano la costruzione dei modelli. Ogni modello necessita i propri iperparamtri. Per capire meglio di quali dati parliamo, facciamo un esempio. Prendendo l'algoritmo k-Nearest Neighbor, come abbiamo già visto, bisogna determinare la k. La k, in questo caso, rappresenta un iperparametro del modello costruito con k-NN. La scelta degli iperparametri è importante, perchè tramite questi si influenza la predizione fatta dal modello.
+            Inoltre, è giusto sottolineare che non esistono dei buoni o dei cattivi iperparametri, bensì questi vengono definiti buoni per i dati di allenamento. Questo significa che ci sono dei casi in cui, ad esempio, il k-NN si comporta bene con un k pari a 1 e altri casi in cui k è pari a 9.
+            
+            Con l'hyper tuning optimization, di fatto, viene cercata la migliore combinazione possibile di iperparametri per il modello che si sta allenando. Questo può essere fatto, oltre che manualmente, nei modi automatici di seguito indicati:
+
+            * Random search 
+            * Pipeline
+            * Gridsearch
+
+            Con tecnica manuale si intende una ricerca di iperparametri che l'utente fa basandosi su intuizioni e/o esperienza pregressa.
+            GridSearch prevede che l'utente fornisca una serie di valori per ogni iperparametro. Viene calcolata e utilizzata ogni possibile combinazione di iperparametri per generare un modello. Inoltre, GridSearch è la tecnica che è stata utilizzata per l'ottimizzazione degli iperparametri all'itenrno del progetto di questo elaborato, pertanto lo vederemo in dettaglio nel prossimo capitolo. 
+            Random search prevede che l'utente fornisca una serie di valori per ogni iperparametro. Questa tecnica cerca tramite combinazioni casuali di iperparametri, il modello che restituisca il risultato più alto. Diversamente dalla tecnica
+            La tecnica Pipeline è adibita ad una ricerca tra diversi algoritmi aventi diverse possibili combinazioni di iperparametri.
+
+In questo algoritmo le etichette da assegnare ai singoli dati corrispondono a dei gradi di appartenenza ad un insieme. Con esse l'algoritmo è in grado di
+
+Questo algoritmo va considerato come un estensione dell'SVC (Support Vector Cluster).
+Questo algoritmo, come l'SVC, sfrutta i vettori di supporto per determinare la zone di clustering
+Questo algoritmo va a modificare il comportamento del SVC (Support Vector Cluster). Il Support Vector Cluster è un algoritmo utile a classificare in diversi cluster i dati in uno spazio. Analogamente all'SVC in questo algoritmo i dati si suddividono in gruppi, con la differenza che essi non hanno una semplice bivalenza (compresi e non), bensì si basano secondo la logica degli insiemi fuzzy.
+
+
+Quindi per questo algoritmo è più corretto parlare di regressore, in quanto il risultato è dato dal grado di appartenenza ad un insieme. 

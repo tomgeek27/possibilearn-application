@@ -25,7 +25,10 @@ Capitolo 1: Apprendimento automatico
 Capitolo 2: Induzione di insiemi fuzzy
 
     Sezione 2.1: La logica fuzzy
-    Sezione 2.2: Possibilearn
+    Sezione 2.2: Gli insiemi fuzzy
+    Sezione 2.3: Possibilearn
+        Sezione 2.3.1: Calcolo dell'insiemi fuzzy
+        Sezione 2.3.2: Hyper-parameters tuning
 
 Capitolo 3: Esperimenti
 
@@ -33,7 +36,11 @@ Capitolo 3: Esperimenti
         Sezione 3.1.1: Olivetti faces
         Sezione 3.1.2: AT&T faces
     
-    Sezione 3.2: I risultati
+    Sezione 3.2: Valutazione del modello
+        Sezione 3.2.1: Training & Test set
+        Sezione 3.2.2: Cross-Validation
+        Sezione 3.2.3: Grid Search
+
 
 Conclusione
 
