@@ -1,0 +1,137 @@
+Olivetti:
+
+2D-TSNE:
+
+    - TSNE(p=30, dimension=2, random_state=10)
+    - NO MinMaxScaler
+    - NO StandardScaler
+    - gridsearch: {
+        params: {
+            c: 10, 1000
+            k: .5, 1, 1.5
+            fuzzifier: Linear
+        }
+        file: /logs/new/olivetti_faces/of_tsne_2
+        result file: /logs/best/olivetti_faces/of_tsne_result_2
+    }
+
+
+2D-PCA:
+
+    - PCA(dimension=2)
+    - NO MinMaxScaler
+    - NO StandardScaler
+    - gridsearch: {
+        params: {
+            c: 10, 1000
+            k: .5, 1, 1.5
+            fuzzifier: Linear
+        }
+        file: /logs/new/olivetti_faces/of_pca_2
+        result file: /logs/best/olivetti_faces/of_pca_result_2
+    }
+
+3D-TSNE:
+    - TSNE(p=20, dimension=3, random_state=10)
+    - SI MinMaxScaler(feature_range=(-5, 5))
+    - SI StandardScaler
+    - gridsearch: {
+        params: {
+            c: 1000
+            k: 1, 1.5, 2
+            fuzzifier: Linear
+        }
+        file: /logs/new/olivetti_faces/of_tsne_3
+        result file: /logs/best/olivetti_faces/of_tsne_result_3
+    }
+5D-PCA:
+    - PCA(dimension=5)
+    - SI MinMaxScaler(feature_range=(0, 5))
+    - SI StandardScaler
+    - gridsearch: {
+        params: {
+            c: 1
+            k: 1
+            fuzzifier: Exponential
+        }
+        file:
+        result file: /logs/best/olivetti_faces/of_pca_result_5
+    }
+
+20D-PCA:
+    - PCA(dimension=20)
+    - SI MinMaxScaler(feature_range=(-1, 1))
+    - SI StandardScaler
+    - gridsearch: {
+        params: {
+            c: 1
+            k: .35, .5, .65
+            fuzzifier: Linear
+        }
+        file: 
+        result file: 
+    }
+
+/***********************************************************************************************************/
+/***********************************************************************************************************/
+/***********************************************************************************************************/
+
+AT&T:
+
+2D-PCA:
+    - PCA(dimension=2)
+    - SI MinMaxScaler(feature_range=(-5, 5))
+    - SI StandardScaler()
+    - gridsearch: {
+        params: {
+            c: 1
+            k: 1, 1.5, 2
+            fuzzifier: Linear
+        }
+        file: /logs/new/atet_faces/at_pca_2
+        result file: 
+    } 
+2D-TSNE:
+
+    - TSNE(p=20, dimension=2)
+    - NO MinMaxScaler
+    - NO StandardScaler
+    - gridsearch:{
+        params: {
+            c: 10
+            k: 1
+            fuzzifier: Exponential
+        }
+        file: 
+        result file: /logs/best/at_tsne_result_2
+    }
+
+3D-TSNE:
+
+    - TSNE(p=20, dimension=3)
+    - SI MinMaxScaler(feature_range(-5, 5))
+    - SI StandardScaler
+    - gridsearch:{
+        params: {
+            c: 1
+            k: 1, 1.5, 2
+            fuzzifier: Linear
+        }
+        file: /logs/new/atet_faces/at_tsne_3
+        result file: /logs/best/atet_faces/at_tsne_result_3
+    }
+
+5D-PCA:
+
+    - PCA(dimension=5)
+    - SI MinMaxScaler(feature_range=(0, 5))
+    - SI StandardScaler()
+    - gridsearch: {
+        params: {
+            c: 1
+            k: 1
+            fuzzifier: Exponential
+        }
+        file: 
+        result file: /logs/best/at_pca_result_5
+    }    

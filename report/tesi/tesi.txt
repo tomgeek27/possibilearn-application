@@ -455,19 +455,6 @@ Capitolo 3: Esperimenti
 
 In questo capitolo ci concentremo maggiormente sui risultati ottenuti tramite l'utilizzo di \emph{possibilearn} su due diversi dataset di volti: Olivetti faces e AT&T faces. Descriveremo inoltre tutti i risultati commentandoli e traendo infine delle conclusioni sull'algoritmo.
 
-This dataset contains a set of face images taken between April 1992 and April 1994 at AT&T Laboratories Cambridge. The sklearn.datasets.fetch_olivetti_faces function is the data fetching / caching function that downloads the data archive from AT&T.
-
-As described on the original website:
-
-There are ten different images of each of 40 distinct subjects. For some subjects, the images were taken at different times, varying the lighting, facial expressions (open / closed eyes, smiling / not smiling) and facial details (glasses / no glasses). All the images were taken against a dark homogeneous background with the subjects in an upright, frontal position (with tolerance for some side movement).
-The image is quantized to 256 grey levels and stored as unsigned 8-bit integers; the loader will convert these to floating point values on the interval [0, 1], which are easier to work with for many algorithms.
-
-The “target” for this database is an integer from 0 to 39 indicating the identity of the person pictured; however, with only 10 examples per class, this relatively small dataset is more interesting from an unsupervised or semi-supervised perspective.
-
-The original dataset consisted of 92 x 112, while the version available here consists of 64x64 images.
-
-When using these images, please give credit to AT&T Laboratories Cambridge.
-
     Sezione 3.1: I dataset
         Sezione 3.1.1: Olivetti dataset
             Olivetti dataset è un dataset di immagini di volti umani. Le immagini sono foto scattate presso AT&T Laboratories Cambridge tra il 1992 e 1994. Questo dataset è stato messo a disposizione proprio da AT&T Laboratories Cambridge.
@@ -486,27 +473,86 @@ When using these images, please give credit to AT&T Laboratories Cambridge.
         Fino ad ora ci siamo abbiamo visti come si costruiscono i modelli di ML e come possono essere configurati. In questo capitolo ci soffermeremo sulla valutazione di un modello e i relativi iperparametri configurati.
 
         Sezione 3.2.1: Training, Validation e Test set
-        Per costruire un modello abbiamo visto che è necessario un dataset su cui basare l'apprendimento. Il dataset che viene usato per la costruzione viene spesso diviso in due sotto-set: \emph{training set} e \emph{test set}.
+            Per costruire un modello abbiamo visto che è necessario un dataset su cui basare l'apprendimento. Il dataset che viene usato per la costruzione viene spesso diviso in due sotto-set: \emph{training set} e \emph{test set}.
 
-        Il \emph{training set} è il sotto-set di dati utilizzata per allenare il modello. Quindi il modello vede e impara da questo set.
+            Il \emph{training set} è il sotto-set di dati utilizzata per allenare il modello. Quindi il modello vede e impara da questo set.
 
-        Il \emph{test set} consiste nel set di dati del dataset escluso dal \emph{training set}. Questo set, è utilizzato per valutare l'effettiva accuratezza del modello. 
-        Il \emph{test set} quindi, viene usato per determinare lo \emph{score} del modello nella generalità dei casi.
-        % avente la migliore configurazione di iperparametri individuata mediante il \emph{validation set}. Lo score viene determinato analogamente a quanto viene fatto con il \emph{validation set}.
+            Il \emph{test set} consiste nel set di dati del dataset escluso dal \emph{training set}. Questo set, è utilizzato per valutare l'effettiva accuratezza del modello. 
+            Il \emph{test set} quindi, viene usato per determinare lo \emph{score} del modello nella generalità dei casi.
+            % avente la migliore configurazione di iperparametri individuata mediante il \emph{validation set}. Lo score viene determinato analogamente a quanto viene fatto con il \emph{validation set}.
 
-        A volte si definisce un terzo sotto-set denominato \emph{validation set}. È un set utilizzato valutare le prestazioni con una specifica configurazione di iperparametri. Viene utilizzato quindi per una ricerca approfondita della migliore configurazione di questi. Una volta determinata la migliore configurazione del modello, questo viene nuovamente testato nel \emph{test set} per vedere come si comporta effettivamente dopo una più approfondita ricerca dei migliori iperparametri.
+            A volte si definisce un terzo sotto-set denominato \emph{validation set}. È un set utilizzato valutare le prestazioni con una specifica configurazione di iperparametri. Viene utilizzato quindi per una ricerca approfondita della migliore configurazione di questi. Una volta determinata la migliore configurazione del modello, questo viene nuovamente testato nel \emph{test set} per vedere come si comporta effettivamente dopo una più approfondita ricerca dei migliori iperparametri.
     
-    Sezione 3.2.1: Cross-validation
-        La \emph{cross-validation} è un metodo statistico di valutazione delle performance. Con la \emph{cross-validation} viene i dati dell'intero dataset vengono partizionati in un $k$ gruppi denominato \emph{fold}, dove $k$ è un numero specificato dall'utente. Quando viene utilizzata questa strategia con un $k$ pari a 5, significa che il dataset sarà diviso in 5 combinazioni differenti in 5 \emph{fold}. Per ogni combinazione possibile un \emph{fold} viene utilizzato come \emph{test set} e gli altri come \emph{training set}. Quindi il modello viene allenato per ogni combinazione data da questa strategia, utilizzando i $k-1$ fold per come \emph{training set} e il restante \emph{fold} come \emph{test set}. In Figura è mostrato uno schema di una \emph{cross-validation} a 5 fold.
+        Sezione 3.2.1: Cross-validation
+            La \emph{cross-validation} è un metodo statistico di valutazione delle performance. Con la \emph{cross-validation} i dati dell'intero dataset vengono partizionati in $k$ gruppi ognuno dei quali è denominato \emph{fold} e dove $k$ rappresenta un numero specificato dall'utente. Quando viene utilizzata questa strategia con un $k$ pari a 5, significa che il dataset sarà diviso in 5 combinazioni differenti in 5 \emph{fold}. Per ogni combinazione possibile un \emph{fold} viene utilizzato come \emph{test set} e gli altri come \emph{training set}. Quindi il modello viene allenato per ogni combinazione data da questa strategia, utilizzando i $k-1$ fold per come \emph{training set} e il restante \emph{fold} come \emph{test set}. In Figura è mostrato uno schema di una \emph{cross-validation} a 5 fold.
 
-        L'utilizzo di questa strategia porta diversi vantaggi. Un primo importante vantaggio è rappresentato dal fatto che l'accuratezza del modello è calcolata sulla media di tutti i valori restituiti da ogni \emph{test set} nelle varie combinazioni dei \emph{fold}. Per capire meglio questo vantaggio, vediamo l'esempio seguente. Supponiamo di essere ``fortunati" e quindi di allenare il modello su un \emph{training set} che contiene solo dati di difficile classificazione. Questo significa che il \emph{test set} probabilmente avrà solamente dei dati molto facili da classificare il che permette al modello di avere prestazioni (non veritiere) molto alte. Al contrario se siamo ``sfortunati" avremo che tutti i dati di difficile classificazione sono all'interno del \emph{test set} e quelli semplici nel \emph{training set}. In questo modo avremo risultati piuttosto bassi.
-        Con l'utilizzo di \emph{cross-validation} però, la possibilità di avere casi come questi sarà molto bassa proprio perchè verranno usati dati di allenamento sempre diversi per uno stesso modello. Il risultato finale sarà quindi composto dalla media di tutti i risultati delle varie combinazioni.
+            [FIGURA DEL LIBRO DELLA CROSS VALIDATION 5.1]
 
-        Un'altro vantaggio corrisponde al fatto che oltre a variare l'utilizzo dei dati di allenamento, varia anche la dimensione di questi. Se utilizziamo 10 \emph{fold} ad esempio, significa che il \emph{test set} sarà definito da un decimo della dimensione totale del dataset. Analogamente se ne utilizziamo 5, il \emph{test set} sarò costituito da un quinto del totale.
+            L'utilizzo di questa strategia porta diversi vantaggi. Un primo importante vantaggio è rappresentato dal fatto che l'accuratezza del modello è calcolata sulla media di tutti i valori restituiti da ogni \emph{test set} nelle varie combinazioni dei \emph{fold}. Per capire meglio questo vantaggio, vediamo l'esempio seguente. Supponiamo di essere ``fortunati" e quindi di allenare il modello su un \emph{training set} che contiene solo dati di difficile classificazione. Questo significa che il \emph{test set} probabilmente avrà solamente dei dati molto facili da classificare il che permette al modello di avere prestazioni (non veritiere) molto alte. Al contrario se siamo ``sfortunati" avremo che tutti i dati di difficile classificazione sono all'interno del \emph{test set} e quelli semplici nel \emph{training set}. In questo modo avremo risultati piuttosto bassi.
+            Con l'utilizzo di \emph{cross-validation} però, la possibilità di avere casi come questi sarà molto bassa proprio perchè verranno usati dati di allenamento sempre diversi per uno stesso modello. Il risultato finale sarà quindi composto dalla media di tutti i risultati delle varie combinazioni.
 
-        La \emph{cross-validation} presenta però un grosso svantaggio nelle performance. Questo perchè maggiore sarà il numero di \emph{fold} e maggiore sarà il tempo richiesto per ottenre un risultato. In altre parole con $k$ \emph{fold} avremo un tempo pari a $k$ volte del tempo necessario ad allenarlo.
+            Un'altro vantaggio corrisponde al fatto che oltre a variare l'utilizzo dei dati di allenamento, varia anche la dimensione di questi. Se utilizziamo 10 \emph{fold} ad esempio, significa che il \emph{test set} sarà definito da un decimo della dimensione totale del dataset. Analogamente se ne utilizziamo 5, il \emph{test set} sarò costituito da un quinto del totale.
+
+            La \emph{cross-validation} presenta però un grosso svantaggio nelle performance. Questo perchè maggiore sarà il numero di \emph{fold} e maggiore sarà il tempo richiesto per ottenere un risultato. In altre parole con $k$ \emph{fold} avremo un tempo pari a $k$ volte il tempo necessario ad allenarlo.
+        
+        Sezione 3.2.3: Grid Search
+            Ora che abbiamo capito come avviene e su cosa si basa una buona valutazione del modello possiamo passare al prossimo step: la ricerca del miglior modello.
+            Cercare il miglior modello significa cercare la migliore configurazione di iperparametri che meglio generalizzano il problema originale. 
+            \emhp{Grid Search} è una tecnica molto usata per la ricerca del miglior iperparametro. Questa tecnica consiste nel provare ogni possibile combinazione di iperparametri di nostro interesse. Consideriamo il caso di \emph{possibilearn}. Come abbiamo visto nel capitolo precedente vi sono tre differenti iperparametri che caratterizzano l'algoritmo: \emph{C}, \emph{kernel function}, \emph{fuzzifier}. Supponiamo di voler testare i valori 0.001, 0.1, 1, 1000 per C, un kernel gaussian con sigma pari a .225, .5, 1, 2 per il kernel e Linear fuzzifier, CrispFuzzifier per il fuzzifier. Così facendo abbiamo un totale di $ 4 \cdot 4 \codt 2 = 32 $ combinazioni differenti di iperparametri.
+            Iterano tutte le possibili combinazioni su un \emph{training set} e valutandone le prestazioni su un \emph{test set} possiamo quindi trovare quale fra tutte le 32 combinazioni restituisca il valore più alto.
+            
+            Questa tecnica ha degli svantaggi perchè i risultati ottenuti non sempre sono del tutto veri. Questo succede perchè nel testare le prestazioni delle diverse configurazioni consideriamo \emph{test set} differenti per ognuna di queste. Così facendo i risultati ottenuti si basano tutti sul prorpio test set e questo non ci permette di avere un'unica misura per valutrare le effettive prestazioni.
+
+            Per risolvere questo problema si ricorre all'utilizzo del \emph{validation set} che permette quindi di determinare quale possa essere la migliore configurazione e successivamente testarne le effettive prestazioni su dati che non sono stati usati per aggiustare la configurazione. In Figura zzz è mostrata la suddivisione del dataset con l'aggiunta del \emph{validation set}.
+
+            [FIGURA DI DATASET IN TRAIN TEST E VALIDATION 5.5]
+
+        Sezione 3.2.4: Grid Search con Cross-Validation e Nested Grid Search
+            Nei due paragrafi precedenti abbiamo visto quale sia una buona valutazione delle performance del modello e successivamente di come si cerchi efffettivamente una buona configurazione di iperparametri. Queste due tecniche vengono spesso utilizzate insieme per vedere in generale quale sia la migliore combinazione possibile per un modello utilizzando diversi dati di \emph{training} e di \emph{test}.
+            Quindi quello che viene fatto è, per ogni modello, provare su ogni combinazione di dati per il training e il test come funzione ogni combinazione di iperparametri. Questo consente, quindi, un ulteriore grado di valutazione del modello. Il grosso svantaggio di combinare queste due tecniche consiste nel tempo richiesto per la computazione. Per possibilearn C, sigma, fuzzifier come iperparametri configurabili. Supponendo di provare per C i seguenti valori:
+                [LISTA DI IPERPARAMETRI DI C]
+            , per sigma i valori: 
+                [LISTA DI IPERPARAMETRI DI SIGMA]
+            e mantendo il \emph{fuzzifier} fisso, otteniamo 5 x 5 = 25 possibili combinazioni mostrate in Figura xxx. 
+                [TABELLA DI TUTTI LE COMBINAZIONI DEGLI IPERPARAMETRI]
+            A questo le 25 configurazioni dobbiamo moltiplicalre per il numero di fold che usiamo nella cross validation. Prendendo, ad esempio, 5 fold otteniamo 25 x 5 = 125 diversi modelli da costruire!
+            È importante quindi utilizzare il Grid Search unito alla Cross-Validation prestando attenzione a quali iperparametri si vogliono confrontare per evitare di non fare computazioni eccessivamente lunghe.
+        
+            **************PARLA DI NESTED CROSS VALIDATION**************
+        
+        Sezione 3.3: I risultati
+            In conclusione analizziamo i risultati ottenuti dopo una lunga ricerca sui dataset Olivetti e AT&T tramite possibilearn. Nella ricerca e nello studio di come si comportasse possibilearn nel riconoscimento facciale e classificazione dei soggetti sono stati usati diversi computer per ridurre i costi temporali richiesti dall'allenamento di ogni modello. La scelta di quale tecnica usare ha richiesto diversi giorni poichè il tempo richiesto dalla computazione era sostanzioso. Inizialmente è stata costruita un'infrastruttura client-server il cui server godeva di alte performance computazionali. Purtoppo queste non erano sufficienti in quanto i tempi erano troppo lunghi e quindi la computazione è stata in seguito delegata a delle tecnologie di Google denominate Google Colaboratory le quali godono di un'alta performance computazionale.
+
+            Sezione 3.3.1: Olivetti dataset
+                Analizziamo ora i risultati ottenuti sull'analisi di Olivetti dataset. In primo luogo analizziamo i dati di questo dataset. Essi sono suddivisi in due diversi vettori di diverse dimensioni. Il primo vettore di cui parliamo è un vettore bidimensionale (matrice) contenente 400 vettori di dimensione 64x64 = 4096. Ogni vettore della matrice rappresenta le immagini sottoforma di valori float compresi tra 0 e 1. Il secondo vettore monodimensionale rappresenta, invece, le etichette relative ad ogni foto sottoforma di interi compresi tra 0 (incluso) e 39 (incluso). Il vettore dell'immagine i-esima avrà l'etichetta contenuta nell'i-esimo elemento del vettore delle etichette.
+
+                La prima analisi che è stata fatta è sul numero di dimensioni che sono eccessivamente elevate. Considerare 4096 dimensioni non sarebbe utile, in quanto, come spiegato nel Capitolo 1, trattandosi di dati che rappresentano immagini, molti dati possono essere esclusi perchè poco significativi. Per questo motivo, tramite le tecniche di riduzione della dimensionalità, sono state ridotte le dimensioni a 2 e a 5 nel caso di PCA e a 2 e 3 nel caso di t-SNE[1].
+                Partendo dalla riduzione a 2 dimensioni di t-SNE è possibile osservare, tramite lo scatter plot in Figura fig:scatter_plot_tsne_2_of, la distribuzione dei dati. Nella figura è possibile osservare come vengano suddivisi piuttosto bene i punti, questo, infatti, ci può far pensare a delle buone classificazioni.
+
+                [SCATTER PLOT PER TSNE 2D OLIVETTI]
+
+                Nel caso di una riduzione a 3 dimensioni in figura fig:scatter_plot_tsne_3_of è possibile osservare come i dati non seguino più (rispetto al caso a 2 dimensioni) una suddivisione distinta dei dati. Questo, al contrario del caso a 2 dimensioni, ci fa sospettare che i risultati in caso di test non saranno molto alti.
+
+                [TABELLA CON TSNE COMPONENTI TEST-TRAIN]
+
+                Nel caso di PCA in Figura fig:scatter_plot_pca_2_of osserviamo una grossa differenza rispetto alle due dimensioni date da t-SNE. In questa figura, infatti, è possibile notare come i dati siano poco distinguibili. Questa bassa suddivisione, analogamente alla suddivisone a 3 dimensioni di t-SNE non fa aspettare buoni risultati. Per quanto riguarda i dati ridotti a 5 dimensioni non è possibile effettuare un'analisi qualitativa per ovvi motivi. Quindi per la riduzione in 5 dimensioni ci siamo limitati a cercare tramite una Grid Search con Cross Validation degli iperparametri che potessero rendere performanti i modelli di ogni soggetto.
+
+                [SCATTER PLOT PER TSNE 3D OLIVETTI]
+
+                Infine in Tabella tab:pca_of sono stati riportati i risultati. Per il caso a 2 dimensioni, come ptoevamo aspettarci abbiamo ottenuto scarsi risultati proprio per il problema che presentano gli stessi dati nella suddivisione. Nel caso di 5 dimensioni, invece, abbiamo ottenuto un discreto risultato che rappresenta una classificazione dei soggetti corretta nel 40% in caso di dati di \emph{test} e del 90% in caso di dati di \emph{train}. 
+
+                [TABELLA CON PCA COMPONENTI TEST-TRAIN]
+
+            Sezione 3.3.1: AT&T dataset
+
+                Analogamente a come fatto per il dataset di Olivetti, procediamo con l'analisi del dataset di AT&T. In questo dataset i dati sono della stesso tipo del dataset precedente, la differenza consiste in particolare nella quantità di dati a disposizione. Le immagini di questo dataset, anch'esse rappresentate da dei vettori di numeri \emph{float} compresi tra 0 e 1 di lunghezza pari al numero di pixel di ogni immagine. In questo caso le immagini sono costituite da 92x112 pixel per un totale di 10304 elementi per vettore.
+                Questo dataset è stato analizzato in parallelo al dataset visto precedentemente per valutare le prestazioni di \emph{possibilearn} in casi di immagini di dimensioni maggiori. In questo caso i dati sono stati ridotti in primo luogo a 2 e 3 dimensioni con t-SNE per avere una prima idea a livello grafico. Parallelamente è stato analizzato con PCA a 2, 5 e 20 dimensioni.
 
 
+                
+                
+[1: Nel caso di t-SNE sono state considerate solo le riduzioni a 2 e 3 dimensioni perchè essendo che t-SNE non toglie informazioni (come fa PCA), utilizziamo 2 e 3 dimensioni perchè in questo modo siamo in grado di plottare i dati e vedere se sono indivudabili dei cluster per ogni soggetto]    
+[nota A: Per ogni Grid Search che forniscono 6 combinazioni con Cross Validation a 3 fold richiedevano per modello 24 minuti, quindi un totale di 16 ore per allenare tutti i modelli]
 /*****************************************************************************************************************************************************************************************************
             This is an “unsolved” problem in statistics: there are no
 magic procedures to get you the “best model.”
@@ -521,7 +567,7 @@ To “implement” this, we need:
 all possible models.
             tra una serie di parametri (anche chiamati iperparametri), la migliore combinazione per costruire un modello di Machine Learning 
 
-            Una volta definito il confine che delimita la sfera, bisogna definrie il confine oltre il quale il grado di appartenenza sarò pari a 0. Per farlo dobbi
+            Una volta definito il confine che delimita la sfera, bisogna definrie il confine oltre il quale il grado di appartenenza 3rò pari a 0. Per farlo dobbi
 
 
 
@@ -568,3 +614,18 @@ Questo algoritmo va a modificare il comportamento del SVC (Support Vector Cluste
 
 
 Quindi per questo algoritmo è più corretto parlare di regressore, in quanto il risultato è dato dal grado di appartenenza ad un insieme. 
+
+
+/*********************************************************************************************************INTRODUZIONE
+
+Fornire al lettore le indicazioni che gli peremttono di capire in che limit è circoscritto l'indagine della tua tessi
+qual'è l'obiettivo
+quali sono gli strumenti (di calcolo di pensiero)
+
+spiageare come è suddiviso il libro e per quale motivo
+
+parlarew del riconoscimento facciale e della logica fuzzy
+
+/************************************************************************************************************CONCLUSIONE
+
+difficiolta della ricerca e della tesi in generale

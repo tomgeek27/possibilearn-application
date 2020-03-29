@@ -49,7 +49,7 @@
 \usepackage[italian]{babel}			% Supporto per l'italiano
 \usepackage[utf8]{inputenc}			% Supporto per UTF-8
 %\usepackage[a-1b]{pdfx}			% File conforme allo standard PDF-A (obbligatorio per la consegna)
-
+\usepackage{booktabs}
 % Package per la grafica
 \usepackage{graphicx}				% Funzioni avanzate per le immagini
 \usepackage{hologo}					% Bibtex logo with \hologo{BibTeX}
@@ -120,7 +120,7 @@ I tipi di algoritmo del ML differiscono nel loro approccio, nel tipo di dati che
 A queste si aggiunge solitamente una quarta categoria denominata semi-supervisionato.
 
 
-\subsection{Supervisionato}
+\section{Supervisionato}
 
 L'approccio supervisionato è una tecnica che prevede di lavorare su un insieme di dati associati ad etichette definite dall'utente. Le etichette sono delle classi (o gruppi) entro le quali sono suddivisi i dati. Sapendo che ogni dato è associato a un'etichetta si vuole arrivare a cogliere la relazione che vi è tra dati ed etichette, così da poter predire le etichette a partire dai dati, anche lavorando con dati non visti durante la fase di apprendimento.
 %da cui possa imparare a riconoscerne le varie differenze e in seguito a fare una predizione sulla possibile classificazione. 
@@ -182,7 +182,7 @@ Al contrario, quando è troppo complesso, rischiamo di utilizzare troppe variabi
 
 % TODO: dal libro
 
-\subsubsection{k-Nearest Neighbor}
+\subsection{k-Nearest Neighbor}
 
 Vediamo nello specifico uno dei più semplici algoritmi di ML: \emph{k-Nearest Neighbor} (k-NN). Questo è un algoritmo utilizzato sia per la classificazione che per la regressione. In entrambi i casi l'algoritmo si basa sul parametro $k$ fissato. Esso definisce il numero di vicini da prendere in considerazione per fare la predizione.
 
@@ -218,7 +218,7 @@ Nel caso di regressione tramite il k-NN, il risultato sarà pari alla media dei 
 Immaginiamo di avere, nel nostro dataset, due \emph{feature} per ogni elemento: $ \mathrm{Target} $ e $ \mathrm{Feature} $. $ \mathrm{Feature} $ rappresenta il valore su cui vogliamo basare il modello e $ \mathrm{Target} $ il valore che vogliamo predire. Prendendo ad esempio un $ k $ pari a 3 otteniamo (come vediamo in Figura \ref{fig:knn_regressor}) che il nuovo elemento da predire (la stella verde) avrà come valore $ \mathrm{Target} $ (la stella blu) la media dei $ \mathrm{Target} $ dei 3  elementi più vicini sull'asse delle ascisse (l'asse delle \emph{feature}).
 
 
-\subsubsection{Modelli lineari}
+\subsection{Modelli lineari}
 I modelli lineari sono una classe di modelli che cercano di effettuare predizioni utilizzando una funzione lineare basata sull'insieme delle \emph{feature} dell'elemento da analizzare. 
 Nel caso della regressione, la funzione di cui parliamo è definita come segue:
 \[ y = w_{0}x_{0} + w_{1}x_{1} + ... + w_{n}x_{n} + b ,\]
@@ -247,7 +247,7 @@ dove, supponendo di avere le classi $ \mathrm{C_1} $ e $ \mathrm{C_0} $, se la $
 %
 %Nella figura xxx è mostrato l'esempio appena citato, dove i cerchi sono la classe 0 e i triangoli la classe 1.
 
-\subsubsection{Support Vector Machine}
+\subsection{Support Vector Machine}
 Le Support Vector Machine (SVM) sono una classe di modelli che si occupa di individuare un iperpiano utile a separare i punti in uno spazio e quindi dividerli in diversi gruppi. 
 
 Il primo problema che le SVM devono risolvere è capire quale sia l'iperpiano che suddivide nel modo ``migliore" i dati. 
@@ -304,7 +304,7 @@ Quindi quando ci si trova davanti a problemi di suddivisione dell'iperspazio bis
 %	\item $\gamma$: questo parametro definisce fino a che punto arriva l'influenza di un singolo esempio di allenamento. Se ha ha un valore molto elevato, allora il limite della decisione dipenderà solo dai punti molto vicini alla linea, il che si traduce effettivamente nell'ignorare alcuni dei punti che sono molto lontani dal limite della decisione. Questo perché i punti più vicini ottengono più peso e si traduce in una curva ondulata come mostrato nel grafico precedente. D'altra parte, se il valore gamma è basso anche i punti più lontani ottengono un peso considerevole e otteniamo una curva più lineare.
 %\end{itemize}
 
-\subsubsection{Alberi di decisione}
+\subsection{Alberi di decisione}
 
 Gli alberi di decisione (o \emph{decision trees}) sono un algoritmo di classificazione o di regressione la cui logica si basa su una struttura ad albero. I nodi dell'albero rappresentano delle domande (o \emph{test}) la cui risposta è di tipo binario (vero o falso) mentre le foglie rappresentano le classi che vogliamo predire.
 \begin{figure}[h!]
@@ -349,7 +349,7 @@ Per risolvere questo problema, esistono due strategie:
 	\item rimuovere i nodi che contengono informazioni poco significative (post-potatura).
 \end{itemize}
 
-\subsection{Non supervisionato}
+\section{Non supervisionato}
 La tecnica non supervisionata (o \emph{Unsupervised Learning}) è il secondo importante approccio all'applicazione del ML. Cosa si intende dire con non supervisionata? Come può una macchina imparare se nessuno la guida nella scelta delle decisioni?
 Questa è proprio la sfida che si vuole superare con questa tecnica, ovvero far estrapolare al calcolatore delle informazioni ``nascoste" all'interno dei dati che gli vengono forniti. Queste informazioni solitamente sono legami, schemi o regole che i dati tendono a seguire.
 
@@ -360,7 +360,7 @@ Supponiamo di aver scattato una serie di fotografie in cui sono raffigurate dell
 Un altro esempio di utilizzo ricade nell'ambito della sicurezza informatica. Al giorno d'oggi i tipi di attacco conosciuti sono probabilmente solo la punta dell'iceberg. Ricorrendo, però, a tecniche come questa possiamo riuscire ad individuare e bloccare attacchi tuttora sconosciuti. 
 Supponiamo di essere loggati nel sito della nostra banca. Tramite il ML non supervisionato il sistema memorizzerà tutte le operazioni che faremo. Supponiamo di effettuare quotidianamente delle specifiche operazioni ad un fissato orario, in una determinata località geografica. Bene, queste informazioni vengono salvate dal calcolatore il quale le utilizzerà per creare dei cluster, ossia per riconoscerci sulla base delle nostre operazioni ricorrenti tramite orario, località geografica e altre possibili informazioni. Supponiamo ora che un malintenzionato, dall'altra parte del mondo, ad un orario differente da quello a noi abituale, riesca ad accedere al nostro profilo bancario. L'algoritmo sarebbe in grado di notare che è in atto qualcosa di anomalo. Nonostante nessuno abbia specificato al calcolatore quali sono le operazioni abituali effettuate dell'utente, il calcolatore, mediante tecniche di clustering, è in grado di riconoscere le operazioni abituali e mandare un messaggio di allarme se individua possibili casi anomali. 
 
-\subsection{Semi-supervisionato}
+\section{Semi-supervisionato}
 
 L'approccio semi-supervisionato (o \emph{semi-supervised}), non è un vero e proprio approccio, bensì una tecnica che sta a metà tra le due appena viste: supervisionato e non supervisionato. Questo approccio consiste nel combinare le due tecniche e fornire un risultato basandosi su un input eterogeneo costituito da dati etichettati e dati non etichettati.
 
@@ -395,7 +395,7 @@ Di seguito vediamo uno pseduo-codice che esplicita quanto detto sopra:
 	\Until {no more predictions are confident}
 \end{algorithmic}
 
-\subsection{Apprendimento con rinforzo}
+\section{Apprendimento con rinforzo}
 Il quarto ed ultimo approccio chiamato Apprendimento con rinforzo, o \emph{Reinforcement Learning} (RL), è un approccio che si differenzia da quelli visti fino ad ora. Questo paradigma si occupa di problemi di decisione sequenziali, in cui l'azione da compiere dipende dallo stato attuale del sistema e ne determina quello futuro. In altre parole, questo è un sistema dinamico che può apprendere in seguito ad ogni decisione presa, a prescindere che questa sia giusta o sbagliata.
 
 \begin{figure}[h!]
@@ -410,7 +410,7 @@ Il quarto ed ultimo approccio chiamato Apprendimento con rinforzo, o \emph{Reinf
 
 Quando il sistema prende una decisione otterrà successivamente una ``ricompensa" sotto forma di punteggio che sarà alto o basso a seconda che la decisione presa sia giusta o sbagliata. Con questa logica la macchina cercherà di fare sempre meglio per arrivare a ottenere il punteggio più alto possibile prendendo, così, solo le decisioni corrette. 
 
-\section{Ridimensionamento delle funzionalità}
+\section{Riduzione della dimensionalità}
 
 Nel ML, come abbiamo visto, l'input gioca un ruolo fondamentale nello sviluppo di un modello che riesca a predire nel modo corretto i nuovi dati che verranno esaminati da quest'ultimo.
 In questo lavoro ci concentreremo proprio sul riconoscimento dei volti all'interno delle immagini, quindi, per parlare dell'importanza del ridimensionamento delle \emph{feature}, faremo riferimento proprio all'analisi di immagini che raffigurano persone, animali o oggetti.
@@ -674,6 +674,22 @@ Ricapitolando in \emph{possibilearn} osserviamo tre diversi iperparametri:
 	\item \emph{fuzzifier}: funzione che determina il grado di appartenenza all'insieme fuzzy,
 	\item kernel: funzione utile a mappare gli elementi dallo spazio originale ad uno spazio sovra-dimensionato.
 \end{itemize}
+
+\chapter{Esperimenti}
+
+\section{I risultati}
+\begin{tabular}{|l|c|c|c|c|c|c|}
+	\hline
+	{} &         0 &         1 &         2 &         3 &         4 \\
+	\hline
+	0 &  0.886864 &  0.518538 &  0.359964 &  0.167291 &  0.940414 \\
+	1 &  0.834130 &  0.022920 &  0.265131 &  0.059002 &  0.530584 \\
+	2 &  0.648019 &  0.953043 &  0.263551 &  0.595798 &  0.153969 \\
+	3 &  0.207003 &  0.015721 &  0.931170 &  0.045044 &  0.432870 \\
+	4 &  0.039886 &  0.898780 &  0.728195 &  0.112069 &  0.468485 \\
+	\hline
+\end{tabular}
+In conclusione analizziamo i risultati ottenuti dopo una lunga ricerca sui dataset Olivetti e AT\&T tramite possibilearn. Analizziamo in primo luogo i dati che sono stati utilizzati. I dati
 
 \begin{thebibliography}{9}
 	\bibitem{intro_machine_learning} 
