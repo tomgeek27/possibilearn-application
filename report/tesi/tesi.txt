@@ -462,7 +462,7 @@ In questo capitolo ci concentremo maggiormente sui risultati ottenuti tramite l'
 
             [FIGURA DI HEAD DEL DATASET]
 
-            Inoltre ogni soggetto è rappresentato tramite un numero che va da 0 a 39 che rappresenta l'etichetta di ogni record.
+            Ogni soggetto è rappresentato tramite un numero che va da 0 a 39 che rappresenta l'etichetta di ogni record.
 
         Sezione 3.1.2: AT&T faces dataset
             Il dataset AT&T faces, come quello Olivetti, contiene anch'esso immagini raffiguranti 40 soggetti con 10 immagini distinte per ciascuno. Questo dataset, a differenza di Olivetti contiene immagini che sono grandi più del doppio di quelle raffigurate all'iterno del dataset di Olivetti. Ogni immagine a una risoluzione pari a 92 x 112, quindi con 10304 pixel. Ogni immagine ha 256 livelli di grigio e ritrae soggetti in diverse condizioni, esattamente come Olivetti. Ogni immagine è etichettata da un numero compreso tra 0 e 39 il quale rappresenta il soggetto.[nota: si ringrazia AT&T Laboratories per i dati messi a disposzione] 
@@ -470,7 +470,7 @@ In questo capitolo ci concentremo maggiormente sui risultati ottenuti tramite l'
             [FIGURA DI HEAD DEL DATASET?]
     
     Sezione 3.2: Valutazione del modello
-        Fino ad ora ci siamo abbiamo visti come si costruiscono i modelli di ML e come possono essere configurati. In questo capitolo ci soffermeremo sulla valutazione di un modello e i relativi iperparametri configurati.
+        Fino ad ora abbiamo visto come si costruiscono i modelli di ML e come possono essere configurati. In questo capitolo ci soffermeremo sulla valutazione di un modello e i relativi iperparametri configurati.
 
         Sezione 3.2.1: Training, Validation e Test set
             Per costruire un modello abbiamo visto che è necessario un dataset su cui basare l'apprendimento. Il dataset che viene usato per la costruzione viene spesso diviso in due sotto-set: \emph{training set} e \emph{test set}.
@@ -481,7 +481,7 @@ In questo capitolo ci concentremo maggiormente sui risultati ottenuti tramite l'
             Il \emph{test set} quindi, viene usato per determinare lo \emph{score} del modello nella generalità dei casi.
             % avente la migliore configurazione di iperparametri individuata mediante il \emph{validation set}. Lo score viene determinato analogamente a quanto viene fatto con il \emph{validation set}.
 
-            A volte si definisce un terzo sotto-set denominato \emph{validation set}. È un set utilizzato valutare le prestazioni con una specifica configurazione di iperparametri. Viene utilizzato quindi per una ricerca approfondita della migliore configurazione di questi. Una volta determinata la migliore configurazione del modello, questo viene nuovamente testato nel \emph{test set} per vedere come si comporta effettivamente dopo una più approfondita ricerca dei migliori iperparametri.
+            A volte si definisce un terzo sotto-set denominato \emph{validation set}. È un set utilizzato per valutare le prestazioni con una specifica configurazione di iperparametri. Viene utilizzato quindi per una ricerca approfondita della migliore configurazione di questi. Una volta determinata la migliore configurazione del modello, questo viene nuovamente testato nel \emph{test set} per vedere come si comporta effettivamente dopo una più approfondita ricerca dei migliori iperparametri.
     
         Sezione 3.2.1: Cross-validation
             La \emph{cross-validation} è un metodo statistico di valutazione delle performance. Con la \emph{cross-validation} i dati dell'intero dataset vengono partizionati in $k$ gruppi ognuno dei quali è denominato \emph{fold} e dove $k$ rappresenta un numero specificato dall'utente. Quando viene utilizzata questa strategia con un $k$ pari a 5, significa che il dataset sarà diviso in 5 combinazioni differenti in 5 \emph{fold}. Per ogni combinazione possibile un \emph{fold} viene utilizzato come \emph{test set} e gli altri come \emph{training set}. Quindi il modello viene allenato per ogni combinazione data da questa strategia, utilizzando i $k-1$ fold per come \emph{training set} e il restante \emph{fold} come \emph{test set}. In Figura è mostrato uno schema di una \emph{cross-validation} a 5 fold.
@@ -521,37 +521,83 @@ In questo capitolo ci concentremo maggiormente sui risultati ottenuti tramite l'
             **************PARLA DI NESTED CROSS VALIDATION**************
         
         Sezione 3.3: I risultati
-            In conclusione analizziamo i risultati ottenuti dopo una lunga ricerca sui dataset Olivetti e AT&T tramite possibilearn. Nella ricerca e nello studio di come si comportasse possibilearn nel riconoscimento facciale e classificazione dei soggetti sono stati usati diversi computer per ridurre i costi temporali richiesti dall'allenamento di ogni modello. La scelta di quale tecnica usare ha richiesto diversi giorni poichè il tempo richiesto dalla computazione era sostanzioso. Inizialmente è stata costruita un'infrastruttura client-server il cui server godeva di alte performance computazionali. Purtoppo queste non erano sufficienti in quanto i tempi erano troppo lunghi e quindi la computazione è stata in seguito delegata a delle tecnologie di Google denominate Google Colaboratory le quali godono di un'alta performance computazionale.
+            In conclusione analizziamo i risultati ottenuti sui dataset Olivetti e AT&T tramite possibilearn. Nella ricerca e nello studio di come si comporta possibilearn nel riconoscimento facciale e di classificazione dei soggetti sono stati usati tre computer per ridurre i costi temporali richiesti dall'allenamento di ogni modello. %La scelta di quale tecnica usare ha richiesto diversi giorni poichè il tempo richiesto dalla computazione era sostanzioso.
+            
+            Inizialmente è stata costruita un'infrastruttura client-server il cui server godeva di alte performance computazionali. Purtoppo queste non sono state sufficienti in quanto i tempi di calcolo erano troppo lunghi. Quindi la computazione è stata in seguito delegata a tecnologie di Google denominate Google Colaboratory le quali hanno di una maggiore performance computazionale permettendo il risparmio di risorse temporali.
+
+            Per il calcolo dei risultati, a livello pratico, è stato usato \emph{python 3.7} come lignuaggio di programmazione il quale rappresenta uno dei più utilizzati linguaggi nell'ambito del ML per la sua comodità e semplicità di utilizzo e perchè sono presenti molte librerie ricche di funzionalità sviluppate proprio in \emph{python}. I pacchetti usati durante questi studi sono stati \emph{scitkit\_learn} per l'elaborazione dei dati e \emph{matplotlib} insieme a \emph{plotly} per la produzione di grafici 2D e 3D. In particolare sono state usate le seguenti librerie/funzionalità:
+            \begin{itemize}
+                \item{\emph{GridSearchCV}: funzione di \emph{scikit\_learn} che, presa una lista di valori per ogni iperparametro, applica su diverse suddivisioni del dataset la combinazione di ognuna di queste per trovare poi quella che definisce il modello con lo score medio più alto (come spiegate in \ref{sec:3.2}),}
+                \item{\emph{pre-processing}: libreria di \emph{scikit\_learn} utile ad applicare delle trasformazioni ai dati prima che questi vengano usati per allenare il modello. In particolare \emph{StandardScaler} è una funzione di questa libreria per standardizzare le \emph{feature} e \emph{MinMaxScaler} per adattare a uno specifico intervallo (comune a tutte le \feature) i singoli valori delle \emph{feature},}
+                \item{\empg{PCA}: funzione di \emph{scikit\_learn} che, come si può intendere dal nome, serve ad applicare una riduzione di dimensionalità tramite PCA}
+                \item\emph{TSNE}: funzione di \emph{scikit\_learn} che, come si può intendere dal nome, serve ad applicare una riduzione di dimensionalità tramite TSNE}
+                \item{\emph{pyplot}: libreria di \emph{matplotlib} che ha avuto un utilizzo speicifico nella produzione di grafici 2D quali grafici di dispersione (o \emph{scatter plot}), grafici di contorno e grafici a linea,}
+                \item{\emph{express}: libreria di \emph{plotly} per la produzione di grafici tridimensionali come grafici di dispersione 3D e grafici di contorno 3D}
+            \end{itemize}
+            Inoltre è stato usato il pacchetto di \emph{fuzzylearn} (disponibile su github all'indirizzo https://github.com/dariomalchiodi/fuzzylearn) il quale contiene il codice per l'utilizzo di \emph{possibilearn}. Il modello codificato in questo pacchetto è stato adattato alle librerie di \emph{scikit\_learn} per poterne utilizzare le funzionalità di queste. Nello specifico l'adattamento richiede l'impkementazione delle seguenti funzionalità:
+            \begin{itemize}
+                \item{\emph{fit(X, y)}: la funzionalità principale di tutti i modelli di ML. \emph{fit} è utilizzata per allenare un modello sui dati \emph{X} conoscendone le rispettive etichette \emph{y},}
+                \item{\emph{predict(X)}: contiene l'implementazione per predire la classificazione di ogni elemento di \emph{X}, dove \emph{X} è rappresentato da un vettore di elementi. Nel caso specifico di \emph{possibilearn}, \emph{predict} restituisce, per ogni $x$ di \emph{X}, la probabilità (tra 0 e 1) che $x$ appartenga al modello,}
+                \item{\emph{score(X, y)}: contiene l'implementazione dell'accuratezza di predizione del vettore \emph{X} sapendo che le relative etichette sono \emph{y}. In particolare \emph{possibilearn} restituisce uno score pari alla differenza al quadrato della probabilità predetta dal modello e l'effettiva probabilità di appartenenza}
+            \end{itemize}
+            Nei prossimi due paragrafi vediamo i risultati ottenuti tramite l'utilizzo delle diverse tecniche di riduzione di dimensionalità PCA e t-SNE. Per ogni tecnica vediamo i risultati ottenuti sia per Olivetti dataset che per AT&T dataset. Inoltre, durante la descrizione dei risultati vediamo anche l'uso di alcuni degli strumenti sopra citati.
+
+            Sezione 3.3.1: Utilizzo metodo di riduzione t-SNE
+                In questo paragrafo ci concentriamo sui risultati otteuti applicando una riduzione tramite TSNE a 2 e 3 dimensioni. La scelta di queste dimensioni è dovuta al fatto che t-SNE permette di trasformare uno spazio a n dimensioni in uno spazio più piccolo mantenendo (e quindi focalizzandosi) le distanze tra i punti dello spazio originale. Per questo motivo è stato ritenuto più interessante ridurre le dimensioni originali in due dimensioni proiettabili in uno spazio naturale per farne poi un'analisi a livello qualitativo più immediata. Vediamo quindi la distribuzione dei punti quando vengono ridotti in due dimensioni.
+
+                [SCATTER PLOT 2D OLIVETTI E AT&T]
+
+                In Figura [SCATTER PLOT 2D OLIVETTI E AT&T] sono mostrati i grafici di dispersione per entrambi i dataset dopo aver applicato t-SNE a 2 dimensioni. Analizzando quindi i grafici è piuttosto immediata la distinzione dei vari gruppi rappresentanti ogni soggetto. Partendo da una considerazione del tutto qualitativa e visiva possiamo aspettarci come la costruzione dei modelli, con i giusti iperparametri, ci possa restituire una buona accuratezza nella classificazione dei soggetti.
+
+                [SCATTER PLOT 3D OLIVETTI E AT&T]
+
+                Diverso è, il caso riportato in Figura [SCATTER PLOT 3D OLIVETTI E AT&T] in cui sono mostrati i grafici di dispersione in 3 dimensioni. È facile notare come i cluster siano meno distinguibili rispetto alla proiezione in due dimensioni e quindi è naturale pensare che i risultati di classificazioni su 3 dimensioni siano inferiori rispetto a quelli su dati in 2 dimensioni. In Tabella [TABELLA TSNE OLIVETTI E AT&T] sono mostrati i rispettivi risultati: le colonne indicano i set su cui è stato testato l'insieme dei modelli mentre le righe indicano la dimensioni di riduzione raggiunte. 
+
+                [TABELLA TSNE OLIVETTI E AT&T]
+
+                Con la tabella è stato confermato quanto previsto nelle considerazioni visive fatte sui grafici di dispersione in Figura [SCATTER PLOT 2D OLIVETTI E AT&T] e in Figura [SCATTER PLOT 3D OLIVETTI E AT&T]. 
 
             Sezione 3.3.1: Olivetti dataset
-                Analizziamo ora i risultati ottenuti sull'analisi di Olivetti dataset. In primo luogo analizziamo i dati di questo dataset. Essi sono suddivisi in due diversi vettori di diverse dimensioni. Il primo vettore di cui parliamo è un vettore bidimensionale (matrice) contenente 400 vettori di dimensione 64x64 = 4096. Ogni vettore della matrice rappresenta le immagini sottoforma di valori float compresi tra 0 e 1. Il secondo vettore monodimensionale rappresenta, invece, le etichette relative ad ogni foto sottoforma di interi compresi tra 0 (incluso) e 39 (incluso). Il vettore dell'immagine i-esima avrà l'etichetta contenuta nell'i-esimo elemento del vettore delle etichette.
+                Analizziamo ora i risultati ottenuti sull'analisi di Olivetti dataset. In primo luogo analizziamo i dati di questo dataset. Essi sono suddivisi in due diversi vettori di diverse dimensioni. Il primo vettore di cui parliamo è un vettore bidimensionale contenente 400 vettori di dimensione 64x64 = 4096. Ogni vettore della matrice rappresenta le immagini sottoforma di valori float compresi tra 0 e 1. Il secondo vettore monodimensionale rappresenta, invece, le etichette relative ad ogni immagine sottoforma di interi compresi tra 0 e 39 (inclusi). Il vettore dell'immagine i-esima avrà l'etichetta contenuta nell'i-esimo elemento del vettore delle etichette.
 
-                La prima analisi che è stata fatta è sul numero di dimensioni che sono eccessivamente elevate. Considerare 4096 dimensioni non sarebbe utile, in quanto, come spiegato nel Capitolo 1, trattandosi di dati che rappresentano immagini, molti dati possono essere esclusi perchè poco significativi. Per questo motivo, tramite le tecniche di riduzione della dimensionalità, sono state ridotte le dimensioni a 2 e a 5 nel caso di PCA e a 2 e 3 nel caso di t-SNE[1].
+                La prima analisi è stata fatta sul numero di dimensioni. che sono eccessivamente elevate. Considerare 4096 dimensioni non sarebbe utile, in quanto, come spiegato nel Capitolo 1, trattandosi di dati che rappresentano immagini, molti dati possono essere esclusi perchè poco significativi. Per questo motivo, tramite le tecniche di riduzione della dimensionalità, sono state ridotte le dimensioni a 2 e a 5 nel caso di PCA e a 2 e 3 nel caso di t-SNE[1].
                 Partendo dalla riduzione a 2 dimensioni di t-SNE è possibile osservare, tramite lo scatter plot in Figura fig:scatter_plot_tsne_2_of, la distribuzione dei dati. Nella figura è possibile osservare come vengano suddivisi piuttosto bene i punti, questo, infatti, ci può far pensare a delle buone classificazioni.
 
-                [SCATTER PLOT PER TSNE 2D OLIVETTI]
+                [SCATTER PLOT PER TSNE 2D OLIVETTI]fig:scatter_plot_tsne_2d
+                [SCATTER PLOT PER TSNE 3D OLIVETTI]fig:scatter_plot_tsne_3d
 
-                Nel caso di una riduzione a 3 dimensioni in figura fig:scatter_plot_tsne_3_of è possibile osservare come i dati non seguino più (rispetto al caso a 2 dimensioni) una suddivisione distinta dei dati. Questo, al contrario del caso a 2 dimensioni, ci fa sospettare che i risultati in caso di test non saranno molto alti.
+                Nel caso di una riduzione a 3 dimensioni in Figura fig:scatter_plot_tsne_3_of è possibile osservare come i dati non seguino più (rispetto al caso a 2 dimensioni) una suddivisione distinta dei dati. Questo, al contrario del caso a 2 dimensioni, ci fa sospettare che i risultati in caso di test non saranno molto alti. In Tabella tab:of_tsne abbiamo un confronto tra le precisioni in base all'uso di un diverso numero di dimensioni.
 
-                [TABELLA CON TSNE COMPONENTI TEST-TRAIN]
+                [TABELLA CON TSNE COMPONENTI TEST-TRAIN]tab:of_tsne
 
-                Nel caso di PCA in Figura fig:scatter_plot_pca_2_of osserviamo una grossa differenza rispetto alle due dimensioni date da t-SNE. In questa figura, infatti, è possibile notare come i dati siano poco distinguibili. Questa bassa suddivisione, analogamente alla suddivisone a 3 dimensioni di t-SNE non fa aspettare buoni risultati. Per quanto riguarda i dati ridotti a 5 dimensioni non è possibile effettuare un'analisi qualitativa per ovvi motivi. Quindi per la riduzione in 5 dimensioni ci siamo limitati a cercare tramite una Grid Search con Cross Validation degli iperparametri che potessero rendere performanti i modelli di ogni soggetto.
+                Nel caso di PCA in Figura fig:scatter_plot_pca_2_of osserviamo una grossa differenza rispetto alle due dimensioni date da t-SNE. In questa figura, infatti, è possibile notare come i dati siano poco distinguibili. Questa bassa suddivisione, analogamente alla suddivisone a 3 dimensioni di t-SNE non fa aspettare buoni risultati. Per quanto riguarda i dati ridotti a 5 dimensioni non è possibile effettuare un'analisi qualitativa per ovvi motivi. Quindi ci siamo limitati a cercare tramite una Grid Search con Cross Validation degli iperparametri che potessero rendere performanti i modelli di ogni soggetto.
 
-                [SCATTER PLOT PER TSNE 3D OLIVETTI]
+                [SCATTER PLOT PER PCA 2D OLIVETTI]
 
-                Infine in Tabella tab:pca_of sono stati riportati i risultati. Per il caso a 2 dimensioni, come ptoevamo aspettarci abbiamo ottenuto scarsi risultati proprio per il problema che presentano gli stessi dati nella suddivisione. Nel caso di 5 dimensioni, invece, abbiamo ottenuto un discreto risultato che rappresenta una classificazione dei soggetti corretta nel 40% in caso di dati di \emph{test} e del 90% in caso di dati di \emph{train}. 
+                Infine in Tabella tab:pca_of sono stati riportati i risultati per PCA. Per il caso a 2 dimensioni, come potevamo aspettarci abbiamo ottenuto scarsi risultati proprio per il problema che presentano gli stessi dati nella suddivisione. Nel caso di 5 dimensioni, invece, abbiamo ottenuto un discreto risultato che rappresenta una classificazione dei soggetti corretta nel 70% in caso di dati di \emph{test} e del 90% in caso di dati di \emph{train}. 
 
-                [TABELLA CON PCA COMPONENTI TEST-TRAIN]
+                [TABELLA CON PCA COMPONENTI TEST-TRAIN]tab:pca_of
 
             Sezione 3.3.1: AT&T dataset
 
                 Analogamente a come fatto per il dataset di Olivetti, procediamo con l'analisi del dataset di AT&T. In questo dataset i dati sono della stesso tipo del dataset precedente, la differenza consiste in particolare nella quantità di dati a disposizione. Le immagini di questo dataset, anch'esse rappresentate da dei vettori di numeri \emph{float} compresi tra 0 e 1 di lunghezza pari al numero di pixel di ogni immagine. In questo caso le immagini sono costituite da 92x112 pixel per un totale di 10304 elementi per vettore.
                 Questo dataset è stato analizzato in parallelo al dataset visto precedentemente per valutare le prestazioni di \emph{possibilearn} in casi di immagini di dimensioni maggiori. In questo caso i dati sono stati ridotti in primo luogo a 2 e 3 dimensioni con t-SNE per avere una prima idea a livello grafico. Parallelamente è stato analizzato con PCA a 2, 5 e 20 dimensioni.
+                Seguendo il procedimento utilizzato per il datatset di Olivetti è stata prima fatta un'analisi qualitativa dei dati (quando possibile) e successivamente una ricerca dei migliori iperparametri.
+                In Figura fig:sccatter_plot_at_tsne_2 è riportato il caso di t-SNE a 2 dimensioni e in Tabella tab:at_tsne i relativi risultati ottenuti. Analogamente è stato fatto per t-SNE a 3 dimensioni.
+
+                [SCATTER PLOT PER TSNE 2D ATET]fig:sccatter_plot_at_tsne_2
+                [SCATTER PLOT PER TSNE 3D ATET]fig:sccatter_plot_at_tsne_3
+
+                In Figura fig:scatter_plot_at_pca_2 è mostrata la distribuzione dei dati nel caso di PCA e in Tabella tab:at_pca i risultati utilizzando diverse riduzioni di dimensioni tramite PCA.
+                [SCATTER PLOT PER PCA 2D ATET]fig:scatter_plot_at_pca_2
+
+                [TABELLA CON PCA COMPONENTI TEST-TRAIN]{tab:pca_of}
+
+            
 
 
                 
-                
-[1: Nel caso di t-SNE sono state considerate solo le riduzioni a 2 e 3 dimensioni perchè essendo che t-SNE non toglie informazioni (come fa PCA), utilizziamo 2 e 3 dimensioni perchè in questo modo siamo in grado di plottare i dati e vedere se sono indivudabili dei cluster per ogni soggetto]    
+[1: Nel caso di t-SNE sono state considerate solo le riduzioni a 2 e a 3 dimensioni perchè essendo che t-SNE non toglie informazioni (come fa PCA), utilizziamo 2 e 3 dimensioni perchè in questo modo siamo in grado di plottare i dati e vedere se sono indivudabili dei cluster per ogni soggetto]    
 [nota A: Per ogni Grid Search che forniscono 6 combinazioni con Cross Validation a 3 fold richiedevano per modello 24 minuti, quindi un totale di 16 ore per allenare tutti i modelli]
 /*****************************************************************************************************************************************************************************************************
             This is an “unsolved” problem in statistics: there are no
