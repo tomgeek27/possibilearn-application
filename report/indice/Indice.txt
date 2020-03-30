@@ -36,11 +36,19 @@ Capitolo 3: Esperimenti
         Sezione 3.1.1: Olivetti faces
         Sezione 3.1.2: AT&T faces
     
-    Sezione 3.2: Valutazione del modello
+    Sezione 3.2: Tecniche di valutazione del modello
         Sezione 3.2.1: Training & Test set
         Sezione 3.2.2: Cross-Validation
         Sezione 3.2.3: Grid Search
+        Sezione 3.2.4: Grid Search con Cross-Validation
 
+    Sezione 3.3: Risultati
+
+        Sezione 3.3.1: Utilizzo metodo di riduzione t-SNE
+        Sezione 3.3.2: Utilizzo metodo di riduzione PCA
+
+        Sezione 3.3.1: Olivetti dataset
+        Sezione 3.3.2: AT&T dataset
 
 Conclusione
 

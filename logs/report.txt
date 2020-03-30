@@ -54,7 +54,7 @@ Olivetti:
             k: 1
             fuzzifier: Exponential
         }
-        file:
+        file: /logs/new/olivetti_faces/of_pca_5
         result file: /logs/best/olivetti_faces/of_pca_result_5
     }
 
@@ -135,3 +135,17 @@ AT&T:
         file: 
         result file: /logs/best/at_pca_result_5
     }    
+
+20D-PCA:
+    - PCA(dimension=20)
+    - SI MinMaxScaler(feature_range=(-1, 1))
+    - SI StandardScaler
+    - gridsearch: {
+        params: {
+            c: 1
+            k: .35, .5, .65
+            fuzzifier: Linear
+        }
+        file: /logs/new/at_pca_20
+        result file: /logs/best/at_pca_result_20
+    }

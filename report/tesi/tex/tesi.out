@@ -10,13 +10,24 @@
 \BOOKMARK [1][-]{section.1.4}{Semi-supervisionato}{chapter.1}% 10
 \BOOKMARK [1][-]{section.1.5}{Apprendimento con rinforzo}{chapter.1}% 11
 \BOOKMARK [1][-]{section.1.6}{Riduzione della dimensionalit\340}{chapter.1}% 12
-\BOOKMARK [2][-]{subsection.1.6.1}{Principal Component Analysis}{section.1.6}% 13
+\BOOKMARK [2][-]{subsection.1.6.1}{Analisi delle componenti principali}{section.1.6}% 13
 \BOOKMARK [2][-]{subsection.1.6.2}{t-Distributed stochastic neighbor embedding}{section.1.6}% 14
 \BOOKMARK [0][-]{chapter.2}{Induzione di insiemi fuzzy}{}% 15
 \BOOKMARK [1][-]{section.2.1}{La logica fuzzy}{chapter.2}% 16
 \BOOKMARK [1][-]{section.2.2}{Gli insiemi fuzzy}{chapter.2}% 17
-\BOOKMARK [1][-]{section.2.3}{Possibilearn}{chapter.2}% 18
+\BOOKMARK [1][-]{section.2.3}{Fuzzylearn}{chapter.2}% 18
 \BOOKMARK [2][-]{subsection.2.3.1}{Calcolo dell'insieme fuzzy}{section.2.3}% 19
 \BOOKMARK [2][-]{subsection.2.3.2}{Configurazione degli iperparametri}{section.2.3}% 20
 \BOOKMARK [0][-]{chapter.3}{Esperimenti}{}% 21
-\BOOKMARK [1][-]{section.3.1}{I risultati}{chapter.3}% 22
+\BOOKMARK [1][-]{section.3.1}{I dataset}{chapter.3}% 22
+\BOOKMARK [2][-]{subsection.3.1.1}{Olivetti dataset}{section.3.1}% 23
+\BOOKMARK [2][-]{subsection.3.1.2}{AT\046T faces dataset}{section.3.1}% 24
+\BOOKMARK [1][-]{section.3.2}{Valutazione del modello}{chapter.3}% 25
+\BOOKMARK [2][-]{subsection.3.2.1}{Training, Validation e Test set}{section.3.2}% 26
+\BOOKMARK [2][-]{subsection.3.2.2}{Cross-validation}{section.3.2}% 27
+\BOOKMARK [2][-]{subsection.3.2.3}{Grid Search}{section.3.2}% 28
+\BOOKMARK [2][-]{subsection.3.2.4}{Grid Search con Cross-Validation e Nested Grid Search}{section.3.2}% 29
+\BOOKMARK [1][-]{section.3.3}{I risultati}{chapter.3}% 30
+\BOOKMARK [2][-]{subsection.3.3.1}{Utilizzo metodo di riduzione t-SNE}{section.3.3}% 31
+\BOOKMARK [2][-]{subsection.3.3.2}{Utilizzo metodo di riduzione PCA}{section.3.3}% 32
+\BOOKMARK [2][-]{subsection.3.3.3}{Analisi conclusiva}{section.3.3}% 33
