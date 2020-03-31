@@ -1,560 +1,120 @@
-2020-03-26 10:34:37,906 - __main__ - INFO - (0) - Started GridSearchCV with: {'c': [10], 'k': [GaussianKernel(1)], 'fuzzifier': [<class 'fuzzylearn.fuzzifiers.LinearFuzzifier'>, <class 'fuzzylearn.fuzzifiers.ExponentialFuzzifier'>]}
-2020-03-26 10:42:47,627 - __main__ - INFO - (0) - CV_RESULTS_: {'mean_fit_time': array([53.21987289, 53.75357771]), 'std_fit_time': array([0.26692033, 0.45362636]), 'mean_score_time': array([0.18744493, 0.19327641]), 'std_score_time': array([0.00111755, 0.00823522]), 'param_c': masked_array(data=[10, 10],
-             mask=[False, False],
-       fill_value='?',
-            dtype=object), 'param_fuzzifier': masked_array(data=[<class 'fuzzylearn.fuzzifiers.LinearFuzzifier'>,
-                   <class 'fuzzylearn.fuzzifiers.ExponentialFuzzifier'>],
-             mask=[False, False],
-       fill_value='?',
-            dtype=object), 'param_k': masked_array(data=[GaussianKernel(1), GaussianKernel(1)],
-             mask=[False, False],
-       fill_value='?',
-            dtype=object), 'params': [{'c': 10, 'fuzzifier': <class 'fuzzylearn.fuzzifiers.LinearFuzzifier'>, 'k': GaussianKernel(1)}, {'c': 10, 'fuzzifier': <class 'fuzzylearn.fuzzifiers.ExponentialFuzzifier'>, 'k': GaussianKernel(1)}], 'split0_test_score': array([-0.01234525, -0.02477206]), 'split1_test_score': array([-0.01095811, -0.0246516 ]), 'split2_test_score': array([-0.00105898, -0.01609574]), 'split3_test_score': array([-0.00105937, -0.01609582]), 'mean_test_score': array([-0.00635543, -0.02040381]), 'std_test_score': array([0.00531891, 0.00430824]), 'rank_test_score': array([1, 2], dtype=int32)}
+2020-03-26 10:34:37,906 - __main__ - INFO - (0) - Started GridSearchCV with: {'c': [1, 10, 1000], 'k': [GaussianKernel(0.5), GaussianKernel(1), GaussianKernel(1.5)], 'fuzzifier': [<class 'fuzzylearn.fuzzifiers.LinearFuzzifier'>, <class 'fuzzylearn.fuzzifiers.ExponentialFuzzifier'>]}
 2020-03-26 10:42:47,637 - __main__ - INFO - (0) - BEST_SCORE_: -0.006355427889691499
-2020-03-26 10:42:47,641 - __main__ - INFO - (0) - BEST_PARAMS_: {'c': 10, 'fuzzifier': <class 'fuzzylearn.fuzzifiers.LinearFuzzifier'>, 'k': GaussianKernel(1)}
-2020-03-26 10:42:47,646 - __main__ - INFO - (1) - Started GridSearchCV with: {'c': [10], 'k': [GaussianKernel(1)], 'fuzzifier': [<class 'fuzzylearn.fuzzifiers.LinearFuzzifier'>, <class 'fuzzylearn.fuzzifiers.ExponentialFuzzifier'>]}
-2020-03-26 10:50:59,742 - __main__ - INFO - (1) - CV_RESULTS_: {'mean_fit_time': array([53.66068304, 53.81070238]), 'std_fit_time': array([0.11025574, 0.0808791 ]), 'mean_score_time': array([0.18558472, 0.18748426]), 'std_score_time': array([0.00240945, 0.00110617]), 'param_c': masked_array(data=[10, 10],
-             mask=[False, False],
-       fill_value='?',
-            dtype=object), 'param_fuzzifier': masked_array(data=[<class 'fuzzylearn.fuzzifiers.LinearFuzzifier'>,
-                   <class 'fuzzylearn.fuzzifiers.ExponentialFuzzifier'>],
-             mask=[False, False],
-       fill_value='?',
-            dtype=object), 'param_k': masked_array(data=[GaussianKernel(1), GaussianKernel(1)],
-             mask=[False, False],
-       fill_value='?',
-            dtype=object), 'params': [{'c': 10, 'fuzzifier': <class 'fuzzylearn.fuzzifiers.LinearFuzzifier'>, 'k': GaussianKernel(1)}, {'c': 10, 'fuzzifier': <class 'fuzzylearn.fuzzifiers.ExponentialFuzzifier'>, 'k': GaussianKernel(1)}], 'split0_test_score': array([-0.00000000e+00, -3.40673835e-10]), 'split1_test_score': array([-0.00181939, -0.02042885]), 'split2_test_score': array([-0.00660852, -0.02456041]), 'split3_test_score': array([-0.00660852, -0.02456041]), 'mean_test_score': array([-0.00375911, -0.01738742]), 'std_test_score': array([0.00292112, 0.01017935]), 'rank_test_score': array([1, 2], dtype=int32)}
+2020-03-26 10:42:47,641 - __main__ - INFO - (0) - BEST_PARAMS_: {'c': 1, 'fuzzifier': <class 'fuzzylearn.fuzzifiers.LinearFuzzifier'>, 'k': GaussianKernel(1)}
+2020-03-26 10:42:47,646 - __main__ - INFO - (1) - Started GridSearchCV with: {'c': [1, 10, 1000], 'k': [GaussianKernel(0.5), GaussianKernel(1), GaussianKernel(1.5)], 'fuzzifier': [<class 'fuzzylearn.fuzzifiers.LinearFuzzifier'>, <class 'fuzzylearn.fuzzifiers.ExponentialFuzzifier'>]}
 2020-03-26 10:50:59,748 - __main__ - INFO - (1) - BEST_SCORE_: -0.0037591091651130327
-2020-03-26 10:50:59,749 - __main__ - INFO - (1) - BEST_PARAMS_: {'c': 10, 'fuzzifier': <class 'fuzzylearn.fuzzifiers.LinearFuzzifier'>, 'k': GaussianKernel(1)}
-2020-03-26 10:50:59,752 - __main__ - INFO - (2) - Started GridSearchCV with: {'c': [10], 'k': [GaussianKernel(1)], 'fuzzifier': [<class 'fuzzylearn.fuzzifiers.LinearFuzzifier'>, <class 'fuzzylearn.fuzzifiers.ExponentialFuzzifier'>]}
-2020-03-26 10:59:16,028 - __main__ - INFO - (2) - CV_RESULTS_: {'mean_fit_time': array([54.20273471, 54.3026908 ]), 'std_fit_time': array([0.16573963, 0.05227147]), 'mean_score_time': array([0.18471479, 0.18766588]), 'std_score_time': array([0.00095008, 0.00270472]), 'param_c': masked_array(data=[10, 10],
-             mask=[False, False],
-       fill_value='?',
-            dtype=object), 'param_fuzzifier': masked_array(data=[<class 'fuzzylearn.fuzzifiers.LinearFuzzifier'>,
-                   <class 'fuzzylearn.fuzzifiers.ExponentialFuzzifier'>],
-             mask=[False, False],
-       fill_value='?',
-            dtype=object), 'param_k': masked_array(data=[GaussianKernel(1), GaussianKernel(1)],
-             mask=[False, False],
-       fill_value='?',
-            dtype=object), 'params': [{'c': 10, 'fuzzifier': <class 'fuzzylearn.fuzzifiers.LinearFuzzifier'>, 'k': GaussianKernel(1)}, {'c': 10, 'fuzzifier': <class 'fuzzylearn.fuzzifiers.ExponentialFuzzifier'>, 'k': GaussianKernel(1)}], 'split0_test_score': array([-0.0000000e+00, -2.1092984e-08]), 'split1_test_score': array([-0.00231696, -0.02214481]), 'split2_test_score': array([-0.00071763, -0.02485095]), 'split3_test_score': array([-0.00071773, -0.0245276 ]), 'mean_test_score': array([-0.00093808, -0.01788084]), 'std_test_score': array([0.0008483 , 0.01037626]), 'rank_test_score': array([1, 2], dtype=int32)}
+2020-03-26 10:50:59,749 - __main__ - INFO - (1) - BEST_PARAMS_: {'c': 1, 'fuzzifier': <class 'fuzzylearn.fuzzifiers.LinearFuzzifier'>, 'k': GaussianKernel(1)}
+2020-03-26 10:50:59,752 - __main__ - INFO - (2) - Started GridSearchCV with: {'c': [1, 10, 1000], 'k': [GaussianKernel(0.5), GaussianKernel(1), GaussianKernel(1.5)], 'fuzzifier': [<class 'fuzzylearn.fuzzifiers.LinearFuzzifier'>, <class 'fuzzylearn.fuzzifiers.ExponentialFuzzifier'>]}
 2020-03-26 10:59:16,033 - __main__ - INFO - (2) - BEST_SCORE_: -0.000938079306281312
-2020-03-26 10:59:16,034 - __main__ - INFO - (2) - BEST_PARAMS_: {'c': 10, 'fuzzifier': <class 'fuzzylearn.fuzzifiers.LinearFuzzifier'>, 'k': GaussianKernel(1)}
-2020-03-26 10:59:16,035 - __main__ - INFO - (3) - Started GridSearchCV with: {'c': [10], 'k': [GaussianKernel(1)], 'fuzzifier': [<class 'fuzzylearn.fuzzifiers.LinearFuzzifier'>, <class 'fuzzylearn.fuzzifiers.ExponentialFuzzifier'>]}
-2020-03-26 11:07:35,556 - __main__ - INFO - (3) - CV_RESULTS_: {'mean_fit_time': array([54.57417113, 54.62149411]), 'std_fit_time': array([0.34128246, 0.1016769 ]), 'mean_score_time': array([0.1898399 , 0.18526357]), 'std_score_time': array([0.00695856, 0.00247432]), 'param_c': masked_array(data=[10, 10],
-             mask=[False, False],
-       fill_value='?',
-            dtype=object), 'param_fuzzifier': masked_array(data=[<class 'fuzzylearn.fuzzifiers.LinearFuzzifier'>,
-                   <class 'fuzzylearn.fuzzifiers.ExponentialFuzzifier'>],
-             mask=[False, False],
-       fill_value='?',
-            dtype=object), 'param_k': masked_array(data=[GaussianKernel(1), GaussianKernel(1)],
-             mask=[False, False],
-       fill_value='?',
-            dtype=object), 'params': [{'c': 10, 'fuzzifier': <class 'fuzzylearn.fuzzifiers.LinearFuzzifier'>, 'k': GaussianKernel(1)}, {'c': 10, 'fuzzifier': <class 'fuzzylearn.fuzzifiers.ExponentialFuzzifier'>, 'k': GaussianKernel(1)}], 'split0_test_score': array([-0.00000000e+00, -4.96303355e-08]), 'split1_test_score': array([-0.0048356 , -0.02395274]), 'split2_test_score': array([-0.01159206, -0.0249783 ]), 'split3_test_score': array([-0.01159176, -0.0249783 ]), 'mean_test_score': array([-0.00700485, -0.01847735]), 'std_test_score': array([0.0048953 , 0.01067608]), 'rank_test_score': array([1, 2], dtype=int32)}
+2020-03-26 10:59:16,034 - __main__ - INFO - (2) - BEST_PARAMS_: {'c': 1, 'fuzzifier': <class 'fuzzylearn.fuzzifiers.LinearFuzzifier'>, 'k': GaussianKernel(1)}
+2020-03-26 10:59:16,035 - __main__ - INFO - (3) - Started GridSearchCV with: {'c': [1, 10, 1000], 'k': [GaussianKernel(0.5), GaussianKernel(1), GaussianKernel(1.5)], 'fuzzifier': [<class 'fuzzylearn.fuzzifiers.LinearFuzzifier'>, <class 'fuzzylearn.fuzzifiers.ExponentialFuzzifier'>]}
 2020-03-26 11:07:35,561 - __main__ - INFO - (3) - BEST_SCORE_: -0.00700485426083527
-2020-03-26 11:07:35,568 - __main__ - INFO - (3) - BEST_PARAMS_: {'c': 10, 'fuzzifier': <class 'fuzzylearn.fuzzifiers.LinearFuzzifier'>, 'k': GaussianKernel(1)}
-2020-03-26 11:07:35,570 - __main__ - INFO - (4) - Started GridSearchCV with: {'c': [10], 'k': [GaussianKernel(1)], 'fuzzifier': [<class 'fuzzylearn.fuzzifiers.LinearFuzzifier'>, <class 'fuzzylearn.fuzzifiers.ExponentialFuzzifier'>]}
-2020-03-26 11:15:54,537 - __main__ - INFO - (4) - CV_RESULTS_: {'mean_fit_time': array([54.64871764, 54.30998015]), 'std_fit_time': array([0.11732109, 0.23071685]), 'mean_score_time': array([0.18568283, 0.18496197]), 'std_score_time': array([0.00045036, 0.00135435]), 'param_c': masked_array(data=[10, 10],
-             mask=[False, False],
-       fill_value='?',
-            dtype=object), 'param_fuzzifier': masked_array(data=[<class 'fuzzylearn.fuzzifiers.LinearFuzzifier'>,
-                   <class 'fuzzylearn.fuzzifiers.ExponentialFuzzifier'>],
-             mask=[False, False],
-       fill_value='?',
-            dtype=object), 'param_k': masked_array(data=[GaussianKernel(1), GaussianKernel(1)],
-             mask=[False, False],
-       fill_value='?',
-            dtype=object), 'params': [{'c': 10, 'fuzzifier': <class 'fuzzylearn.fuzzifiers.LinearFuzzifier'>, 'k': GaussianKernel(1)}, {'c': 10, 'fuzzifier': <class 'fuzzylearn.fuzzifiers.ExponentialFuzzifier'>, 'k': GaussianKernel(1)}], 'split0_test_score': array([-0.00772855, -0.02337798]), 'split1_test_score': array([-0.025     , -0.02499817]), 'split2_test_score': array([-9.16919534e-06, -1.54968403e-02]), 'split3_test_score': array([-9.16869123e-06, -1.54968462e-02]), 'mean_test_score': array([-0.00818672, -0.01984246]), 'std_test_score': array([0.01020589, 0.00438321]), 'rank_test_score': array([1, 2], dtype=int32)}
+2020-03-26 11:07:35,568 - __main__ - INFO - (3) - BEST_PARAMS_: {'c': 1, 'fuzzifier': <class 'fuzzylearn.fuzzifiers.LinearFuzzifier'>, 'k': GaussianKernel(1)}
+2020-03-26 11:07:35,570 - __main__ - INFO - (4) - Started GridSearchCV with: {'c': [1, 10, 1000], 'k': [GaussianKernel(0.5), GaussianKernel(1), GaussianKernel(1.5)], 'fuzzifier': [<class 'fuzzylearn.fuzzifiers.LinearFuzzifier'>, <class 'fuzzylearn.fuzzifiers.ExponentialFuzzifier'>]}
 2020-03-26 11:15:54,545 - __main__ - INFO - (4) - BEST_SCORE_: -0.008186721770414462
-2020-03-26 11:15:54,547 - __main__ - INFO - (4) - BEST_PARAMS_: {'c': 10, 'fuzzifier': <class 'fuzzylearn.fuzzifiers.LinearFuzzifier'>, 'k': GaussianKernel(1)}
-2020-03-26 11:15:54,548 - __main__ - INFO - (5) - Started GridSearchCV with: {'c': [10], 'k': [GaussianKernel(1)], 'fuzzifier': [<class 'fuzzylearn.fuzzifiers.LinearFuzzifier'>, <class 'fuzzylearn.fuzzifiers.ExponentialFuzzifier'>]}
-2020-03-26 11:24:11,840 - __main__ - INFO - (5) - CV_RESULTS_: {'mean_fit_time': array([54.5280869 , 54.41047615]), 'std_fit_time': array([0.20759084, 0.4201258 ]), 'mean_score_time': array([0.18744075, 0.18782645]), 'std_score_time': array([0.00493098, 0.00319062]), 'param_c': masked_array(data=[10, 10],
-             mask=[False, False],
-       fill_value='?',
-            dtype=object), 'param_fuzzifier': masked_array(data=[<class 'fuzzylearn.fuzzifiers.LinearFuzzifier'>,
-                   <class 'fuzzylearn.fuzzifiers.ExponentialFuzzifier'>],
-             mask=[False, False],
-       fill_value='?',
-            dtype=object), 'param_k': masked_array(data=[GaussianKernel(1), GaussianKernel(1)],
-             mask=[False, False],
-       fill_value='?',
-            dtype=object), 'params': [{'c': 10, 'fuzzifier': <class 'fuzzylearn.fuzzifiers.LinearFuzzifier'>, 'k': GaussianKernel(1)}, {'c': 10, 'fuzzifier': <class 'fuzzylearn.fuzzifiers.ExponentialFuzzifier'>, 'k': GaussianKernel(1)}], 'split0_test_score': array([-0.00259757, -0.02281467]), 'split1_test_score': array([-0.00000000e+00, -4.11298918e-08]), 'split2_test_score': array([-3.38010386e-05, -6.31510951e-03]), 'split3_test_score': array([-3.38010376e-05, -6.31511247e-03]), 'mean_test_score': array([-0.00066629, -0.00886123]), 'std_test_score': array([0.00111511, 0.00845849]), 'rank_test_score': array([1, 2], dtype=int32)}
+2020-03-26 11:15:54,547 - __main__ - INFO - (4) - BEST_PARAMS_: {'c': 1, 'fuzzifier': <class 'fuzzylearn.fuzzifiers.LinearFuzzifier'>, 'k': GaussianKernel(1)}
+2020-03-26 11:15:54,548 - __main__ - INFO - (5) - Started GridSearchCV with: {'c': [1, 10, 1000], 'k': [GaussianKernel(0.5), GaussianKernel(1), GaussianKernel(1.5)], 'fuzzifier': [<class 'fuzzylearn.fuzzifiers.LinearFuzzifier'>, <class 'fuzzylearn.fuzzifiers.ExponentialFuzzifier'>]}
 2020-03-26 11:24:11,848 - __main__ - INFO - (5) - BEST_SCORE_: -0.0006662940665959561
-2020-03-26 11:24:11,850 - __main__ - INFO - (5) - BEST_PARAMS_: {'c': 10, 'fuzzifier': <class 'fuzzylearn.fuzzifiers.LinearFuzzifier'>, 'k': GaussianKernel(1)}
-2020-03-26 11:24:11,852 - __main__ - INFO - (6) - Started GridSearchCV with: {'c': [10], 'k': [GaussianKernel(1)], 'fuzzifier': [<class 'fuzzylearn.fuzzifiers.LinearFuzzifier'>, <class 'fuzzylearn.fuzzifiers.ExponentialFuzzifier'>]}
-2020-03-26 11:32:20,465 - __main__ - INFO - (6) - CV_RESULTS_: {'mean_fit_time': array([53.46292371, 53.39011884]), 'std_fit_time': array([0.07324819, 0.23120321]), 'mean_score_time': array([0.18593597, 0.18706101]), 'std_score_time': array([0.00292554, 0.00534284]), 'param_c': masked_array(data=[10, 10],
-             mask=[False, False],
-       fill_value='?',
-            dtype=object), 'param_fuzzifier': masked_array(data=[<class 'fuzzylearn.fuzzifiers.LinearFuzzifier'>,
-                   <class 'fuzzylearn.fuzzifiers.ExponentialFuzzifier'>],
-             mask=[False, False],
-       fill_value='?',
-            dtype=object), 'param_k': masked_array(data=[GaussianKernel(1), GaussianKernel(1)],
-             mask=[False, False],
-       fill_value='?',
-            dtype=object), 'params': [{'c': 10, 'fuzzifier': <class 'fuzzylearn.fuzzifiers.LinearFuzzifier'>, 'k': GaussianKernel(1)}, {'c': 10, 'fuzzifier': <class 'fuzzylearn.fuzzifiers.ExponentialFuzzifier'>, 'k': GaussianKernel(1)}], 'split0_test_score': array([-0.00000000e+00, -9.21213766e-10]), 'split1_test_score': array([-0.00667107, -0.02472381]), 'split2_test_score': array([-0.00222403, -0.02113345]), 'split3_test_score': array([-0.00222403, -0.02113345]), 'mean_test_score': array([-0.00277978, -0.01674768]), 'std_test_score': array([0.00242317, 0.00977974]), 'rank_test_score': array([1, 2], dtype=int32)}
+2020-03-26 11:24:11,850 - __main__ - INFO - (5) - BEST_PARAMS_: {'c': 1, 'fuzzifier': <class 'fuzzylearn.fuzzifiers.LinearFuzzifier'>, 'k': GaussianKernel(1)}
+2020-03-26 11:24:11,852 - __main__ - INFO - (6) - Started GridSearchCV with: {'c': [1, 10, 1000], 'k': [GaussianKernel(0.5), GaussianKernel(1), GaussianKernel(1.5)], 'fuzzifier': [<class 'fuzzylearn.fuzzifiers.LinearFuzzifier'>, <class 'fuzzylearn.fuzzifiers.ExponentialFuzzifier'>]}
 2020-03-26 11:32:20,470 - __main__ - INFO - (6) - BEST_SCORE_: -0.002779783047071576
-2020-03-26 11:32:20,471 - __main__ - INFO - (6) - BEST_PARAMS_: {'c': 10, 'fuzzifier': <class 'fuzzylearn.fuzzifiers.LinearFuzzifier'>, 'k': GaussianKernel(1)}
-2020-03-26 11:32:20,472 - __main__ - INFO - (7) - Started GridSearchCV with: {'c': [10], 'k': [GaussianKernel(1)], 'fuzzifier': [<class 'fuzzylearn.fuzzifiers.LinearFuzzifier'>, <class 'fuzzylearn.fuzzifiers.ExponentialFuzzifier'>]}
-2020-03-26 11:40:29,036 - __main__ - INFO - (7) - CV_RESULTS_: {'mean_fit_time': array([53.1049521 , 53.63898861]), 'std_fit_time': array([0.16321972, 0.55895798]), 'mean_score_time': array([0.18380165, 0.18822336]), 'std_score_time': array([0.00102986, 0.00240105]), 'param_c': masked_array(data=[10, 10],
-             mask=[False, False],
-       fill_value='?',
-            dtype=object), 'param_fuzzifier': masked_array(data=[<class 'fuzzylearn.fuzzifiers.LinearFuzzifier'>,
-                   <class 'fuzzylearn.fuzzifiers.ExponentialFuzzifier'>],
-             mask=[False, False],
-       fill_value='?',
-            dtype=object), 'param_k': masked_array(data=[GaussianKernel(1), GaussianKernel(1)],
-             mask=[False, False],
-       fill_value='?',
-            dtype=object), 'params': [{'c': 10, 'fuzzifier': <class 'fuzzylearn.fuzzifiers.LinearFuzzifier'>, 'k': GaussianKernel(1)}, {'c': 10, 'fuzzifier': <class 'fuzzylearn.fuzzifiers.ExponentialFuzzifier'>, 'k': GaussianKernel(1)}], 'split0_test_score': array([-0.00000000e+00, -2.53872986e-09]), 'split1_test_score': array([-0.00607932, -0.02442465]), 'split2_test_score': array([-0.00000000e+00, -1.50201921e-07]), 'split3_test_score': array([-0.00000000e+00, -1.50210293e-07]), 'mean_test_score': array([-0.00151983, -0.00610624]), 'std_test_score': array([0.00263242, 0.01057614]), 'rank_test_score': array([1, 2], dtype=int32)}
+2020-03-26 11:32:20,471 - __main__ - INFO - (6) - BEST_PARAMS_: {'c': 1, 'fuzzifier': <class 'fuzzylearn.fuzzifiers.LinearFuzzifier'>, 'k': GaussianKernel(1)}
+2020-03-26 11:32:20,472 - __main__ - INFO - (7) - Started GridSearchCV with: {'c': [1, 10, 1000], 'k': [GaussianKernel(0.5), GaussianKernel(1), GaussianKernel(1.5)], 'fuzzifier': [<class 'fuzzylearn.fuzzifiers.LinearFuzzifier'>, <class 'fuzzylearn.fuzzifiers.ExponentialFuzzifier'>]}
 2020-03-26 11:40:29,041 - __main__ - INFO - (7) - BEST_SCORE_: -0.001519828904455251
-2020-03-26 11:40:29,048 - __main__ - INFO - (7) - BEST_PARAMS_: {'c': 10, 'fuzzifier': <class 'fuzzylearn.fuzzifiers.LinearFuzzifier'>, 'k': GaussianKernel(1)}
-2020-03-26 11:40:29,050 - __main__ - INFO - (8) - Started GridSearchCV with: {'c': [10], 'k': [GaussianKernel(1)], 'fuzzifier': [<class 'fuzzylearn.fuzzifiers.LinearFuzzifier'>, <class 'fuzzylearn.fuzzifiers.ExponentialFuzzifier'>]}
-2020-03-26 11:48:33,306 - __main__ - INFO - (8) - CV_RESULTS_: {'mean_fit_time': array([53.31102759, 52.57960737]), 'std_fit_time': array([0.10042555, 0.1592029 ]), 'mean_score_time': array([0.18667865, 0.18511254]), 'std_score_time': array([0.00177118, 0.0008223 ]), 'param_c': masked_array(data=[10, 10],
-             mask=[False, False],
-       fill_value='?',
-            dtype=object), 'param_fuzzifier': masked_array(data=[<class 'fuzzylearn.fuzzifiers.LinearFuzzifier'>,
-                   <class 'fuzzylearn.fuzzifiers.ExponentialFuzzifier'>],
-             mask=[False, False],
-       fill_value='?',
-            dtype=object), 'param_k': masked_array(data=[GaussianKernel(1), GaussianKernel(1)],
-             mask=[False, False],
-       fill_value='?',
-            dtype=object), 'params': [{'c': 10, 'fuzzifier': <class 'fuzzylearn.fuzzifiers.LinearFuzzifier'>, 'k': GaussianKernel(1)}, {'c': 10, 'fuzzifier': <class 'fuzzylearn.fuzzifiers.ExponentialFuzzifier'>, 'k': GaussianKernel(1)}], 'split0_test_score': array([-0.00000000e+00, -4.25911193e-09]), 'split1_test_score': array([-0.01453885, -0.02496885]), 'split2_test_score': array([-0.00058183, -0.01273848]), 'split3_test_score': array([-0.00053817, -0.01285096]), 'mean_test_score': array([-0.00391471, -0.01263957]), 'std_test_score': array([0.00613813, 0.00882927]), 'rank_test_score': array([1, 2], dtype=int32)}
+2020-03-26 11:40:29,048 - __main__ - INFO - (7) - BEST_PARAMS_: {'c': 1, 'fuzzifier': <class 'fuzzylearn.fuzzifiers.LinearFuzzifier'>, 'k': GaussianKernel(1)}
+2020-03-26 11:40:29,050 - __main__ - INFO - (8) - Started GridSearchCV with: {'c': [1, 10, 1000], 'k': [GaussianKernel(0.5), GaussianKernel(1), GaussianKernel(1.5)], 'fuzzifier': [<class 'fuzzylearn.fuzzifiers.LinearFuzzifier'>, <class 'fuzzylearn.fuzzifiers.ExponentialFuzzifier'>]}
 2020-03-26 11:48:33,310 - __main__ - INFO - (8) - BEST_SCORE_: -0.003914711786457341
-2020-03-26 11:48:33,313 - __main__ - INFO - (8) - BEST_PARAMS_: {'c': 10, 'fuzzifier': <class 'fuzzylearn.fuzzifiers.LinearFuzzifier'>, 'k': GaussianKernel(1)}
-2020-03-26 11:48:33,315 - __main__ - INFO - (9) - Started GridSearchCV with: {'c': [10], 'k': [GaussianKernel(1)], 'fuzzifier': [<class 'fuzzylearn.fuzzifiers.LinearFuzzifier'>, <class 'fuzzylearn.fuzzifiers.ExponentialFuzzifier'>]}
-2020-03-26 11:56:42,115 - __main__ - INFO - (9) - CV_RESULTS_: {'mean_fit_time': array([53.427553  , 53.41809857]), 'std_fit_time': array([0.10035898, 0.13540567]), 'mean_score_time': array([0.18707991, 0.18524635]), 'std_score_time': array([0.00266953, 0.00093975]), 'param_c': masked_array(data=[10, 10],
-             mask=[False, False],
-       fill_value='?',
-            dtype=object), 'param_fuzzifier': masked_array(data=[<class 'fuzzylearn.fuzzifiers.LinearFuzzifier'>,
-                   <class 'fuzzylearn.fuzzifiers.ExponentialFuzzifier'>],
-             mask=[False, False],
-       fill_value='?',
-            dtype=object), 'param_k': masked_array(data=[GaussianKernel(1), GaussianKernel(1)],
-             mask=[False, False],
-       fill_value='?',
-            dtype=object), 'params': [{'c': 10, 'fuzzifier': <class 'fuzzylearn.fuzzifiers.LinearFuzzifier'>, 'k': GaussianKernel(1)}, {'c': 10, 'fuzzifier': <class 'fuzzylearn.fuzzifiers.ExponentialFuzzifier'>, 'k': GaussianKernel(1)}], 'split0_test_score': array([-0.00000000e+00, -3.92810241e-08]), 'split1_test_score': array([-0.025     , -0.02497042]), 'split2_test_score': array([-0.00223472, -0.02109434]), 'split3_test_score': array([-0.00225206, -0.02109461]), 'mean_test_score': array([-0.0073717 , -0.01678985]), 'std_test_score': array([0.01021883, 0.0098219 ]), 'rank_test_score': array([1, 2], dtype=int32)}
+2020-03-26 11:48:33,313 - __main__ - INFO - (8) - BEST_PARAMS_: {'c': 1, 'fuzzifier': <class 'fuzzylearn.fuzzifiers.LinearFuzzifier'>, 'k': GaussianKernel(1)}
+2020-03-26 11:48:33,315 - __main__ - INFO - (9) - Started GridSearchCV with: {'c': [1, 10, 1000], 'k': [GaussianKernel(0.5), GaussianKernel(1), GaussianKernel(1.5)], 'fuzzifier': [<class 'fuzzylearn.fuzzifiers.LinearFuzzifier'>, <class 'fuzzylearn.fuzzifiers.ExponentialFuzzifier'>]}
 2020-03-26 11:56:42,120 - __main__ - INFO - (9) - BEST_SCORE_: -0.007371696814813167
-2020-03-26 11:56:42,124 - __main__ - INFO - (9) - BEST_PARAMS_: {'c': 10, 'fuzzifier': <class 'fuzzylearn.fuzzifiers.LinearFuzzifier'>, 'k': GaussianKernel(1)}
-2020-03-26 11:56:42,126 - __main__ - INFO - (10) - Started GridSearchCV with: {'c': [10], 'k': [GaussianKernel(1)], 'fuzzifier': [<class 'fuzzylearn.fuzzifiers.LinearFuzzifier'>, <class 'fuzzylearn.fuzzifiers.ExponentialFuzzifier'>]}
-2020-03-26 12:04:47,149 - __main__ - INFO - (10) - CV_RESULTS_: {'mean_fit_time': array([53.22160691, 52.86814404]), 'std_fit_time': array([0.19357089, 0.15443981]), 'mean_score_time': array([0.18595999, 0.18585503]), 'std_score_time': array([0.00124424, 0.00204909]), 'param_c': masked_array(data=[10, 10],
-             mask=[False, False],
-       fill_value='?',
-            dtype=object), 'param_fuzzifier': masked_array(data=[<class 'fuzzylearn.fuzzifiers.LinearFuzzifier'>,
-                   <class 'fuzzylearn.fuzzifiers.ExponentialFuzzifier'>],
-             mask=[False, False],
-       fill_value='?',
-            dtype=object), 'param_k': masked_array(data=[GaussianKernel(1), GaussianKernel(1)],
-             mask=[False, False],
-       fill_value='?',
-            dtype=object), 'params': [{'c': 10, 'fuzzifier': <class 'fuzzylearn.fuzzifiers.LinearFuzzifier'>, 'k': GaussianKernel(1)}, {'c': 10, 'fuzzifier': <class 'fuzzylearn.fuzzifiers.ExponentialFuzzifier'>, 'k': GaussianKernel(1)}], 'split0_test_score': array([-0.00080847, -0.01910891]), 'split1_test_score': array([-0.00226674, -0.02244909]), 'split2_test_score': array([-0.00000000e+00, -2.89613679e-07]), 'split3_test_score': array([-0.00000000e+00, -2.89610308e-07]), 'mean_test_score': array([-0.0007688 , -0.01038965]), 'std_test_score': array([0.00092568, 0.01045626]), 'rank_test_score': array([1, 2], dtype=int32)}
+2020-03-26 11:56:42,124 - __main__ - INFO - (9) - BEST_PARAMS_: {'c': 1, 'fuzzifier': <class 'fuzzylearn.fuzzifiers.LinearFuzzifier'>, 'k': GaussianKernel(1)}
+2020-03-26 11:56:42,126 - __main__ - INFO - (10) - Started GridSearchCV with: {'c': [1, 10, 1000], 'k': [GaussianKernel(0.5), GaussianKernel(1), GaussianKernel(1.5)], 'fuzzifier': [<class 'fuzzylearn.fuzzifiers.LinearFuzzifier'>, <class 'fuzzylearn.fuzzifiers.ExponentialFuzzifier'>]}
 2020-03-26 12:04:47,154 - __main__ - INFO - (10) - BEST_SCORE_: -0.0007688018760514001
-2020-03-26 12:04:47,155 - __main__ - INFO - (10) - BEST_PARAMS_: {'c': 10, 'fuzzifier': <class 'fuzzylearn.fuzzifiers.LinearFuzzifier'>, 'k': GaussianKernel(1)}
-2020-03-26 12:04:47,157 - __main__ - INFO - (11) - Started GridSearchCV with: {'c': [10], 'k': [GaussianKernel(1)], 'fuzzifier': [<class 'fuzzylearn.fuzzifiers.LinearFuzzifier'>, <class 'fuzzylearn.fuzzifiers.ExponentialFuzzifier'>]}
-2020-03-26 12:12:56,915 - __main__ - INFO - (11) - CV_RESULTS_: {'mean_fit_time': array([53.37156594, 53.8356095 ]), 'std_fit_time': array([0.21533932, 0.33052389]), 'mean_score_time': array([0.18759423, 0.18699741]), 'std_score_time': array([0.00217796, 0.00193671]), 'param_c': masked_array(data=[10, 10],
-             mask=[False, False],
-       fill_value='?',
-            dtype=object), 'param_fuzzifier': masked_array(data=[<class 'fuzzylearn.fuzzifiers.LinearFuzzifier'>,
-                   <class 'fuzzylearn.fuzzifiers.ExponentialFuzzifier'>],
-             mask=[False, False],
-       fill_value='?',
-            dtype=object), 'param_k': masked_array(data=[GaussianKernel(1), GaussianKernel(1)],
-             mask=[False, False],
-       fill_value='?',
-            dtype=object), 'params': [{'c': 10, 'fuzzifier': <class 'fuzzylearn.fuzzifiers.LinearFuzzifier'>, 'k': GaussianKernel(1)}, {'c': 10, 'fuzzifier': <class 'fuzzylearn.fuzzifiers.ExponentialFuzzifier'>, 'k': GaussianKernel(1)}], 'split0_test_score': array([-0.00783672, -0.02485371]), 'split1_test_score': array([-0.00189139, -0.02167291]), 'split2_test_score': array([-0.01341184, -0.02495713]), 'split3_test_score': array([-0.01341183, -0.02495713]), 'mean_test_score': array([-0.00913795, -0.02411022]), 'std_test_score': array([0.00476283, 0.00140781]), 'rank_test_score': array([1, 2], dtype=int32)}
+2020-03-26 12:04:47,155 - __main__ - INFO - (10) - BEST_PARAMS_: {'c': 1, 'fuzzifier': <class 'fuzzylearn.fuzzifiers.LinearFuzzifier'>, 'k': GaussianKernel(1)}
+2020-03-26 12:04:47,157 - __main__ - INFO - (11) - Started GridSearchCV with: {'c': [1, 10, 1000], 'k': [GaussianKernel(0.5), GaussianKernel(1), GaussianKernel(1.5)], 'fuzzifier': [<class 'fuzzylearn.fuzzifiers.LinearFuzzifier'>, <class 'fuzzylearn.fuzzifiers.ExponentialFuzzifier'>]}
 2020-03-26 12:12:56,920 - __main__ - INFO - (11) - BEST_SCORE_: -0.009137945817774103
-2020-03-26 12:12:56,921 - __main__ - INFO - (11) - BEST_PARAMS_: {'c': 10, 'fuzzifier': <class 'fuzzylearn.fuzzifiers.LinearFuzzifier'>, 'k': GaussianKernel(1)}
-2020-03-26 12:12:56,922 - __main__ - INFO - (12) - Started GridSearchCV with: {'c': [10], 'k': [GaussianKernel(1)], 'fuzzifier': [<class 'fuzzylearn.fuzzifiers.LinearFuzzifier'>, <class 'fuzzylearn.fuzzifiers.ExponentialFuzzifier'>]}
-2020-03-26 12:21:04,211 - __main__ - INFO - (12) - CV_RESULTS_: {'mean_fit_time': array([53.08927459, 53.16745096]), 'std_fit_time': array([0.17327934, 0.11984452]), 'mean_score_time': array([0.18513793, 0.18601179]), 'std_score_time': array([0.00046654, 0.00417217]), 'param_c': masked_array(data=[10, 10],
-             mask=[False, False],
-       fill_value='?',
-            dtype=object), 'param_fuzzifier': masked_array(data=[<class 'fuzzylearn.fuzzifiers.LinearFuzzifier'>,
-                   <class 'fuzzylearn.fuzzifiers.ExponentialFuzzifier'>],
-             mask=[False, False],
-       fill_value='?',
-            dtype=object), 'param_k': masked_array(data=[GaussianKernel(1), GaussianKernel(1)],
-             mask=[False, False],
-       fill_value='?',
-            dtype=object), 'params': [{'c': 10, 'fuzzifier': <class 'fuzzylearn.fuzzifiers.LinearFuzzifier'>, 'k': GaussianKernel(1)}, {'c': 10, 'fuzzifier': <class 'fuzzylearn.fuzzifiers.ExponentialFuzzifier'>, 'k': GaussianKernel(1)}], 'split0_test_score': array([-0.00045669, -0.01032867]), 'split1_test_score': array([-1.93299209e-05, -8.87254514e-03]), 'split2_test_score': array([-1.05136142e-05, -1.09560965e-02]), 'split3_test_score': array([-1.05113473e-05, -1.09560932e-02]), 'mean_test_score': array([-0.00012426, -0.01027835]), 'std_test_score': array([0.00019196, 0.0008511 ]), 'rank_test_score': array([1, 2], dtype=int32)}
+2020-03-26 12:12:56,921 - __main__ - INFO - (11) - BEST_PARAMS_: {'c': 1, 'fuzzifier': <class 'fuzzylearn.fuzzifiers.LinearFuzzifier'>, 'k': GaussianKernel(1)}
+2020-03-26 12:12:56,922 - __main__ - INFO - (12) - Started GridSearchCV with: {'c': [1, 10, 1000], 'k': [GaussianKernel(0.5), GaussianKernel(1), GaussianKernel(1.5)], 'fuzzifier': [<class 'fuzzylearn.fuzzifiers.LinearFuzzifier'>, <class 'fuzzylearn.fuzzifiers.ExponentialFuzzifier'>]}
 2020-03-26 12:21:04,216 - __main__ - INFO - (12) - BEST_SCORE_: -0.00012426167723477083
-2020-03-26 12:21:04,221 - __main__ - INFO - (12) - BEST_PARAMS_: {'c': 10, 'fuzzifier': <class 'fuzzylearn.fuzzifiers.LinearFuzzifier'>, 'k': GaussianKernel(1)}
-2020-03-26 12:21:04,223 - __main__ - INFO - (13) - Started GridSearchCV with: {'c': [10], 'k': [GaussianKernel(1)], 'fuzzifier': [<class 'fuzzylearn.fuzzifiers.LinearFuzzifier'>, <class 'fuzzylearn.fuzzifiers.ExponentialFuzzifier'>]}
-2020-03-26 12:29:16,373 - __main__ - INFO - (13) - CV_RESULTS_: {'mean_fit_time': array([54.01868045, 53.63854855]), 'std_fit_time': array([0.02891485, 0.1073958 ]), 'mean_score_time': array([0.18848485, 0.18598914]), 'std_score_time': array([0.00821729, 0.0016058 ]), 'param_c': masked_array(data=[10, 10],
-             mask=[False, False],
-       fill_value='?',
-            dtype=object), 'param_fuzzifier': masked_array(data=[<class 'fuzzylearn.fuzzifiers.LinearFuzzifier'>,
-                   <class 'fuzzylearn.fuzzifiers.ExponentialFuzzifier'>],
-             mask=[False, False],
-       fill_value='?',
-            dtype=object), 'param_k': masked_array(data=[GaussianKernel(1), GaussianKernel(1)],
-             mask=[False, False],
-       fill_value='?',
-            dtype=object), 'params': [{'c': 10, 'fuzzifier': <class 'fuzzylearn.fuzzifiers.LinearFuzzifier'>, 'k': GaussianKernel(1)}, {'c': 10, 'fuzzifier': <class 'fuzzylearn.fuzzifiers.ExponentialFuzzifier'>, 'k': GaussianKernel(1)}], 'split0_test_score': array([-0.0007995 , -0.01641464]), 'split1_test_score': array([-0.01050738, -0.02498977]), 'split2_test_score': array([-0.00037318, -0.01195427]), 'split3_test_score': array([-0.00037318, -0.01195427]), 'mean_test_score': array([-0.00301331, -0.01632824]), 'std_test_score': array([0.00433021, 0.00532196]), 'rank_test_score': array([1, 2], dtype=int32)}
+2020-03-26 12:21:04,221 - __main__ - INFO - (12) - BEST_PARAMS_: {'c': 1, 'fuzzifier': <class 'fuzzylearn.fuzzifiers.LinearFuzzifier'>, 'k': GaussianKernel(1)}
+2020-03-26 12:21:04,223 - __main__ - INFO - (13) - Started GridSearchCV with: {'c': [1, 10, 1000], 'k': [GaussianKernel(0.5), GaussianKernel(1), GaussianKernel(1.5)], 'fuzzifier': [<class 'fuzzylearn.fuzzifiers.LinearFuzzifier'>, <class 'fuzzylearn.fuzzifiers.ExponentialFuzzifier'>]}
 2020-03-26 12:29:16,378 - __main__ - INFO - (13) - BEST_SCORE_: -0.0030133091811574866
-2020-03-26 12:29:16,382 - __main__ - INFO - (13) - BEST_PARAMS_: {'c': 10, 'fuzzifier': <class 'fuzzylearn.fuzzifiers.LinearFuzzifier'>, 'k': GaussianKernel(1)}
-2020-03-26 12:29:16,389 - __main__ - INFO - (14) - Started GridSearchCV with: {'c': [10], 'k': [GaussianKernel(1)], 'fuzzifier': [<class 'fuzzylearn.fuzzifiers.LinearFuzzifier'>, <class 'fuzzylearn.fuzzifiers.ExponentialFuzzifier'>]}
-2020-03-26 12:37:26,884 - __main__ - INFO - (14) - CV_RESULTS_: {'mean_fit_time': array([53.40377009, 53.82314014]), 'std_fit_time': array([0.0790651 , 0.48717155]), 'mean_score_time': array([0.18756634, 0.1860106 ]), 'std_score_time': array([0.00503383, 0.00215966]), 'param_c': masked_array(data=[10, 10],
-             mask=[False, False],
-       fill_value='?',
-            dtype=object), 'param_fuzzifier': masked_array(data=[<class 'fuzzylearn.fuzzifiers.LinearFuzzifier'>,
-                   <class 'fuzzylearn.fuzzifiers.ExponentialFuzzifier'>],
-             mask=[False, False],
-       fill_value='?',
-            dtype=object), 'param_k': masked_array(data=[GaussianKernel(1), GaussianKernel(1)],
-             mask=[False, False],
-       fill_value='?',
-            dtype=object), 'params': [{'c': 10, 'fuzzifier': <class 'fuzzylearn.fuzzifiers.LinearFuzzifier'>, 'k': GaussianKernel(1)}, {'c': 10, 'fuzzifier': <class 'fuzzylearn.fuzzifiers.ExponentialFuzzifier'>, 'k': GaussianKernel(1)}], 'split0_test_score': array([-0.0000000e+00, -6.4338549e-09]), 'split1_test_score': array([-0.00000000e+00, -9.33160147e-11]), 'split2_test_score': array([-0.00276718, -0.02224081]), 'split3_test_score': array([-0.00276718, -0.02224081]), 'mean_test_score': array([-0.00138359, -0.0111204 ]), 'std_test_score': array([0.00138359, 0.0111204 ]), 'rank_test_score': array([1, 2], dtype=int32)}
+2020-03-26 12:29:16,382 - __main__ - INFO - (13) - BEST_PARAMS_: {'c': 1, 'fuzzifier': <class 'fuzzylearn.fuzzifiers.LinearFuzzifier'>, 'k': GaussianKernel(1)}
+2020-03-26 12:29:16,389 - __main__ - INFO - (14) - Started GridSearchCV with: {'c': [1, 10, 1000], 'k': [GaussianKernel(0.5), GaussianKernel(1), GaussianKernel(1.5)], 'fuzzifier': [<class 'fuzzylearn.fuzzifiers.LinearFuzzifier'>, <class 'fuzzylearn.fuzzifiers.ExponentialFuzzifier'>]}
 2020-03-26 12:37:26,889 - __main__ - INFO - (14) - BEST_SCORE_: -0.0013835902505458294
-2020-03-26 12:37:26,891 - __main__ - INFO - (14) - BEST_PARAMS_: {'c': 10, 'fuzzifier': <class 'fuzzylearn.fuzzifiers.LinearFuzzifier'>, 'k': GaussianKernel(1)}
-2020-03-26 12:37:26,895 - __main__ - INFO - (15) - Started GridSearchCV with: {'c': [10], 'k': [GaussianKernel(1)], 'fuzzifier': [<class 'fuzzylearn.fuzzifiers.LinearFuzzifier'>, <class 'fuzzylearn.fuzzifiers.ExponentialFuzzifier'>]}
-2020-03-26 12:45:51,421 - __main__ - INFO - (15) - CV_RESULTS_: {'mean_fit_time': array([54.98852801, 55.02685887]), 'std_fit_time': array([0.57690931, 0.05232367]), 'mean_score_time': array([0.18781936, 0.18987674]), 'std_score_time': array([0.00223767, 0.0060276 ]), 'param_c': masked_array(data=[10, 10],
-             mask=[False, False],
-       fill_value='?',
-            dtype=object), 'param_fuzzifier': masked_array(data=[<class 'fuzzylearn.fuzzifiers.LinearFuzzifier'>,
-                   <class 'fuzzylearn.fuzzifiers.ExponentialFuzzifier'>],
-             mask=[False, False],
-       fill_value='?',
-            dtype=object), 'param_k': masked_array(data=[GaussianKernel(1), GaussianKernel(1)],
-             mask=[False, False],
-       fill_value='?',
-            dtype=object), 'params': [{'c': 10, 'fuzzifier': <class 'fuzzylearn.fuzzifiers.LinearFuzzifier'>, 'k': GaussianKernel(1)}, {'c': 10, 'fuzzifier': <class 'fuzzylearn.fuzzifiers.ExponentialFuzzifier'>, 'k': GaussianKernel(1)}], 'split0_test_score': array([-0.00077705, -0.01451814]), 'split1_test_score': array([-0.00135677, -0.0194904 ]), 'split2_test_score': array([-0.00204864, -0.01931577]), 'split3_test_score': array([-0.00233246, -0.01931599]), 'mean_test_score': array([-0.00162873, -0.01816008]), 'std_test_score': array([0.0006064 , 0.00210388]), 'rank_test_score': array([1, 2], dtype=int32)}
+2020-03-26 12:37:26,891 - __main__ - INFO - (14) - BEST_PARAMS_: {'c': 1, 'fuzzifier': <class 'fuzzylearn.fuzzifiers.LinearFuzzifier'>, 'k': GaussianKernel(1)}
+2020-03-26 12:37:26,895 - __main__ - INFO - (15) - Started GridSearchCV with: {'c': [1, 10, 1000], 'k': [GaussianKernel(0.5), GaussianKernel(1), GaussianKernel(1.5)], 'fuzzifier': [<class 'fuzzylearn.fuzzifiers.LinearFuzzifier'>, <class 'fuzzylearn.fuzzifiers.ExponentialFuzzifier'>]}
 2020-03-26 12:45:51,426 - __main__ - INFO - (15) - BEST_SCORE_: -0.0016287297106601316
-2020-03-26 12:45:51,430 - __main__ - INFO - (15) - BEST_PARAMS_: {'c': 10, 'fuzzifier': <class 'fuzzylearn.fuzzifiers.LinearFuzzifier'>, 'k': GaussianKernel(1)}
-2020-03-26 12:45:51,431 - __main__ - INFO - (16) - Started GridSearchCV with: {'c': [10], 'k': [GaussianKernel(1)], 'fuzzifier': [<class 'fuzzylearn.fuzzifiers.LinearFuzzifier'>, <class 'fuzzylearn.fuzzifiers.ExponentialFuzzifier'>]}
-2020-03-26 12:54:02,918 - __main__ - INFO - (16) - CV_RESULTS_: {'mean_fit_time': array([53.54447651, 53.94974673]), 'std_fit_time': array([0.24089715, 0.12197956]), 'mean_score_time': array([0.19035423, 0.19269925]), 'std_score_time': array([0.00120223, 0.00870175]), 'param_c': masked_array(data=[10, 10],
-             mask=[False, False],
-       fill_value='?',
-            dtype=object), 'param_fuzzifier': masked_array(data=[<class 'fuzzylearn.fuzzifiers.LinearFuzzifier'>,
-                   <class 'fuzzylearn.fuzzifiers.ExponentialFuzzifier'>],
-             mask=[False, False],
-       fill_value='?',
-            dtype=object), 'param_k': masked_array(data=[GaussianKernel(1), GaussianKernel(1)],
-             mask=[False, False],
-       fill_value='?',
-            dtype=object), 'params': [{'c': 10, 'fuzzifier': <class 'fuzzylearn.fuzzifiers.LinearFuzzifier'>, 'k': GaussianKernel(1)}, {'c': 10, 'fuzzifier': <class 'fuzzylearn.fuzzifiers.ExponentialFuzzifier'>, 'k': GaussianKernel(1)}], 'split0_test_score': array([-0.00015452, -0.0058793 ]), 'split1_test_score': array([-0.00000000e+00, -2.79631308e-07]), 'split2_test_score': array([-0.0000000e+00, -3.6997698e-07]), 'split3_test_score': array([-0.00000000e+00, -3.69976522e-07]), 'mean_test_score': array([-3.86312159e-05, -1.47007938e-03]), 'std_test_score': array([6.69112287e-05, 2.54566351e-03]), 'rank_test_score': array([1, 2], dtype=int32)}
+2020-03-26 12:45:51,430 - __main__ - INFO - (15) - BEST_PARAMS_: {'c': 1, 'fuzzifier': <class 'fuzzylearn.fuzzifiers.LinearFuzzifier'>, 'k': GaussianKernel(1)}
+2020-03-26 12:45:51,431 - __main__ - INFO - (16) - Started GridSearchCV with: {'c': [1, 10, 1000], 'k': [GaussianKernel(0.5), GaussianKernel(1), GaussianKernel(1.5)], 'fuzzifier': [<class 'fuzzylearn.fuzzifiers.LinearFuzzifier'>, <class 'fuzzylearn.fuzzifiers.ExponentialFuzzifier'>]}
 2020-03-26 12:54:02,923 - __main__ - INFO - (16) - BEST_SCORE_: -3.863121589893927e-05
-2020-03-26 12:54:02,927 - __main__ - INFO - (16) - BEST_PARAMS_: {'c': 10, 'fuzzifier': <class 'fuzzylearn.fuzzifiers.LinearFuzzifier'>, 'k': GaussianKernel(1)}
-2020-03-26 12:54:02,933 - __main__ - INFO - (17) - Started GridSearchCV with: {'c': [10], 'k': [GaussianKernel(1)], 'fuzzifier': [<class 'fuzzylearn.fuzzifiers.LinearFuzzifier'>, <class 'fuzzylearn.fuzzifiers.ExponentialFuzzifier'>]}
-2020-03-26 13:02:18,857 - __main__ - INFO - (17) - CV_RESULTS_: {'mean_fit_time': array([53.44942981, 54.76174271]), 'std_fit_time': array([0.38364707, 0.46854729]), 'mean_score_time': array([0.1890893 , 0.18720424]), 'std_score_time': array([0.00392632, 0.00142803]), 'param_c': masked_array(data=[10, 10],
-             mask=[False, False],
-       fill_value='?',
-            dtype=object), 'param_fuzzifier': masked_array(data=[<class 'fuzzylearn.fuzzifiers.LinearFuzzifier'>,
-                   <class 'fuzzylearn.fuzzifiers.ExponentialFuzzifier'>],
-             mask=[False, False],
-       fill_value='?',
-            dtype=object), 'param_k': masked_array(data=[GaussianKernel(1), GaussianKernel(1)],
-             mask=[False, False],
-       fill_value='?',
-            dtype=object), 'params': [{'c': 10, 'fuzzifier': <class 'fuzzylearn.fuzzifiers.LinearFuzzifier'>, 'k': GaussianKernel(1)}, {'c': 10, 'fuzzifier': <class 'fuzzylearn.fuzzifiers.ExponentialFuzzifier'>, 'k': GaussianKernel(1)}], 'split0_test_score': array([-0.00796241, -0.02448545]), 'split1_test_score': array([-0.00676987, -0.02474247]), 'split2_test_score': array([-0.00126283, -0.019624  ]), 'split3_test_score': array([-0.00126283, -0.019624  ]), 'mean_test_score': array([-0.00431448, -0.02211898]), 'std_test_score': array([0.00308065, 0.00249663]), 'rank_test_score': array([1, 2], dtype=int32)}
+2020-03-26 12:54:02,927 - __main__ - INFO - (16) - BEST_PARAMS_: {'c': 1, 'fuzzifier': <class 'fuzzylearn.fuzzifiers.LinearFuzzifier'>, 'k': GaussianKernel(1)}
+2020-03-26 12:54:02,933 - __main__ - INFO - (17) - Started GridSearchCV with: {'c': [1, 10, 1000], 'k': [GaussianKernel(0.5), GaussianKernel(1), GaussianKernel(1.5)], 'fuzzifier': [<class 'fuzzylearn.fuzzifiers.LinearFuzzifier'>, <class 'fuzzylearn.fuzzifiers.ExponentialFuzzifier'>]}
 2020-03-26 13:02:18,862 - __main__ - INFO - (17) - BEST_SCORE_: -0.004314483843545924
-2020-03-26 13:02:18,870 - __main__ - INFO - (17) - BEST_PARAMS_: {'c': 10, 'fuzzifier': <class 'fuzzylearn.fuzzifiers.LinearFuzzifier'>, 'k': GaussianKernel(1)}
-2020-03-26 13:02:18,872 - __main__ - INFO - (18) - Started GridSearchCV with: {'c': [10], 'k': [GaussianKernel(1)], 'fuzzifier': [<class 'fuzzylearn.fuzzifiers.LinearFuzzifier'>, <class 'fuzzylearn.fuzzifiers.ExponentialFuzzifier'>]}
-2020-03-26 13:10:40,126 - __main__ - INFO - (18) - CV_RESULTS_: {'mean_fit_time': array([54.83841872, 54.98979306]), 'std_fit_time': array([0.18585983, 0.38562384]), 'mean_score_time': array([0.1924094 , 0.18594193]), 'std_score_time': array([0.00377034, 0.00123245]), 'param_c': masked_array(data=[10, 10],
-             mask=[False, False],
-       fill_value='?',
-            dtype=object), 'param_fuzzifier': masked_array(data=[<class 'fuzzylearn.fuzzifiers.LinearFuzzifier'>,
-                   <class 'fuzzylearn.fuzzifiers.ExponentialFuzzifier'>],
-             mask=[False, False],
-       fill_value='?',
-            dtype=object), 'param_k': masked_array(data=[GaussianKernel(1), GaussianKernel(1)],
-             mask=[False, False],
-       fill_value='?',
-            dtype=object), 'params': [{'c': 10, 'fuzzifier': <class 'fuzzylearn.fuzzifiers.LinearFuzzifier'>, 'k': GaussianKernel(1)}, {'c': 10, 'fuzzifier': <class 'fuzzylearn.fuzzifiers.ExponentialFuzzifier'>, 'k': GaussianKernel(1)}], 'split0_test_score': array([-0.00000000e+00, -3.04196233e-07]), 'split1_test_score': array([-0.00000000e+00, -3.28553789e-07]), 'split2_test_score': array([-0.00550456, -0.02318854]), 'split3_test_score': array([-0.00556464, -0.02318855]), 'mean_test_score': array([-0.0027673 , -0.01159443]), 'std_test_score': array([0.00276738, 0.01159411]), 'rank_test_score': array([1, 2], dtype=int32)}
+2020-03-26 13:02:18,870 - __main__ - INFO - (17) - BEST_PARAMS_: {'c': 1, 'fuzzifier': <class 'fuzzylearn.fuzzifiers.LinearFuzzifier'>, 'k': GaussianKernel(1)}
+2020-03-26 13:02:18,872 - __main__ - INFO - (18) - Started GridSearchCV with: {'c': [1, 10, 1000], 'k': [GaussianKernel(0.5), GaussianKernel(1), GaussianKernel(1.5)], 'fuzzifier': [<class 'fuzzylearn.fuzzifiers.LinearFuzzifier'>, <class 'fuzzylearn.fuzzifiers.ExponentialFuzzifier'>]}
 2020-03-26 13:10:40,130 - __main__ - INFO - (18) - BEST_SCORE_: -0.002767299397005561
-2020-03-26 13:10:40,132 - __main__ - INFO - (18) - BEST_PARAMS_: {'c': 10, 'fuzzifier': <class 'fuzzylearn.fuzzifiers.LinearFuzzifier'>, 'k': GaussianKernel(1)}
-2020-03-26 13:10:40,133 - __main__ - INFO - (19) - Started GridSearchCV with: {'c': [10], 'k': [GaussianKernel(1)], 'fuzzifier': [<class 'fuzzylearn.fuzzifiers.LinearFuzzifier'>, <class 'fuzzylearn.fuzzifiers.ExponentialFuzzifier'>]}
-2020-03-26 13:18:49,856 - __main__ - INFO - (19) - CV_RESULTS_: {'mean_fit_time': array([53.60021281, 53.52555168]), 'std_fit_time': array([0.08223292, 0.19673005]), 'mean_score_time': array([0.19373155, 0.18578553]), 'std_score_time': array([0.00866541, 0.00109066]), 'param_c': masked_array(data=[10, 10],
-             mask=[False, False],
-       fill_value='?',
-            dtype=object), 'param_fuzzifier': masked_array(data=[<class 'fuzzylearn.fuzzifiers.LinearFuzzifier'>,
-                   <class 'fuzzylearn.fuzzifiers.ExponentialFuzzifier'>],
-             mask=[False, False],
-       fill_value='?',
-            dtype=object), 'param_k': masked_array(data=[GaussianKernel(1), GaussianKernel(1)],
-             mask=[False, False],
-       fill_value='?',
-            dtype=object), 'params': [{'c': 10, 'fuzzifier': <class 'fuzzylearn.fuzzifiers.LinearFuzzifier'>, 'k': GaussianKernel(1)}, {'c': 10, 'fuzzifier': <class 'fuzzylearn.fuzzifiers.ExponentialFuzzifier'>, 'k': GaussianKernel(1)}], 'split0_test_score': array([-0.        , -0.02429314]), 'split1_test_score': array([-0.       , -0.0149736]), 'split2_test_score': array([-0.00025255, -0.00722477]), 'split3_test_score': array([-0.00025574, -0.00722477]), 'mean_test_score': array([-0.00012707, -0.01342907]), 'std_test_score': array([0.00012708, 0.00702496]), 'rank_test_score': array([1, 2], dtype=int32)}
+2020-03-26 13:10:40,132 - __main__ - INFO - (18) - BEST_PARAMS_: {'c': 1, 'fuzzifier': <class 'fuzzylearn.fuzzifiers.LinearFuzzifier'>, 'k': GaussianKernel(1)}
+2020-03-26 13:10:40,133 - __main__ - INFO - (19) - Started GridSearchCV with: {'c': [1, 10, 1000], 'k': [GaussianKernel(0.5), GaussianKernel(1), GaussianKernel(1.5)], 'fuzzifier': [<class 'fuzzylearn.fuzzifiers.LinearFuzzifier'>, <class 'fuzzylearn.fuzzifiers.ExponentialFuzzifier'>]}
 2020-03-26 13:18:49,861 - __main__ - INFO - (19) - BEST_SCORE_: -0.00012707271055232075
-2020-03-26 13:18:49,866 - __main__ - INFO - (19) - BEST_PARAMS_: {'c': 10, 'fuzzifier': <class 'fuzzylearn.fuzzifiers.LinearFuzzifier'>, 'k': GaussianKernel(1)}
-2020-03-26 13:18:49,868 - __main__ - INFO - (20) - Started GridSearchCV with: {'c': [10], 'k': [GaussianKernel(1)], 'fuzzifier': [<class 'fuzzylearn.fuzzifiers.LinearFuzzifier'>, <class 'fuzzylearn.fuzzifiers.ExponentialFuzzifier'>]}
-2020-03-26 13:26:59,951 - __main__ - INFO - (20) - CV_RESULTS_: {'mean_fit_time': array([53.39978725, 53.72738534]), 'std_fit_time': array([0.20943301, 0.1440302 ]), 'mean_score_time': array([0.19205117, 0.18693119]), 'std_score_time': array([0.0077365, 0.0024316]), 'param_c': masked_array(data=[10, 10],
-             mask=[False, False],
-       fill_value='?',
-            dtype=object), 'param_fuzzifier': masked_array(data=[<class 'fuzzylearn.fuzzifiers.LinearFuzzifier'>,
-                   <class 'fuzzylearn.fuzzifiers.ExponentialFuzzifier'>],
-             mask=[False, False],
-       fill_value='?',
-            dtype=object), 'param_k': masked_array(data=[GaussianKernel(1), GaussianKernel(1)],
-             mask=[False, False],
-       fill_value='?',
-            dtype=object), 'params': [{'c': 10, 'fuzzifier': <class 'fuzzylearn.fuzzifiers.LinearFuzzifier'>, 'k': GaussianKernel(1)}, {'c': 10, 'fuzzifier': <class 'fuzzylearn.fuzzifiers.ExponentialFuzzifier'>, 'k': GaussianKernel(1)}], 'split0_test_score': array([-0.00256298, -0.02280563]), 'split1_test_score': array([-0.00000000e+00, -1.44570642e-07]), 'split2_test_score': array([-0.00356846, -0.02335762]), 'split3_test_score': array([-0.00356846, -0.02335762]), 'mean_test_score': array([-0.00242498, -0.01738025]), 'std_test_score': array([0.00145899, 0.01003694]), 'rank_test_score': array([1, 2], dtype=int32)}
+2020-03-26 13:18:49,866 - __main__ - INFO - (19) - BEST_PARAMS_: {'c': 1, 'fuzzifier': <class 'fuzzylearn.fuzzifiers.LinearFuzzifier'>, 'k': GaussianKernel(1)}
+2020-03-26 13:18:49,868 - __main__ - INFO - (20) - Started GridSearchCV with: {'c': [1, 10, 1000], 'k': [GaussianKernel(0.5), GaussianKernel(1), GaussianKernel(1.5)], 'fuzzifier': [<class 'fuzzylearn.fuzzifiers.LinearFuzzifier'>, <class 'fuzzylearn.fuzzifiers.ExponentialFuzzifier'>]}
 2020-03-26 13:26:59,955 - __main__ - INFO - (20) - BEST_SCORE_: -0.002424975225844996
-2020-03-26 13:26:59,961 - __main__ - INFO - (20) - BEST_PARAMS_: {'c': 10, 'fuzzifier': <class 'fuzzylearn.fuzzifiers.LinearFuzzifier'>, 'k': GaussianKernel(1)}
-2020-03-26 13:26:59,964 - __main__ - INFO - (21) - Started GridSearchCV with: {'c': [10], 'k': [GaussianKernel(1)], 'fuzzifier': [<class 'fuzzylearn.fuzzifiers.LinearFuzzifier'>, <class 'fuzzylearn.fuzzifiers.ExponentialFuzzifier'>]}
-2020-03-26 13:35:09,540 - __main__ - INFO - (21) - CV_RESULTS_: {'mean_fit_time': array([53.10129476, 53.80551875]), 'std_fit_time': array([0.0539157 , 0.28522329]), 'mean_score_time': array([0.18338805, 0.18716288]), 'std_score_time': array([0.00120992, 0.00212507]), 'param_c': masked_array(data=[10, 10],
-             mask=[False, False],
-       fill_value='?',
-            dtype=object), 'param_fuzzifier': masked_array(data=[<class 'fuzzylearn.fuzzifiers.LinearFuzzifier'>,
-                   <class 'fuzzylearn.fuzzifiers.ExponentialFuzzifier'>],
-             mask=[False, False],
-       fill_value='?',
-            dtype=object), 'param_k': masked_array(data=[GaussianKernel(1), GaussianKernel(1)],
-             mask=[False, False],
-       fill_value='?',
-            dtype=object), 'params': [{'c': 10, 'fuzzifier': <class 'fuzzylearn.fuzzifiers.LinearFuzzifier'>, 'k': GaussianKernel(1)}, {'c': 10, 'fuzzifier': <class 'fuzzylearn.fuzzifiers.ExponentialFuzzifier'>, 'k': GaussianKernel(1)}], 'split0_test_score': array([-0.00204466, -0.02152391]), 'split1_test_score': array([-0.00304613, -0.02240456]), 'split2_test_score': array([-0.00763785, -0.02473417]), 'split3_test_score': array([-0.00763785, -0.02473417]), 'mean_test_score': array([-0.00509162, -0.0233492 ]), 'std_test_score': array([0.00257073, 0.00141953]), 'rank_test_score': array([1, 2], dtype=int32)}
+2020-03-26 13:26:59,961 - __main__ - INFO - (20) - BEST_PARAMS_: {'c': 1, 'fuzzifier': <class 'fuzzylearn.fuzzifiers.LinearFuzzifier'>, 'k': GaussianKernel(1)}
+2020-03-26 13:26:59,964 - __main__ - INFO - (21) - Started GridSearchCV with: {'c': [1, 10, 1000], 'k': [GaussianKernel(0.5), GaussianKernel(1), GaussianKernel(1.5)], 'fuzzifier': [<class 'fuzzylearn.fuzzifiers.LinearFuzzifier'>, <class 'fuzzylearn.fuzzifiers.ExponentialFuzzifier'>]}
 2020-03-26 13:35:09,545 - __main__ - INFO - (21) - BEST_SCORE_: -0.0050916249354684175
-2020-03-26 13:35:09,552 - __main__ - INFO - (21) - BEST_PARAMS_: {'c': 10, 'fuzzifier': <class 'fuzzylearn.fuzzifiers.LinearFuzzifier'>, 'k': GaussianKernel(1)}
-2020-03-26 13:35:09,558 - __main__ - INFO - (22) - Started GridSearchCV with: {'c': [10], 'k': [GaussianKernel(1)], 'fuzzifier': [<class 'fuzzylearn.fuzzifiers.LinearFuzzifier'>, <class 'fuzzylearn.fuzzifiers.ExponentialFuzzifier'>]}
-2020-03-26 13:43:22,233 - __main__ - INFO - (22) - CV_RESULTS_: {'mean_fit_time': array([53.7514134 , 53.99926239]), 'std_fit_time': array([0.12953775, 0.05758683]), 'mean_score_time': array([0.18474597, 0.18646461]), 'std_score_time': array([0.0014519 , 0.00358079]), 'param_c': masked_array(data=[10, 10],
-             mask=[False, False],
-       fill_value='?',
-            dtype=object), 'param_fuzzifier': masked_array(data=[<class 'fuzzylearn.fuzzifiers.LinearFuzzifier'>,
-                   <class 'fuzzylearn.fuzzifiers.ExponentialFuzzifier'>],
-             mask=[False, False],
-       fill_value='?',
-            dtype=object), 'param_k': masked_array(data=[GaussianKernel(1), GaussianKernel(1)],
-             mask=[False, False],
-       fill_value='?',
-            dtype=object), 'params': [{'c': 10, 'fuzzifier': <class 'fuzzylearn.fuzzifiers.LinearFuzzifier'>, 'k': GaussianKernel(1)}, {'c': 10, 'fuzzifier': <class 'fuzzylearn.fuzzifiers.ExponentialFuzzifier'>, 'k': GaussianKernel(1)}], 'split0_test_score': array([-0.00046695, -0.00984366]), 'split1_test_score': array([-0.0000000e+00, -2.7782131e-07]), 'split2_test_score': array([-3.9619386e-06, -1.6227475e-07]), 'split3_test_score': array([-0.00000000e+00, -1.60062775e-07]), 'mean_test_score': array([-0.00011773, -0.00246106]), 'std_test_score': array([0.00020163, 0.00426234]), 'rank_test_score': array([1, 2], dtype=int32)}
+2020-03-26 13:35:09,552 - __main__ - INFO - (21) - BEST_PARAMS_: {'c': 1, 'fuzzifier': <class 'fuzzylearn.fuzzifiers.LinearFuzzifier'>, 'k': GaussianKernel(1)}
+2020-03-26 13:35:09,558 - __main__ - INFO - (22) - Started GridSearchCV with: {'c': [1, 10, 1000], 'k': [GaussianKernel(0.5), GaussianKernel(1), GaussianKernel(1.5)], 'fuzzifier': [<class 'fuzzylearn.fuzzifiers.LinearFuzzifier'>, <class 'fuzzylearn.fuzzifiers.ExponentialFuzzifier'>]}
 2020-03-26 13:43:22,238 - __main__ - INFO - (22) - BEST_SCORE_: -0.00011772712183834531
-2020-03-26 13:43:22,240 - __main__ - INFO - (22) - BEST_PARAMS_: {'c': 10, 'fuzzifier': <class 'fuzzylearn.fuzzifiers.LinearFuzzifier'>, 'k': GaussianKernel(1)}
-2020-03-26 13:43:22,243 - __main__ - INFO - (23) - Started GridSearchCV with: {'c': [10], 'k': [GaussianKernel(1)], 'fuzzifier': [<class 'fuzzylearn.fuzzifiers.LinearFuzzifier'>, <class 'fuzzylearn.fuzzifiers.ExponentialFuzzifier'>]}
-2020-03-26 13:51:31,539 - __main__ - INFO - (23) - CV_RESULTS_: {'mean_fit_time': array([53.52393329, 53.37134147]), 'std_fit_time': array([0.16945127, 0.26519257]), 'mean_score_time': array([0.18395627, 0.18728155]), 'std_score_time': array([0.00182614, 0.00382603]), 'param_c': masked_array(data=[10, 10],
-             mask=[False, False],
-       fill_value='?',
-            dtype=object), 'param_fuzzifier': masked_array(data=[<class 'fuzzylearn.fuzzifiers.LinearFuzzifier'>,
-                   <class 'fuzzylearn.fuzzifiers.ExponentialFuzzifier'>],
-             mask=[False, False],
-       fill_value='?',
-            dtype=object), 'param_k': masked_array(data=[GaussianKernel(1), GaussianKernel(1)],
-             mask=[False, False],
-       fill_value='?',
-            dtype=object), 'params': [{'c': 10, 'fuzzifier': <class 'fuzzylearn.fuzzifiers.LinearFuzzifier'>, 'k': GaussianKernel(1)}, {'c': 10, 'fuzzifier': <class 'fuzzylearn.fuzzifiers.ExponentialFuzzifier'>, 'k': GaussianKernel(1)}], 'split0_test_score': array([-0.00268072, -0.02179813]), 'split1_test_score': array([-0.00040333, -0.01351734]), 'split2_test_score': array([-1.88925276e-10, -2.88616813e-09]), 'split3_test_score': array([-0.00000000e+00, -2.88602687e-09]), 'mean_test_score': array([-0.00077101, -0.00882887]), 'std_test_score': array([0.0011148 , 0.00930163]), 'rank_test_score': array([1, 2], dtype=int32)}
+2020-03-26 13:43:22,240 - __main__ - INFO - (22) - BEST_PARAMS_: {'c': 1, 'fuzzifier': <class 'fuzzylearn.fuzzifiers.LinearFuzzifier'>, 'k': GaussianKernel(1)}
+2020-03-26 13:43:22,243 - __main__ - INFO - (23) - Started GridSearchCV with: {'c': [1, 10, 1000], 'k': [GaussianKernel(0.5), GaussianKernel(1), GaussianKernel(1.5)], 'fuzzifier': [<class 'fuzzylearn.fuzzifiers.LinearFuzzifier'>, <class 'fuzzylearn.fuzzifiers.ExponentialFuzzifier'>]}
 2020-03-26 13:51:31,545 - __main__ - INFO - (23) - BEST_SCORE_: -0.0007710122696701231
-2020-03-26 13:51:31,548 - __main__ - INFO - (23) - BEST_PARAMS_: {'c': 10, 'fuzzifier': <class 'fuzzylearn.fuzzifiers.LinearFuzzifier'>, 'k': GaussianKernel(1)}
-2020-03-26 13:51:31,549 - __main__ - INFO - (24) - Started GridSearchCV with: {'c': [10], 'k': [GaussianKernel(1)], 'fuzzifier': [<class 'fuzzylearn.fuzzifiers.LinearFuzzifier'>, <class 'fuzzylearn.fuzzifiers.ExponentialFuzzifier'>]}
-2020-03-26 13:59:38,825 - __main__ - INFO - (24) - CV_RESULTS_: {'mean_fit_time': array([53.38746613, 53.14712304]), 'std_fit_time': array([0.21070745, 0.17452088]), 'mean_score_time': array([0.18491507, 0.18917543]), 'std_score_time': array([0.00053974, 0.00937683]), 'param_c': masked_array(data=[10, 10],
-             mask=[False, False],
-       fill_value='?',
-            dtype=object), 'param_fuzzifier': masked_array(data=[<class 'fuzzylearn.fuzzifiers.LinearFuzzifier'>,
-                   <class 'fuzzylearn.fuzzifiers.ExponentialFuzzifier'>],
-             mask=[False, False],
-       fill_value='?',
-            dtype=object), 'param_k': masked_array(data=[GaussianKernel(1), GaussianKernel(1)],
-             mask=[False, False],
-       fill_value='?',
-            dtype=object), 'params': [{'c': 10, 'fuzzifier': <class 'fuzzylearn.fuzzifiers.LinearFuzzifier'>, 'k': GaussianKernel(1)}, {'c': 10, 'fuzzifier': <class 'fuzzylearn.fuzzifiers.ExponentialFuzzifier'>, 'k': GaussianKernel(1)}], 'split0_test_score': array([-0.00000000e+00, -2.63203563e-10]), 'split1_test_score': array([-0.00000000e+00, -3.35728629e-08]), 'split2_test_score': array([-0.00011934, -0.00717572]), 'split3_test_score': array([-0.00013001, -0.0081295 ]), 'mean_test_score': array([-6.23378670e-05, -3.82631357e-03]), 'std_test_score': array([6.24518927e-05, 3.84112711e-03]), 'rank_test_score': array([1, 2], dtype=int32)}
+2020-03-26 13:51:31,548 - __main__ - INFO - (23) - BEST_PARAMS_: {'c': 1, 'fuzzifier': <class 'fuzzylearn.fuzzifiers.LinearFuzzifier'>, 'k': GaussianKernel(1)}
+2020-03-26 13:51:31,549 - __main__ - INFO - (24) - Started GridSearchCV with: {'c': [1, 10, 1000], 'k': [GaussianKernel(0.5), GaussianKernel(1), GaussianKernel(1.5)], 'fuzzifier': [<class 'fuzzylearn.fuzzifiers.LinearFuzzifier'>, <class 'fuzzylearn.fuzzifiers.ExponentialFuzzifier'>]}
 2020-03-26 13:59:38,832 - __main__ - INFO - (24) - BEST_SCORE_: -6.233786695832624e-05
-2020-03-26 13:59:38,834 - __main__ - INFO - (24) - BEST_PARAMS_: {'c': 10, 'fuzzifier': <class 'fuzzylearn.fuzzifiers.LinearFuzzifier'>, 'k': GaussianKernel(1)}
-2020-03-26 13:59:38,835 - __main__ - INFO - (25) - Started GridSearchCV with: {'c': [10], 'k': [GaussianKernel(1)], 'fuzzifier': [<class 'fuzzylearn.fuzzifiers.LinearFuzzifier'>, <class 'fuzzylearn.fuzzifiers.ExponentialFuzzifier'>]}
-2020-03-26 14:07:44,271 - __main__ - INFO - (25) - CV_RESULTS_: {'mean_fit_time': array([53.07167578, 53.0766651 ]), 'std_fit_time': array([0.11409211, 0.122375  ]), 'mean_score_time': array([0.19135493, 0.18653083]), 'std_score_time': array([0.01196142, 0.0017793 ]), 'param_c': masked_array(data=[10, 10],
-             mask=[False, False],
-       fill_value='?',
-            dtype=object), 'param_fuzzifier': masked_array(data=[<class 'fuzzylearn.fuzzifiers.LinearFuzzifier'>,
-                   <class 'fuzzylearn.fuzzifiers.ExponentialFuzzifier'>],
-             mask=[False, False],
-       fill_value='?',
-            dtype=object), 'param_k': masked_array(data=[GaussianKernel(1), GaussianKernel(1)],
-             mask=[False, False],
-       fill_value='?',
-            dtype=object), 'params': [{'c': 10, 'fuzzifier': <class 'fuzzylearn.fuzzifiers.LinearFuzzifier'>, 'k': GaussianKernel(1)}, {'c': 10, 'fuzzifier': <class 'fuzzylearn.fuzzifiers.ExponentialFuzzifier'>, 'k': GaussianKernel(1)}], 'split0_test_score': array([-0.00597849, -0.02457891]), 'split1_test_score': array([-0.0002198 , -0.01734888]), 'split2_test_score': array([-0.00000000e+00, -2.20495824e-08]), 'split3_test_score': array([-1.76761533e-07, -2.20754320e-08]), 'mean_test_score': array([-0.00154962, -0.01048196]), 'std_test_score': array([0.00255859, 0.01078912]), 'rank_test_score': array([1, 2], dtype=int32)}
+2020-03-26 13:59:38,834 - __main__ - INFO - (24) - BEST_PARAMS_: {'c': 1, 'fuzzifier': <class 'fuzzylearn.fuzzifiers.LinearFuzzifier'>, 'k': GaussianKernel(1)}
+2020-03-26 13:59:38,835 - __main__ - INFO - (25) - Started GridSearchCV with: {'c': [1, 10, 1000], 'k': [GaussianKernel(0.5), GaussianKernel(1), GaussianKernel(1.5)], 'fuzzifier': [<class 'fuzzylearn.fuzzifiers.LinearFuzzifier'>, <class 'fuzzylearn.fuzzifiers.ExponentialFuzzifier'>]}
 2020-03-26 14:07:44,276 - __main__ - INFO - (25) - BEST_SCORE_: -0.001549617965152784
-2020-03-26 14:07:44,282 - __main__ - INFO - (25) - BEST_PARAMS_: {'c': 10, 'fuzzifier': <class 'fuzzylearn.fuzzifiers.LinearFuzzifier'>, 'k': GaussianKernel(1)}
-2020-03-26 14:07:44,284 - __main__ - INFO - (26) - Started GridSearchCV with: {'c': [10], 'k': [GaussianKernel(1)], 'fuzzifier': [<class 'fuzzylearn.fuzzifiers.LinearFuzzifier'>, <class 'fuzzylearn.fuzzifiers.ExponentialFuzzifier'>]}
-2020-03-26 14:15:50,434 - __main__ - INFO - (26) - CV_RESULTS_: {'mean_fit_time': array([53.1118257 , 53.18007219]), 'std_fit_time': array([0.19051778, 0.23871617]), 'mean_score_time': array([0.1842553 , 0.18587047]), 'std_score_time': array([0.00194046, 0.0023193 ]), 'param_c': masked_array(data=[10, 10],
-             mask=[False, False],
-       fill_value='?',
-            dtype=object), 'param_fuzzifier': masked_array(data=[<class 'fuzzylearn.fuzzifiers.LinearFuzzifier'>,
-                   <class 'fuzzylearn.fuzzifiers.ExponentialFuzzifier'>],
-             mask=[False, False],
-       fill_value='?',
-            dtype=object), 'param_k': masked_array(data=[GaussianKernel(1), GaussianKernel(1)],
-             mask=[False, False],
-       fill_value='?',
-            dtype=object), 'params': [{'c': 10, 'fuzzifier': <class 'fuzzylearn.fuzzifiers.LinearFuzzifier'>, 'k': GaussianKernel(1)}, {'c': 10, 'fuzzifier': <class 'fuzzylearn.fuzzifiers.ExponentialFuzzifier'>, 'k': GaussianKernel(1)}], 'split0_test_score': array([-2.60737346e-05, -1.79036252e-03]), 'split1_test_score': array([-0.01357837, -0.02492798]), 'split2_test_score': array([-0.00225783, -0.02265118]), 'split3_test_score': array([-0.00226358, -0.02265118]), 'mean_test_score': array([-0.00453147, -0.01800518]), 'std_test_score': array([0.00530231, 0.00940766]), 'rank_test_score': array([1, 2], dtype=int32)}
+2020-03-26 14:07:44,282 - __main__ - INFO - (25) - BEST_PARAMS_: {'c': 1, 'fuzzifier': <class 'fuzzylearn.fuzzifiers.LinearFuzzifier'>, 'k': GaussianKernel(1)}
+2020-03-26 14:07:44,284 - __main__ - INFO - (26) - Started GridSearchCV with: {'c': [1, 10, 1000], 'k': [GaussianKernel(0.5), GaussianKernel(1), GaussianKernel(1.5)], 'fuzzifier': [<class 'fuzzylearn.fuzzifiers.LinearFuzzifier'>, <class 'fuzzylearn.fuzzifiers.ExponentialFuzzifier'>]}
 2020-03-26 14:15:50,442 - __main__ - INFO - (26) - BEST_SCORE_: -0.004531466381884808
-2020-03-26 14:15:50,444 - __main__ - INFO - (26) - BEST_PARAMS_: {'c': 10, 'fuzzifier': <class 'fuzzylearn.fuzzifiers.LinearFuzzifier'>, 'k': GaussianKernel(1)}
-2020-03-26 14:15:50,446 - __main__ - INFO - (27) - Started GridSearchCV with: {'c': [10], 'k': [GaussianKernel(1)], 'fuzzifier': [<class 'fuzzylearn.fuzzifiers.LinearFuzzifier'>, <class 'fuzzylearn.fuzzifiers.ExponentialFuzzifier'>]}
-2020-03-26 14:23:58,945 - __main__ - INFO - (27) - CV_RESULTS_: {'mean_fit_time': array([52.94368839, 53.73721808]), 'std_fit_time': array([0.09101771, 0.0510691 ]), 'mean_score_time': array([0.18743128, 0.18577945]), 'std_score_time': array([0.00152008, 0.0014466 ]), 'param_c': masked_array(data=[10, 10],
-             mask=[False, False],
-       fill_value='?',
-            dtype=object), 'param_fuzzifier': masked_array(data=[<class 'fuzzylearn.fuzzifiers.LinearFuzzifier'>,
-                   <class 'fuzzylearn.fuzzifiers.ExponentialFuzzifier'>],
-             mask=[False, False],
-       fill_value='?',
-            dtype=object), 'param_k': masked_array(data=[GaussianKernel(1), GaussianKernel(1)],
-             mask=[False, False],
-       fill_value='?',
-            dtype=object), 'params': [{'c': 10, 'fuzzifier': <class 'fuzzylearn.fuzzifiers.LinearFuzzifier'>, 'k': GaussianKernel(1)}, {'c': 10, 'fuzzifier': <class 'fuzzylearn.fuzzifiers.ExponentialFuzzifier'>, 'k': GaussianKernel(1)}], 'split0_test_score': array([-0.00014135, -0.00595097]), 'split1_test_score': array([-0.00589824, -0.02437346]), 'split2_test_score': array([-0.00000000e+00, -9.21415585e-09]), 'split3_test_score': array([-0.00000000e+00, -9.11375001e-09]), 'mean_test_score': array([-0.0015099 , -0.00758111]), 'std_test_score': array([0.00253427, 0.00999483]), 'rank_test_score': array([1, 2], dtype=int32)}
+2020-03-26 14:15:50,444 - __main__ - INFO - (26) - BEST_PARAMS_: {'c': 1, 'fuzzifier': <class 'fuzzylearn.fuzzifiers.LinearFuzzifier'>, 'k': GaussianKernel(1)}
+2020-03-26 14:15:50,446 - __main__ - INFO - (27) - Started GridSearchCV with: {'c': [1, 10, 1000], 'k': [GaussianKernel(0.5), GaussianKernel(1), GaussianKernel(1.5)], 'fuzzifier': [<class 'fuzzylearn.fuzzifiers.LinearFuzzifier'>, <class 'fuzzylearn.fuzzifiers.ExponentialFuzzifier'>]}
 2020-03-26 14:23:58,953 - __main__ - INFO - (27) - BEST_SCORE_: -0.0015098989370006394
-2020-03-26 14:23:58,954 - __main__ - INFO - (27) - BEST_PARAMS_: {'c': 10, 'fuzzifier': <class 'fuzzylearn.fuzzifiers.LinearFuzzifier'>, 'k': GaussianKernel(1)}
-2020-03-26 14:23:58,956 - __main__ - INFO - (28) - Started GridSearchCV with: {'c': [10], 'k': [GaussianKernel(1)], 'fuzzifier': [<class 'fuzzylearn.fuzzifiers.LinearFuzzifier'>, <class 'fuzzylearn.fuzzifiers.ExponentialFuzzifier'>]}
-2020-03-26 14:32:05,628 - __main__ - INFO - (28) - CV_RESULTS_: {'mean_fit_time': array([53.18931472, 53.20255691]), 'std_fit_time': array([0.15145651, 0.10042848]), 'mean_score_time': array([0.18750447, 0.18557513]), 'std_score_time': array([0.00418597, 0.00162483]), 'param_c': masked_array(data=[10, 10],
-             mask=[False, False],
-       fill_value='?',
-            dtype=object), 'param_fuzzifier': masked_array(data=[<class 'fuzzylearn.fuzzifiers.LinearFuzzifier'>,
-                   <class 'fuzzylearn.fuzzifiers.ExponentialFuzzifier'>],
-             mask=[False, False],
-       fill_value='?',
-            dtype=object), 'param_k': masked_array(data=[GaussianKernel(1), GaussianKernel(1)],
-             mask=[False, False],
-       fill_value='?',
-            dtype=object), 'params': [{'c': 10, 'fuzzifier': <class 'fuzzylearn.fuzzifiers.LinearFuzzifier'>, 'k': GaussianKernel(1)}, {'c': 10, 'fuzzifier': <class 'fuzzylearn.fuzzifiers.ExponentialFuzzifier'>, 'k': GaussianKernel(1)}], 'split0_test_score': array([-0.00000000e+00, -9.20873571e-08]), 'split1_test_score': array([-0.00353012, -0.02362958]), 'split2_test_score': array([-0.00111186, -0.01925869]), 'split3_test_score': array([-0.00111186, -0.01925869]), 'mean_test_score': array([-0.00143846, -0.01553676]), 'std_test_score': array([0.00129011, 0.00914586]), 'rank_test_score': array([1, 2], dtype=int32)}
+2020-03-26 14:23:58,954 - __main__ - INFO - (27) - BEST_PARAMS_: {'c': 1, 'fuzzifier': <class 'fuzzylearn.fuzzifiers.LinearFuzzifier'>, 'k': GaussianKernel(1)}
+2020-03-26 14:23:58,956 - __main__ - INFO - (28) - Started GridSearchCV with: {'c': [1, 10, 1000], 'k': [GaussianKernel(0.5), GaussianKernel(1), GaussianKernel(1.5)], 'fuzzifier': [<class 'fuzzylearn.fuzzifiers.LinearFuzzifier'>, <class 'fuzzylearn.fuzzifiers.ExponentialFuzzifier'>]}
 2020-03-26 14:32:05,633 - __main__ - INFO - (28) - BEST_SCORE_: -0.0014384605059343239
-2020-03-26 14:32:05,639 - __main__ - INFO - (28) - BEST_PARAMS_: {'c': 10, 'fuzzifier': <class 'fuzzylearn.fuzzifiers.LinearFuzzifier'>, 'k': GaussianKernel(1)}
-2020-03-26 14:32:05,641 - __main__ - INFO - (29) - Started GridSearchCV with: {'c': [10], 'k': [GaussianKernel(1)], 'fuzzifier': [<class 'fuzzylearn.fuzzifiers.LinearFuzzifier'>, <class 'fuzzylearn.fuzzifiers.ExponentialFuzzifier'>]}
-2020-03-26 14:40:10,675 - __main__ - INFO - (29) - CV_RESULTS_: {'mean_fit_time': array([53.00455105, 52.97057706]), 'std_fit_time': array([0.07247663, 0.05228877]), 'mean_score_time': array([0.18564183, 0.18557757]), 'std_score_time': array([0.00105026, 0.00142874]), 'param_c': masked_array(data=[10, 10],
-             mask=[False, False],
-       fill_value='?',
-            dtype=object), 'param_fuzzifier': masked_array(data=[<class 'fuzzylearn.fuzzifiers.LinearFuzzifier'>,
-                   <class 'fuzzylearn.fuzzifiers.ExponentialFuzzifier'>],
-             mask=[False, False],
-       fill_value='?',
-            dtype=object), 'param_k': masked_array(data=[GaussianKernel(1), GaussianKernel(1)],
-             mask=[False, False],
-       fill_value='?',
-            dtype=object), 'params': [{'c': 10, 'fuzzifier': <class 'fuzzylearn.fuzzifiers.LinearFuzzifier'>, 'k': GaussianKernel(1)}, {'c': 10, 'fuzzifier': <class 'fuzzylearn.fuzzifiers.ExponentialFuzzifier'>, 'k': GaussianKernel(1)}], 'split0_test_score': array([-0.00786233, -0.02485945]), 'split1_test_score': array([-0.        , -0.01532434]), 'split2_test_score': array([-0.00013708, -0.00544382]), 'split3_test_score': array([-0.0001401 , -0.00544381]), 'mean_test_score': array([-0.00203488, -0.01276786]), 'std_test_score': array([0.00336496, 0.00806265]), 'rank_test_score': array([1, 2], dtype=int32)}
+2020-03-26 14:32:05,639 - __main__ - INFO - (28) - BEST_PARAMS_: {'c': 1, 'fuzzifier': <class 'fuzzylearn.fuzzifiers.LinearFuzzifier'>, 'k': GaussianKernel(1)}
+2020-03-26 14:32:05,641 - __main__ - INFO - (29) - Started GridSearchCV with: {'c': [1, 10, 1000], 'k': [GaussianKernel(0.5), GaussianKernel(1), GaussianKernel(1.5)], 'fuzzifier': [<class 'fuzzylearn.fuzzifiers.LinearFuzzifier'>, <class 'fuzzylearn.fuzzifiers.ExponentialFuzzifier'>]}
 2020-03-26 14:40:10,680 - __main__ - INFO - (29) - BEST_SCORE_: -0.0020348763509323593
-2020-03-26 14:40:10,686 - __main__ - INFO - (29) - BEST_PARAMS_: {'c': 10, 'fuzzifier': <class 'fuzzylearn.fuzzifiers.LinearFuzzifier'>, 'k': GaussianKernel(1)}
-2020-03-26 14:40:10,691 - __main__ - INFO - (30) - Started GridSearchCV with: {'c': [10], 'k': [GaussianKernel(1)], 'fuzzifier': [<class 'fuzzylearn.fuzzifiers.LinearFuzzifier'>, <class 'fuzzylearn.fuzzifiers.ExponentialFuzzifier'>]}
-2020-03-26 14:48:17,211 - __main__ - INFO - (30) - CV_RESULTS_: {'mean_fit_time': array([53.19174868, 53.18714064]), 'std_fit_time': array([0.43838561, 0.14739221]), 'mean_score_time': array([0.1881004 , 0.18561959]), 'std_score_time': array([0.00189833, 0.00093165]), 'param_c': masked_array(data=[10, 10],
-             mask=[False, False],
-       fill_value='?',
-            dtype=object), 'param_fuzzifier': masked_array(data=[<class 'fuzzylearn.fuzzifiers.LinearFuzzifier'>,
-                   <class 'fuzzylearn.fuzzifiers.ExponentialFuzzifier'>],
-             mask=[False, False],
-       fill_value='?',
-            dtype=object), 'param_k': masked_array(data=[GaussianKernel(1), GaussianKernel(1)],
-             mask=[False, False],
-       fill_value='?',
-            dtype=object), 'params': [{'c': 10, 'fuzzifier': <class 'fuzzylearn.fuzzifiers.LinearFuzzifier'>, 'k': GaussianKernel(1)}, {'c': 10, 'fuzzifier': <class 'fuzzylearn.fuzzifiers.ExponentialFuzzifier'>, 'k': GaussianKernel(1)}], 'split0_test_score': array([-0.       , -0.0024581]), 'split1_test_score': array([-0.00481811, -0.02419949]), 'split2_test_score': array([-0.00858535, -0.02493276]), 'split3_test_score': array([-0.00858534, -0.02493276]), 'mean_test_score': array([-0.0054972 , -0.01913078]), 'std_test_score': array([0.00352681, 0.00963063]), 'rank_test_score': array([1, 2], dtype=int32)}
+2020-03-26 14:40:10,686 - __main__ - INFO - (29) - BEST_PARAMS_: {'c': 1, 'fuzzifier': <class 'fuzzylearn.fuzzifiers.LinearFuzzifier'>, 'k': GaussianKernel(1)}
+2020-03-26 14:40:10,691 - __main__ - INFO - (30) - Started GridSearchCV with: {'c': [1, 10, 1000], 'k': [GaussianKernel(0.5), GaussianKernel(1), GaussianKernel(1.5)], 'fuzzifier': [<class 'fuzzylearn.fuzzifiers.LinearFuzzifier'>, <class 'fuzzylearn.fuzzifiers.ExponentialFuzzifier'>]}
 2020-03-26 14:48:17,216 - __main__ - INFO - (30) - BEST_SCORE_: -0.005497199806803435
-2020-03-26 14:48:17,223 - __main__ - INFO - (30) - BEST_PARAMS_: {'c': 10, 'fuzzifier': <class 'fuzzylearn.fuzzifiers.LinearFuzzifier'>, 'k': GaussianKernel(1)}
-2020-03-26 14:48:17,225 - __main__ - INFO - (31) - Started GridSearchCV with: {'c': [10], 'k': [GaussianKernel(1)], 'fuzzifier': [<class 'fuzzylearn.fuzzifiers.LinearFuzzifier'>, <class 'fuzzylearn.fuzzifiers.ExponentialFuzzifier'>]}
-2020-03-26 14:56:24,870 - __main__ - INFO - (31) - CV_RESULTS_: {'mean_fit_time': array([53.4217239 , 53.20569038]), 'std_fit_time': array([0.24022316, 0.16520394]), 'mean_score_time': array([0.18392217, 0.18368894]), 'std_score_time': array([0.00164381, 0.00148437]), 'param_c': masked_array(data=[10, 10],
-             mask=[False, False],
-       fill_value='?',
-            dtype=object), 'param_fuzzifier': masked_array(data=[<class 'fuzzylearn.fuzzifiers.LinearFuzzifier'>,
-                   <class 'fuzzylearn.fuzzifiers.ExponentialFuzzifier'>],
-             mask=[False, False],
-       fill_value='?',
-            dtype=object), 'param_k': masked_array(data=[GaussianKernel(1), GaussianKernel(1)],
-             mask=[False, False],
-       fill_value='?',
-            dtype=object), 'params': [{'c': 10, 'fuzzifier': <class 'fuzzylearn.fuzzifiers.LinearFuzzifier'>, 'k': GaussianKernel(1)}, {'c': 10, 'fuzzifier': <class 'fuzzylearn.fuzzifiers.ExponentialFuzzifier'>, 'k': GaussianKernel(1)}], 'split0_test_score': array([-0.        , -0.00051755]), 'split1_test_score': array([-0.00000000e+00, -7.42985399e-09]), 'split2_test_score': array([-0.00000000e+00, -9.50432683e-05]), 'split3_test_score': array([-0.00000000e+00, -9.50378373e-05]), 'mean_test_score': array([ 0.        , -0.00017691]), 'std_test_score': array([0.        , 0.00020046]), 'rank_test_score': array([1, 2], dtype=int32)}
+2020-03-26 14:48:17,223 - __main__ - INFO - (30) - BEST_PARAMS_: {'c': 1, 'fuzzifier': <class 'fuzzylearn.fuzzifiers.LinearFuzzifier'>, 'k': GaussianKernel(1)}
+2020-03-26 14:48:17,225 - __main__ - INFO - (31) - Started GridSearchCV with: {'c': [1, 10, 1000], 'k': [GaussianKernel(0.5), GaussianKernel(1), GaussianKernel(1.5)], 'fuzzifier': [<class 'fuzzylearn.fuzzifiers.LinearFuzzifier'>, <class 'fuzzylearn.fuzzifiers.ExponentialFuzzifier'>]}
 2020-03-26 14:56:24,874 - __main__ - INFO - (31) - BEST_SCORE_: 0.0
-2020-03-26 14:56:24,877 - __main__ - INFO - (31) - BEST_PARAMS_: {'c': 10, 'fuzzifier': <class 'fuzzylearn.fuzzifiers.LinearFuzzifier'>, 'k': GaussianKernel(1)}
-2020-03-26 14:56:24,879 - __main__ - INFO - (32) - Started GridSearchCV with: {'c': [10], 'k': [GaussianKernel(1)], 'fuzzifier': [<class 'fuzzylearn.fuzzifiers.LinearFuzzifier'>, <class 'fuzzylearn.fuzzifiers.ExponentialFuzzifier'>]}
-2020-03-26 15:04:33,275 - __main__ - INFO - (32) - CV_RESULTS_: {'mean_fit_time': array([53.40113729, 53.43018305]), 'std_fit_time': array([0.18548755, 0.09763097]), 'mean_score_time': array([0.18488109, 0.18673944]), 'std_score_time': array([0.00076765, 0.00326818]), 'param_c': masked_array(data=[10, 10],
-             mask=[False, False],
-       fill_value='?',
-            dtype=object), 'param_fuzzifier': masked_array(data=[<class 'fuzzylearn.fuzzifiers.LinearFuzzifier'>,
-                   <class 'fuzzylearn.fuzzifiers.ExponentialFuzzifier'>],
-             mask=[False, False],
-       fill_value='?',
-            dtype=object), 'param_k': masked_array(data=[GaussianKernel(1), GaussianKernel(1)],
-             mask=[False, False],
-       fill_value='?',
-            dtype=object), 'params': [{'c': 10, 'fuzzifier': <class 'fuzzylearn.fuzzifiers.LinearFuzzifier'>, 'k': GaussianKernel(1)}, {'c': 10, 'fuzzifier': <class 'fuzzylearn.fuzzifiers.ExponentialFuzzifier'>, 'k': GaussianKernel(1)}], 'split0_test_score': array([-0.00272644, -0.02294738]), 'split1_test_score': array([-0.00000000e+00, -4.51456096e-08]), 'split2_test_score': array([-0.00707865, -0.02463064]), 'split3_test_score': array([-0.00708371, -0.02463064]), 'mean_test_score': array([-0.0042222 , -0.01805217]), 'std_test_score': array([0.00301711, 0.01044503]), 'rank_test_score': array([1, 2], dtype=int32)}
+2020-03-26 14:56:24,877 - __main__ - INFO - (31) - BEST_PARAMS_: {'c': 1, 'fuzzifier': <class 'fuzzylearn.fuzzifiers.LinearFuzzifier'>, 'k': GaussianKernel(1)}
+2020-03-26 14:56:24,879 - __main__ - INFO - (32) - Started GridSearchCV with: {'c': [1, 10, 1000], 'k': [GaussianKernel(0.5), GaussianKernel(1), GaussianKernel(1.5)], 'fuzzifier': [<class 'fuzzylearn.fuzzifiers.LinearFuzzifier'>, <class 'fuzzylearn.fuzzifiers.ExponentialFuzzifier'>]}
 2020-03-26 15:04:33,280 - __main__ - INFO - (32) - BEST_SCORE_: -0.004222201563979315
-2020-03-26 15:04:33,284 - __main__ - INFO - (32) - BEST_PARAMS_: {'c': 10, 'fuzzifier': <class 'fuzzylearn.fuzzifiers.LinearFuzzifier'>, 'k': GaussianKernel(1)}
-2020-03-26 15:04:33,289 - __main__ - INFO - (33) - Started GridSearchCV with: {'c': [10], 'k': [GaussianKernel(1)], 'fuzzifier': [<class 'fuzzylearn.fuzzifiers.LinearFuzzifier'>, <class 'fuzzylearn.fuzzifiers.ExponentialFuzzifier'>]}
-2020-03-26 15:12:47,690 - __main__ - INFO - (33) - CV_RESULTS_: {'mean_fit_time': array([53.91856092, 54.10827661]), 'std_fit_time': array([0.21437573, 0.15313557]), 'mean_score_time': array([0.18480104, 0.1863417 ]), 'std_score_time': array([0.00087193, 0.00137493]), 'param_c': masked_array(data=[10, 10],
-             mask=[False, False],
-       fill_value='?',
-            dtype=object), 'param_fuzzifier': masked_array(data=[<class 'fuzzylearn.fuzzifiers.LinearFuzzifier'>,
-                   <class 'fuzzylearn.fuzzifiers.ExponentialFuzzifier'>],
-             mask=[False, False],
-       fill_value='?',
-            dtype=object), 'param_k': masked_array(data=[GaussianKernel(1), GaussianKernel(1)],
-             mask=[False, False],
-       fill_value='?',
-            dtype=object), 'params': [{'c': 10, 'fuzzifier': <class 'fuzzylearn.fuzzifiers.LinearFuzzifier'>, 'k': GaussianKernel(1)}, {'c': 10, 'fuzzifier': <class 'fuzzylearn.fuzzifiers.ExponentialFuzzifier'>, 'k': GaussianKernel(1)}], 'split0_test_score': array([-0.00155457, -0.02085551]), 'split1_test_score': array([-0.00000000e+00, -6.04778429e-09]), 'split2_test_score': array([-0.        , -0.00657294]), 'split3_test_score': array([-0.        , -0.00657294]), 'mean_test_score': array([-0.00038864, -0.00850035]), 'std_test_score': array([0.00067315, 0.00762128]), 'rank_test_score': array([1, 2], dtype=int32)}
+2020-03-26 15:04:33,284 - __main__ - INFO - (32) - BEST_PARAMS_: {'c': 1, 'fuzzifier': <class 'fuzzylearn.fuzzifiers.LinearFuzzifier'>, 'k': GaussianKernel(1)}
+2020-03-26 15:04:33,289 - __main__ - INFO - (33) - Started GridSearchCV with: {'c': [1, 10, 1000], 'k': [GaussianKernel(0.5), GaussianKernel(1), GaussianKernel(1.5)], 'fuzzifier': [<class 'fuzzylearn.fuzzifiers.LinearFuzzifier'>, <class 'fuzzylearn.fuzzifiers.ExponentialFuzzifier'>]}
 2020-03-26 15:12:47,695 - __main__ - INFO - (33) - BEST_SCORE_: -0.00038864293582283597
-2020-03-26 15:12:47,702 - __main__ - INFO - (33) - BEST_PARAMS_: {'c': 10, 'fuzzifier': <class 'fuzzylearn.fuzzifiers.LinearFuzzifier'>, 'k': GaussianKernel(1)}
-2020-03-26 15:12:47,703 - __main__ - INFO - (34) - Started GridSearchCV with: {'c': [10], 'k': [GaussianKernel(1)], 'fuzzifier': [<class 'fuzzylearn.fuzzifiers.LinearFuzzifier'>, <class 'fuzzylearn.fuzzifiers.ExponentialFuzzifier'>]}
-2020-03-26 15:21:02,260 - __main__ - INFO - (34) - CV_RESULTS_: {'mean_fit_time': array([54.08987665, 54.00309801]), 'std_fit_time': array([0.26727638, 0.33713681]), 'mean_score_time': array([0.18780535, 0.18650347]), 'std_score_time': array([0.00333842, 0.00042704]), 'param_c': masked_array(data=[10, 10],
-             mask=[False, False],
-       fill_value='?',
-            dtype=object), 'param_fuzzifier': masked_array(data=[<class 'fuzzylearn.fuzzifiers.LinearFuzzifier'>,
-                   <class 'fuzzylearn.fuzzifiers.ExponentialFuzzifier'>],
-             mask=[False, False],
-       fill_value='?',
-            dtype=object), 'param_k': masked_array(data=[GaussianKernel(1), GaussianKernel(1)],
-             mask=[False, False],
-       fill_value='?',
-            dtype=object), 'params': [{'c': 10, 'fuzzifier': <class 'fuzzylearn.fuzzifiers.LinearFuzzifier'>, 'k': GaussianKernel(1)}, {'c': 10, 'fuzzifier': <class 'fuzzylearn.fuzzifiers.ExponentialFuzzifier'>, 'k': GaussianKernel(1)}], 'split0_test_score': array([-0.01320616, -0.02486966]), 'split1_test_score': array([-0.00059938, -0.01268108]), 'split2_test_score': array([-0.00000000e+00, -4.35516261e-08]), 'split3_test_score': array([-0.00000000e+00, -4.35502594e-08]), 'mean_test_score': array([-0.00345138, -0.00938771]), 'std_test_score': array([0.00563723, 0.01032949]), 'rank_test_score': array([1, 2], dtype=int32)}
+2020-03-26 15:12:47,702 - __main__ - INFO - (33) - BEST_PARAMS_: {'c': 1, 'fuzzifier': <class 'fuzzylearn.fuzzifiers.LinearFuzzifier'>, 'k': GaussianKernel(1)}
+2020-03-26 15:12:47,703 - __main__ - INFO - (34) - Started GridSearchCV with: {'c': [1, 10, 1000], 'k': [GaussianKernel(0.5), GaussianKernel(1), GaussianKernel(1.5)], 'fuzzifier': [<class 'fuzzylearn.fuzzifiers.LinearFuzzifier'>, <class 'fuzzylearn.fuzzifiers.ExponentialFuzzifier'>]}
 2020-03-26 15:21:02,265 - __main__ - INFO - (34) - BEST_SCORE_: -0.0034513845437792413
-2020-03-26 15:21:02,272 - __main__ - INFO - (34) - BEST_PARAMS_: {'c': 10, 'fuzzifier': <class 'fuzzylearn.fuzzifiers.LinearFuzzifier'>, 'k': GaussianKernel(1)}
-2020-03-26 15:21:02,276 - __main__ - INFO - (35) - Started GridSearchCV with: {'c': [10], 'k': [GaussianKernel(1)], 'fuzzifier': [<class 'fuzzylearn.fuzzifiers.LinearFuzzifier'>, <class 'fuzzylearn.fuzzifiers.ExponentialFuzzifier'>]}
-2020-03-26 15:29:10,749 - __main__ - INFO - (35) - CV_RESULTS_: {'mean_fit_time': array([53.60844529, 53.15013129]), 'std_fit_time': array([0.21721764, 0.07137196]), 'mean_score_time': array([0.18477255, 0.18519956]), 'std_score_time': array([0.00148686, 0.00048012]), 'param_c': masked_array(data=[10, 10],
-             mask=[False, False],
-       fill_value='?',
-            dtype=object), 'param_fuzzifier': masked_array(data=[<class 'fuzzylearn.fuzzifiers.LinearFuzzifier'>,
-                   <class 'fuzzylearn.fuzzifiers.ExponentialFuzzifier'>],
-             mask=[False, False],
-       fill_value='?',
-            dtype=object), 'param_k': masked_array(data=[GaussianKernel(1), GaussianKernel(1)],
-             mask=[False, False],
-       fill_value='?',
-            dtype=object), 'params': [{'c': 10, 'fuzzifier': <class 'fuzzylearn.fuzzifiers.LinearFuzzifier'>, 'k': GaussianKernel(1)}, {'c': 10, 'fuzzifier': <class 'fuzzylearn.fuzzifiers.ExponentialFuzzifier'>, 'k': GaussianKernel(1)}], 'split0_test_score': array([-0.00000000e+00, -1.77235103e-07]), 'split1_test_score': array([-0.02291491, -0.02499736]), 'split2_test_score': array([-0.00063188, -0.01221539]), 'split3_test_score': array([-0.00063188, -0.01221539]), 'mean_test_score': array([-0.00604466, -0.01235708]), 'std_test_score': array([0.00974345, 0.00883897]), 'rank_test_score': array([1, 2], dtype=int32)}
+2020-03-26 15:21:02,272 - __main__ - INFO - (34) - BEST_PARAMS_: {'c': 1, 'fuzzifier': <class 'fuzzylearn.fuzzifiers.LinearFuzzifier'>, 'k': GaussianKernel(1)}
+2020-03-26 15:21:02,276 - __main__ - INFO - (35) - Started GridSearchCV with: {'c': [1, 10, 1000], 'k': [GaussianKernel(0.5), GaussianKernel(1), GaussianKernel(1.5)], 'fuzzifier': [<class 'fuzzylearn.fuzzifiers.LinearFuzzifier'>, <class 'fuzzylearn.fuzzifiers.ExponentialFuzzifier'>]}
 2020-03-26 15:29:10,757 - __main__ - INFO - (35) - BEST_SCORE_: -0.006044664859713939
-2020-03-26 15:29:10,758 - __main__ - INFO - (35) - BEST_PARAMS_: {'c': 10, 'fuzzifier': <class 'fuzzylearn.fuzzifiers.LinearFuzzifier'>, 'k': GaussianKernel(1)}
-2020-03-26 15:29:10,759 - __main__ - INFO - (36) - Started GridSearchCV with: {'c': [10], 'k': [GaussianKernel(1)], 'fuzzifier': [<class 'fuzzylearn.fuzzifiers.LinearFuzzifier'>, <class 'fuzzylearn.fuzzifiers.ExponentialFuzzifier'>]}
-2020-03-26 15:37:21,267 - __main__ - INFO - (36) - CV_RESULTS_: {'mean_fit_time': array([53.37421066, 53.83440393]), 'std_fit_time': array([0.37459281, 0.10590701]), 'mean_score_time': array([0.18536651, 0.1859917 ]), 'std_score_time': array([0.0022659, 0.0021007]), 'param_c': masked_array(data=[10, 10],
-             mask=[False, False],
-       fill_value='?',
-            dtype=object), 'param_fuzzifier': masked_array(data=[<class 'fuzzylearn.fuzzifiers.LinearFuzzifier'>,
-                   <class 'fuzzylearn.fuzzifiers.ExponentialFuzzifier'>],
-             mask=[False, False],
-       fill_value='?',
-            dtype=object), 'param_k': masked_array(data=[GaussianKernel(1), GaussianKernel(1)],
-             mask=[False, False],
-       fill_value='?',
-            dtype=object), 'params': [{'c': 10, 'fuzzifier': <class 'fuzzylearn.fuzzifiers.LinearFuzzifier'>, 'k': GaussianKernel(1)}, {'c': 10, 'fuzzifier': <class 'fuzzylearn.fuzzifiers.ExponentialFuzzifier'>, 'k': GaussianKernel(1)}], 'split0_test_score': array([-0.00026767, -0.00949643]), 'split1_test_score': array([-0.00000000e+00, -4.02983202e-08]), 'split2_test_score': array([-0.00048384, -0.01273069]), 'split3_test_score': array([-0.00048384, -0.01273069]), 'mean_test_score': array([-0.00030884, -0.00873946]), 'std_test_score': array([0.00019895, 0.00521561]), 'rank_test_score': array([1, 2], dtype=int32)}
+2020-03-26 15:29:10,758 - __main__ - INFO - (35) - BEST_PARAMS_: {'c': 1, 'fuzzifier': <class 'fuzzylearn.fuzzifiers.LinearFuzzifier'>, 'k': GaussianKernel(1)}
+2020-03-26 15:29:10,759 - __main__ - INFO - (36) - Started GridSearchCV with: {'c': [1, 10, 1000], 'k': [GaussianKernel(0.5), GaussianKernel(1), GaussianKernel(1.5)], 'fuzzifier': [<class 'fuzzylearn.fuzzifiers.LinearFuzzifier'>, <class 'fuzzylearn.fuzzifiers.ExponentialFuzzifier'>]}
 2020-03-26 15:37:21,272 - __main__ - INFO - (36) - BEST_SCORE_: -0.0003088380192394765
-2020-03-26 15:37:21,276 - __main__ - INFO - (36) - BEST_PARAMS_: {'c': 10, 'fuzzifier': <class 'fuzzylearn.fuzzifiers.LinearFuzzifier'>, 'k': GaussianKernel(1)}
-2020-03-26 15:37:21,279 - __main__ - INFO - (37) - Started GridSearchCV with: {'c': [10], 'k': [GaussianKernel(1)], 'fuzzifier': [<class 'fuzzylearn.fuzzifiers.LinearFuzzifier'>, <class 'fuzzylearn.fuzzifiers.ExponentialFuzzifier'>]}
-2020-03-26 15:45:34,784 - __main__ - INFO - (37) - CV_RESULTS_: {'mean_fit_time': array([53.59776181, 54.27900177]), 'std_fit_time': array([0.19679977, 0.377307  ]), 'mean_score_time': array([0.18557197, 0.18666905]), 'std_score_time': array([0.00071563, 0.00115461]), 'param_c': masked_array(data=[10, 10],
-             mask=[False, False],
-       fill_value='?',
-            dtype=object), 'param_fuzzifier': masked_array(data=[<class 'fuzzylearn.fuzzifiers.LinearFuzzifier'>,
-                   <class 'fuzzylearn.fuzzifiers.ExponentialFuzzifier'>],
-             mask=[False, False],
-       fill_value='?',
-            dtype=object), 'param_k': masked_array(data=[GaussianKernel(1), GaussianKernel(1)],
-             mask=[False, False],
-       fill_value='?',
-            dtype=object), 'params': [{'c': 10, 'fuzzifier': <class 'fuzzylearn.fuzzifiers.LinearFuzzifier'>, 'k': GaussianKernel(1)}, {'c': 10, 'fuzzifier': <class 'fuzzylearn.fuzzifiers.ExponentialFuzzifier'>, 'k': GaussianKernel(1)}], 'split0_test_score': array([-0.00914457, -0.02482028]), 'split1_test_score': array([-0.00242372, -0.0223803 ]), 'split2_test_score': array([-0.00385513, -0.0237847 ]), 'split3_test_score': array([-0.00385513, -0.0237847 ]), 'mean_test_score': array([-0.00481963, -0.02369249]), 'std_test_score': array([0.00256447, 0.00086757]), 'rank_test_score': array([1, 2], dtype=int32)}
+2020-03-26 15:37:21,276 - __main__ - INFO - (36) - BEST_PARAMS_: {'c': 1, 'fuzzifier': <class 'fuzzylearn.fuzzifiers.LinearFuzzifier'>, 'k': GaussianKernel(1)}
+2020-03-26 15:37:21,279 - __main__ - INFO - (37) - Started GridSearchCV with: {'c': [1, 10, 1000], 'k': [GaussianKernel(0.5), GaussianKernel(1), GaussianKernel(1.5)], 'fuzzifier': [<class 'fuzzylearn.fuzzifiers.LinearFuzzifier'>, <class 'fuzzylearn.fuzzifiers.ExponentialFuzzifier'>]}
 2020-03-26 15:45:34,789 - __main__ - INFO - (37) - BEST_SCORE_: -0.004819634665284039
-2020-03-26 15:45:34,794 - __main__ - INFO - (37) - BEST_PARAMS_: {'c': 10, 'fuzzifier': <class 'fuzzylearn.fuzzifiers.LinearFuzzifier'>, 'k': GaussianKernel(1)}
-2020-03-26 15:45:34,796 - __main__ - INFO - (38) - Started GridSearchCV with: {'c': [10], 'k': [GaussianKernel(1)], 'fuzzifier': [<class 'fuzzylearn.fuzzifiers.LinearFuzzifier'>, <class 'fuzzylearn.fuzzifiers.ExponentialFuzzifier'>]}
-2020-03-26 15:54:02,344 - __main__ - INFO - (38) - CV_RESULTS_: {'mean_fit_time': array([55.24041408, 55.5567022 ]), 'std_fit_time': array([0.72576212, 0.2126307 ]), 'mean_score_time': array([0.19028467, 0.1877566 ]), 'std_score_time': array([0.00449087, 0.0038477 ]), 'param_c': masked_array(data=[10, 10],
-             mask=[False, False],
-       fill_value='?',
-            dtype=object), 'param_fuzzifier': masked_array(data=[<class 'fuzzylearn.fuzzifiers.LinearFuzzifier'>,
-                   <class 'fuzzylearn.fuzzifiers.ExponentialFuzzifier'>],
-             mask=[False, False],
-       fill_value='?',
-            dtype=object), 'param_k': masked_array(data=[GaussianKernel(1), GaussianKernel(1)],
-             mask=[False, False],
-       fill_value='?',
-            dtype=object), 'params': [{'c': 10, 'fuzzifier': <class 'fuzzylearn.fuzzifiers.LinearFuzzifier'>, 'k': GaussianKernel(1)}, {'c': 10, 'fuzzifier': <class 'fuzzylearn.fuzzifiers.ExponentialFuzzifier'>, 'k': GaussianKernel(1)}], 'split0_test_score': array([-0.00196284, -0.02039723]), 'split1_test_score': array([-0.00229867, -0.01961725]), 'split2_test_score': array([-0.00330738, -0.02186325]), 'split3_test_score': array([-0.0033066 , -0.02186325]), 'mean_test_score': array([-0.00271887, -0.02093524]), 'std_test_score': array([0.00059998, 0.00096811]), 'rank_test_score': array([1, 2], dtype=int32)}
+2020-03-26 15:45:34,794 - __main__ - INFO - (37) - BEST_PARAMS_: {'c': 1, 'fuzzifier': <class 'fuzzylearn.fuzzifiers.LinearFuzzifier'>, 'k': GaussianKernel(1)}
+2020-03-26 15:45:34,796 - __main__ - INFO - (38) - Started GridSearchCV with: {'c': [1, 10, 1000], 'k': [GaussianKernel(0.5), GaussianKernel(1), GaussianKernel(1.5)], 'fuzzifier': [<class 'fuzzylearn.fuzzifiers.LinearFuzzifier'>, <class 'fuzzylearn.fuzzifiers.ExponentialFuzzifier'>]}
 2020-03-26 15:54:02,351 - __main__ - INFO - (38) - BEST_SCORE_: -0.0027188735605923565
-2020-03-26 15:54:02,352 - __main__ - INFO - (38) - BEST_PARAMS_: {'c': 10, 'fuzzifier': <class 'fuzzylearn.fuzzifiers.LinearFuzzifier'>, 'k': GaussianKernel(1)}
-2020-03-26 15:54:02,356 - __main__ - INFO - (39) - Started GridSearchCV with: {'c': [10], 'k': [GaussianKernel(1)], 'fuzzifier': [<class 'fuzzylearn.fuzzifiers.LinearFuzzifier'>, <class 'fuzzylearn.fuzzifiers.ExponentialFuzzifier'>]}
-2020-03-26 16:02:15,557 - __main__ - INFO - (39) - CV_RESULTS_: {'mean_fit_time': array([54.25445086, 53.66663468]), 'std_fit_time': array([0.71217441, 0.29558396]), 'mean_score_time': array([0.18779683, 0.18932974]), 'std_score_time': array([0.00337041, 0.0033141 ]), 'param_c': masked_array(data=[10, 10],
-             mask=[False, False],
-       fill_value='?',
-            dtype=object), 'param_fuzzifier': masked_array(data=[<class 'fuzzylearn.fuzzifiers.LinearFuzzifier'>,
-                   <class 'fuzzylearn.fuzzifiers.ExponentialFuzzifier'>],
-             mask=[False, False],
-       fill_value='?',
-            dtype=object), 'param_k': masked_array(data=[GaussianKernel(1), GaussianKernel(1)],
-             mask=[False, False],
-       fill_value='?',
-            dtype=object), 'params': [{'c': 10, 'fuzzifier': <class 'fuzzylearn.fuzzifiers.LinearFuzzifier'>, 'k': GaussianKernel(1)}, {'c': 10, 'fuzzifier': <class 'fuzzylearn.fuzzifiers.ExponentialFuzzifier'>, 'k': GaussianKernel(1)}], 'split0_test_score': array([-0.00906348, -0.02324634]), 'split1_test_score': array([-0.025     , -0.02498608]), 'split2_test_score': array([-0.01336749, -0.02433002]), 'split3_test_score': array([-0.01291367, -0.02483045]), 'mean_test_score': array([-0.01508616, -0.02434822]), 'std_test_score': array([0.00596302, 0.00068079]), 'rank_test_score': array([1, 2], dtype=int32)}
+2020-03-26 15:54:02,352 - __main__ - INFO - (38) - BEST_PARAMS_: {'c': 1, 'fuzzifier': <class 'fuzzylearn.fuzzifiers.LinearFuzzifier'>, 'k': GaussianKernel(1)}
+2020-03-26 15:54:02,356 - __main__ - INFO - (39) - Started GridSearchCV with: {'c': [1, 10, 1000], 'k': [GaussianKernel(0.5), GaussianKernel(1), GaussianKernel(1.5)], 'fuzzifier': [<class 'fuzzylearn.fuzzifiers.LinearFuzzifier'>, <class 'fuzzylearn.fuzzifiers.ExponentialFuzzifier'>]}
 2020-03-26 16:02:15,561 - __main__ - INFO - (39) - BEST_SCORE_: -0.015086157845367555
-2020-03-26 16:02:15,563 - __main__ - INFO - (39) - BEST_PARAMS_: {'c': 10, 'fuzzifier': <class 'fuzzylearn.fuzzifiers.LinearFuzzifier'>, 'k': GaussianKernel(1)}
+2020-03-26 16:02:15,563 - __main__ - INFO - (39) - BEST_PARAMS_: {'c': 1, 'fuzzifier': <class 'fuzzylearn.fuzzifiers.LinearFuzzifier'>, 'k': GaussianKernel(1)}

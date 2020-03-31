@@ -28,8 +28,8 @@
 \contentsline {subsection}{\numberline {3.2.1}Training, Validation e Test set}{28}{subsection.3.2.1}
 \contentsline {subsection}{\numberline {3.2.2}Cross-validation}{28}{subsection.3.2.2}
 \contentsline {subsection}{\numberline {3.2.3}Grid Search}{29}{subsection.3.2.3}
-\contentsline {subsection}{\numberline {3.2.4}Grid Search con Cross-Validation e Nested Grid Search}{30}{subsection.3.2.4}
-\contentsline {section}{\numberline {3.3}I risultati}{30}{section.3.3}
-\contentsline {subsection}{\numberline {3.3.1}Utilizzo metodo di riduzione t-SNE}{32}{subsection.3.3.1}
-\contentsline {subsection}{\numberline {3.3.2}Utilizzo metodo di riduzione PCA}{33}{subsection.3.3.2}
-\contentsline {subsection}{\numberline {3.3.3}Analisi conclusiva}{34}{subsection.3.3.3}
+\contentsline {subsection}{\numberline {3.2.4}Grid Search con Cross-Validation}{30}{subsection.3.2.4}
+\contentsline {section}{\numberline {3.3}Risultati}{31}{section.3.3}
+\contentsline {subsection}{\numberline {3.3.1}Utilizzo del metodo di riduzione \emph {t}-SNE}{32}{subsection.3.3.1}
+\contentsline {subsection}{\numberline {3.3.2}Utilizzo metodo di riduzione PCA}{34}{subsection.3.3.2}
+\contentsline {subsection}{\numberline {3.3.3}Analisi conclusiva}{35}{subsection.3.3.3}

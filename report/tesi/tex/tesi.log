@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2020.3.17)  30 MAR 2020 19:46
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2020.3.17)  31 MAR 2020 22:15
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1218,69 +1218,111 @@ png> <../img/possibilearn_sigma_012.png> <../img/possibilearn_sigma_2.png>]
 Capitolo 3.
 [27
 
-] [28] [29]
-Overfull \hbox (13.37424pt too wide) in paragraph at lines 807--807
-[]\OT1/cmr/bx/n/14.4 Grid Search con Cross-Validation e Ne-sted Grid Search 
+]
+<../img/cv.png, id=449, 875.27pt x 170.6375pt>
+File: ../img/cv.png Graphic file (type png)
+<use ../img/cv.png>
+Package pdftex.def Info: ../img/cv.png  used on input line 788.
+(pdftex.def)             Requested size: 437.63393pt x 85.31853pt.
+
+Overfull \hbox (19.38025pt too wide) in paragraph at lines 788--789
+ [] 
  []
 
-[30]
 
-LaTeX Warning: Reference `sec:3.2' on page 31 undefined on input line 827.
+LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[31] [32] [33] [34]
-Overfull \hbox (13.74911pt too wide) in paragraph at lines 904--905
+[28] [29pdfTeX warning (ext4): destination with the same identifier (name{figur
+e.3.16}) has been already used, duplicate ignored
+
+\AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
+                                                  \fi \fi 
+l.805 
+       <../img/cv.png>]
+<../img/train_test_validation.png, id=462, 643.6547pt x 94.10156pt>
+File: ../img/train_test_validation.png Graphic file (type png)
+<use ../img/train_test_validation.png>
+Package pdftex.def Info: ../img/train_test_validation.png  used on input line 8
+14.
+(pdftex.def)             Requested size: 321.82655pt x 47.05066pt.
+ [30pdfTeX warning (ext4): destination with the same identifier (name{figure.3.
+17}) has been already used, duplicate ignored
+
+\AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
+                                                  \fi \fi 
+l.824 
+       <../img/train_test_validation.png>] [31]
+<../img/tsne_olivetti.png, id=475, 892.33376pt x 849.1725pt>
+File: ../img/tsne_olivetti.png Graphic file (type png)
+<use ../img/tsne_olivetti.png>
+Package pdftex.def Info: ../img/tsne_olivetti.png  used on input line 858.
+(pdftex.def)             Requested size: 312.32149pt x 297.21483pt.
+<../img/tsne_atet.png, id=476, 892.33376pt x 849.1725pt>
+File: ../img/tsne_atet.png Graphic file (type png)
+<use ../img/tsne_atet.png>
+Package pdftex.def Info: ../img/tsne_atet.png  used on input line 863.
+(pdftex.def)             Requested size: 312.32149pt x 297.21483pt.
+
+
+LaTeX Warning: Float too large for page by 103.56609pt on input line 866.
+
+[32] [33pdfTeX warning (ext4): destination with the same identifier (name{figur
+e.3.18}) has been already used, duplicate ignored
+
+\AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
+                                                  \fi \fi 
+l.869 
+       <../img/tsne_olivetti.png> <../img/tsne_atet.png>] [34] [35] [36]
+Overfull \hbox (13.74911pt too wide) in paragraph at lines 943--944
 \OT1/cmtt/m/n/12 https://towardsdatascience.com/https-medium-com-pupalerushikes
 h-svm 
  []
 
-[35
+[37
 
 ]
-Underfull \hbox (badness 1097) in paragraph at lines 915--918
+Underfull \hbox (badness 1097) in paragraph at lines 954--957
 []\OT1/cmr/m/n/12 Jake Van-der-Plas. \OT1/cmr/m/it/12 Py-thon Da-ta Scien-ce Ha
 nd-book: Es-sen-tial Tools for
  []
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 927.
-[36]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 927.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 966.
+[38]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 966.
  (./tesi.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 927.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 927.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 966.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 966.
 Package rerunfilecheck Info: File `tesi.out' has not changed.
-(rerunfilecheck)             Checksum: C55A7DAA3D03552C00E9C0719E51A44F;2331.
-
-
-LaTeX Warning: There were undefined references.
-
+(rerunfilecheck)             Checksum: 72D3C91A71D7206AAB5B56FB3A92DFD2;2312.
  ) 
 Here is how much of TeX's memory you used:
- 10761 strings out of 492982
- 153438 string characters out of 6134896
- 279778 words of memory out of 5000000
- 13998 multiletter control sequences out of 15000+600000
- 13576 words of font info for 52 fonts, out of 8000000 for 9000
+ 10797 strings out of 492982
+ 154165 string characters out of 6134896
+ 280646 words of memory out of 5000000
+ 14022 multiletter control sequences out of 15000+600000
+ 13935 words of font info for 53 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  33i,8n,32p,1700b,481s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></us
-r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmcsc10.pfb></usr/sha
-re/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/tex
-live/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/t
-exmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/share/texlive/texmf-d
-ist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texlive/texmf-dist/fon
-ts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type
-1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/publi
-c/amsfonts/cm/cmr17.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfo
-nts/cm/cmr7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/c
-mr8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsl12.pf
-b></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></us
-r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share
-/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/share/texli
-ve/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb>
-Output written on tesi.pdf (39 pages, 960286 bytes).
+r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbxti10.pfb></usr/sh
+are/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmcsc10.pfb></usr/share/t
+exlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive
+/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf
+-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/share/texlive/texmf-dist/
+fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texlive/texmf-dist/fonts/t
+ype1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/pu
+blic/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/am
+sfonts/cm/cmr17.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/
+cm/cmr7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.
+pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsl12.pfb></
+usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/sh
+are/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/tex
+live/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/share/texlive/t
+exmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb>
+Output written on tesi.pdf (41 pages, 1131770 bytes).
 PDF statistics:
- 574 PDF objects out of 1000 (max. 8388607)
- 465 compressed objects within 5 object streams
- 120 named destinations out of 1000 (max. 500000)
- 375 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 604 PDF objects out of 1000 (max. 8388607)
+ 484 compressed objects within 5 object streams
+ 127 named destinations out of 1000 (max. 500000)
+ 395 words of extra memory for PDF output out of 10000 (max. 10000000)
 

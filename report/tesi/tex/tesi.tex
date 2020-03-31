@@ -751,111 +751,150 @@ Ricapitolando, l'algoritmo \emph{fuzzylearn} prevede i tre seguenti iperparametr
 
 \chapter{Esperimenti}
 
-In questo capitolo ci concentremo sui risultati ottenuti tramite l'utilizzo di \emph{fuzzylearn} su due diversi dataset di volti: Olivetti faces e AT\&T faces. Descriveremo inoltre tutti i risultati commentandoli e traendo infine delle conclusioni sull'algoritmo utilizzato con le tecniche di riduzione PCA e \emph{t}-SNE.
+In questo capitolo ci concentreremo sui risultati ottenuti tramite l'utilizzo di \emph{fuzzylearn} su due diversi dataset di volti: Olivetti faces e AT\&T faces. Descriveremo inoltre tutti i risultati commentandoli e traendo infine delle conclusioni sull'algoritmo utilizzato con le tecniche di riduzione PCA e \emph{t}-SNE.
 
 \section{I dataset}
 \subsection{Olivetti dataset}
-Olivetti dataset è un dataset di immagini di volti umani. Le immagini sono foto scattate presso AT\&T Laboratories Cambridge tra il 1992 e 1994. Questo dataset è stato messo a disposizione proprio da AT\&T Laboratories Cambridge.
-Nel dataset sono presenti 10 immagini per 40 soggetti distinti, ognuna delle quali raffigura quest'ultimo in diverse condizioni di luce, con differenti espressioni facciali (occhi chiusi/aperti, sorriso, ecc.) per un totale di 400 immagini. Ogni immagine è stata quantizzata a 256 livelli di grigio e con una risoluzione pari a 64 x 64. L'immagine è rappresentata da una lista di valori float (compresi tra 0 e 1) di 4096 elementi. Ogni soggetto è rappresentato tramite un numero che va da 0 a 39 che rappresenta l'etichetta di ogni record.
-
-[FIGURA DI HEAD DEL DATASET]
+Olivetti dataset è un dataset di immagini di volti umani. Le immagini sono fotografie scattate a 40 diversi soggetti presso AT\&T Laboratories Cambridge tra il 1992 e 1994. Questo dataset è stato messo a disposizione proprio da AT\&T Laboratories Cambridge.
+Nel dataset sono presenti 10 immagini per ognuno dei 40 soggetti per un totale di 400 immagini, ognuna delle quali raffigura il soggetto in diverse condizioni di luce e con differenti espressioni facciali (occhi chiusi/aperti, sorriso, ecc.). I soggetti sono rappresentati tramite un numero compreso tra 0 a 39. Ogni immagine è stata quantizzata a 256 livelli di grigio e con una risoluzione pari a 64 x 64 pixel. L'immagine è rappresentata da una lista di valori float (compresi tra 0 e 1) di 4096 elementi. 
 
 
 \subsection{AT\&T faces dataset}
-Il dataset AT\&T faces, come quello Olivetti, contiene anch'esso immagini raffiguranti 40 soggetti con 10 immagini distinte per ciascuno. Questo dataset, a differenza di Olivetti contiene immagini che sono grandi più del doppio di quelle raffigurate all'iterno del dataset di Olivetti. Ogni immagine a una risoluzione pari a 92 x 112, quindi con 10.304 pixel. Ogni immagine ha 256 livelli di grigio e ritrae soggetti in diverse condizioni, esattamente come Olivetti. Ogni immagine è etichettata da un numero compreso tra 0 e 39 il quale rappresenta il soggetto.[nota: si ringrazia AT\&T Laboratories per i dati messi a disposzione] 
-
-[FIGURA DI HEAD DEL DATASET?]
+Il dataset AT\&T faces, come quello Olivetti, contiene anch'esso immagini raffiguranti 40 soggetti ciascuno dei quali rappresentato da 10 diverse immagini. Questo dataset contiene immagini che sono grandi più del doppio di quelle del dataset Olivetti. Ogni immagine ha una risoluzione pari a 92 x 112, quindi è composta da 10.304 pixel. Ciascuna immagine è quantizzata a 256 livelli di grigio e ritrae soggetti in diverse condizioni, esattamente come Olivetti. Anche in questo caso le immagini sono etichettate con un numero compreso tra 0 e 39.
+%[nota: si ringrazia AT\&T Laboratories per i dati messi a disposzione] 
 
 \section{Valutazione del modello}
-Fino ad ora abbiamo visto come si costruiscono i modelli di ML e come possono essere configurati. In questo capitolo ci soffermeremo sulla valutazione di un modello e i relativi iperparametri configurati.
+Fino ad ora abbiamo visto come si costruiscono i modelli di ML e come possono essere configurati. In questo paragrafo ci soffermeremo sulla valutazione di un modello e dei relativi iperparametri.
 
 \subsection{Training, Validation e Test set}
-Per costruire un modello abbiamo visto che è necessario un dataset su cui basare l'apprendimento. Il dataset che viene usato per la costruzione viene spesso diviso in due sotto-set: \emph{training set} e \emph{test set}.
+Per costruire un modello abbiamo visto che è necessario un dataset su cui basare l'apprendimento. Il dataset che viene usato per la costruzione del modello viene spesso diviso in due sotto-set: \emph{training set} e \emph{test set}.
 
-Il \emph{training set} è il sotto-set di dati utilizzata per allenare il modello. Quindi il modello vede e impara da questo set.
+Il \emph{training set} è il sotto-set di dati utilizzato per allenare il modello. Quindi il modello vede e impara da questo set.
 
-Il \emph{test set} consiste nel set di dati del dataset escluso dal \emph{training set}. Questo set, è utilizzato per valutare l'effettiva accuratezza del modello. 
-Il \emph{test set} quindi, viene usato per determinare lo \emph{score} del modello nella generalità dei casi.
+Il \emph{test set} consiste nei dati del dataset a esclusione di quelli compresi nel \emph{training set}. Questo set è utilizzato per valutare l'accuratezza del modello. 
+Ne consegue, quindi, la sua utilizzazione per determinare lo \emph{score} del modello nella generalità dei casi.
 % avente la migliore configurazione di iperparametri individuata mediante il \emph{validation set}. Lo score viene determinato analogamente a quanto viene fatto con il \emph{validation set}.
 
-A volte si definisce un terzo sotto-set denominato \emph{validation set}. È un set utilizzato per valutare le prestazioni con una specifica configurazione di iperparametri. Viene utilizzato quindi per una ricerca approfondita della migliore configurazione di questi. Una volta determinata la migliore configurazione del modello, questo viene nuovamente testato nel \emph{test set} per vedere come si comporta effettivamente dopo una più approfondita ricerca dei migliori iperparametri.
+A volte si definisce un terzo sotto-set denominato \emph{validation set}. È un set utilizzato per valutare le prestazioni con una specifica configurazione di iperparametri per poi effettuare una ricerca più approfondita di questi. 
+%Viene utilizzato, quindi, per una ricerca approfondita della migliore configurazione possibile. 
+Una volta determinata la migliore configurazione del modello, questo viene sottoposto al \emph{test set} per verificarne la bontà di generalizzazione.
 
 \subsection{Cross-validation}
-La \emph{cross-validation} è un metodo statistico di valutazione delle performance. Con la \emph{cross-validation} i dati dell'intero dataset vengono partizionati in $k$ gruppi ognuno dei quali è denominato \emph{fold} e dove $k$ rappresenta un numero specificato dall'utente. Quando viene utilizzata questa strategia con un $k$ pari a 5, significa che il dataset sarà diviso in 5 combinazioni differenti in 5 \emph{fold}. Per ogni combinazione possibile un \emph{fold} viene utilizzato come \emph{test set} e gli altri come \emph{training set}. Quindi il modello viene allenato per ogni combinazione data da questa strategia, utilizzando i $k-1$ fold per come \emph{training set} e il restante \emph{fold} come \emph{test set}. In Figura è mostrato uno schema di una \emph{cross-validation} a 5 fold.
+La \emph{cross-validation} è un metodo statistico di valutazione delle performance di un modello di ML. Con la \emph{cross-validation} i dati dell'intero dataset vengono partizionati in $k$ gruppi ognuno dei quali è denominato \emph{fold} e dove $k$ rappresenta un numero specificato dall'utente. Ad esempio, per un valore $k$ pari a 5 si ha una suddivisione del dataset in 5 diversi \emph{fold}. Effettuata la suddivisione il modello viene allenato utilizzando il primo \emph{fold} come \emph{test set} e i restanti come \emph{training set}. Successivamente lo stesso modello viene costruito usando il secondo \emph{fold} come \emph{test set} e i restanti \emph{fold} (1, 3, 4, 5) come \emph{training set}. Questo procedimento è ripetuto utilizzando ogni \emph{fold} come \emph{test set} una e una sola volta. Pertanto avremo 5 ripetizioni del dataset in ciascuna delle quali il \emph{test set} è costituito da un diverso sottoinsieme del dataset stesso.
+In Figura \ref{fig:cv} è mostrato uno schema di una \emph{cross-validation} a 5 fold.
 
-[FIGURA DEL LIBRO DELLA CROSS VALIDATION 5.1]
+\begin{figure}[h!]
+	\center
+	\includegraphics[scale=0.5]{../img/cv} %https://medium.com/@george.drakos62/support-vector-Machine-vs-logistic-regression-94cc2975433f
+	\caption{Cross-validation con 5 fold. Il dataset viene suddiviso in 5 diverse combinazioni in cui il \emph{test set} (nell'immagine \emph{test data}) è rappresentato in grigio e il \emph{training set} (nell'immagine \emph{training data}) è rappresentato in bianco.}
+	\label{fig:cv}
+\end{figure}
 
-L'utilizzo di questa strategia porta diversi vantaggi. Un primo importante vantaggio è rappresentato dal fatto che l'accuratezza del modello è calcolata sulla media di tutti i valori restituiti da ogni \emph{test set} nelle varie combinazioni dei \emph{fold}. Per capire meglio questo vantaggio, vediamo l'esempio seguente. Supponiamo di essere ``fortunati" e quindi di allenare il modello su un \emph{training set} che contiene solo dati di difficile classificazione. Questo significa che il \emph{test set} probabilmente avrà solamente dei dati molto facili da classificare il che permette al modello di avere prestazioni (non veritiere) molto alte. Al contrario se siamo ``sfortunati" avremo che tutti i dati di difficile classificazione sono all'interno del \emph{test set} e quelli semplici nel \emph{training set}. In questo modo avremo risultati piuttosto bassi.
-Con l'utilizzo di \emph{cross-validation} però, la possibilità di avere casi come questi sarà molto bassa proprio perchè verranno usati dati di allenamento sempre diversi per uno stesso modello. Il risultato finale sarà quindi composto dalla media di tutti i risultati delle varie combinazioni.
+L'utilizzo di questa strategia comporta diversi vantaggi. Un primo importante vantaggio è rappresentato dal fatto che l'accuratezza del modello è calcolata sulla media di tutti gli \emph{score} ottenuti dall'utilizzo dei differenti \emph{test set}. Per capire meglio questo vantaggio, vediamo l'esempio seguente. Supponiamo di essere ``fortunati" e quindi di allenare il modello su un \emph{training set} che contiene perlopiù dati di difficile classificazione (outlier). Di converso il \emph{test set} avrà probabilmente dati di facile classificazione il che permette al modello di avere prestazioni casualmente molto alte. Al contrario se siamo ``sfortunati" avremo i dati di difficile classificazione all'interno del \emph{test set} e quelli di semplice classificazione nel \emph{training set}. In questo modo avremo performance piuttosto basse ancorché aleatoria.
+Con l'utilizzo di \emph{cross-validation} però, la performance complessiva sarà difficilmente affetta da una distorsione casuale poiché il risultato finale sarà composto dalla media dei risultati delle varie combinazioni.
 
-Un'altro vantaggio corrisponde al fatto che oltre a variare l'utilizzo dei dati di allenamento, varia anche la dimensione di questi. Se utilizziamo 10 \emph{fold} ad esempio, significa che il \emph{test set} sarà definito da un decimo della dimensione totale del dataset. Analogamente se ne utilizziamo 5, il \emph{test set} sarò costituito da un quinto del totale.
+Un'altro vantaggio corrisponde al fatto che oltre a variare l'utilizzo dei dati di allenamento, è possibile variare anche il numero di \emph{fold} che suddividono il dataset. Se utilizziamo 10 \emph{fold} ad esempio, avremo un \emph{test set} definito da un decimo della dimensione totale del dataset. Analogamente se ne utilizziamo 5, il \emph{test set} sarà costituito da un quinto del totale.
 
-La \emph{cross-validation} presenta però un grosso svantaggio nelle performance. Questo perchè maggiore sarà il numero di \emph{fold} e maggiore sarà il tempo richiesto per ottenere un risultato. In altre parole con $k$ \emph{fold} avremo un tempo pari a $k$ volte il tempo necessario ad allenarlo.
+D'altra parte la \emph{cross-validation} presenta lo svantaggio di allungare eccessivamente i tempi di valutazione del modello. Questo perché maggiore è il numero di \emph{fold} e maggiore è il tempo richiesto per ottenere un risultato. In altre parole con $k$ \emph{fold} avremo un tempo pari a $k$ volte il tempo necessario ad allenarlo.
 
 \subsection{Grid Search}
-Ora che abbiamo capito come avviene e su cosa si basa una buona valutazione del modello possiamo passare al prossimo step: la ricerca del miglior modello.
-Cercare il miglior modello significa cercare la migliore configurazione di iperparametri che meglio generalizzano il problema originale. 
-\emph{Grid Search} è una tecnica molto usata per la ricerca del miglior iperparametro. Questa tecnica consiste nel provare ogni possibile combinazione di iperparametri di nostro interesse. Consideriamo il caso di \emph{fuzzylearn}. Come abbiamo visto nel capitolo precedente vi sono tre differenti iperparametri che caratterizzano l'algoritmo: \emph{C}, \emph{kernel function}, \emph{fuzzifier}. Supponiamo di voler testare i valori 0.001, 0.1, 1, 1000 per C, un kernel gaussian con sigma pari a .225, .5, 1, 2 per il kernel e Linear fuzzifier, CrispFuzzifier per il fuzzifier. Così facendo abbiamo un totale di $ 4 x 4 x 2 = 32 $ combinazioni differenti di iperparametri.
-Iterano tutte le possibili combinazioni su un \emph{training set} e valutandone le prestazioni su un \emph{test set} possiamo quindi trovare quale fra tutte le 32 combinazioni restituisca il valore più alto.
+Ora che abbiamo capito come avviene e su cosa si basa una possibile valutazione del modello passiamo al prossimo step: la ricerca del miglior modello.
+Cercare il miglior modello significa cercare la migliore configurazione di iperparametri che meglio generalizzano la valutazione/predizione di nuove osservazioni. 
+\emph{Grid Search} è una tecnica molto usata per il raggiungimento di questo obiettivo. Essa consiste nel provare ogni possibile combinazione di iperparametri di nostro interesse. Consideriamo il caso di \emph{fuzzylearn}. Come abbiamo visto nel capitolo precedente vi sono tre differenti iperparametri che caratterizzano l'algoritmo: \emph{C}, \emph{kernel}, \emph{fuzzifier}. Supponiamo di voler testare 4 differenti valori per \emph{C}, 4 per il \emph{kernel} e 2 per il \emph{fuzzifier}. Così facendo abbiamo un totale di $4 \cdot 4 \cdot2 = 32$ combinazioni differenti di iperparametri.
+Iterando tutte le possibili combinazioni su un \emph{training set} e valutandone le prestazioni su un \emph{test set} possiamo quindi trovare quale fra le 32 combinazioni restituisca la performance migliore.
 
-Questa tecnica ha degli svantaggi perchè i risultati ottenuti non sempre sono del tutto veri. Questo succede perchè nel testare le prestazioni delle diverse configurazioni consideriamo \emph{test set} differenti per ognuna di queste. Così facendo i risultati ottenuti si basano tutti sul prorpio test set e questo non ci permette di avere un'unica misura per valutrare le effettive prestazioni.
+Così facendo possiamo definire quale sia la migliore combinazione di iperparametri. Qui però sorge il problema dovuto al fatto che il risultato ottenuto non ci consente di dire come si comporta il modello trovato su nuovi dati. Proprio per questo suddividiamo il dataset in \emph{test set}, \emph{validation set} e \emph{training set}. In questo modo allenando il modello sul \emph{training set} e valutandolo sul \emph{validation set} vediamo quale tra le configurazioni definite restituisce il miglior risultato. Riprendendo l'esempio precedente alleniamo sul \emph{training set} un modello su ognuna delle 32 combinazioni di iperparametri per poi valutarlo sul \emph{validation set}. Una volta definita la migliore configurazione utilizzeremo l'insieme di \emph{training set} e di \emph{validation set} come set di allenamento e il \emph{test set} come set di valutazione della bontà di generalizzazione.
 
-Per risolvere questo problema si ricorre all'utilizzo del \emph{validation set} che permette quindi di determinare quale possa essere la migliore configurazione e successivamente testarne le effettive prestazioni su dati che non sono stati usati per aggiustare la configurazione. In Figura zzz è mostrata la suddivisione del dataset con l'aggiunta del \emph{validation set}.
+%Questa tecnica ha degli svantaggi perchè i risultati ottenuti non sempre sono del tutto precisi. Questo succede perché nel testare le prestazioni delle diverse configurazioni consideriamo \emph{test set} differenti per ognuna di queste. Così facendo i risultati ottenuti si basano tutti sul prorpio test set e questo non ci permette di avere un'unica misura per valutrare le effettive prestazioni.
 
-[FIGURA DI DATASET IN TRAIN TEST E VALIDATION 5.5]
+%Per risolvere questo problema si ricorre all'utilizzo del \emph{validation set} che permette quindi di determinare quale possa essere la migliore configurazione e successivamente testarne le effettive prestazioni su dati che non sono stati usati per aggiustare la configurazione. In Figura \ref{fig:train_test_validation} è mostrata la suddivisione del dataset con l'aggiunta del \emph{validation set}.
 
-\subsection{Grid Search con Cross-Validation e Nested Grid Search}
-Nei due paragrafi precedenti abbiamo visto quale sia una buona valutazione delle performance del modello e successivamente di come si cerchi efffettivamente una buona configurazione di iperparametri. Queste due tecniche vengono spesso utilizzate insieme per vedere in generale quale sia la migliore combinazione possibile per un modello utilizzando diversi dati di \emph{training} e di \emph{test}.
-Quindi quello che viene fatto è, per ogni modello, provare su ogni combinazione di dati per il training e il test come funzione ogni combinazione di iperparametri. Questo consente, quindi, un ulteriore grado di valutazione del modello. Il grosso svantaggio di combinare queste due tecniche consiste nel tempo richiesto per la computazione. Per possibilearn C, sigma, fuzzifier come iperparametri configurabili. Supponendo di provare per C i seguenti valori:
-[LISTA DI IPERPARAMETRI DI C]
-, per sigma i valori: 
-[LISTA DI IPERPARAMETRI DI SIGMA]
-e mantendo il \emph{fuzzifier} fisso, otteniamo 5 x 5 = 25 possibili combinazioni mostrate in Figura xxx. 
-[TABELLA DI TUTTI LE COMBINAZIONI DEGLI IPERPARAMETRI]
-A questo le 25 configurazioni dobbiamo moltiplicalre per il numero di fold che usiamo nella cross validation. Prendendo, ad esempio, 5 fold otteniamo 25 x 5 = 125 diversi modelli da costruire!
-È importante quindi utilizzare il Grid Search unito alla Cross-Validation prestando attenzione a quali iperparametri si vogliono confrontare per evitare di non fare computazioni eccessivamente lunghe.
+\begin{figure}[h!]
+	\center
+	\includegraphics[scale=0.5]{../img/train_test_validation} %https://medium.com/@george.drakos62/support-vector-Machine-vs-logistic-regression-94cc2975433f
+	\caption{Suddivisione del dataset in tre sotto-set: training set, validation set e test set. }
+	\label{fig:train_test_validation}
+\end{figure}
+
+\subsection{Grid Search con Cross-Validation}
+\label{sec:gridsearchcv}
+Nei due paragrafi precedenti abbiamo visto quale sia una possibile valutazione delle performance del modello e successivamente la modalità di ricerca di una buona configurazione di iperparametri. Queste due tecniche vengono spesso utilizzate insieme per identificare quale sia, in generale, la migliore combinazione possibile per un modello utilizzando diversi dati di \emph{training} e di \emph{test}.
+Quindi quello che viene fatto è, per ogni modello, valutare su ogni insieme di dati usati per il training set e per il test set, quale combinazione di iperparametri fornisce la performance migliore. Questo consente, quindi, un ulteriore grado di valutazione del modello poiché per ogni combinazione di iperparametri si ha un valore medio dello \emph{score} basato sui diversi \emph{test set} generati dall'uso della \emph{cross-validation}. Di contro si ha che il costo in termini di tempi di esecuzione cresce al crescere delle possibili combinazioni e del numero di \emph{fold} stabilito. Per l'algoritmo \emph{fuzzylearn} gli iperparametri configurabili sono \emph{C}, \emph{kernel} e \emph{fuzzifier}. Riprendendo l'esempio precedente, avremmo 32 combinazioni che utilizzate con una ripartizione sul dataset tramite \emph{cross-validation} a 5 \emph{fold} genererebbero $32 \cdot 5 = 160$ modelli.
+È importante quindi utilizzare il \emph{Grid Search} unito alla \emph{cross-validation} prestando attenzione a quali e quanti iperparametri si vogliono combinare per evitare di effettuare computazioni eccessivamente lunghe.
 
 %**************PARLA DI NESTED CROSS VALIDATION**************
 
-\section{I risultati}
-In conclusione analizziamo i risultati ottenuti sui dataset Olivetti e AT\&T tramite \emph{fuzzylearn}. Nella ricerca e nello studio di come si comporta \emph{fuzzylearn} nel riconoscimento facciale e di classificazione dei soggetti sono stati usati tre computer per ridurre i costi temporali richiesti dall'allenamento di ogni modello. %La scelta di quale tecnica usare ha richiesto diversi giorni poichè il tempo richiesto dalla computazione era sostanzioso.
+\section{Risultati}
+In conclusione analizziamo i risultati ottenuti sui dataset Olivetti e AT\&T tramite \emph{fuzzylearn}. Nella ricerca e nello studio sul comportamento di \emph{fuzzylearn} nel riconoscimento facciale e quindi nella classificazione dei soggetti è stata utilizzata una tecnologia di Google denominate Google Colaboratory.
 
-Inizialmente è stata costruita un'infrastruttura client-server il cui server godeva di alte performance computazionali. Purtoppo queste non sono state sufficienti in quanto i tempi di calcolo erano troppo lunghi. Quindi la computazione è stata in seguito delegata a tecnologie di Google denominate Google Colaboratory le quali hanno di una maggiore performance computazionale permettendo il risparmio di risorse temporali.
-
-Per il calcolo dei risultati, a livello pratico, è stato usato \emph{python 3.7} come lignuaggio di programmazione il quale rappresenta uno dei più utilizzati linguaggi nell'ambito del ML per la sua comodità e semplicità di utilizzo e perchè sono presenti molte librerie ricche di funzionalità sviluppate proprio in \emph{python}. I pacchetti usati durante questi studi sono stati \emph{scitkit\_learn} per l'elaborazione dei dati e \emph{matplotlib} insieme a \emph{plotly} per la produzione di grafici 2D e 3D. In particolare sono state usate le seguenti librerie/funzionalità:
+Per il calcolo dei risultati, a livello pratico, è stato usato il linguaggio di programmazione \emph{python 3.7} che è uno dei più utilizzati nell'ambito del ML per la sua comodità e semplicità di utilizzo e perché sono presenti molte librerie ricche di funzionalità. I pacchetti usati durante questi studi sono stati \emph{scitkit\_learn} per l'elaborazione dei dati e \emph{matplotlib} insieme a \emph{plotly} per la produzione di grafici 2D e 3D. In particolare sono state usate le seguenti librerie/funzionalità:
 \begin{itemize}
-	\item{\emph{GridSearchCV}: funzione di \emph{scikit\_learn} che, presa una lista di valori per ogni iperparametro, applica su diverse suddivisioni del dataset la combinazione di ognuna di queste per trovare poi quella che definisce il modello con lo score medio più alto (come spiegate in \ref{sec:3.2}),}
-	\item{\emph{pre-processing}: libreria di \emph{scikit\_learn} utile ad applicare delle trasformazioni ai dati prima che questi vengano usati per allenare il modello. In particolare \emph{StandardScaler} è una funzione di questa libreria per standardizzare le \emph{feature} e \emph{MinMaxScaler} per adattare a uno specifico intervallo (comune a tutte le \emph{feature}) i singoli valori delle \emph{feature},}
-	\item{\emph{PCA}: funzione di \emph{scikit\_learn} che, come si può intendere dal nome, serve ad applicare una riduzione di dimensionalità tramite PCA}
-	\item{\emph{TSNE}: funzione di \emph{scikit\_learn} che, come si può intendere dal nome, serve ad applicare una riduzione di dimensionalità tramite TSNE}
-\item{\emph{pyplot}: libreria di \emph{matplotlib} che ha avuto un utilizzo speicifico nella produzione di grafici 2D quali grafici di dispersione (o \emph{scatter plot}), grafici di contorno e grafici a linea,}
-\item{\emph{express}: libreria di \emph{plotly} per la produzione di grafici tridimensionali come grafici di dispersione 3D e grafici di contorno 3D}
+	\item{\texttt{GridSearchCV}: funzione di \emph{scikit\_learn} che, presa una lista di valori per ogni iperparametro, applica su diverse suddivisioni del dataset la combinazione di ognuna di queste per trovare poi quella che definisce il modello con lo score medio più alto (come spiegato in \ref{sec:gridsearchcv}),}
+	\item{\texttt{pre-processing}: libreria di \emph{scikit\_learn} utile ad applicare delle trasformazioni ai dati prima che questi vengano usati per allenare il modello. In particolare \emph{StandardScaler} è una funzione di questa libreria per standardizzare le \emph{feature} e \emph{MinMaxScaler} per adattare a uno specifico intervallo (comune a tutte le \emph{feature}) i singoli valori delle \emph{feature},}
+	\item{\texttt{PCA}: funzione di \emph{scikit\_learn} che, come si può intendere dal nome, serve ad applicare una riduzione di dimensionalità tramite PCA}
+	\item{\texttt{TSNE}: funzione di \emph{scikit\_learn} che serve ad applicare una riduzione di dimensionalità tramite \emph{t}-SNE}
+\item{\texttt{pyplot}: libreria di \emph{matplotlib} che in questo testo è stata utilizzata nella produzione di grafici 2D quali grafici di dispersione (o \emph{scatter plot}), grafici di contorno e grafici a linea,}
+\item{\texttt{express}: libreria di \emph{plotly} per la produzione di grafici tridimensionali come grafici di dispersione 3D e grafici di contorno 3D.}
 \end{itemize}
-Inoltre è stato usato il pacchetto di \emph{fuzzylearn} (disponibile su github all'indirizzo https://github.com/dariomalchiodi/fuzzylearn) il quale contiene il codice per l'utilizzo di \emph{fuzzylearn}. Il modello codificato in questo pacchetto è stato adattato alle librerie di \emph{scikit\_learn} per poterne utilizzare le funzionalità di queste. Nello specifico l'adattamento richiede l'impkementazione delle seguenti funzionalità:
+Inoltre è stato usato il pacchetto di \emph{fuzzylearn} (disponibile su github all'indirizzo \texttt{https://github.com/dariomalchiodi/fuzzylearn}) che contiene il codice per l'utilizzo di \emph{fuzzylearn}. Il modello codificato in questo pacchetto è stato adattato alle librerie di \emph{scikit\_learn} per poterne utilizzare le funzionalità. Nello specifico l'adattamento richiede l'implementazione delle seguenti funzionalità:
 \begin{itemize}
-\item{\emph{fit(X, y)}: la funzionalità principale di tutti i modelli di ML. \emph{fit} è utilizzata per allenare un modello sui dati \emph{X} conoscendone le rispettive etichette \emph{y},}
-\item{\emph{predict(X)}: contiene l'implementazione per predire la classificazione di ogni elemento di \emph{X}, dove \emph{X} è rappresentato da un vettore di elementi. Nel caso specifico di \emph{fuzzylearn}, \emph{predict} restituisce, per ogni $x$ di \emph{X}, la probabilità (tra 0 e 1) che $x$ appartenga al modello,}
-\item{\emph{score(X, y)}: contiene l'implementazione dell'accuratezza di predizione del vettore \emph{X} sapendo che le relative etichette sono \emph{y}. In particolare \emph{fuzzylearn} restituisce uno score pari alla differenza al quadrato della probabilità predetta dal modello e l'effettiva probabilità di appartenenza}
+\item{\texttt{fit(X, y)}: la funzionalità principale di tutti i modelli di ML. È utilizzata per allenare un modello sui dati della variabile \texttt{X} conoscendone le rispettive etichette contenute nella variabile \texttt{y},}
+\item{\texttt{predict(X)}: contiene l'implementazione per predire la classificazione di ogni elemento della variabile \texttt{X}, dove \texttt{X} è rappresentato da un vettore di elementi. Nel caso specifico di \emph{fuzzylearn}, \texttt{predict} restituisce, per ogni $x$ di \texttt{X}, la probabilità (compresa tra 0 e 1) che $x$ appartenga al modello,}
+\item{\texttt{score(X, y)}: contiene l'implementazione del calcolo dell'accuratezza di predizione del vettore \texttt{X} sapendo che le relative etichette sono \texttt{y}. In particolare \emph{fuzzylearn} restituisce uno score pari alla somma del quadrato delle differenza tra la probabilità predetta dal modello e l'effettiva probabilità di appartenenza per ogni elemento di \texttt{X}.}
 \end{itemize}
-Nei prossimi due paragrafi vediamo i risultati ottenuti tramite l'utilizzo delle diverse tecniche di riduzione di dimensionalità PCA e t-SNE. Per ogni tecnica vediamo i risultati ottenuti sia per Olivetti dataset che per AT\&T dataset. Inoltre, durante la descrizione dei risultati vediamo anche l'uso di alcuni degli strumenti sopra citati.
+Nei prossimi due paragrafi mostriamo i risultati ottenuti tramite l'utilizzo delle due diverse tecniche di riduzione di dimensionalità: PCA e \emph{t}-SNE. Per ogni tecnica sono esposti sotto forma di tabella i risultati ottenuti sia per Olivetti dataset che per AT\&T dataset. 
 
-\subsection{Utilizzo metodo di riduzione t-SNE}
-In questo paragrafo ci concentriamo sui risultati otteuti applicando una riduzione tramite TSNE a 2 e 3 dimensioni. La scelta di queste dimensioni è dovuta al fatto che t-SNE permette di trasformare uno spazio a n dimensioni in uno spazio più piccolo mantenendo (e quindi focalizzandosi) le distanze tra i punti dello spazio originale. Per questo motivo è stato ritenuto più interessante ridurre le dimensioni originali in due dimensioni proiettabili in uno spazio naturale per farne poi un'analisi a livello qualitativo più immediata. Vediamo quindi la distribuzione dei punti quando vengono ridotti in due dimensioni.
+\subsection{Utilizzo del metodo di riduzione \emph{t}-SNE}
+In questo paragrafo ci concentriamo sui risultati ottenuti applicando una riduzione a 2 e a 3 dimensioni tramite \emph{t}-SNE. La scelta di queste dimensioni è dovuta al fatto che \emph{t}-SNE permette di trasformare uno spazio a $ n $ dimensioni in una spazio di dimensioni minori mantenendo la stessa coerenza della distanza tra i punti nello spazio originale. Questa trasformazione ci permette di rappresentare in uno spazio naturale i dati e quindi di valutare ``immediatamente" se i punti nello spazio originale si aggregano secondo dei cluster sufficientemente distinguibili per ogni soggetto. Se ciò avviene, significa 
 
-[SCATTER PLOT 2D OLIVETTI E AT\&T]
+%Per questo motivo è stato ritenuto più utile ridurre le dimensioni originali (non rappresentabili graficamente) in dimensioni proiettatili in uno spazio naturale allo scopo di farne un'analisi a livello qualitativo più immediata.
 
-In Figura [SCATTER PLOT 2D OLIVETTI E AT\&T] sono mostrati i grafici di dispersione per entrambi i dataset dopo aver applicato t-SNE a 2 dimensioni. Analizzando quindi i grafici è piuttosto immediata la distinzione dei vari gruppi rappresentanti ogni soggetto. Partendo da una considerazione del tutto qualitativa e visiva possiamo aspettarci come la costruzione dei modelli, con i giusti iperparametri, ci possa restituire una buona accuratezza nella classificazione dei soggetti.
+\begin{figure}
+	\centering
+	\subfigure[Olivetti dataset]
+	{
+		\includegraphics[scale=.35]{../img/tsne_olivetti}
+		\label{fig:tsne_olivetti}
+	}
+	\subfigure[AT\&T dataset]
+	{
+		\includegraphics[scale=.35]{../img/tsne_atet}
+		\label{fig:tsne_atet}
+	}	
+	\caption{Nelle figure sono mostrati i grafici di dispersione 2D mediante \emph{t}-SNE. I numeri raffigurati nei grafici rappresentano le osservazioni del rispettivo dataset considerato in uno spazio bidimensionale.}
+	\label{fig:tsne_2d}
+\end{figure}
+
+In Figura \ref{fig:tsne_2d} sono mostrati i grafici di dispersione per entrambi i dataset dopo aver applicato \emph{t}-SNE a 2 dimensioni. Analizzando i grafici è piuttosto netta la distinzione dei vari gruppi rappresentanti ogni soggetto. Da questa considerazione possiamo aspettarci come la costruzione dei modelli, con  iperparametri adeguati, ci possa restituire una buona accuratezza nella classificazione dei soggetti.
 
 [SCATTER PLOT 3D OLIVETTI E AT\&T]
 
-Diverso è, il caso riportato in Figura [SCATTER PLOT 3D OLIVETTI E AT\&T] in cui sono mostrati i grafici di dispersione in 3 dimensioni. È facile notare come i cluster siano meno distinguibili rispetto alla proiezione in due dimensioni e quindi è naturale pensare che i risultati di classificazioni su 3 dimensioni siano inferiori rispetto a quelli su dati in 2 dimensioni. In Tabella [TABELLA TSNE OLIVETTI E AT\&T] sono mostrati i rispettivi risultati: le colonne indicano i set su cui è stato testato l'insieme dei modelli mentre le righe indicano la dimensioni di riduzione raggiunte. 
+Diverso è il caso riportato in Figura [SCATTER PLOT 3D OLIVETTI E AT\&T] in cui sono mostrati i grafici di dispersione in 3 dimensioni. È facile notare come i cluster siano meno distinguibili rispetto alla proiezione in 2 dimensioni e quindi è naturale pensare che i risultati di classificazioni su 3 dimensioni siano inferiori rispetto a quelli in 2 dimensioni. In Tabella [TABELLA TSNE OLIVETTI E AT\&T] sono mostrati i rispettivi risultati: le colonne indicano i set su cui è stato testato l'insieme dei modelli mentre le righe indicano il numero di dimensioni considerato in seguito alla riduzione.
 
 [TABELLA TSNE OLIVETTI E AT\&T]
 
-Con la tabella è stato confermato quanto previsto nelle considerazioni visive fatte sui grafici di dispersione in Figura [SCATTER PLOT 2D OLIVETTI E AT\&T] e in Figura [SCATTER PLOT 3D OLIVETTI E AT\&T]. I risultati ottenuti sono frutto di 10 holdout ripetuti con una dimensione per il \emph{test set} pari al 20\% del totale, di conseguenza il restante 80\% è dedicato al \emph{training set}. 
+I valori indicati in tabella è confermano quanto previsto nelle considerazioni visive fatte sui grafici di dispersione in Figura [SCATTER PLOT 2D OLIVETTI E AT\&T] e in Figura [SCATTER PLOT 3D OLIVETTI E AT\&T]. I risultati ottenuti sono frutto di 10 holdout casuali con una dimensione per il \emph{test set} pari al 20\% del totale, di conseguenza il restante 80\% è dedicato al \emph{training set}. 
+L'intervallo degli iperparametri considerati nel caso di t-SNE è stato selezionato in modo empirico secondo mediante procedura di ``prova ed errore". Sono stati considerati dei campioni casuali dell'insieme dei soggetti a cui sono state applicate diverse configurazioni di iperparametri. Alcune di queste configurazioni sono risultate migliori di altre in termini di performance. Queste sono state utilizzate come griglia di iperparametri da applicare alla tecnica \emph{grid search} sull'insieme totale dei soggetti. I valori di configurazione scelti sono i seguenti 
+
+
+\begin{table}[h!]
+	\centering
+	\begin{tabular}{|c|c|c|c|}
+		\hline
+		Dimensioni & \emph{C}           & $ \sigma $       & \emph{fuzzifier}             \\ \hline
+		2 & \texttt{1, 10, 1000} & \texttt{0.5, 1, 1.5} & Lineare, Esponenziale \\ \hline
+		3 & \texttt{1, 10, 1000} & \texttt{1, 1.5, 2}   & Lineare, Esponenziale \\ \hline
+	\end{tabular}
+\end{table}
+
+
 
 \subsection{Utilizzo metodo di riduzione PCA}
-Ora vediamo come si comporta \emph{fuzzylearn} con i dati ridotti tramite PCA. In questo caso abbiamo considerato un numero maggiore di dimensioni rispetto a t-SNE perchè la logica che sta dietro a questo algoritmo è differente da t-SNE. Come abbiamo già visto nel Capitolo 1, PCA riduce le dimensioni eliminando le caratteristiche che contengono la minor quantità di informazioni. In Figura [PLOT LINE PCA RATIO] vediamo i grafici che mostrano come, la quantità di informazione, decresce al crescere di dimensioni da poter utilizzare. La scelta del numero di dimensioni è partita da un'analisi fatta su questo grafico il quale permette di capire fino a dove ha senso spingersi per cercare di ottenere il maggior numero di informazioni mantenendo la complessità del modello (e quindi il numero di caratteristiche che descrivono ogni osservazione) più bassa possibile.
+Ora vediamo come si comporta \emph{fuzzylearn} riducendo le dimensionalità tramite PCA. In questo caso abbiamo considerato un numero maggiore di dimensioni rispetto a \emph{t}-SNE perché la logica sottostante a questo algoritmo è differente. Come abbiamo già visto nel Capitolo 1, PCA riduce le dimensioni eliminando quelle che contengono la minor quantità di informazioni diversamente da \emph{t}-SNE che riduce le dimensionalità basandosi sulle distanze tra i punti nell'iperspazio. In Figura [PLOT LINE PCA RATIO] sono mostrati i grafici che raffigurano la relazione tra l'incremento della quantità di informazione (asse delle ordinate) e le dimensioni utilizzate (asse delle ascisse) per entrambi i dataset. Osserviamo che la quantità di informazione contenuta nelle componenti principali decresce al crescere delle dimensioni utilizzate. La scelta delle dimensioni da utilizzare è basata sulla ricerca di quei valori che determinano un aumento sostanziale della quantità di informazione mantenendo minima la complessità del modello.
+
+ %consente di ottenere il maggior numero di informazioni mantenendo la complessità del modello (e quindi il numero di caratteristiche che descrivono ogni osservazione) più bassa possibile.
+
+ %questo grafico è stato determinato il numero  partita da un'analisi fatta su questo grafico il quale permette di capire fino a dove ha senso spingersi per cercare di ottenere il maggior numero di informazioni mantenendo la complessità del modello (e quindi il numero di caratteristiche che descrivono ogni osservazione) più bassa possibile.
 Con PCA sono state sperimentate le riduzioni a 2, 5, 20, e 50 dimensioni. L'unica riduzione che è possibile analizzare è, naturalmente, quella a due dimensioni. Pertanto in Figura [SCATTER PLOT PCA OLIVETTI E AT\&T] è possibile vedere la distribuzione delle osservazioni nel piano. A differenza di t-SNE, in questi grafici si riesce a distinguere solo qualche piccolo cluster e, oltretutto, facendo fatica. Questo non è un buon segno, infatti come vediamo nei risultati più avanti l'accuratezza di classificazione data dall'insieme dei 40 modelli è decisamente di scarsa qualità. Uno dei motivi per cui la differenza è così marcata tra t-SNE e PCA sta proprio nel fatto che le due tecniche affrontano lo stesso problema, ovvero quello di ridurre le dimensioni, analizzando aspetti totalmente diversi. Mentre t-SNE confronta le distanze tra i punti in un iperspazio, PCA va a selezionare solo le \emph{feature} che mantengono la maggior quantità di informazioni. Ritornando al grafico in Figura [PLOT LINE PCA RATIO] vediamo che utilizzando le prime due dimensioni otteniamo solamente il 30% per Olivetti e il 38% per AT&T. Questo dato rispecchia piuttosto bene la distribuzione del grafico di dispersione proprio perchè con solamente il 30% e il 38% vi è un'alta probabilità che i dati siano mischiati. Quindi vediamo in Tabella [TABELLA PCA OLIVETTI E AT&T] i risultati ottenuti nei due dataset tramite l'utilizzo di PCA.
 
 [TABELLA PCA OLIVETTI E AT\&T]
