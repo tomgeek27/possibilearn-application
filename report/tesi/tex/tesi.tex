@@ -68,6 +68,7 @@
 \usepackage{amsmath}
 \usepackage{amsfonts}
 \usepackage{verbatimbox}
+\usepackage{array}
 
 \setcounter{secnumdepth}{3}
 \setcounter{tocdepth}{3}
@@ -440,18 +441,18 @@ Questa tecnica, oltre a semplificare il lavoro di manipolazione delle \emph{feat
 
 \subsection{t-Distributed stochastic neighbor embedding}
 %Documenta con delle immagini prendedole dal video https://www.youtube.com/watch?v=NEaUSP4YerM
-\emph{t-Distributed stochastic neighbor embedding} (t-SNE) è una tecnica di riduzione della dimensionalità non lineare che si presta particolarmente alla mappatura di spazi ad alta dimensionalità riducendoli in uno spazio a minori dimensioni. L'algoritmo modella i punti in modo che oggetti vicini nello spazio originale risultino vicini nello spazio a dimensionalità ridotta e analogamente oggetti lontani nello spazio originale risultino lontani nello spazio a dimensionalità ridotta.
+\emph{t-Distributed stochastic neighbor embedding} (\emph{t}-SNE) è una tecnica di riduzione della dimensionalità non lineare che si presta particolarmente alla mappatura di spazi ad alta dimensionalità riducendoli in uno spazio a minori dimensioni. L'algoritmo modella i punti in modo che oggetti vicini nello spazio originale risultino vicini nello spazio a dimensionalità ridotta e analogamente oggetti lontani nello spazio originale risultino lontani nello spazio a dimensionalità ridotta.
 
-Per spiegare il funzionamento di questo algoritmo basiamoci su un caso semplice: un set bidimensionale $S$ di dati. Con questo esempio spieghiamo quindi il funzionamento di t-SNE e come è possibile passare da due dimensioni ad una sola, trasformando coerentemente le distanze tra i punti osservati. Per farlo ci basiamo, inoltre, sulle probabilità che un elemento sia vicino ad un'altro. Per ogni punto $ x $ centriamo su di esso una curva gaussiana e inseriamo ogni altro punto $ y \neq x $ 
+Per spiegare il funzionamento di questo algoritmo basiamoci su un caso semplice: un set bidimensionale $S$ di dati. Con questo esempio spieghiamo quindi il funzionamento di \emph{t}-SNE e come è possibile passare da due dimensioni ad una sola, trasformando coerentemente le distanze tra i punti osservati. Per farlo ci basiamo, inoltre, sulle probabilità che un elemento sia vicino ad un'altro. Per ogni punto $ x $ centriamo su di esso una curva gaussiana e inseriamo ogni altro punto $ y \neq x $ 
 sotto la distribuzione gaussiana centrata in $ x $, per poi calcolarne la densità di probabilità (o \emph{score}).
 %la quale verrà utilizzata per calcolare la probabilità che ogni altro elemento, sia vicino a x. 
 
 Viene utilizzata la curva gaussiana perché lavora bene su casi come questo: restituisce un valore elevato se un elemento è molto vicino a $x$ e una valore molto basso se questo è lontano da $x$. A questo punto normalizziamo la curva per tutti i punti in modo che essi abbiano una misura proporzionata e non indipendente. La distribuzione può in realtà essere manipolata tramite una variabile denominata `perplessità' (o \emph{perplexity}), la quale modifica la varianza e quindi l'ampiezza della curva.
-In questo modo otteniamo la matrice quadrata $ M_{1} $ con tutti gli \emph{score} per ogni coppia. Ora inseriamo tutti i punti in maniera casuale su un'unico asse. Analogamente all'utilizzo che abbiamo fatto della curva gaussiana calcoliamo la probabilità di vicinanza tra i punti, con la differenza che questa volta useremo la distribuzione t di Student (in inglese Student t distribution, da cui deriva la t di t-SNE). Otteniamo così una seconda matrice quadrata $ M_{2} $, la quale sarà, probabilmente, molto diversa da $ M_{1} $. L'obiettivo adesso è quello di adattare la matrice $ M_{2} $ a $ M_{1} $ in modo che le distribuzioni di probabilità che descrivono i dati nello spazio ad alta dimensionalità e a bassa dimensionalità siano il più ``vicini" possibili minimizzando la pseudo-distanza (anche detta ``divergenza di Kullback-Leibler") tra queste. In questo modo siamo riusciti ad ottenere i cluster, visualizzabili nel grafico bidimensionale, in uno spazio monodimensionale.
+In questo modo otteniamo la matrice quadrata $ M_{1} $ con tutti gli \emph{score} per ogni coppia. Ora inseriamo tutti i punti in maniera casuale su un'unico asse. Analogamente all'utilizzo che abbiamo fatto della curva gaussiana calcoliamo la probabilità di vicinanza tra i punti, con la differenza che questa volta useremo la distribuzione t di Student (in inglese Student t distribution, da cui deriva la t di \emph{t}-SNE). Otteniamo così una seconda matrice quadrata $ M_{2} $, la quale sarà, probabilmente, molto diversa da $ M_{1} $. L'obiettivo adesso è quello di adattare la matrice $ M_{2} $ a $ M_{1} $ in modo che le distribuzioni di probabilità che descrivono i dati nello spazio ad alta dimensionalità e a bassa dimensionalità siano il più ``vicini" possibili minimizzando la pseudo-distanza (anche detta ``divergenza di Kullback-Leibler") tra queste. In questo modo siamo riusciti ad ottenere i cluster, visualizzabili nel grafico bidimensionale, in uno spazio monodimensionale.
 
 Nella seconda parte dell'algoritmo, viene usata una t-distribution perché separa meglio i cluster nel piano generato. Se avessimo usato una distribuzione gaussiana, come nella prima parte, il risultato ottenuto sarebbe stato meno visibile, in quanto tutti i cluster si sarebbero ammassati al centro.
 
-Questo è un esempio piuttosto semplice, ma nella realtà si possono adattare spazi a $n$ dimensioni con $ n \gg 2 $ a spazi molto inferiori a $n$. Nel Capitolo 3 utilizzeremo t-SNE per passare da uno spazio di dimensioni elevate a uno spazio bidimensionale o al più a 5 dimensioni. Vedremo quindi, utilizzando questo algoritmo, quali sono le prestazioni che riesce a fornire nel caso del riconoscimento facciale e di classificazione dei soggetti.
+Questo è un esempio piuttosto semplice, ma nella realtà si possono adattare spazi a $n$ dimensioni con $ n \gg 2 $ a spazi molto inferiori a $n$. Nel Capitolo 3 utilizzeremo \emph{t}-SNE per passare da uno spazio di dimensioni elevate a uno spazio bidimensionale o al più a 5 dimensioni. Vedremo quindi, utilizzando questo algoritmo, quali sono le prestazioni che riesce a fornire nel caso del riconoscimento facciale e di classificazione dei soggetti.
 % 
 %			CAPITOLO 2: Induzione di insiemi fuzzy
 % 
@@ -842,6 +843,20 @@ Inoltre è stato usato il pacchetto di \emph{fuzzylearn} (disponibile su github 
 \item{\texttt{predict(X)}: contiene l'implementazione per predire la classificazione di ogni elemento della variabile \texttt{X}, dove \texttt{X} è rappresentato da un vettore di elementi. Nel caso specifico di \emph{fuzzylearn}, \texttt{predict} restituisce, per ogni $x$ di \texttt{X}, la probabilità (compresa tra 0 e 1) che $x$ appartenga al modello,}
 \item{\texttt{score(X, y)}: contiene l'implementazione del calcolo dell'accuratezza di predizione del vettore \texttt{X} sapendo che le relative etichette sono \texttt{y}. In particolare \emph{fuzzylearn} restituisce uno score pari alla somma del quadrato delle differenza tra la probabilità predetta dal modello e l'effettiva probabilità di appartenenza per ogni elemento di \texttt{X}.}
 \end{itemize}
+\begin{table}[h!]
+	\centering
+
+		\begin{tabular}{c|c|c|c}
+			& A   & B   & \multicolumn{1}{c}{C} \\ \hline
+			\multicolumn{1}{c|}{a} & 0.9 & 0.1 & 0.2                    \\
+			\multicolumn{1}{c|}{b} & 0.8 & 0.5 & 0.1                    \\
+			\multicolumn{1}{c|}{c} & 0.0 & 0.1 & 1.0                    \\ 
+		\end{tabular}%
+	\caption{Esempio di classificazione mediante \emph{fuzzylearn}}
+	\label{tab:example_classification}
+\end{table}
+
+Per spiegare come avviene la classificazione mediante \emph{fuzzylearn} osserviamo l'esempio rappresentato in Tabella \ref{tab:example_classification}. La tabella è composta da 3 colonne che rappresentano i 3 insiemi fuzzy generati dall'algoritmo (``A", ``B", ``C"). Nelle righe sono rappresentati invece gli elementi (``a", ``b", ``c") che devono essere classificati. Per determinare quale classe venga attribuita dall'algoritmo ad ogni elemento si seleziona la classe corrispondente all'insieme fuzzy avente la probabilità maggiore. In questo caso avremo che ``a" viene classificato correttamente come ``A" poiché la probabilità maggiore è data da ``A" ovvero 0.9, ``b" viene erroneamente classificato come ``A" perché per ``A" si ha la probabilità maggiore, ovvero 0.8, infine a ``c" viene attribuita, correttamente, la classe ``C". Di conseguenza tramite 3 fuzzy set così definiti, si avrà una correttezza pari al 66\% (2 casi su 3 sono stati classificati correttamente).
 Nei prossimi due paragrafi mostriamo i risultati ottenuti tramite l'utilizzo delle due diverse tecniche di riduzione di dimensionalità: PCA e \emph{t}-SNE. Per ogni tecnica sono esposti sotto forma di tabella i risultati ottenuti sia per Olivetti dataset che per AT\&T dataset. 
 
 \subsection{Utilizzo del metodo di riduzione \emph{t}-SNE}
@@ -867,14 +882,40 @@ In questo paragrafo ci concentriamo sui risultati ottenuti applicando una riduzi
 
 In Figura \ref{fig:tsne_2d} sono mostrati i grafici di dispersione per entrambi i dataset dopo aver applicato \emph{t}-SNE a 2 dimensioni. Analizzando i grafici è piuttosto netta la distinzione dei vari gruppi rappresentanti ogni soggetto. Da questa considerazione possiamo aspettarci come la costruzione dei modelli, con  iperparametri adeguati, ci possa restituire una buona accuratezza nella classificazione dei soggetti.
 
-[SCATTER PLOT 3D OLIVETTI E AT\&T]
+\begin{figure}
+	\centering
+	\subfigure[Olivetti dataset]
+	{
+		\includegraphics[scale=.6]{../img/olivetti_tsne_3d}
+		\label{fig:olivetti_tsne_3d}
+	}
+	\subfigure[AT\&T dataset]
+	{
+		\includegraphics[scale=.6]{../img/atet_tsne_3d}
+		\label{fig:atet_tsne_3d}
+	}	
+	\caption{Nelle figure sono mostrati i grafici di dispersione 3D mediante \emph{t}-SNE. In entrambi i grafici si osserva la mancanza di una netta clusterizzazione dei soggetti.}
+	\label{fig:tsne_3d}
+\end{figure}
 
-Diverso è il caso riportato in Figura [SCATTER PLOT 3D OLIVETTI E AT\&T] in cui sono mostrati i grafici di dispersione in 3 dimensioni. È facile notare come i cluster siano meno distinguibili rispetto alla proiezione in 2 dimensioni e quindi è naturale pensare che i risultati di classificazioni su 3 dimensioni siano inferiori rispetto a quelli in 2 dimensioni. In Tabella [TABELLA TSNE OLIVETTI E AT\&T] sono mostrati i rispettivi risultati: le colonne indicano i set su cui è stato testato l'insieme dei modelli mentre le righe indicano il numero di dimensioni considerato in seguito alla riduzione.
+Diverso è il caso riportato in Figura \ref{fig:tsne_3d} in cui sono mostrati i grafici di dispersione in 3 dimensioni. È facile notare come i cluster siano meno distinguibili rispetto alla proiezione in 2 dimensioni e quindi è naturale pensare che i risultati di classificazioni su 3 dimensioni siano inferiori rispetto a quelli in 2 dimensioni. In Tabella \ref{tab:tab_tsne} sono mostrati i rispettivi risultati: la prima colonna (``Dimensioni") indica il numero di dimensioni considerate nella riduzione, la seconda colonna (``Olivetti dataset - Test(\%)") riporta la percentuale di accuratezza nella predizione del \emph{test set}, la terza colonna (``Olivetti dataset - Train(\%)") la percentuale di accuratezza nella predizione del \emph{training set}. Analogamente nella terza e quarta colonna.
 
-[TABELLA TSNE OLIVETTI E AT\&T]
+\begin{table}[h!]
+	\centering
 
-I valori indicati in tabella è confermano quanto previsto nelle considerazioni visive fatte sui grafici di dispersione in Figura [SCATTER PLOT 2D OLIVETTI E AT\&T] e in Figura [SCATTER PLOT 3D OLIVETTI E AT\&T]. I risultati ottenuti sono frutto di 10 holdout casuali con una dimensione per il \emph{test set} pari al 20\% del totale, di conseguenza il restante 80\% è dedicato al \emph{training set}. 
-L'intervallo degli iperparametri considerati nel caso di t-SNE è stato selezionato in modo empirico secondo mediante procedura di ``prova ed errore". Sono stati considerati dei campioni casuali dell'insieme dei soggetti a cui sono state applicate diverse configurazioni di iperparametri. Alcune di queste configurazioni sono risultate migliori di altre in termini di performance. Queste sono state utilizzate come griglia di iperparametri da applicare alla tecnica \emph{grid search} sull'insieme totale dei soggetti. I valori di configurazione scelti sono i seguenti 
+		\begin{tabular}{|c|c|c|c|c|}
+			\hline
+			\multicolumn{1}{|c|}{} & \multicolumn{2}{c|}{Olivetti dataset} & \multicolumn{2}{c|}{AT\&T dataset} \\ \hline
+			Dimensioni             & Test (\%)   & Train    (\%)         & Test    (\%)        & Train    (\%)        \\ \hline
+			2                      &            86.62       &           99.6        &           96.5      &      100            \\ \hline
+			3                      &      54.12             &               79.15    &     52.12            &       66.55           \\ \hline
+		\end{tabular}%
+	\caption{Risultati con riduzione tramite \emph{t}-SNE}
+	\label{tab:tab_tsne}
+\end{table}
+
+I valori indicati in tabella confermano quanto osservato nei grafici di dispersione in Figura \ref{fig:tsne_2d} e in Figura \ref{fig:tsne_3d}. A percentuali alte corrispondono buone clusterizzazione dei dati (\ref{fig:tsne_2d}). A percentuali più basse corrispondono insufficienti clusterizzazione dei dati (\ref{fig:tsne_3d}). I risultati ottenuti sono frutto di 10 holdout casuali con una dimensione per il \emph{test set} pari al 20\% del totale, di conseguenza il restante 80\% è dedicato al \emph{training set}. 
+L'intervallo degli iperparametri considerati nel caso di \emph{t}-SNE è stato selezionato in modo empirico secondo mediante procedura di ``prova ed errore". Sono stati considerati dei campioni casuali dell'insieme dei soggetti a cui sono state applicate diverse configurazioni di iperparametri. Alcune di queste configurazioni sono risultate migliori di altre in termini di performance. Queste sono state utilizzate come griglia di iperparametri da applicare alla tecnica \emph{grid search} sull'insieme totale dei soggetti. I valori di configurazione scelti sono i seguenti 
 
 
 \begin{table}[h!]
@@ -890,19 +931,81 @@ L'intervallo degli iperparametri considerati nel caso di t-SNE è stato selezion
 
 
 \subsection{Utilizzo metodo di riduzione PCA}
-Ora vediamo come si comporta \emph{fuzzylearn} riducendo le dimensionalità tramite PCA. In questo caso abbiamo considerato un numero maggiore di dimensioni rispetto a \emph{t}-SNE perché la logica sottostante a questo algoritmo è differente. Come abbiamo già visto nel Capitolo 1, PCA riduce le dimensioni eliminando quelle che contengono la minor quantità di informazioni diversamente da \emph{t}-SNE che riduce le dimensionalità basandosi sulle distanze tra i punti nell'iperspazio. In Figura [PLOT LINE PCA RATIO] sono mostrati i grafici che raffigurano la relazione tra l'incremento della quantità di informazione (asse delle ordinate) e le dimensioni utilizzate (asse delle ascisse) per entrambi i dataset. Osserviamo che la quantità di informazione contenuta nelle componenti principali decresce al crescere delle dimensioni utilizzate. La scelta delle dimensioni da utilizzare è basata sulla ricerca di quei valori che determinano un aumento sostanziale della quantità di informazione mantenendo minima la complessità del modello.
+Ora vediamo come si comporta \emph{fuzzylearn} riducendo le dimensionalità tramite PCA. In questo caso abbiamo considerato un numero maggiore di dimensioni rispetto a \emph{t}-SNE perché la logica sottostante a questo algoritmo è differente. Come abbiamo già visto nel Capitolo 1, PCA riduce le dimensioni eliminando quelle che contengono la minor quantità di informazioni diversamente da \emph{t}-SNE che riduce le dimensionalità basandosi sulle distanze tra i punti nell'iperspazio. 
+\begin{figure}
+	\centering
+	\subfigure[Olivetti dataset]
+	{
+		\includegraphics[scale=.35]{../img/olivetti_var_ratio_pca_plot}
+		\label{fig:olivetti_var_ratio_pca_plot}
+	}
+	\subfigure[AT\&T dataset]
+	{
+		\includegraphics[scale=.35]{../img/atet_var_ratio_pca_plot}
+		\label{fig:atet_var_ratio_pca_plot}
+	}	
+	\caption{ Sull'asse delle ordinate è indicato il valore della varianza (espressa in centesimi). Sull'asse delle ascisse è rappresentato il numero di componenti ordinati in maniera decrescente rispetto alla varianza.}
+	\label{fig:var_ratio_pca}
+\end{figure}
+
+In Figura \ref{fig:var_ratio_pca} sono mostrati i grafici che raffigurano la relazione tra l'incremento della quantità di informazione (asse delle ordinate) e le dimensioni utilizzate (asse delle ascisse), per entrambi i dataset. Osserviamo che la quantità di informazione contenuta nelle componenti principali decresce al crescere delle dimensioni utilizzate. La scelta delle dimensioni da utilizzare è basata, quindi, sulla ricerca di quei valori che determinano un aumento significativo della quantità di informazione mantenendo minima la complessità del modello.
 
  %consente di ottenere il maggior numero di informazioni mantenendo la complessità del modello (e quindi il numero di caratteristiche che descrivono ogni osservazione) più bassa possibile.
 
  %questo grafico è stato determinato il numero  partita da un'analisi fatta su questo grafico il quale permette di capire fino a dove ha senso spingersi per cercare di ottenere il maggior numero di informazioni mantenendo la complessità del modello (e quindi il numero di caratteristiche che descrivono ogni osservazione) più bassa possibile.
-Con PCA sono state sperimentate le riduzioni a 2, 5, 20, e 50 dimensioni. L'unica riduzione che è possibile analizzare è, naturalmente, quella a due dimensioni. Pertanto in Figura [SCATTER PLOT PCA OLIVETTI E AT\&T] è possibile vedere la distribuzione delle osservazioni nel piano. A differenza di t-SNE, in questi grafici si riesce a distinguere solo qualche piccolo cluster e, oltretutto, facendo fatica. Questo non è un buon segno, infatti come vediamo nei risultati più avanti l'accuratezza di classificazione data dall'insieme dei 40 modelli è decisamente di scarsa qualità. Uno dei motivi per cui la differenza è così marcata tra t-SNE e PCA sta proprio nel fatto che le due tecniche affrontano lo stesso problema, ovvero quello di ridurre le dimensioni, analizzando aspetti totalmente diversi. Mentre t-SNE confronta le distanze tra i punti in un iperspazio, PCA va a selezionare solo le \emph{feature} che mantengono la maggior quantità di informazioni. Ritornando al grafico in Figura [PLOT LINE PCA RATIO] vediamo che utilizzando le prime due dimensioni otteniamo solamente il 30% per Olivetti e il 38% per AT&T. Questo dato rispecchia piuttosto bene la distribuzione del grafico di dispersione proprio perchè con solamente il 30% e il 38% vi è un'alta probabilità che i dati siano mischiati. Quindi vediamo in Tabella [TABELLA PCA OLIVETTI E AT&T] i risultati ottenuti nei due dataset tramite l'utilizzo di PCA.
+Con PCA sono state sperimentate le riduzioni a 2, 5, 20, e 50 dimensioni. L'unica riduzione che è possibile rappresentare graficamente è, naturalmente, la prima, quella a 2 dimensioni. In Figura \ref{fig:pca_2d} è possibile vedere la distribuzione delle osservazioni nel caso a 2 dimensioni.
 
-[TABELLA PCA OLIVETTI E AT\&T]
+\begin{figure}
+	\centering
+	\subfigure[Olivetti dataset]
+	{
+		\includegraphics[scale=.35]{../img/olivetti_pca_2d}
+		\label{fig:olivetti_pca_2d}
+	}
+	\subfigure[AT\&T dataset]
+	{
+		\includegraphics[scale=.35]{../img/atet_pca_2d}
+		\label{fig:atet_pca_2d}
+	}	
+	\caption{Nelle figure sono mostrati i grafici di dispersione 2D mediante PCA. I numeri raffigurati nei grafici rappresentano le osservazioni del rispettivo dataset considerato in uno spazio bidimensionale.}
+	\label{fig:pca_2d}
+\end{figure}
 
-Nella tabella sopra riportata è infatti possibile notare un certo andamento dei risultati che è direttamente proporzionale al numero di feature utilizzate. Questo segue esattamente quanto scritto sopra: con l'aumentare delle dimensioni aumentano le caratteristiche che descrivono l'oggetto.
+A differenza di \emph{t}-SNE, in questi grafici si riesce a distinguere solo qualche piccolo cluster, tuttavia l'insieme risulta piuttosto confuso. Infatti, come mostrano i risultati illustrati più avanti, l'accuratezza di classificazione data dall'insieme dei 40 modelli con una riduzione tramite PCA a 2 dimensioni è decisamente di scarsa qualità. Uno dei motivi per cui la differenza è così marcata tra \emph{t}-SNE e PCA sta proprio nel fatto che le due tecniche affrontano lo stesso problema, ovvero quello di ridurre le dimensioni, analizzando aspetti totalmente diversi. 
+Tuttavia \emph{t}-SNE confronta le distanze tra i punti in un iperspazio mentre PCA seleziona solo le componenti che mantengono la maggior quantità di informazioni. Pertanto in questo contesto, dove sono presenti migliaia di dimensioni, due sole componenti principali non consentono a PCA di ottenere una quantità significativa di informazione sufficiente a suddividere in modo distinto i cluster nello spazio. Ritornando al grafico in Figura \ref{fig:var_ratio_pca} vediamo che utilizzando le prime due componenti otteniamo solamente il 39.21\% di varianza totale per Olivetti e il 28.6\% per AT\&T. Questo dato rispecchia piuttosto bene la distribuzione dei punti nel grafico di dispersione in quanto utilizzando componenti che contengono le suddette percentuali di varianza totale la probabilità che i punti siano sovrapposti è alta. 
+
+\begin{table}[]
+	\centering
+	\resizebox{\textwidth}{!}{%
+		\begin{tabular}{c|c|c|c|c|c|c}
+			& \multicolumn{3}{c|}{Olivetti dataset}                       & \multicolumn{3}{c}{AT\&T dataset}                                               \\ \hline
+			Dimensioni & Test(\%) & Train(\%) & \multicolumn{1}{l|}{Ratio var. (\%)} & Test(\%) & \multicolumn{1}{l|}{Train(\%)} & \multicolumn{1}{l}{Ratio var. (\%)} \\ \hline
+			2          & 28.83    & 62.36      & 39.21  & 41.37     & 54.96                          & 28.6                                 \\
+			5          & 61.25     & 84.56       & 54.99                                 & 68.25     & 92.59                           & 47.53                                 \\
+			20         & 85.87     & 100.0       & 76.51                                 &     86.87     &                      99.9          & 69.31                                 \\
+			50         & 78.5      & 100.0       & 87.4                                & 88.5     & 100.0                            & 81.15                                
+		\end{tabular}%
+	}
+	\caption{Risultati con riduzione tramite PCA}
+	\label{tab:res_pca}
+\end{table}
+In Tabella \ref{tab:res_pca} sono riportati i risultati ottenuti applicando PCA ai due dataset. È infatti possibile notare un andamento crescente dei valori di test direttamente proporzionale al numero di componenti utilizzate. Tuttavia osserviamo che nel caso del dataset Olivetti, con 50 dimensioni, il dato in controtendenza pari a 78.5\% è probabilmente imputabile  all'incremento eccessivo della complessità del modello (rappresentato dall'87.4\% di varianza totale). Come mostrato in Figura \ref{fig:tradeoff_img}, quando la complessità del modello eccede una certe soglia la curva di ``generalizzazione" decresce. I parametri di configurazione utilizzati in questo caso sono esposti di seguito:
+\begin{table}[h!]
+	\centering
+	\begin{tabular}{|c|c|c|c|}
+		\hline
+		Dimensioni & \emph{C}           & $ \sigma $       & \emph{fuzzifier}             \\ \hline
+		2 & \texttt{1, 10, 1000} & \texttt{0.5, 0.65, 0.85} & Lineare, Esponenziale \\ \hline
+		3 & \texttt{1, 10, 1000} & \texttt{0.5, 0.65, 0.85}   & Lineare, Esponenziale \\ \hline
+		5 & \texttt{1, 10, 1000} & \texttt{0.5, 0.65, 0.85}   & Lineare, Esponenziale \\ \hline
+		20 & \texttt{1, 10, 1000} & \texttt{0.5, 0.65, 0.85}   & Lineare, Esponenziale \\ \hline
+	\end{tabular}
+\end{table}
 
 \subsection{Analisi conclusiva}
-Nell Tabelle [TABELLA TSNE OLIVETTI E AT\&T] e [TABELLA PCA OLIVETTI E AT\&T] abbiamo visto quale sia l'accuratezza fornita da \emph{fuzzylearn} sui dataset Olivetti e AT\&T mediante le due tenciche di riduzione PCA e t-SNE. Da questi risultati si evince che entrambe le tecniche portano a buoni e interessanti risultati con la differenza che gli spazi da considerare sono molto diversi. Con t-SNE abbiamo potuto osservare la sua potenzialità nell'immediatezza visiva di rappresentazione dei dati, il quale è un ottimo strumento per poter fare analisi qualitative dei dati. Con PCA, invece, è stato possibile vedere come la ``qualità", intesa come la quantità di informazioni contenute nei dati, influsica sull'accuratezza dei modelli allenati su di essi. Infine possiamo dire che \emph{fuzzylearn} è un ottimo algoritmo che permette, nel caso specifico di riconoscimento facciale, buone prestazioni a detrimento del tempo richiesto per allenare i modelli. Gli aspetti positivi ricadono, quindi, nella possibilità di rendere i modelli molto ``flessibili" grazie ai diversi iperparametri di cui gode e, quindi, di adattarsi bene a contesti complessi come il riconoscimento di volti in immagini, mentre lo svantaggio principale consiste nel tempo richiesto per l'allenamento del modello.
+Nell Tabelle \ref{tab:tab_tsne} e \ref{tab:res_pca} abbiamo visto quale sia l'accuratezza nel riconoscimento dei volti fornita da \emph{fuzzylearn} sui dataset Olivetti e AT\&T mediante le due tenciche di riduzione dimensionale PCA e \emph{t}-SNE. Dai risultati esposti si evince che entrambe le tecniche utilizzate con questo algoritmo forniscono una buona performance. L'unica differenza è che gli spazi da considerare sono molto diversi. Con \emph{t}-SNE abbiamo apprezzato la sua capacità nella rappresentazione grafica dei dati, che consente di fare analisi empirico-qualitative sui dati stessi. Con PCA, invece, è stato possibile apprezzare come la quantità di informazioni contenute nei dati influisce sull'accuratezza dei modelli allenati su di essi. Un ulteriore aspetto positivo di \emph{fuzzylearn} consiste nel rendere flessibili i modelli grazie alla presenza dei diversi iperparametri.
+
+Infine possiamo dire che \emph{fuzzylearn} è un ottimo algoritmo che permette, nel caso specifico di riconoscimento facciale, buone prestazioni avendo a disposizione una potenza di calcolo sufficiente.
 
 
 \begin{thebibliography}{9}
