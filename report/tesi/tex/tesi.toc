@@ -1,35 +1,37 @@
 \babel@toc {italian}{}
 \babel@toc {italian}{}
 \contentsline {chapter}{Indice}{i}{Doc-Start}
-\contentsline {chapter}{\numberline {1}Apprendimento automatico}{1}{chapter.1}
-\contentsline {section}{\numberline {1.1}Approcci}{1}{section.1.1}
-\contentsline {section}{\numberline {1.2}Supervisionato}{1}{section.1.2}
-\contentsline {subsection}{\numberline {1.2.1}k-Nearest Neighbor}{4}{subsection.1.2.1}
-\contentsline {subsection}{\numberline {1.2.2}Modelli lineari}{6}{subsection.1.2.2}
-\contentsline {subsection}{\numberline {1.2.3}Support Vector Machine}{7}{subsection.1.2.3}
-\contentsline {subsection}{\numberline {1.2.4}Alberi di decisione}{10}{subsection.1.2.4}
-\contentsline {section}{\numberline {1.3}Non supervisionato}{13}{section.1.3}
-\contentsline {section}{\numberline {1.4}Semi-supervisionato}{14}{section.1.4}
-\contentsline {section}{\numberline {1.5}Apprendimento con rinforzo}{15}{section.1.5}
-\contentsline {section}{\numberline {1.6}Riduzione della dimensionalit\IeC {\`a}}{15}{section.1.6}
-\contentsline {subsection}{\numberline {1.6.1}Analisi delle componenti principali}{16}{subsection.1.6.1}
-\contentsline {subsection}{\numberline {1.6.2}t-Distributed stochastic neighbor embedding}{17}{subsection.1.6.2}
-\contentsline {chapter}{\numberline {2}Induzione di insiemi fuzzy}{19}{chapter.2}
-\contentsline {section}{\numberline {2.1}La logica fuzzy}{19}{section.2.1}
-\contentsline {section}{\numberline {2.2}Gli insiemi fuzzy}{19}{section.2.2}
-\contentsline {section}{\numberline {2.3}Fuzzylearn}{20}{section.2.3}
-\contentsline {subsection}{\numberline {2.3.1}Calcolo dell'insieme fuzzy}{21}{subsection.2.3.1}
-\contentsline {subsection}{\numberline {2.3.2}Configurazione degli iperparametri}{24}{subsection.2.3.2}
-\contentsline {chapter}{\numberline {3}Esperimenti}{27}{chapter.3}
-\contentsline {section}{\numberline {3.1}I dataset}{27}{section.3.1}
-\contentsline {subsection}{\numberline {3.1.1}Olivetti dataset}{27}{subsection.3.1.1}
-\contentsline {subsection}{\numberline {3.1.2}AT\&T faces dataset}{27}{subsection.3.1.2}
-\contentsline {section}{\numberline {3.2}Valutazione del modello}{28}{section.3.2}
-\contentsline {subsection}{\numberline {3.2.1}Training, Validation e Test set}{28}{subsection.3.2.1}
-\contentsline {subsection}{\numberline {3.2.2}Cross-validation}{28}{subsection.3.2.2}
-\contentsline {subsection}{\numberline {3.2.3}Grid Search}{29}{subsection.3.2.3}
-\contentsline {subsection}{\numberline {3.2.4}Grid Search con Cross-Validation}{30}{subsection.3.2.4}
-\contentsline {section}{\numberline {3.3}Risultati}{31}{section.3.3}
-\contentsline {subsection}{\numberline {3.3.1}Utilizzo del metodo di riduzione \emph {t}-SNE}{33}{subsection.3.3.1}
-\contentsline {subsection}{\numberline {3.3.2}Utilizzo metodo di riduzione PCA}{36}{subsection.3.3.2}
-\contentsline {subsection}{\numberline {3.3.3}Analisi conclusiva}{40}{subsection.3.3.3}
+\contentsline {chapter}{Introduzione}{1}{chapter*.2}
+\contentsline {chapter}{\numberline {1}Apprendimento automatico}{3}{chapter.1}
+\contentsline {section}{\numberline {1.1}Approcci}{3}{section.1.1}
+\contentsline {section}{\numberline {1.2}Supervisionato}{3}{section.1.2}
+\contentsline {subsection}{\numberline {1.2.1}k-Nearest Neighbor}{6}{subsection.1.2.1}
+\contentsline {subsection}{\numberline {1.2.2}Modelli lineari}{8}{subsection.1.2.2}
+\contentsline {subsection}{\numberline {1.2.3}Support Vector Machine}{9}{subsection.1.2.3}
+\contentsline {subsection}{\numberline {1.2.4}Alberi di decisione}{12}{subsection.1.2.4}
+\contentsline {section}{\numberline {1.3}Non supervisionato}{15}{section.1.3}
+\contentsline {section}{\numberline {1.4}Semi-supervisionato}{16}{section.1.4}
+\contentsline {section}{\numberline {1.5}Apprendimento con rinforzo}{17}{section.1.5}
+\contentsline {section}{\numberline {1.6}Riduzione della dimensionalit\IeC {\`a}}{17}{section.1.6}
+\contentsline {subsection}{\numberline {1.6.1}Analisi delle componenti principali}{18}{subsection.1.6.1}
+\contentsline {subsection}{\numberline {1.6.2}t-Distributed stochastic neighbor embedding}{19}{subsection.1.6.2}
+\contentsline {chapter}{\numberline {2}Induzione di insiemi fuzzy}{21}{chapter.2}
+\contentsline {section}{\numberline {2.1}La logica fuzzy}{21}{section.2.1}
+\contentsline {section}{\numberline {2.2}Gli insiemi fuzzy}{21}{section.2.2}
+\contentsline {section}{\numberline {2.3}Fuzzylearn}{22}{section.2.3}
+\contentsline {subsection}{\numberline {2.3.1}Calcolo dell'insieme fuzzy}{23}{subsection.2.3.1}
+\contentsline {subsection}{\numberline {2.3.2}Configurazione degli iperparametri}{26}{subsection.2.3.2}
+\contentsline {chapter}{\numberline {3}Esperimenti}{29}{chapter.3}
+\contentsline {section}{\numberline {3.1}I dataset}{29}{section.3.1}
+\contentsline {subsection}{\numberline {3.1.1}Olivetti dataset}{29}{subsection.3.1.1}
+\contentsline {subsection}{\numberline {3.1.2}AT\&T faces dataset}{29}{subsection.3.1.2}
+\contentsline {section}{\numberline {3.2}Valutazione del modello}{30}{section.3.2}
+\contentsline {subsection}{\numberline {3.2.1}Training, Validation e Test set}{30}{subsection.3.2.1}
+\contentsline {subsection}{\numberline {3.2.2}Cross-validation}{30}{subsection.3.2.2}
+\contentsline {subsection}{\numberline {3.2.3}Grid Search}{31}{subsection.3.2.3}
+\contentsline {subsection}{\numberline {3.2.4}Grid Search con Cross-Validation}{32}{subsection.3.2.4}
+\contentsline {section}{\numberline {3.3}Risultati}{33}{section.3.3}
+\contentsline {subsection}{\numberline {3.3.1}Utilizzo del metodo di riduzione \emph {t}-SNE}{35}{subsection.3.3.1}
+\contentsline {subsection}{\numberline {3.3.2}Utilizzo metodo di riduzione PCA}{38}{subsection.3.3.2}
+\contentsline {subsection}{\numberline {3.3.3}Analisi conclusiva}{42}{subsection.3.3.3}
+\contentsline {chapter}{Conclusione}{43}{chapter*.3}

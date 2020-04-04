@@ -20,7 +20,7 @@
 \def\myCDL{Corso di Laurea triennale in\\Informatica}
 
 % TITOLO TESI:
-\def\myTitle{Riconoscimento di volti \\tramite insiemi fuzzy}
+\def\myTitle{Riconoscimento di volti \\ \vskip 0.2 cm tramite insiemi fuzzy}
 
 % AUTORE:
 \def\myName{Tommaso Amadori}
@@ -69,6 +69,7 @@
 \usepackage{amsfonts}
 \usepackage{verbatimbox}
 \usepackage{array}
+\usepackage[bottom]{footmisc}
 
 \setcounter{secnumdepth}{3}
 \setcounter{tocdepth}{3}
@@ -106,6 +107,23 @@
 %			CAPITOLO 1: Introduzione o Abstract
 % 
 
+\chapter*{Introduzione}
+\addcontentsline{toc}{chapter}{Introduzione}
+\markboth{Introduzione}{Introduzione}
+Quando si parla di machine learning si parla di una particolare branca dell'informatica in cui si studiano delle tecniche in grado di istruire la macchina a produrre regole e/o schemi per risolvere determinati compiti. Il machine learning è stato introdotto per la ricerca di soluzioni a problemi che comportano elevata complessità a livello di codice. 
+%prevedono un elevata complessità a livello di codificabilità. 
+Per esempio nel riconoscimento di oggetti in un'immagine, pensare di codificare la soluzione con una serie di if-then-else è impossibile. Basti pensare a tutte le caratteristiche che definiscono i volti: forma degli occhi, colore degli occhi, colore della pelle, forma del naso, forma della bocca e così via. 
+%Progettare quindi, tramite la porgrammazione tradizionale, un algoritmo per ogni persona con una serie di if-then-else per riconoscere il soggetto diventa molto complicato. 
+
+Per comprendere come si distingue il machine learning dalla programmazione tradizionale facciamo riferimento a tre attori: i dati, le regole e i risultati. I dati consistono nelle informazioni che vengono elaborate, i risultati sono i valori emessi dall'algoritmo e le regole sono gli schemi di manipolazione dei dati che restituiscono un risultato.
+Nella programmazione tradizionale, gli algoritmi vengono prodotti direttamente da un programmatore che si basa sui dati e sulle regole. Questi forniscono un output che consiste, quindi, nelle risposte ottenute applicando le regole ai dati. Il machine learning inverte questa logica in modo tale che l'input è costituito dalle risposte e dai dati. L'output consiste quindi nelle regole che nella programmazione tradizionale sono definite dal programmatore. In questo modo si delega alla macchina la ricerca di regole/schemi che permettono di associare un dato a un risultato. Qui sta la il nocciolo della questione: non è più il programmatore a produrre regole che forniscono risposte a problemi ma è la macchina che studia le associazioni tra i dati e gli esempi per definire regole più generali di associazione che possano essere applicate a dati sconosciuti al sistema.
+% un problema che presenta infinite quantità di dati da considerare per ottenere un risultato. 
+
+Esistono molti algoritmi di machine learning per affrontare questa tematica ma nel corso di questa tesi è stato studiato un algoritmo in particolare: l'algoritmo \emph{fuzzylearn}. Questo algoritmo si basa sulla teoria degli insiemi fuzzy, la quale consente di riformulare la classica teoria insiemistica sulla base di un nuovo principio ovvero il grado di appartenenza di un oggetto a un insieme. Questo grado di appartenenza è utilizzato da \emph{fuzzylearn} per effettuare la classificazione di oggetti.
+
+L'obiettivo di questa tesi è lo studio, mediante l'algoritmo \emph{fuzzylearn}, del comportamento di insiemi fuzzy applicato alla classificazione di immagini di volti umani allo scopo di riconoscere un soggetto fra i tanti appartenenti a un insieme dato.
+
+La tesi è così articolata: nel Capitolo \ref{cap:apprendimento_automatico} vengono descritte le tecniche di Machine Learning con particolare attenzione alla tecnica supervisionata ovvero quella che caratterizza l'algoritmo utilizzato nella tesi; nel Capitolo \ref{cap:induzione_insiemi_fuzzy} viene esplicato il metodo matematico di induzione di insiemi fuzzy su cui si basa l'algoritmo \emph{fuzzylearn}; nel Capitolo \ref{cap:esperimenti} vengono descritti gli esperimenti effettuati durante questo percorso, analizzando il comportamento di \emph{fuzzylearn} nel caso di dataset contenenti immagini raffiguranti volti di diversi soggetti; nelle conclusioni, infine, vengono riassunti i risultati raggiunti e viene proposto un possibile sviluppo futuro realizzabile mediante questa tecnologia.
 \chapter{Apprendimento automatico}
 \label{cap:apprendimento_automatico}
 Il Machine Learning (ML) insegna ai computer a compiere attività in modo naturale come gli esseri umani o gli animali: imparando dall’esperienza. In sostanza, gli algoritmi di ML usano metodi matematico-computazionali per apprendere informazioni direttamente dai dati, senza modelli matematici ed equazioni predeterminate. Gli algoritmi di ML migliorano le loro prestazioni in modo ``adattivo” mano a mano che gli ``esempi" da cui apprendere aumentano. Cerchiamo allora di capire cos’è il ML, come funziona e quali sono le sue applicazioni.
@@ -459,7 +477,7 @@ Questo è un esempio piuttosto semplice, ma nella realtà si possono adattare sp
 
 
 \chapter{Induzione di insiemi fuzzy}
-\label{ch:prova}
+\label{cap:induzione_insiemi_fuzzy}
 
 \section{La logica fuzzy}
 La logica fuzzy (in italiano, logica sfocata), è un'estensione della logica booleana. Nella matematica booleana sono presenti solo due valori attribuili alle variabili: \emph{vero} e \emph{falso}. 
@@ -751,13 +769,13 @@ Ricapitolando, l'algoritmo \emph{fuzzylearn} prevede i tre seguenti iperparametr
 \end{itemize}
 
 \chapter{Esperimenti}
-
+\label{cap:esperimenti}
 In questo capitolo ci concentreremo sui risultati ottenuti tramite l'utilizzo di \emph{fuzzylearn} su due diversi dataset di volti: Olivetti faces e AT\&T faces. Descriveremo inoltre tutti i risultati commentandoli e traendo infine delle conclusioni sull'algoritmo utilizzato con le tecniche di riduzione PCA e \emph{t}-SNE.
 
 \section{I dataset}
 \subsection{Olivetti dataset}
 Olivetti dataset è un dataset di immagini di volti umani. Le immagini sono fotografie scattate a 40 diversi soggetti presso AT\&T Laboratories Cambridge tra il 1992 e 1994. Questo dataset è stato messo a disposizione proprio da AT\&T Laboratories Cambridge.
-Nel dataset sono presenti 10 immagini per ognuno dei 40 soggetti per un totale di 400 immagini, ognuna delle quali raffigura il soggetto in diverse condizioni di luce e con differenti espressioni facciali (occhi chiusi/aperti, sorriso, ecc.). I soggetti sono rappresentati tramite un numero compreso tra 0 a 39. Ogni immagine è stata quantizzata a 256 livelli di grigio e con una risoluzione pari a 64 x 64 pixel. L'immagine è rappresentata da una lista di valori float (compresi tra 0 e 1) di 4096 elementi. 
+Nel dataset sono presenti dieci immagini per ognuno dei 40 soggetti per un totale di 400 immagini, ognuna delle quali raffigura il soggetto in diverse condizioni di luce e con differenti espressioni facciali (occhi chiusi/aperti, sorriso, ecc.). I soggetti sono rappresentati tramite un numero compreso tra 0 a 39. Ogni immagine è stata quantizzata a 256 livelli di grigio e con una risoluzione pari a 64 x 64 pixel. L'immagine è rappresentata da una lista di valori float (compresi tra 0 e 1) di 4096 elementi. 
 
 
 \subsection{AT\&T faces dataset}
@@ -765,46 +783,46 @@ Il dataset AT\&T faces, come quello Olivetti, contiene anch'esso immagini raffig
 %[nota: si ringrazia AT\&T Laboratories per i dati messi a disposzione] 
 
 \section{Valutazione del modello}
-Fino ad ora abbiamo visto come si costruiscono i modelli di ML e come possono essere configurati. In questo paragrafo ci soffermeremo sulla valutazione di un modello e dei relativi iperparametri.
+Fino a ora abbiamo visto come si costruiscono i modelli di ML e come questi possono essere configurati. In questo paragrafo ci soffermeremo sulla valutazione di un modello e dei relativi iperparametri.
 
 \subsection{Training, Validation e Test set}
-Per costruire un modello abbiamo visto che è necessario un dataset su cui basare l'apprendimento. Il dataset che viene usato per la costruzione del modello viene spesso diviso in due sotto-set: \emph{training set} e \emph{test set}.
+Per costruire un modello abbiamo visto che è necessario un dataset su cui basare l'apprendimento. Il dataset che viene usato per la costruzione del modello viene spesso diviso in due sottoinsieme: \emph{training set} e \emph{test set}.
 
-Il \emph{training set} è il sotto-set di dati utilizzato per allenare il modello. Quindi il modello vede e impara da questo set.
+Il \emph{training set} è il sotto-set di dati utilizzato per allenare il modello. Quindi il modello vede e impara da questo insieme.
 
-Il \emph{test set} consiste nei dati del dataset a esclusione di quelli compresi nel \emph{training set}. Questo set è utilizzato per valutare l'accuratezza del modello. 
+Il \emph{test set} consiste nei dati del dataset a esclusione di quelli compresi nel \emph{training set}. Questo insieme è utilizzato per valutare l'accuratezza del modello. 
 Ne consegue, quindi, la sua utilizzazione per determinare lo \emph{score} del modello nella generalità dei casi.
 % avente la migliore configurazione di iperparametri individuata mediante il \emph{validation set}. Lo score viene determinato analogamente a quanto viene fatto con il \emph{validation set}.
 
-A volte si definisce un terzo sotto-set denominato \emph{validation set}. È un set utilizzato per valutare le prestazioni con una specifica configurazione di iperparametri per poi effettuare una ricerca più approfondita di questi. 
+A volte si definisce un terzo sottoinsieme denominato \emph{validation set}. È un insieme utilizzato per valutare le prestazioni con una specifica configurazione di iperparametri per poi effettuare una ricerca più approfondita di questi. 
 %Viene utilizzato, quindi, per una ricerca approfondita della migliore configurazione possibile. 
 Una volta determinata la migliore configurazione del modello, questo viene sottoposto al \emph{test set} per verificarne la bontà di generalizzazione.
 
 \subsection{Cross-validation}
-La \emph{cross-validation} è un metodo statistico di valutazione delle performance di un modello di ML. Con la \emph{cross-validation} i dati dell'intero dataset vengono partizionati in $k$ gruppi ognuno dei quali è denominato \emph{fold} e dove $k$ rappresenta un numero specificato dall'utente. Ad esempio, per un valore $k$ pari a 5 si ha una suddivisione del dataset in 5 diversi \emph{fold}. Effettuata la suddivisione il modello viene allenato utilizzando il primo \emph{fold} come \emph{test set} e i restanti come \emph{training set}. Successivamente lo stesso modello viene costruito usando il secondo \emph{fold} come \emph{test set} e i restanti \emph{fold} (1, 3, 4, 5) come \emph{training set}. Questo procedimento è ripetuto utilizzando ogni \emph{fold} come \emph{test set} una e una sola volta. Pertanto avremo 5 ripetizioni del dataset in ciascuna delle quali il \emph{test set} è costituito da un diverso sottoinsieme del dataset stesso.
+La \emph{cross-validation} è un metodo statistico di valutazione delle performance di un modello di ML. Con la \emph{cross-validation} i dati dell'intero dataset vengono partizionati in $k$ gruppi aventi approssimativamente la stessa grandezza, ognuno dei quali è denominato \emph{fold} e dove $k$ rappresenta un numero specificato dall'utente. Ad esempio, per un valore $k$ pari a cinque si ha una suddivisione del dataset in cinque diversi \emph{fold}. Effettuata la suddivisione il modello viene allenato utilizzando il primo \emph{fold} come \emph{test set} e i restanti come \emph{training set}. Successivamente lo stesso modello viene costruito usando il secondo \emph{fold} come \emph{test set} e i restanti \emph{fold} (1, 3, 4, 5) come \emph{training set}. Questo procedimento è ripetuto utilizzando ogni \emph{fold} come \emph{test set} una e una sola volta. Pertanto avremo 5 ripetizioni del dataset in ciascuna delle quali il \emph{test set} è costituito da un diverso sottoinsieme del dataset stesso.
 In Figura \ref{fig:cv} è mostrato uno schema di una \emph{cross-validation} a 5 fold.
 
 \begin{figure}[h!]
 	\center
 	\includegraphics[scale=0.5]{../img/cv} %https://medium.com/@george.drakos62/support-vector-Machine-vs-logistic-regression-94cc2975433f
-	\caption{Cross-validation con 5 fold. Il dataset viene suddiviso in 5 diverse combinazioni in cui il \emph{test set} (nell'immagine \emph{test data}) è rappresentato in grigio e il \emph{training set} (nell'immagine \emph{training data}) è rappresentato in bianco.}
+	\caption{Cross-validation con cinque fold. Il dataset viene suddiviso in cinque diverse combinazioni in cui il \emph{test set} (nell'immagine \emph{test data}) è rappresentato in grigio e il \emph{training set} (nell'immagine \emph{training data}) è rappresentato in bianco.}
 	\label{fig:cv}
 \end{figure}
 
-L'utilizzo di questa strategia comporta diversi vantaggi. Un primo importante vantaggio è rappresentato dal fatto che l'accuratezza del modello è calcolata sulla media di tutti gli \emph{score} ottenuti dall'utilizzo dei differenti \emph{test set}. Per capire meglio questo vantaggio, vediamo l'esempio seguente. Supponiamo di essere ``fortunati" e quindi di allenare il modello su un \emph{training set} che contiene perlopiù dati di difficile classificazione (outlier). Di converso il \emph{test set} avrà probabilmente dati di facile classificazione il che permette al modello di avere prestazioni casualmente molto alte. Al contrario se siamo ``sfortunati" avremo i dati di difficile classificazione all'interno del \emph{test set} e quelli di semplice classificazione nel \emph{training set}. In questo modo avremo performance piuttosto basse ancorché aleatoria.
+L'utilizzo di questa strategia comporta diversi vantaggi. Un primo importante vantaggio è rappresentato dal fatto che l'accuratezza del modello è calcolata sulla media di tutti gli \emph{score} ottenuti dall'utilizzo dei differenti \emph{test set}. Per capire meglio questo vantaggio, vediamo l'esempio seguente. Supponiamo di essere ``fortunati" e quindi di allenare il modello su un \emph{training set} che contiene perlopiù dati di difficile classificazione (outlier). Di converso il \emph{test set} avrà probabilmente dati di facile classificazione il che permette al modello di avere prestazioni casualmente molto alte. Al contrario se siamo ``sfortunati" avremo i dati di difficile classificazione all'interno del \emph{test set} e quelli di semplice classificazione nel \emph{training set}. In questo modo avremo performance piuttosto basse ancorché aleatorie.
 Con l'utilizzo di \emph{cross-validation} però, la performance complessiva sarà difficilmente affetta da una distorsione casuale poiché il risultato finale sarà composto dalla media dei risultati delle varie combinazioni.
 
-Un'altro vantaggio corrisponde al fatto che oltre a variare l'utilizzo dei dati di allenamento, è possibile variare anche il numero di \emph{fold} che suddividono il dataset. Se utilizziamo 10 \emph{fold} ad esempio, avremo un \emph{test set} definito da un decimo della dimensione totale del dataset. Analogamente se ne utilizziamo 5, il \emph{test set} sarà costituito da un quinto del totale.
+Un'altro vantaggio corrisponde al fatto che oltre a variare l'utilizzo dei dati di allenamento, è possibile variare anche il numero di \emph{fold} che suddividono il dataset. Se ad esempio utilizziamo dieci \emph{fold}, ad esempio, avremo un \emph{test set} definito da un decimo della dimensione totale del dataset. Analogamente se ne utilizziamo cinque il \emph{test set} sarà costituito da un quinto del totale.
 
 D'altra parte la \emph{cross-validation} presenta lo svantaggio di allungare eccessivamente i tempi di valutazione del modello. Questo perché maggiore è il numero di \emph{fold} e maggiore è il tempo richiesto per ottenere un risultato. In altre parole con $k$ \emph{fold} avremo un tempo pari a $k$ volte il tempo necessario ad allenarlo.
 
 \subsection{Grid Search}
 Ora che abbiamo capito come avviene e su cosa si basa una possibile valutazione del modello passiamo al prossimo step: la ricerca del miglior modello.
 Cercare il miglior modello significa cercare la migliore configurazione di iperparametri che meglio generalizzano la valutazione/predizione di nuove osservazioni. 
-\emph{Grid Search} è una tecnica molto usata per il raggiungimento di questo obiettivo. Essa consiste nel provare ogni possibile combinazione di iperparametri di nostro interesse. Consideriamo il caso di \emph{fuzzylearn}. Come abbiamo visto nel capitolo precedente vi sono tre differenti iperparametri che caratterizzano l'algoritmo: \emph{C}, \emph{kernel}, \emph{fuzzifier}. Supponiamo di voler testare 4 differenti valori per \emph{C}, 4 per il \emph{kernel} e 2 per il \emph{fuzzifier}. Così facendo abbiamo un totale di $4 \cdot 4 \cdot2 = 32$ combinazioni differenti di iperparametri.
+\emph{Grid Search} è una tecnica molto usata per il raggiungimento di questo obiettivo. Essa consiste nel provare ogni possibile combinazione di iperparametri di nostro interesse. Consideriamo il caso di \emph{fuzzylearn}. Come abbiamo visto nel capitolo precedente vi sono tre differenti iperparametri che caratterizzano l'algoritmo: \emph{C}, \emph{kernel}, \emph{fuzzifier}. Supponiamo di voler testare quattro differenti valori per \emph{C}, quattro per il \emph{kernel} e due per il \emph{fuzzifier}. Così facendo abbiamo un totale di $4 \cdot 4 \cdot2 = 32$ combinazioni differenti di iperparametri.
 Iterando tutte le possibili combinazioni su un \emph{training set} e valutandone le prestazioni su un \emph{test set} possiamo quindi trovare quale fra le 32 combinazioni restituisca la performance migliore.
 
-Così facendo possiamo definire quale sia la migliore combinazione di iperparametri. Qui però sorge il problema dovuto al fatto che il risultato ottenuto non ci consente di dire come si comporta il modello trovato su nuovi dati. Proprio per questo suddividiamo il dataset in \emph{test set}, \emph{validation set} e \emph{training set}. In questo modo allenando il modello sul \emph{training set} e valutandolo sul \emph{validation set} vediamo quale tra le configurazioni definite restituisce il miglior risultato. Riprendendo l'esempio precedente alleniamo sul \emph{training set} un modello su ognuna delle 32 combinazioni di iperparametri per poi valutarlo sul \emph{validation set}. Una volta definita la migliore configurazione utilizzeremo l'insieme di \emph{training set} e di \emph{validation set} come set di allenamento e il \emph{test set} come set di valutazione della bontà di generalizzazione.
+Così facendo possiamo definire quale sia la migliore combinazione di iperparametri. Qui però sorge il problema dovuto al fatto che il risultato ottenuto non ci consente di dire come si comporta il modello trovato su nuovi dati. Proprio per questo suddividiamo il dataset in \emph{test set}, \emph{validation set} e \emph{training set}. In questo modo allenando il modello sul \emph{training set} e valutandolo sul \emph{validation set} vediamo quale tra le configurazioni definite restituisce il miglior risultato. Riprendendo l'esempio precedente alleniamo sul \emph{training set} un modello su ognuna delle 32 combinazioni di iperparametri per poi valutarlo sul \emph{validation set}. Una volta definita la migliore configurazione utilizzeremo l'insieme di \emph{training set} e di \emph{validation set} come insieme di allenamento e il \emph{test set} come insieme di valutazione della bontà di generalizzazione.
 
 %Questa tecnica ha degli svantaggi perchè i risultati ottenuti non sempre sono del tutto precisi. Questo succede perché nel testare le prestazioni delle diverse configurazioni consideriamo \emph{test set} differenti per ognuna di queste. Così facendo i risultati ottenuti si basano tutti sul prorpio test set e questo non ci permette di avere un'unica misura per valutrare le effettive prestazioni.
 
@@ -819,49 +837,54 @@ Così facendo possiamo definire quale sia la migliore combinazione di iperparame
 
 \subsection{Grid Search con Cross-Validation}
 \label{sec:gridsearchcv}
-Nei due paragrafi precedenti abbiamo visto quale sia una possibile valutazione delle performance del modello e successivamente la modalità di ricerca di una buona configurazione di iperparametri. Queste due tecniche vengono spesso utilizzate insieme per identificare quale sia, in generale, la migliore combinazione possibile per un modello utilizzando diversi dati di \emph{training} e di \emph{test}.
-Quindi quello che viene fatto è, per ogni modello, valutare su ogni insieme di dati usati per il training set e per il test set, quale combinazione di iperparametri fornisce la performance migliore. Questo consente, quindi, un ulteriore grado di valutazione del modello poiché per ogni combinazione di iperparametri si ha un valore medio dello \emph{score} basato sui diversi \emph{test set} generati dall'uso della \emph{cross-validation}. Di contro si ha che il costo in termini di tempi di esecuzione cresce al crescere delle possibili combinazioni e del numero di \emph{fold} stabilito. Per l'algoritmo \emph{fuzzylearn} gli iperparametri configurabili sono \emph{C}, \emph{kernel} e \emph{fuzzifier}. Riprendendo l'esempio precedente, avremmo 32 combinazioni che utilizzate con una ripartizione sul dataset tramite \emph{cross-validation} a 5 \emph{fold} genererebbero $32 \cdot 5 = 160$ modelli.
+Nei due paragrafi precedenti abbiamo visto quale sia una possibile valutazione delle performance del modello e successivamente la modalità di ricerca di una buona configurazione di iperparametri (\emph{model selection}). Queste due tecniche vengono spesso utilizzate insieme per identificare quale sia, in generale, la migliore combinazione possibile per un modello utilizzando diversi dati di \emph{training} e di \emph{test}.
+L'idea è quella di avere separato (eventualmente con un processo di cross-validation esterna, o con un hold out) i dati di test. Quelli che restano devono essere usati per addestrare e fare \emph{model selection}. Per cui si può aggiungere un processo di \emph{cross-validation} (che diventa un processo annidato, se già abbiamo una \emph{cross-validation} esterna per la valutazione della bontà di generalizzazione), in cui per ogni combinazione di iperparametri e per ogni \emph{fold} f, si addestra sui \emph{fold} diversi da f e si valuta su quest'ultimo il modello ottenuto. La media della valutazione sui \emph{fold} indica la bontà della configurazione di iperparametri. Alla fine si sceglie il modello con la migliore configurazione di iperparametri, e lo si passa alla procedura di valutazione della bontà di generalizzazione.
+%Quindi quello che viene fatto è, per ogni modello, valutare su ogni insieme di dati usati per il training set e per il test set, quale combinazione di iperparametri fornisce la performance migliore. 
+
+%Questo consente, quindi, un ulteriore grado di valutazione del modello poiché per ogni combinazione di iperparametri si ha un valore medio dello \emph{score} basato sui diversi \emph{test set} generati dall'uso della \emph{cross-validation}. 
+Di contro si ha che il costo in termini di tempi di esecuzione cresce al crescere delle possibili combinazioni e del numero di \emph{fold} stabilito. Per l'algoritmo \emph{fuzzylearn} gli iperparametri configurabili sono \emph{C}, \emph{kernel} e \emph{fuzzifier}. Riprendendo l'esempio precedente, avremmo 32 combinazioni che utilizzate con una ripartizione sul dataset tramite \emph{cross-validation} a 5 \emph{fold} genererebbero $32 \cdot 5 = 160$ modelli.
 È importante quindi utilizzare il \emph{Grid Search} unito alla \emph{cross-validation} prestando attenzione a quali e quanti iperparametri si vogliono combinare per evitare di effettuare computazioni eccessivamente lunghe.
 
 %**************PARLA DI NESTED CROSS VALIDATION**************
 
 \section{Risultati}
-In conclusione analizziamo i risultati ottenuti sui dataset Olivetti e AT\&T tramite \emph{fuzzylearn}. Nella ricerca e nello studio sul comportamento di \emph{fuzzylearn} nel riconoscimento facciale e quindi nella classificazione dei soggetti è stata utilizzata una tecnologia di Google denominate Google Colaboratory.
+In conclusione analizziamo i risultati ottenuti sui dataset Olivetti e AT\&T tramite \emph{fuzzylearn}. Nella ricerca e nello studio sul comportamento di \emph{fuzzylearn} nel riconoscimento facciale e quindi nella classificazione dei soggetti è stata utilizzata una tecnologia di Google denominate Google Colaboratory \cite{google_colab}.
 
-Per il calcolo dei risultati, a livello pratico, è stato usato il linguaggio di programmazione \emph{python 3.7} che è uno dei più utilizzati nell'ambito del ML per la sua comodità e semplicità di utilizzo e perché sono presenti molte librerie ricche di funzionalità. I pacchetti usati durante questi studi sono stati \emph{scitkit\_learn} per l'elaborazione dei dati e \emph{matplotlib} insieme a \emph{plotly} per la produzione di grafici 2D e 3D. In particolare sono state usate le seguenti librerie/funzionalità:
+Per il calcolo dei risultati, a livello pratico, è stato usato il linguaggio di programmazione \emph{python 3.7} che è uno dei più utilizzati nell'ambito del ML per la sua comodità e semplicità di utilizzo e perché sono presenti molte librerie ricche di funzionalità. I pacchetti usati durante questi studi sono stati \emph{scitkit\_learn}\footnote{\emph{scikit\_learn} versione 0.22.2} per l'elaborazione dei dati e \emph{matplotlib}\footnote{\emph{matplotlib} versione 3.2.1} insieme a \emph{plotly}\footnote{\emph{plotly} versione 4.6.0} per la produzione di grafici 2D e 3D. In particolare sono state usate le seguenti librerie/funzionalità:
 \begin{itemize}
-	\item{\texttt{GridSearchCV}: funzione di \emph{scikit\_learn} che, presa una lista di valori per ogni iperparametro, applica su diverse suddivisioni del dataset la combinazione di ognuna di queste per trovare poi quella che definisce il modello con lo score medio più alto (come spiegato in \ref{sec:gridsearchcv}),}
-	\item{\texttt{pre-processing}: libreria di \emph{scikit\_learn} utile ad applicare delle trasformazioni ai dati prima che questi vengano usati per allenare il modello. In particolare \emph{StandardScaler} è una funzione di questa libreria per standardizzare le \emph{feature} e \emph{MinMaxScaler} per adattare a uno specifico intervallo (comune a tutte le \emph{feature}) i singoli valori delle \emph{feature},}
+	\item{\texttt{GridSearchCV}: funzione di \emph{scikit\_learn} che, presa una lista di valori per ogni iperparametro, applica su diverse suddivisioni del dataset la combinazione di ognuna di queste per trovare poi quella che definisce il modello con lo score medio più alto (come spiegato nel Paragrafo \ref{sec:gridsearchcv}),}
+	\item{\texttt{preprocessing}: libreria di \emph{scikit\_learn} utile ad applicare delle trasformazioni ai dati prima che questi vengano usati per allenare il modello; in particolare \emph{StandardScaler} è una funzione di questa libreria per standardizzare le \emph{feature} e \emph{MinMaxScaler} per adattare a uno specifico intervallo (comune a tutte le \emph{feature}) i singoli valori delle \emph{feature},}
 	\item{\texttt{PCA}: funzione di \emph{scikit\_learn} che, come si può intendere dal nome, serve ad applicare una riduzione di dimensionalità tramite PCA}
 	\item{\texttt{TSNE}: funzione di \emph{scikit\_learn} che serve ad applicare una riduzione di dimensionalità tramite \emph{t}-SNE}
 \item{\texttt{pyplot}: libreria di \emph{matplotlib} che in questo testo è stata utilizzata nella produzione di grafici 2D quali grafici di dispersione (o \emph{scatter plot}), grafici di contorno e grafici a linea,}
-\item{\texttt{express}: libreria di \emph{plotly} per la produzione di grafici tridimensionali come grafici di dispersione 3D e grafici di contorno 3D.}
+\item{\texttt{express}: libreria di \emph{plotly} per la produzione di grafici tridimensionali come grafici di dispersione 3D e grafici basati su curve di livello.}
 \end{itemize}
-Inoltre è stato usato il pacchetto di \emph{fuzzylearn} (disponibile su github all'indirizzo \texttt{https://github.com/dariomalchiodi/fuzzylearn}) che contiene il codice per l'utilizzo di \emph{fuzzylearn}. Il modello codificato in questo pacchetto è stato adattato alle librerie di \emph{scikit\_learn} per poterne utilizzare le funzionalità. Nello specifico l'adattamento richiede l'implementazione delle seguenti funzionalità:
+Inoltre è stato usato il pacchetto \emph{fuzzylearn} (disponibile su github all'indirizzo \texttt{https://github.com/dariomalchiodi/fuzzylearn}) che contiene il codice per l'utilizzo di \emph{fuzzylearn}. Il modello codificato in questo pacchetto è stato adattato alle librerie di \emph{scikit\_learn} per poterne utilizzare le funzionalità. Nello specifico l'adattamento richiede l'implementazione delle seguenti funzionalità:
 \begin{itemize}
-\item{\texttt{fit(X, y)}: la funzionalità principale di tutti i modelli di ML. È utilizzata per allenare un modello sui dati della variabile \texttt{X} conoscendone le rispettive etichette contenute nella variabile \texttt{y},}
-\item{\texttt{predict(X)}: contiene l'implementazione per predire la classificazione di ogni elemento della variabile \texttt{X}, dove \texttt{X} è rappresentato da un vettore di elementi. Nel caso specifico di \emph{fuzzylearn}, \texttt{predict} restituisce, per ogni $x$ di \texttt{X}, la probabilità (compresa tra 0 e 1) che $x$ appartenga al modello,}
-\item{\texttt{score(X, y)}: contiene l'implementazione del calcolo dell'accuratezza di predizione del vettore \texttt{X} sapendo che le relative etichette sono \texttt{y}. In particolare \emph{fuzzylearn} restituisce uno score pari alla somma del quadrato delle differenza tra la probabilità predetta dal modello e l'effettiva probabilità di appartenenza per ogni elemento di \texttt{X}.}
+\item{\texttt{fit(X, y)}: la funzionalità principale di tutti i modelli di ML che è utilizzata per allenare un modello sui dati della variabile \texttt{X} conoscendone le rispettive etichette contenute nella variabile \texttt{y},}
+\item{\texttt{predict(X)}: contiene l'implementazione per predire la classificazione di ogni elemento della variabile \texttt{X}, dove \texttt{X} è rappresentato da un vettore di elementi. Nel caso specifico di \emph{fuzzylearn}, \texttt{predict} restituisce, per ogni $x$ di \texttt{X}, il grado di appartenenza (compresa tra 0 e 1) di $x$  che  al modello,}
+\item{\texttt{score(X, y)}: contiene l'implementazione del calcolo dell'accuratezza di predizione del vettore \texttt{X} sapendo che le relative etichette sono \texttt{y}; in particolare \emph{fuzzylearn} restituisce uno score legato alla somma dei quadrati delle differenze tra il grado di appartenenza predetto dal modello e l'effettivo grado di appartenenza per ogni elemento di \texttt{X}.}
 \end{itemize}
 \begin{table}[h!]
 	\centering
 
 		\begin{tabular}{c|c|c|c}
-			& A   & B   & \multicolumn{1}{c}{C} \\ \hline
+			\toprule 
+			\multicolumn{1}{c|}{} & A   & B   & \multicolumn{1}{c}{C} \\ \midrule
 			\multicolumn{1}{c|}{a} & 0.9 & 0.1 & 0.2                    \\
 			\multicolumn{1}{c|}{b} & 0.8 & 0.5 & 0.1                    \\
 			\multicolumn{1}{c|}{c} & 0.0 & 0.1 & 1.0                    \\ 
+			\bottomrule
 		\end{tabular}%
 	\caption{Esempio di classificazione mediante \emph{fuzzylearn}}
 	\label{tab:example_classification}
 \end{table}
 
-Per spiegare come avviene la classificazione mediante \emph{fuzzylearn} osserviamo l'esempio rappresentato in Tabella \ref{tab:example_classification}. La tabella è composta da 3 colonne che rappresentano i 3 insiemi fuzzy generati dall'algoritmo (``A", ``B", ``C"). Nelle righe sono rappresentati invece gli elementi (``a", ``b", ``c") che devono essere classificati. Per determinare quale classe venga attribuita dall'algoritmo ad ogni elemento si seleziona la classe corrispondente all'insieme fuzzy avente la probabilità maggiore. In questo caso avremo che ``a" viene classificato correttamente come ``A" poiché la probabilità maggiore è data da ``A" ovvero 0.9, ``b" viene erroneamente classificato come ``A" perché per ``A" si ha la probabilità maggiore, ovvero 0.8, infine a ``c" viene attribuita, correttamente, la classe ``C". Di conseguenza tramite 3 fuzzy set così definiti, si avrà una correttezza pari al 66\% (2 casi su 3 sono stati classificati correttamente).
+Per spiegare come avviene la classificazione mediante \emph{fuzzylearn} osserviamo l'esempio rappresentato in Tabella \ref{tab:example_classification}. La tabella è composta da tre colonne che rappresentano i tre insiemi fuzzy generati dall'algoritmo (``A", ``B", ``C"). Nelle righe sono rappresentati invece gli elementi (``a", ``b", ``c") che devono essere classificati. Per determinare quale classe venga attribuita dall'algoritmo a ogni elemento si seleziona la classe corrispondente all'insieme fuzzy avente il grado di appartenenza maggiore. Supposto che ``a" appartenga ad ``A", ``b" a ``B" e ``c" a ``C" avremo che ``a" viene classificato correttamente come ``A" poiché il grado maggiore è dato da ``A" ovvero 0.9, ``b" viene erroneamente classificato come ``A" perché per ``A" si ha il grado maggiore, ovvero 0.8, infine a ``c" viene attribuita, correttamente, la classe ``C". Di conseguenza tramite tre fuzzy set così definiti, si avrà un'accuratezza pari al 66\% (due casi su tre sono stati classificati correttamente).
 Nei prossimi due paragrafi mostriamo i risultati ottenuti tramite l'utilizzo delle due diverse tecniche di riduzione di dimensionalità: PCA e \emph{t}-SNE. Per ogni tecnica sono esposti sotto forma di tabella i risultati ottenuti sia per Olivetti dataset che per AT\&T dataset. 
 
 \subsection{Utilizzo del metodo di riduzione \emph{t}-SNE}
-In questo paragrafo ci concentriamo sui risultati ottenuti applicando una riduzione a 2 e a 3 dimensioni tramite \emph{t}-SNE. La scelta di queste dimensioni è dovuta al fatto che \emph{t}-SNE permette di trasformare uno spazio a $ n $ dimensioni in una spazio di dimensioni minori mantenendo la stessa coerenza della distanza tra i punti nello spazio originale. Questa trasformazione ci permette di rappresentare in uno spazio naturale i dati e quindi di valutare ``immediatamente" se i punti nello spazio originale si aggregano secondo dei cluster sufficientemente distinguibili per ogni soggetto. Se ciò avviene, significa 
-
+In questo paragrafo ci concentriamo sui risultati ottenuti applicando una riduzione a due e a tre dimensioni tramite \emph{t}-SNE. La scelta di queste dimensioni è dovuta al fatto che \emph{t}-SNE permette di trasformare uno spazio a $ n $ dimensioni in uno spazio di dimensioni minori mantenendo la stessa coerenza della distanza tra i punti nello spazio ridotto. Questa trasformazione ci permette di rappresentare in uno spazio naturale i dati e quindi di valutare ``immediatamente" se i punti nello spazio originale si aggregano secondo dei cluster sufficientemente distinguibili per ogni soggetto.
 %Per questo motivo è stato ritenuto più utile ridurre le dimensioni originali (non rappresentabili graficamente) in dimensioni proiettatili in uno spazio naturale allo scopo di farne un'analisi a livello qualitativo più immediata.
 
 \begin{figure}
@@ -876,11 +899,11 @@ In questo paragrafo ci concentriamo sui risultati ottenuti applicando una riduzi
 		\includegraphics[scale=.35]{../img/tsne_atet}
 		\label{fig:tsne_atet}
 	}	
-	\caption{Nelle figure sono mostrati i grafici di dispersione 2D mediante \emph{t}-SNE. I numeri raffigurati nei grafici rappresentano le osservazioni del rispettivo dataset considerato in uno spazio bidimensionale.}
+	\caption{Grafici di dispersione della trasformazione dei dataset considerati in uno spazio bidimensionale tramite t-SNE. I numeri raffigurati indicano il soggetto relativo a ogni osservazione.}
 	\label{fig:tsne_2d}
 \end{figure}
 
-In Figura \ref{fig:tsne_2d} sono mostrati i grafici di dispersione per entrambi i dataset dopo aver applicato \emph{t}-SNE a 2 dimensioni. Analizzando i grafici è piuttosto netta la distinzione dei vari gruppi rappresentanti ogni soggetto. Da questa considerazione possiamo aspettarci come la costruzione dei modelli, con  iperparametri adeguati, ci possa restituire una buona accuratezza nella classificazione dei soggetti.
+In Figura \ref{fig:tsne_2d} sono mostrati i grafici di dispersione per entrambi i dataset dopo aver applicato \emph{t}-SNE a due dimensioni. Analizzando i grafici è piuttosto netta la distinzione dei vari gruppi rappresentanti ogni soggetto. Da questa considerazione possiamo aspettarci come la costruzione dei modelli, con  iperparametri adeguati, ci possa restituire una buona accuratezza nella classificazione dei soggetti.
 
 \begin{figure}
 	\centering
@@ -894,66 +917,74 @@ In Figura \ref{fig:tsne_2d} sono mostrati i grafici di dispersione per entrambi 
 		\includegraphics[scale=.6]{../img/atet_tsne_3d}
 		\label{fig:atet_tsne_3d}
 	}	
-	\caption{Nelle figure sono mostrati i grafici di dispersione 3D mediante \emph{t}-SNE. In entrambi i grafici si osserva la mancanza di una netta clusterizzazione dei soggetti.}
+	\caption{Grafici di dispersione della trasformazione dei dataset considerati in uno spazio tridimensionale tramite t-SNE. I punti raffigurati indicano il soggetto relativo a ogni osservazione.}
 	\label{fig:tsne_3d}
 \end{figure}
 
-Diverso è il caso riportato in Figura \ref{fig:tsne_3d} in cui sono mostrati i grafici di dispersione in 3 dimensioni. È facile notare come i cluster siano meno distinguibili rispetto alla proiezione in 2 dimensioni e quindi è naturale pensare che i risultati di classificazioni su 3 dimensioni siano inferiori rispetto a quelli in 2 dimensioni. In Tabella \ref{tab:tab_tsne} sono mostrati i rispettivi risultati: la prima colonna (``Dimensioni") indica il numero di dimensioni considerate nella riduzione, la seconda colonna (``Olivetti dataset - Test(\%)") riporta la percentuale di accuratezza nella predizione del \emph{test set}, la terza colonna (``Olivetti dataset - Train(\%)") la percentuale di accuratezza nella predizione del \emph{training set}. Analogamente nella terza e quarta colonna.
+Diverso è il caso riportato in Figura \ref{fig:tsne_3d} in cui sono mostrati i grafici di dispersione in 3 dimensioni. Anche tenuto conto della minore adeguatezza dello rappresentazione dello spazio tridimensionale, è facile notare come i cluster siano meno distinguibili rispetto alla proiezione in due dimensioni e quindi è naturale pensare che i risultati di classificazioni su tre dimensioni siano inferiori rispetto a quelli in due dimensioni. In Tabella \ref{tab:tab_tsne} sono mostrati i rispettivi risultati: la prima colonna (``Dimensioni") indica il numero di dimensioni considerate nella riduzione, la seconda colonna (``Olivetti dataset - Test(\%)") riporta la percentuale di accuratezza nella predizione del \emph{test set}, così come la terza descrive la percentuale di accuratezza nella predizione del \emph{training set}. Le ultime due colonne sono costruite in modo analogo, partendo dal dataset AT\&T.
 
 \begin{table}[h!]
 	\centering
 
-		\begin{tabular}{|c|c|c|c|c|}
-			\hline
-			\multicolumn{1}{|c|}{} & \multicolumn{2}{c|}{Olivetti dataset} & \multicolumn{2}{c|}{AT\&T dataset} \\ \hline
-			Dimensioni             & Test (\%)   & Train    (\%)         & Test    (\%)        & Train    (\%)        \\ \hline
-			2                      &            86.62       &           99.6        &           96.5      &      100            \\ \hline
-			3                      &      54.12             &               79.15    &     52.12            &       66.55           \\ \hline
+		\begin{tabular}{ c|cc|cc }
+			\toprule
+			\multicolumn{1}{c}{} & \multicolumn{2}{c}{Olivetti dataset} & \multicolumn{2}{c}{AT\&T dataset} \\ \midrule
+			Dimensioni             & Test (\%)   & Train    (\%)         & Test    (\%)        & Train    (\%)        \\ \midrule
+			2                      &            86.62       &           99.6        &           96.5      &      100            \\ 
+			3                      &      54.12             &               79.15    &     52.12            &       66.55           \\ \bottomrule
 		\end{tabular}%
 	\caption{Risultati con riduzione tramite \emph{t}-SNE}
 	\label{tab:tab_tsne}
 \end{table}
 
-I valori indicati in tabella confermano quanto osservato nei grafici di dispersione in Figura \ref{fig:tsne_2d} e in Figura \ref{fig:tsne_3d}. A percentuali alte corrispondono buone clusterizzazione dei dati (\ref{fig:tsne_2d}). A percentuali più basse corrispondono insufficienti clusterizzazione dei dati (\ref{fig:tsne_3d}). I risultati ottenuti sono frutto di 10 holdout casuali con una dimensione per il \emph{test set} pari al 20\% del totale, di conseguenza il restante 80\% è dedicato al \emph{training set}. 
-L'intervallo degli iperparametri considerati nel caso di \emph{t}-SNE è stato selezionato in modo empirico secondo mediante procedura di ``prova ed errore". Sono stati considerati dei campioni casuali dell'insieme dei soggetti a cui sono state applicate diverse configurazioni di iperparametri. Alcune di queste configurazioni sono risultate migliori di altre in termini di performance. Queste sono state utilizzate come griglia di iperparametri da applicare alla tecnica \emph{grid search} sull'insieme totale dei soggetti. I valori di configurazione scelti sono i seguenti 
+I valori indicati in tabella confermano quanto osservato nei grafici di dispersione in Figura \ref{fig:tsne_2d} e \ref{fig:tsne_3d}. A percentuali alte corrispondono buone clusterizzazione dei dati mentre A percentuali più basse corrispondono insufficienti clusterizzazione dei dati. I risultati ottenuti sono frutto di 10 holdout casuali con una dimensione per il \emph{test set} pari al 20\% del totale, di conseguenza il restante 80\% è dedicato al \emph{training set}. 
+L'intervallo degli iperparametri considerati nel caso di \emph{t}-SNE è stato selezionato in modo empirico. Sono stati considerati dei campioni casuali dell'insieme dei soggetti a cui sono state applicate diverse configurazioni di iperparametri. Alcune di queste configurazioni sono risultate migliori di altre in termini di performance. Queste sono state utilizzate come griglia di iperparametri da applicare alla tecnica \emph{grid search} sull'insieme totale dei soggetti. Gli iperparametri\footnote{Il \emph{fuzzifier} ``Esponenziale" è stato usato senza specifici parametri.} scelti sono riportati in Tabella \ref{tab:hyperparams_tsne}.
+
 
 
 \begin{table}[h!]
-	\centering
-	\begin{tabular}{|c|c|c|c|}
-		\hline
-		Dimensioni & \emph{C}           & $ \sigma $       & \emph{fuzzifier}             \\ \hline
-		2 & \texttt{1, 10, 1000} & \texttt{0.5, 1, 1.5} & Lineare, Esponenziale \\ \hline
-		3 & \texttt{1, 10, 1000} & \texttt{1, 1.5, 2}   & Lineare, Esponenziale \\ \hline
-	\end{tabular}
+	\begin{center}
+	
+		\begin{tabular}{c|c|c|c}
+			\toprule
+			Dimensioni & \emph{C} & $ \sigma $ & \emph{fuzzifier}\\ \midrule
+			2 & 1, 10, 1000 & 0.5, 1, 1.5 & Lineare, Esponenziale \\ 
+			3 & 1, 10, 1000 & 1, 1.5, 2   & Lineare, Esponenziale  \\ 
+			\bottomrule
+		\end{tabular}
+	\end{center}
+	\caption{Iperparamentri usati per t-SNE}
+	\label{tab:hyperparams_tsne}
 \end{table}
 
 
 
 \subsection{Utilizzo metodo di riduzione PCA}
-Ora vediamo come si comporta \emph{fuzzylearn} riducendo le dimensionalità tramite PCA. In questo caso abbiamo considerato un numero maggiore di dimensioni rispetto a \emph{t}-SNE perché la logica sottostante a questo algoritmo è differente. Come abbiamo già visto nel Capitolo 1, PCA riduce le dimensioni eliminando quelle che contengono la minor quantità di informazioni diversamente da \emph{t}-SNE che riduce le dimensionalità basandosi sulle distanze tra i punti nell'iperspazio. 
+Ora vediamo come si comporta \emph{fuzzylearn} riducendo le dimensionalità tramite PCA. In questo caso abbiamo considerato un numero maggiore di dimensioni rispetto a \emph{t}-SNE perché la logica sottostante a questo algoritmo è differente. Come abbiamo già visto nel Capitolo \ref{cap:apprendimento_automatico}, PCA riduce le dimensioni eliminando quelle che contengono la minor quantità di informazioni, diversamente da \emph{t}-SNE che riduce le dimensionalità basandosi sulle distanze tra i punti nello spazio originale. 
 \begin{figure}
 	\centering
 	\subfigure[Olivetti dataset]
 	{
-		\includegraphics[scale=.35]{../img/olivetti_var_ratio_pca_plot}
+		\includegraphics[scale=.35]{../img/olivetti_pca_cumsum}
 		\label{fig:olivetti_var_ratio_pca_plot}
 	}
 	\subfigure[AT\&T dataset]
 	{
-		\includegraphics[scale=.35]{../img/atet_var_ratio_pca_plot}
+		\includegraphics[scale=.35]{../img/atet_pca_cumsum}
 		\label{fig:atet_var_ratio_pca_plot}
 	}	
-	\caption{ Sull'asse delle ordinate è indicato il valore della varianza (espressa in centesimi). Sull'asse delle ascisse è rappresentato il numero di componenti ordinati in maniera decrescente rispetto alla varianza.}
+	\caption{ Sull'asse delle ordinate è indicato il valore della varianza (espressa in centesimi). Sull'asse delle ascisse è rappresentato il numero di componenti ordinate in maniera decrescente rispetto alla varianza.}
 	\label{fig:var_ratio_pca}
 \end{figure}
 
-In Figura \ref{fig:var_ratio_pca} sono mostrati i grafici che raffigurano la relazione tra l'incremento della quantità di informazione (asse delle ordinate) e le dimensioni utilizzate (asse delle ascisse), per entrambi i dataset. Osserviamo che la quantità di informazione contenuta nelle componenti principali decresce al crescere delle dimensioni utilizzate. La scelta delle dimensioni da utilizzare è basata, quindi, sulla ricerca di quei valori che determinano un aumento significativo della quantità di informazione mantenendo minima la complessità del modello.
+In Figura \ref{fig:var_ratio_pca} sono mostrati i grafici che raffigurano la relazione tra l'incremento della quantità di informazione (asse delle ordinate) e le dimensioni utilizzate (asse delle ascisse), per entrambi i dataset. %Osserviamo che la quantità di informazione contenuta nelle componenti principali decresce al crescere delle dimensioni utilizzate. 
+Osserviamo che più dell'80\% della quantità di informazione è contenuta nelle prime 50 componenti principali.
+La scelta delle dimensioni da utilizzare è basata, quindi, sulla ricerca di quei valori che determinano un aumento significativo della quantità di informazione mantenendo minima la complessità del modello.
 
  %consente di ottenere il maggior numero di informazioni mantenendo la complessità del modello (e quindi il numero di caratteristiche che descrivono ogni osservazione) più bassa possibile.
 
  %questo grafico è stato determinato il numero  partita da un'analisi fatta su questo grafico il quale permette di capire fino a dove ha senso spingersi per cercare di ottenere il maggior numero di informazioni mantenendo la complessità del modello (e quindi il numero di caratteristiche che descrivono ogni osservazione) più bassa possibile.
-Con PCA sono state sperimentate le riduzioni a 2, 5, 20, e 50 dimensioni. L'unica riduzione che è possibile rappresentare graficamente è, naturalmente, la prima, quella a 2 dimensioni. In Figura \ref{fig:pca_2d} è possibile vedere la distribuzione delle osservazioni nel caso a 2 dimensioni.
+Con PCA sono state sperimentate le riduzioni a due, cinque, venti, e cinquanta dimensioni. L'unica riduzione che è possibile rappresentare graficamente è, naturalmente, la prima, quella a due dimensioni. In Figura \ref{fig:pca_2d} è possibile vedere la distribuzione delle osservazioni per questo caso.
 
 \begin{figure}
 	\centering
@@ -972,41 +1003,57 @@ Con PCA sono state sperimentate le riduzioni a 2, 5, 20, e 50 dimensioni. L'unic
 \end{figure}
 
 A differenza di \emph{t}-SNE, in questi grafici si riesce a distinguere solo qualche piccolo cluster, tuttavia l'insieme risulta piuttosto confuso. Infatti, come mostrano i risultati illustrati più avanti, l'accuratezza di classificazione data dall'insieme dei 40 modelli con una riduzione tramite PCA a 2 dimensioni è decisamente di scarsa qualità. Uno dei motivi per cui la differenza è così marcata tra \emph{t}-SNE e PCA sta proprio nel fatto che le due tecniche affrontano lo stesso problema, ovvero quello di ridurre le dimensioni, analizzando aspetti totalmente diversi. 
-Tuttavia \emph{t}-SNE confronta le distanze tra i punti in un iperspazio mentre PCA seleziona solo le componenti che mantengono la maggior quantità di informazioni. Pertanto in questo contesto, dove sono presenti migliaia di dimensioni, due sole componenti principali non consentono a PCA di ottenere una quantità significativa di informazione sufficiente a suddividere in modo distinto i cluster nello spazio. Ritornando al grafico in Figura \ref{fig:var_ratio_pca} vediamo che utilizzando le prime due componenti otteniamo solamente il 39.21\% di varianza totale per Olivetti e il 28.6\% per AT\&T. Questo dato rispecchia piuttosto bene la distribuzione dei punti nel grafico di dispersione in quanto utilizzando componenti che contengono le suddette percentuali di varianza totale la probabilità che i punti siano sovrapposti è alta. 
+Tuttavia \emph{t}-SNE confronta le distanze tra i punti nello spazio di partenza mentre PCA seleziona solo le componenti che mantengono la maggior quantità di informazioni. Pertanto in questo contesto, dove sono presenti migliaia di dimensioni, due sole componenti principali non consentono a PCA di ottenere una quantità significativa di informazione sufficiente a suddividere in modo distinto i cluster nello spazio. Ritornando al grafico in Figura \ref{fig:var_ratio_pca} vediamo che utilizzando le prime due componenti otteniamo solamente il 39.21\% di varianza totale per Olivetti e il 28.6\% per AT\&T. Questo dato rispecchia piuttosto bene la distribuzione dei punti nel grafico di dispersione, in quanto utilizzando componenti che contengono le suddette percentuali di varianza totale la probabilità che i punti siano sovrapposti è alta. 
 
 \begin{table}[]
-	\centering
+	\begin{center}
+
 	\resizebox{\textwidth}{!}{%
-		\begin{tabular}{c|c|c|c|c|c|c}
-			& \multicolumn{3}{c|}{Olivetti dataset}                       & \multicolumn{3}{c}{AT\&T dataset}                                               \\ \hline
-			Dimensioni & Test(\%) & Train(\%) & \multicolumn{1}{l|}{Ratio var. (\%)} & Test(\%) & \multicolumn{1}{l|}{Train(\%)} & \multicolumn{1}{l}{Ratio var. (\%)} \\ \hline
+		\begin{tabular}{c|ccc|ccc}
+			\toprule
+			\multicolumn{1}{c}{} & \multicolumn{3}{c}{Olivetti dataset} & \multicolumn{3}{c}{AT\&T dataset} \\ \midrule
+			Dimensioni & Test(\%) & Train(\%) & \multicolumn{1}{l|}{Ratio var. (\%)} & Test(\%) & \multicolumn{1}{l}{Train(\%)} & \multicolumn{1}{c}{Ratio var. (\%)} \\ \midrule
 			2          & 28.83    & 62.36      & 39.21  & 41.37     & 54.96                          & 28.6                                 \\
 			5          & 61.25     & 84.56       & 54.99                                 & 68.25     & 92.59                           & 47.53                                 \\
 			20         & 85.87     & 100.0       & 76.51                                 &     86.87     &                      99.9          & 69.31                                 \\
-			50         & 78.5      & 100.0       & 87.4                                & 88.5     & 100.0                            & 81.15                                
+			50         & 78.5      & 100.0       & 87.4                                & 88.5     & 100.0                            & 81.15          \\ \bottomrule                      
 		\end{tabular}%
 	}
+	\end{center}
 	\caption{Risultati con riduzione tramite PCA}
 	\label{tab:res_pca}
 \end{table}
-In Tabella \ref{tab:res_pca} sono riportati i risultati ottenuti applicando PCA ai due dataset. È infatti possibile notare un andamento crescente dei valori di test direttamente proporzionale al numero di componenti utilizzate. Tuttavia osserviamo che nel caso del dataset Olivetti, con 50 dimensioni, il dato in controtendenza pari a 78.5\% è probabilmente imputabile  all'incremento eccessivo della complessità del modello (rappresentato dall'87.4\% di varianza totale). Come mostrato in Figura \ref{fig:tradeoff_img}, quando la complessità del modello eccede una certe soglia la curva di ``generalizzazione" decresce. I parametri di configurazione utilizzati in questo caso sono esposti di seguito:
+In Tabella \ref{tab:res_pca} sono riportati i risultati ottenuti applicando PCA ai due dataset. È infatti possibile notare un andamento crescente dei valori di test direttamente proporzionale al numero di componenti utilizzate. Tuttavia osserviamo che nel caso del dataset Olivetti, con 50 dimensioni, il dato in controtendenza pari a 78.5\% è probabilmente imputabile  all'incremento eccessivo della complessità del modello (rappresentato dall'87.4\% di varianza totale). Come mostrato in Figura \ref{fig:tradeoff_img}, quando la complessità del modello eccede una certe soglia la curva di ``generalizzazione" decresce.
+Gli iperparametri utilizzati in questo caso sono esposti in Tabella \ref{tab:hyperparams_pca}.
+
 \begin{table}[h!]
-	\centering
-	\begin{tabular}{|c|c|c|c|}
-		\hline
-		Dimensioni & \emph{C}           & $ \sigma $       & \emph{fuzzifier}             \\ \hline
-		2 & \texttt{1, 10, 1000} & \texttt{0.5, 0.65, 0.85} & Lineare, Esponenziale \\ \hline
-		3 & \texttt{1, 10, 1000} & \texttt{0.5, 0.65, 0.85}   & Lineare, Esponenziale \\ \hline
-		5 & \texttt{1, 10, 1000} & \texttt{0.5, 0.65, 0.85}   & Lineare, Esponenziale \\ \hline
-		20 & \texttt{1, 10, 1000} & \texttt{0.5, 0.65, 0.85}   & Lineare, Esponenziale \\ \hline
-	\end{tabular}
+	\begin{center}
+		\begin{tabular}{c|c|c|c}
+			\toprule
+			Dimensioni & \emph{C}           & $ \sigma $       & \emph{fuzzifier}             \\ \midrule
+			2 & 1, 10, 1000 & 0.5, 0.65, 0.85 & Lineare, Esponenziale \\ 
+			3 & 1, 10, 1000 & 0.5, 0.65, 0.85   & Lineare, Esponenziale \\ 
+			5 & 1, 10, 1000 & 0.5, 0.65, 0.85   & Lineare, Esponenziale \\ 
+			20 & 1, 10, 1000 & 0.5, 0.65, 0.85   & Lineare, Esponenziale \\ \bottomrule
+		\end{tabular}
+	\end{center}
+	\caption{Iperparamentri usati per PCA}
+	\label{tab:hyperparams_pca}
 \end{table}
 
 \subsection{Analisi conclusiva}
-Nell Tabelle \ref{tab:tab_tsne} e \ref{tab:res_pca} abbiamo visto quale sia l'accuratezza nel riconoscimento dei volti fornita da \emph{fuzzylearn} sui dataset Olivetti e AT\&T mediante le due tenciche di riduzione dimensionale PCA e \emph{t}-SNE. Dai risultati esposti si evince che entrambe le tecniche utilizzate con questo algoritmo forniscono una buona performance. L'unica differenza è che gli spazi da considerare sono molto diversi. Con \emph{t}-SNE abbiamo apprezzato la sua capacità nella rappresentazione grafica dei dati, che consente di fare analisi empirico-qualitative sui dati stessi. Con PCA, invece, è stato possibile apprezzare come la quantità di informazioni contenute nei dati influisce sull'accuratezza dei modelli allenati su di essi. Un ulteriore aspetto positivo di \emph{fuzzylearn} consiste nel rendere flessibili i modelli grazie alla presenza dei diversi iperparametri.
+Nelle Tabelle \ref{tab:tab_tsne} e \ref{tab:res_pca} abbiamo visto quale sia l'accuratezza nel riconoscimento dei volti fornita da \emph{fuzzylearn} sui dataset Olivetti e AT\&T mediante le due tenciche di riduzione dimensionale PCA e \emph{t}-SNE. Dai risultati esposti si evince che entrambe le tecniche utilizzate con questo algoritmo forniscono una buona performance. L'unica differenza è che gli spazi da considerare sono molto diversi. Con \emph{t}-SNE abbiamo apprezzato la sua capacità nella rappresentazione grafica dei dati, che consente di fare analisi empirico-qualitative sui dati stessi. Con PCA, invece, è stato possibile apprezzare come la quantità di informazioni contenute nei dati influisce sull'accuratezza dei modelli allenati su di essi. Un ulteriore aspetto positivo di \emph{fuzzylearn} consiste nel rendere flessibili i modelli grazie alla presenza dei diversi iperparametri.
 
 Infine possiamo dire che \emph{fuzzylearn} è un ottimo algoritmo che permette, nel caso specifico di riconoscimento facciale, buone prestazioni avendo a disposizione una potenza di calcolo sufficiente.
 
+%Oltre all'introduzione aggiungi anche delle conclusioni, che come l'introduzione stanno in un capitolo non numerato. L'idea è quella, in un paio di capoversi, di raccontare succintamente quale era lo scopo del lavoro, come lo hai affrontato e che risultati hai ottenuto (eventualmente delineando possibili sviluppi futuri). Quando hai pronto tutto mandami la versione definitiva.
+\chapter*{Conclusione}
+\addcontentsline{toc}{chapter}{Conclusione}
+\markboth{Conclusione}{Conclusione}
+\label{cap:conclusioni}
+In questa tesi è stato studiato e analizzato il comportamento dell'algoritmo denominato \emph{fuzzylearn} basato sull'induzione di insiemi fuzzy per il riconoscimento dei volti. Lo studio è stato effettuato su datasets messi a disposizione da Cambridge AT\&T Laboratories, in cui sono raffigurati diversi volti umani in particolari condizioni di luci e con diverse espressioni facciali. Prima di iniziare a lavorare su questi datasets è stato fatto uno studio a parte su un altro dataset di piccole dimensioni per prendere confidenza con l'algoritmo \emph{fuzzylearn}. Successivamente sono stati ricercati alcuni degli strumenti statistici più utilizzati nell'ambito del riconoscimento di pattern nelle immagini, ovvero PCA e \emph{t}-SNE, per poi applicare quanto appreso sui dataset Olivetti e AT\&T ottenendo discreti risultati. Nello specifico è stata raggiunta una percentuale massima di accuratezza nella classificazione dei volti in un \emph{test set} pari al 96.5\% per AT\&T tramite una riduzione a due dimensioni applicando \emph{t}-SNE e pari all'86.62\% per Olivetti tramite una riduzione a due dimensioni applicando sempre \emph{t}-SNE. Risultati di poco inferiori sono stati ottenuti su entrambi i dataset applicando l'algoritmo PCA.
+
+Le immagini rappresentano volti in ``formato" fototessera, questo significa che il riconoscimento facciale è stato delimitato al caso specifico di immagini di questo tipo ovvero quasi prive di sfondo. Un possibile sviluppo potrebbe consistere nell'ampliare i limiti dovuti al ``formato" dell'immagine, in modo che si possa riconoscere e classificare un volto in un qualunque ambiente (anche detto ``in the wild"). Questo può probabilmente essere fatto tramite l'uso di algoritmi che individuano il volto all'interno dell'immagine e successivamente tramite \emph{fuzzylearn} che classifica il volto all'interno di un insieme di soggetti dato.
 
 \begin{thebibliography}{9}
 	\bibitem{intro_machine_learning} 
@@ -1061,9 +1108,10 @@ Infine possiamo dire che \emph{fuzzylearn} è un ottimo algoritmo che permette, 
  	\bibitem{ruder}
  	Sebastian Ruder. \textit{An overview of proxy-label approaches for semi-supervised learning}
  	\\\texttt{https://ruder.io/semi-supervised/}
-	\bibitem{knuthwebsite} 
-	Knuth: Computers and Typesetting,
-	\\\texttt{http://www-cs-faculty.stanford.edu/\~{}uno/abcde.html}
+ 	
+ 	\bibitem{google_colab}
+ 	\textit{Google Colaboratory}
+ 	\\\texttt{https://colab.research.google.com/notebooks/intro.ipynb}
 \end{thebibliography}
 
 \end{document}
