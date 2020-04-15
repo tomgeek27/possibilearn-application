@@ -1,35 +1,36 @@
-\BOOKMARK [0][-]{Doc-Start}{Indice}{}% 1
-\BOOKMARK [0][-]{chapter*.2}{Introduzione}{}% 2
-\BOOKMARK [0][-]{chapter.1}{Apprendimento automatico}{}% 3
-\BOOKMARK [1][-]{section.1.1}{Approcci}{chapter.1}% 4
-\BOOKMARK [1][-]{section.1.2}{Supervisionato}{chapter.1}% 5
-\BOOKMARK [2][-]{subsection.1.2.1}{k-Nearest Neighbor}{section.1.2}% 6
-\BOOKMARK [2][-]{subsection.1.2.2}{Modelli lineari}{section.1.2}% 7
-\BOOKMARK [2][-]{subsection.1.2.3}{Support Vector Machine}{section.1.2}% 8
-\BOOKMARK [2][-]{subsection.1.2.4}{Alberi di decisione}{section.1.2}% 9
-\BOOKMARK [1][-]{section.1.3}{Non supervisionato}{chapter.1}% 10
-\BOOKMARK [1][-]{section.1.4}{Semi-supervisionato}{chapter.1}% 11
-\BOOKMARK [1][-]{section.1.5}{Apprendimento con rinforzo}{chapter.1}% 12
-\BOOKMARK [1][-]{section.1.6}{Riduzione della dimensionalit\340}{chapter.1}% 13
-\BOOKMARK [2][-]{subsection.1.6.1}{Analisi delle componenti principali}{section.1.6}% 14
-\BOOKMARK [2][-]{subsection.1.6.2}{t-Distributed stochastic neighbor embedding}{section.1.6}% 15
-\BOOKMARK [0][-]{chapter.2}{Induzione di insiemi fuzzy}{}% 16
-\BOOKMARK [1][-]{section.2.1}{La logica fuzzy}{chapter.2}% 17
-\BOOKMARK [1][-]{section.2.2}{Gli insiemi fuzzy}{chapter.2}% 18
-\BOOKMARK [1][-]{section.2.3}{Fuzzylearn}{chapter.2}% 19
-\BOOKMARK [2][-]{subsection.2.3.1}{Calcolo dell'insieme fuzzy}{section.2.3}% 20
-\BOOKMARK [2][-]{subsection.2.3.2}{Configurazione degli iperparametri}{section.2.3}% 21
-\BOOKMARK [0][-]{chapter.3}{Esperimenti}{}% 22
-\BOOKMARK [1][-]{section.3.1}{I dataset}{chapter.3}% 23
-\BOOKMARK [2][-]{subsection.3.1.1}{Olivetti dataset}{section.3.1}% 24
-\BOOKMARK [2][-]{subsection.3.1.2}{AT\046T faces dataset}{section.3.1}% 25
-\BOOKMARK [1][-]{section.3.2}{Valutazione del modello}{chapter.3}% 26
-\BOOKMARK [2][-]{subsection.3.2.1}{Training, Validation e Test set}{section.3.2}% 27
-\BOOKMARK [2][-]{subsection.3.2.2}{Cross-validation}{section.3.2}% 28
-\BOOKMARK [2][-]{subsection.3.2.3}{Grid Search}{section.3.2}% 29
-\BOOKMARK [2][-]{subsection.3.2.4}{Grid Search con Cross-Validation}{section.3.2}% 30
-\BOOKMARK [1][-]{section.3.3}{Risultati}{chapter.3}% 31
-\BOOKMARK [2][-]{subsection.3.3.1}{Utilizzo del metodo di riduzione t-SNE}{section.3.3}% 32
-\BOOKMARK [2][-]{subsection.3.3.2}{Utilizzo metodo di riduzione PCA}{section.3.3}% 33
-\BOOKMARK [2][-]{subsection.3.3.3}{Analisi conclusiva}{section.3.3}% 34
-\BOOKMARK [0][-]{chapter*.3}{Conclusione}{}% 35
+\BOOKMARK [0][-]{chapter*.1}{Ringraziamenti}{}% 1
+\BOOKMARK [0][-]{chapter*.1}{Indice}{}% 2
+\BOOKMARK [0][-]{chapter*.3}{Introduzione}{}% 3
+\BOOKMARK [0][-]{chapter.1}{Apprendimento automatico}{}% 4
+\BOOKMARK [1][-]{section.1.1}{Approcci}{chapter.1}% 5
+\BOOKMARK [1][-]{section.1.2}{Supervisionato}{chapter.1}% 6
+\BOOKMARK [2][-]{subsection.1.2.1}{k-Nearest Neighbor}{section.1.2}% 7
+\BOOKMARK [2][-]{subsection.1.2.2}{Modelli lineari}{section.1.2}% 8
+\BOOKMARK [2][-]{subsection.1.2.3}{Support Vector Machine}{section.1.2}% 9
+\BOOKMARK [2][-]{subsection.1.2.4}{Alberi di decisione}{section.1.2}% 10
+\BOOKMARK [1][-]{section.1.3}{Non supervisionato}{chapter.1}% 11
+\BOOKMARK [1][-]{section.1.4}{Semi-supervisionato}{chapter.1}% 12
+\BOOKMARK [1][-]{section.1.5}{Apprendimento con rinforzo}{chapter.1}% 13
+\BOOKMARK [1][-]{section.1.6}{Riduzione della dimensionalit\340}{chapter.1}% 14
+\BOOKMARK [2][-]{subsection.1.6.1}{Analisi delle componenti principali}{section.1.6}% 15
+\BOOKMARK [2][-]{subsection.1.6.2}{t-Distributed stochastic neighbor embedding}{section.1.6}% 16
+\BOOKMARK [0][-]{chapter.2}{Induzione di insiemi fuzzy}{}% 17
+\BOOKMARK [1][-]{section.2.1}{La logica fuzzy}{chapter.2}% 18
+\BOOKMARK [1][-]{section.2.2}{Gli insiemi fuzzy}{chapter.2}% 19
+\BOOKMARK [1][-]{section.2.3}{Fuzzylearn}{chapter.2}% 20
+\BOOKMARK [2][-]{subsection.2.3.1}{Calcolo dell'insieme fuzzy}{section.2.3}% 21
+\BOOKMARK [2][-]{subsection.2.3.2}{Configurazione degli iperparametri}{section.2.3}% 22
+\BOOKMARK [0][-]{chapter.3}{Esperimenti}{}% 23
+\BOOKMARK [1][-]{section.3.1}{I dataset}{chapter.3}% 24
+\BOOKMARK [2][-]{subsection.3.1.1}{Olivetti dataset}{section.3.1}% 25
+\BOOKMARK [2][-]{subsection.3.1.2}{AT\046T faces dataset}{section.3.1}% 26
+\BOOKMARK [1][-]{section.3.2}{Valutazione del modello}{chapter.3}% 27
+\BOOKMARK [2][-]{subsection.3.2.1}{Training, Validation e Test set}{section.3.2}% 28
+\BOOKMARK [2][-]{subsection.3.2.2}{Cross-validation}{section.3.2}% 29
+\BOOKMARK [2][-]{subsection.3.2.3}{Grid Search}{section.3.2}% 30
+\BOOKMARK [2][-]{subsection.3.2.4}{Grid Search con Cross-Validation}{section.3.2}% 31
+\BOOKMARK [1][-]{section.3.3}{Risultati}{chapter.3}% 32
+\BOOKMARK [2][-]{subsection.3.3.1}{Utilizzo del metodo di riduzione t-SNE}{section.3.3}% 33
+\BOOKMARK [2][-]{subsection.3.3.2}{Utilizzo metodo di riduzione PCA}{section.3.3}% 34
+\BOOKMARK [2][-]{subsection.3.3.3}{Analisi conclusiva}{section.3.3}% 35
+\BOOKMARK [0][-]{chapter*.4}{Conclusione}{}% 36

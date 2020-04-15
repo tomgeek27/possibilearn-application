@@ -1,0 +1,57 @@
+\documentclass[12pt]{article}
+\usepackage[utf8]{inputenc}
+
+\usepackage{url}
+\usepackage{breakurl}
+\urlstyle{same}
+\usepackage{hyperref}
+
+\renewcommand\refname{Bibliografia}
+
+\title{RICONOSCIMENTO DI VOLTI\\ TRAMITE INSIEMI FUZZY}
+\author{Tommaso Amadori}
+\date{Aprile 2020}
+
+\begin{document}
+
+\maketitle
+
+Quando si parla di machine learning si parla di una particolare branca dell'informatica in cui si studiano delle tecniche in grado di istruire la macchina a produrre regole e/o schemi per risolvere determinati compiti. Il machine learning è stato introdotto per quei problemi di cui o non si conosce una soluzione, o di cui la si conosce ma questa è impraticabile per problemi di complessità computazionale.
+%prevedono un elevata complessità a livello di codificabilità. 
+Per esempio nel riconoscimento di oggetti in un'immagine, pensare di codificare la soluzione con una serie di if-then-else è impossibile. Basti pensare a tutte le caratteristiche che definiscono i volti: forma degli occhi, colore degli occhi, colore della pelle, forma del naso, forma della bocca e così via. 
+%Progettare quindi, tramite la porgrammazione tradizionale, un algoritmo per ogni persona con una serie di if-then-else per riconoscere il soggetto diventa molto complicato. 
+
+Per comprendere come si distingue il machine learning dalla programmazione tradizionale facciamo riferimento a tre attori: i dati, le regole e i risultati. I dati consistono nelle informazioni che vengono elaborate, i risultati sono i valori emessi da un algoritmo e le regole sono gli schemi di manipolazione dei dati che restituiscono un risultato.
+Nella programmazione tradizionale, gli algoritmi vengono prodotti direttamente da uno sviluppatore che si basa sui dati e sulle regole. Questi forniscono un output che consiste, quindi, nelle risposte ottenute applicando le regole ai dati. Il machine learning inverte questa logica in modo tale che l'input è costituito dalle risposte e dai dati. L'output consiste quindi nelle regole che nella programmazione tradizionale sono definite dal programmatore. In questo modo si delega alla macchina la ricerca di regole/schemi che permettono di associare un dato a un risultato. Qui sta la il nocciolo della questione: non è più il programmatore a produrre regole che forniscono risposte a problemi ma è la macchina che studia le associazioni tra i dati e gli esempi per definire regole più generali di associazione che possano essere applicate a dati sconosciuti al sistema.
+% un problema che presenta infinite quantità di dati da considerare per ottenere un risultato. 
+
+Esistono molti algoritmi di machine learning per affrontare questa tematica ma nel corso di questa tesi è stato studiato un algoritmo in particolare: l'algoritmo \emph{fuzzylearn}. Questo algoritmo si basa sulla teoria degli insiemi fuzzy, la quale consente di riformulare la classica teoria insiemistica sulla base di un nuovo principio ovvero il grado di appartenenza di un oggetto a un insieme. Questo grado di appartenenza è utilizzato da \emph{fuzzylearn} per effettuare la classificazione di oggetti.
+
+L'obiettivo di questa tesi è lo studio, mediante l'algoritmo \emph{fuzzylearn}, del comportamento di insiemi fuzzy applicato alla classificazione di immagini di volti umani allo scopo di riconoscere un soggetto fra i tanti appartenenti a un insieme dato. Sono stati studiati diversi strumenti per la riduzione della dimensionalità per il riconoscimento di pattern nelle immagini, ovvero PCA e \emph{t}-SNE. Inoltre sono state analizzate le varie tecniche di machine learning.
+
+La tesi è così articolata: nel Capitolo 1 vengono descritte le tecniche di Machine Learning con particolare attenzione alla tecnica supervisionata, ovvero quella che caratterizza l'algoritmo utilizzato nella tesi; nel Capitolo 2 viene esplicato il metodo matematico di induzione di insiemi fuzzy su cui si basa l'algoritmo \emph{fuzzylearn}; nel Capitolo 3 vengono descritti gli esperimenti effettuati durante questo percorso, analizzando il comportamento di \emph{fuzzylearn} nel caso di dataset contenenti immagini raffiguranti volti di diversi soggetti; nelle conclusioni, infine, vengono riassunti i risultati raggiunti e viene proposto un possibile sviluppo futuro realizzabile mediante questa tecnologia.
+
+\begin{thebibliography}{9}
+	\bibitem{intro_machine_learning} 
+	Andreas C. Müller, Muller Andreas C, Sarah Guido. 
+	\textit{Introduction to Machine Learning with Python: A Guide for Data Scientists}. 
+	``O'Reilly Media, Inc.", 26 Settembre 2016
+	
+	\bibitem{fuzzylearn}
+	Dario Malchiodi, Witold Pedrycz.
+	\textit{Learning Membership Functions for Fuzzy Sets
+		through Modified Support Vector Clustering}
+	F. Masulli, G. Pasi, and R. Yager (Eds.): WILF 2013, LNAI 8256, pp. 52–59, 2013.
+	© Springer International Publishing Switzerland 2013
+	
+	\bibitem{fuzzylearn_charts}
+	Dario Malchiodi, Andrea G. B. Tettamanzi.
+	\textit{Predicting the Possibilistic core of OWL Axioms through Modified Support Vector Clustering}
+	In SAC 2018: Symposium on Applied Comput-ing , April 9–13, 2018, Pau, France. ACM, New York, NY, USA,8 pages. https://doi.org/10.1145/3167132.31673451
+	
+	\bibitem{google_colab}
+	\textit{Google Colaboratory}
+	\\\texttt{https://colab.research.google.com/notebooks/intro.ipynb}
+\end{thebibliography}
+
+\end{document}
